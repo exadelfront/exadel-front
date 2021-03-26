@@ -20,10 +20,12 @@ $btn_icon_hover: #2ea3f2;
   cursor: pointer;
   display: inline-flex;
   justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .home_page_button:hover {
   background-color: $btn_bg_hover_color;
   color: $btn_icon_hover;
+  box-shadow: 0 0 5px $btn_border_color;
   .home_icon {
     fill: $btn_icon_hover;
   }
