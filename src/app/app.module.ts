@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { InternshipCardComponent } from './internship-card/internship-card.component';
 import { JoinFormComponent } from './join-form/join-form.component';
+import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { JoinFormComponent } from './join-form/join-form.component';
     NavigationMenuComponent,
     FooterComponent,
     InternshipCardComponent,
-    JoinFormComponent
+    JoinFormComponent,
+    AdditionalInformationComponent
 ],
   imports: [
     BrowserModule,
