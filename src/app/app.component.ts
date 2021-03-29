@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 export interface InternshipPost {
   title: string;
-  technology: string;
   tags: string[];
   description: string;
   imageUrl: string;
@@ -18,7 +17,6 @@ export class AppComponent {
   internshipPosts: InternshipPost[] = [
     {
       title: 'JavaScript Internship',
-      technology: 'JavaScript',
       tags: ['JS', 'Java', 'something'],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
@@ -32,7 +30,6 @@ export class AppComponent {
     },
     {
       title: 'C# Meetup',
-      technology: 'C#',
       tags: ['some', 'lorem'],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
@@ -46,7 +43,6 @@ export class AppComponent {
     },
     {
       title: '.Net Internship ',
-      technology: '.Net',
       tags: ['.NET', 'backend'],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
