@@ -16,6 +16,7 @@ import { AdditionalInformationComponent } from './additional-information/additio
 @NgModule({
   declarations: [
     AppComponent,
+    JoinFormComponent,
     HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,
