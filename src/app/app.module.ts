@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HeaderAppComponent } from './header-app/header-app.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { FooterComponent } from './footer/footer.component';
@@ -11,9 +12,11 @@ import { JoinFormComponent } from './join-form/join-form.component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,
     FooterComponent,
