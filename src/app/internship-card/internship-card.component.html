@@ -1,8 +1,8 @@
 <div
   class="post"
   [ngClass]="{
-    post_white: isGray,
-    post_gray: !isGray
+    post_white: !isGray,
+    post_gray: isGray
   }">
   <div class="post__content">
     <h3 class="post__title">{{ post.title }}</h3>
@@ -13,7 +13,7 @@
     </p>
     <p class="post__description">{{ post.description }}</p>
     <div class="post__additional">
-      <button class="post__btn">More details</button>
+      <button class="post__btn" (click)="goToPostPage()">More details</button>
       <p class="post__date">{{ post.date }}</p>
     </div>
   </div>
