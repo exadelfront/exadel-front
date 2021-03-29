@@ -8,8 +8,4 @@ import {PostCardsService} from './services/post-cards.service';
 })
 export class AppComponent {
 
-  constructor(
-    public postCardsService: PostCardsService
-  ) {}
-
 }

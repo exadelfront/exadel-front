@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { InternshipCardComponent } from './internship-card/internship-card.component';
 import { JoinFormComponent } from './join-form/join-form.component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { PostPageComponent } from './post-page/post-page.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { AdditionalInformationComponent } from './additional-information/additio
     FooterComponent,
     InternshipCardComponent,
     JoinFormComponent,
-    AdditionalInformationComponent
+    AdditionalInformationComponent,
+    MainPageComponent,
+    PostPageComponent
 ],
   imports: [
     BrowserModule,
