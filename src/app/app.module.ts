@@ -11,6 +11,7 @@ import { JoinFormComponent } from './join-form/join-form.component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import {HeaderAppComponent} from './header-app/header-app.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PostPageComponent } from './post-page/post-page.component';
     JoinFormComponent,
     AdditionalInformationComponent,
     MainPageComponent,
-    PostPageComponent
+    PostPageComponent,
+    HeaderAppComponent,
 ],
   imports: [
     BrowserModule,
