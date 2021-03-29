@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InternshipPost} from '../app.component';
+import {Post} from '../services/post-cards.service';
 
 @Component({
   selector: 'app-internship-card',
@@ -8,7 +8,7 @@ import {InternshipPost} from '../app.component';
 })
 export class InternshipCardComponent implements OnInit {
 
-  @Input() post: InternshipPost;
+  @Input() post: Post;
   @Input() isGray: boolean;
 
   constructor() { }
