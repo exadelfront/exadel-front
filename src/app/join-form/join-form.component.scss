@@ -56,6 +56,7 @@ input {
     font-size: 36px;
     line-height: 49px;
 
+
     &::placeholder{
         color: #D1D1D1;
     }
@@ -125,7 +126,13 @@ input {
         cursor: pointer;
         }
     }
-    
+input::after {
+    position: relative;
+    top: -10%;
+    right: 4%;
+    color: red;
+    content: '*';
+
 }
 
 
