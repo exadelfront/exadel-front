@@ -126,12 +126,6 @@ input {
         cursor: pointer;
         }
     }
-input::after {
-    position: relative;
-    top: -10%;
-    right: 4%;
-    color: red;
-    content: '*';
 
 }
 
