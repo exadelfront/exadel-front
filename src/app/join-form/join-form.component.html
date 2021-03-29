@@ -19,42 +19,81 @@
 
                 <div class='join-form-additional-left'>
                     <div class='join-form-additional-timetable'>
-                        <div class='join-form-additional-timetable-header'>
+                        <div class='join-form-additional-header'>
                             <span>Here you must choose suitable time for you for an interview:</span>
                         </div>       
                         
-                        <div>
-                            <input type="date">
-                            <input type="date">
-                            <input type="date">
+                        <div class='join-form-additional-slots'>
+                            <div>
+                                <input type="date">
+                                <select>
+                                    <option value=""  hidden>Part of the day</option>
+                                    <option value="10.00 - 13.00">10.00 - 13.00</option>
+                                    <option value="13.00 - 16.00">13.00 - 16.00</option>
+                                    <option value="16.00 - 19.00">16.00 - 19.00</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <input type="date">
+                                <select>
+                                    <option value="" hidden>Part of the day</option>
+                                    <option value="10.00 - 13.00" >10.00 - 13.00</option>
+                                    <option value="13.00 - 16.00">13.00 - 16.00</option>
+                                    <option value="16.00 - 19.00">16.00 - 19.00</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <input type="date">
+                                <select>
+                                    <option value="" hidden>Part of the day</option>
+                                    <option value="10.00 - 13.00">10.00 - 13.00</option>
+                                    <option value="13.00 - 16.00">13.00 - 16.00</option>
+                                    <option value="16.00 - 19.00">16.00 - 19.00</option>
+                                </select>
+                            </div>
+
                         </div>
 
                     </div>
 
                     <div class='join-form-additional-agree'>
-                        <label class="switch">
+                        <div>
+                            <label class="switch">
                             <input type="checkbox">
                             <span class="slider round"></span>
-                        </label>
-                        <span>I agree to the processing and storage of my personal data</span>
+                            </label>
+                            <span class='agree'>I agree to the processing and storage of my personal data</span>
+                        </div>
+                        <div>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>I want to receive notifications for similar events</span>
+                        </div>
+                        
+                        
                     </div>
                 </div>
                 
                 <div class ='join-form-additional-right'>
-                    <div class='join-form-additional-right-upload'>
-                        <svg width="586" height="566" viewBox="0 0 586 566" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.5" y="0.5" width="584.999" height="565" fill="#EBEBEB" stroke="black" stroke-linejoin="round" stroke-dasharray="2 5"/>
-                        <path d="M279.056 365.294C280.891 367.124 283.069 368.575 285.467 369.565C287.865 370.555 290.434 371.065 293.03 371.065C295.625 371.065 298.195 370.555 300.592 369.565C302.99 368.575 305.169 367.124 307.004 365.294L381.529 291.002C385.235 287.308 387.317 282.297 387.317 277.072C387.317 271.847 385.235 266.837 381.529 263.142C377.823 259.448 372.797 257.372 367.556 257.372C362.314 257.372 357.288 259.448 353.582 263.142L312.791 303.805V88.6999C312.791 83.4751 310.709 78.4644 307.003 74.77C303.297 71.0755 298.271 69 293.03 69C287.789 69 282.762 71.0755 279.056 74.77C275.35 78.4644 273.268 83.4751 273.268 88.6999V303.805L232.477 263.142C228.771 259.448 223.745 257.372 218.504 257.372C213.263 257.372 208.236 259.448 204.53 263.142C200.824 266.837 198.742 271.847 198.742 277.072C198.742 282.297 200.824 287.308 204.53 291.002L279.056 365.294Z" fill="white"/>
-                        <path d="M464.298 239.732C459.057 239.732 454.03 241.808 450.324 245.502C446.618 249.197 444.536 254.207 444.536 259.432V410.465H141.523V259.432C141.523 254.207 139.441 249.197 135.735 245.502C132.029 241.808 127.003 239.732 121.762 239.732C116.521 239.732 111.494 241.808 107.788 245.502C104.082 249.197 102 254.207 102 259.432V417.032C102 425.739 105.47 434.091 111.647 440.248C117.824 446.406 126.201 449.865 134.936 449.865H451.123C459.858 449.865 468.236 446.406 474.413 440.248C480.589 434.091 484.059 425.739 484.059 417.032V259.432C484.059 254.207 481.977 249.197 478.271 245.502C474.565 241.808 469.539 239.732 464.298 239.732Z" fill="white"/>
-                    </svg>
-                    </div>
-                    
                     <div class='join-form-additional-right-drop'>
-                        <span class='drop'>Drop or <input id="file-input" type="file" name="file" multiple> 
-                            <label for="file-input">Select </label>Your CV
-                        </span>
+                        <svg width="586" height="566" viewBox="0 0 586 566" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="584.999" height="565" fill="#EBEBEB" stroke="black" stroke-linejoin="round" stroke-dasharray="2 5"/>
+                            <path d="M279.056 365.294C280.891 367.124 283.069 368.575 285.467 369.565C287.865 370.555 290.434 371.065 293.03 371.065C295.625 371.065 298.195 370.555 300.592 369.565C302.99 368.575 305.169 367.124 307.004 365.294L381.529 291.002C385.235 287.308 387.317 282.297 387.317 277.072C387.317 271.847 385.235 266.837 381.529 263.142C377.823 259.448 372.797 257.372 367.556 257.372C362.314 257.372 357.288 259.448 353.582 263.142L312.791 303.805V88.6999C312.791 83.4751 310.709 78.4644 307.003 74.77C303.297 71.0755 298.271 69 293.03 69C287.789 69 282.762 71.0755 279.056 74.77C275.35 78.4644 273.268 83.4751 273.268 88.6999V303.805L232.477 263.142C228.771 259.448 223.745 257.372 218.504 257.372C213.263 257.372 208.236 259.448 204.53 263.142C200.824 266.837 198.742 271.847 198.742 277.072C198.742 282.297 200.824 287.308 204.53 291.002L279.056 365.294Z" fill="white"/>
+                            <path d="M464.298 239.732C459.057 239.732 454.03 241.808 450.324 245.502C446.618 249.197 444.536 254.207 444.536 259.432V410.465H141.523V259.432C141.523 254.207 139.441 249.197 135.735 245.502C132.029 241.808 127.003 239.732 121.762 239.732C116.521 239.732 111.494 241.808 107.788 245.502C104.082 249.197 102 254.207 102 259.432V417.032C102 425.739 105.47 434.091 111.647 440.248C117.824 446.406 126.201 449.865 134.936 449.865H451.123C459.858 449.865 468.236 446.406 474.413 440.248C480.589 434.091 484.059 425.739 484.059 417.032V259.432C484.059 254.207 481.977 249.197 478.271 245.502C474.565 241.808 469.539 239.732 464.298 239.732Z" fill="white"/>
+                        </svg>
+
+                        <div class='join-form-additional-right-upload'>
+                            <span class='drop'>Drop or <input id="file-input" type="file" name="file"> 
+                                <label for="file-input">Select </label>Your CV
+                            </span>
+                        </div>
+
                     </div>
-                    
+                                   
                 </div>
 
             </div>

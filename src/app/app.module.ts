@@ -8,7 +8,7 @@ import { JoinFormComponent } from './join-form/join-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    JoinFormComponent
+    JoinFormComponent,
   ],
   imports: [
     BrowserModule,

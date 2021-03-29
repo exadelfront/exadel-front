@@ -10,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class JoinFormComponent implements OnInit {
 
   
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
+    
   }
 
 }
