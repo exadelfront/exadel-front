@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+import {Post, PostCardsService} from '../services/post-cards.service';
 
 @Component({
   selector: 'app-post-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostPageComponent implements OnInit {
 
-  constructor() { }
+  post: Post;
+
+  constructor(
+    private route: ActivatedRoute,
+    private postCardsService: PostCardsService
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.post = this.postCardsService.getPostById(+params.id);
+    });
   }
 
 }

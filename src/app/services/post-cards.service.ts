@@ -6,6 +6,7 @@ export interface Post {
   description: string;
   imageUrl: string;
   date: string;
+  id: number;
 }
 
 @Injectable({
@@ -25,6 +26,7 @@ export class PostCardsService {
         'culpa qui officia deserunt mollit anim id est laborum ',
       imageUrl: '../../assets/images/Rectangle75.png',
       date: 'October  11, 2023',
+      id: 1,
     },
     {
       title: 'C# Meetup',
@@ -38,6 +40,7 @@ export class PostCardsService {
         'culpa qui officia deserunt mollit anim id est laborum ',
       imageUrl: '../../assets/images/Rectangle75.png',
       date: 'December 8, 2021',
+      id: 2,
     },
     {
       title: '.Net Internship ',
@@ -51,6 +54,11 @@ export class PostCardsService {
         'culpa qui officia deserunt mollit anim id est laborum ',
       imageUrl: '../../assets/images/Rectangle75.png',
       date: 'December 25, 2021',
+      id: 3,
     },
   ];
+
+  getPostById(id: number): Post {
+    return this.postCards.find(post => post.id === id);
+  }
 }
