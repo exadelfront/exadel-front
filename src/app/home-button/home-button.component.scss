@@ -8,6 +8,7 @@ $btn_icon_hover: #2ea3f2;
 .home {
   background-color: $bg_main_color;
   padding: 2vh 2vw;
+  position: relative;
 }
 .home_page_button,
 .home_page_button:active,
@@ -15,7 +16,7 @@ $btn_icon_hover: #2ea3f2;
   outline: none;
 }
 .home_page_button {
-  width: 13vw;
+  min-width: 13vw;
   background-color: $btn_bg;
   color: $btn_icon_color;
   border: 1px solid $btn_border_color;
@@ -31,7 +32,7 @@ $btn_icon_hover: #2ea3f2;
 .home_icon {
   fill: $btn_icon_color;
   left: 11vw;
-  top: 1.6vw;
+  top: 3vh;
   position: absolute;
   pointer-events: none;
 }
@@ -46,8 +47,10 @@ $btn_icon_hover: #2ea3f2;
   fill: #2ea3f2;
   transition: all ease 0.3s;
 }
-.home_page_button:active,
-.home_page_button:active + .home_icon {
+.home_page_button:active {
   box-shadow: 0 0 5px $bg_main_color;
+  transform: translateY(3px);
+}
+.home_page_button:active + .home_icon {
   transform: translateY(3px);
 }
