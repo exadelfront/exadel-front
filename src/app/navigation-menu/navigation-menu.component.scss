@@ -1,20 +1,23 @@
-$bg_color: #ebebeb;
+$bg_color: #ffffff;
 $bg_hover_color: #2ea3f2;
 $default_link_color: black;
 $link_hover_color: #2ea3f2;
 $sub_menu_bg_color: #fafafa;
 $sub_menu_border_color: #ededed;
 $sub_menu_link_hover_color: white;
+$border_color: rgba(0,0,0,0.25);
 
 * {
   box-sizing: border-box;
 }
 nav {
-  background-color: $bg_color;
+  outline: 3px $border_color;
+  border: 3px solid $border_color;
   border-radius: 50px;
   margin: 0 auto;
 }
 nav ul {
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -35,7 +38,7 @@ nav a {
 .top_menu > li {
   display: inline-block;
   position: relative;
-  border-left: 1px solid $default_link_color;
+  border-left: 2px solid $border_color;
 }
 .top_menu > li:first-child {
   border: none;
