@@ -11,7 +11,8 @@ import { JoinFormComponent } from './join-form/join-form.component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
-import {HeaderAppComponent} from './header-app/header-app.component';
+import { HeaderAppComponent } from './header-app/header-app.component';
+import { AdminAppModule} from './admin-app/admin-app.module'
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {HeaderAppComponent} from './header-app/header-app.component';
 ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminAppModule
   ],
   providers: [],
   bootstrap: [AppComponent]
