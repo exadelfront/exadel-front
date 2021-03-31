@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 export interface Post {
   title: string;
   tags: string[];
+  location: string;
   description: string;
   imageUrl: string;
   date: string;
@@ -17,6 +18,7 @@ export class PostCardsService {
     {
       title: 'JavaScript Internship',
       tags: ['JS', 'Java', 'something'],
+      location: 'Belarus',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ' +
@@ -31,6 +33,7 @@ export class PostCardsService {
     {
       title: 'C# Meetup',
       tags: ['some', 'lorem'],
+      location: 'Russia',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ' +
@@ -45,6 +48,7 @@ export class PostCardsService {
     {
       title: '.Net Internship ',
       tags: ['.NET', 'backend'],
+      location: 'Ukraine',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
         'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ' +

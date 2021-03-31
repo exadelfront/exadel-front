@@ -11,6 +11,7 @@ export class InternshipCardComponent implements OnInit {
 
   @Input() post: Post;
   @Input() isGray: boolean;
+  @Input() isBtnPresent: boolean;
 
   constructor(private router: Router) { }
 
