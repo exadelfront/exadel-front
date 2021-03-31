@@ -1,0 +1,35 @@
+input {
+    margin-bottom: 22px;
+    height: 70px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    border-radius: 100px;
+    outline: none;
+    text-indent: 55px;
+    font-size: 2.25rem;
+    line-height: 49px;
+
+    &::placeholder{
+        color: #D1D1D1;
+    }
+
+    
+
+    &[type=text], &[type=tel], &[type=email] {
+        width: 100%;
+    }
+
+    &[type=url]{
+        width: 66.3%;
+    }
+
+}
+
+span.star {
+    position: relative;
+    top: -10%;
+    right: 6%;
+    color: red;
+    font-size: 30px;
+}

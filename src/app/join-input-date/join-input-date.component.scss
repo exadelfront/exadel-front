@@ -1,0 +1,47 @@
+input[type=date] {
+    width: 59%;
+    margin-bottom: 22px;
+    height: 70px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    outline: none;
+    text-indent: 25px;
+    font-size: 2.25rem;
+    line-height: 49px;
+    border-radius: 100px;
+    color: #D1D1D1;
+
+    &:valid {
+        color: black;
+    }
+}
+
+select {
+    margin-left: 18px;
+    width: 35%;
+    height: 70px;
+    background: #FFFFFF;
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 100px;
+    text-indent: 55px;
+    font-size: 36px;
+    line-height: 49px;
+    color: #D1D1D1; 
+    
+    &:valid {
+        color: black;
+    }
+
+    &::after {
+        position: relative;
+        top: -10%;
+        right: 4%;
+        color: red;
+        content: '*';
+    }
+}
+
