@@ -1,41 +1,28 @@
 select {
-    width: 32.6%;
+    margin-left: 18px;
+    width: 100%;
     height: 70px;
+    box-sizing: border-box;
     background: #FFFFFF;
     border: 3px solid rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
     outline: none;
     border-radius: 100px;
     text-indent: 55px;
     font-size: 36px;
     line-height: 49px;
-    color: #D1D1D1; 
-    transform: scale(0.8);
-    transition: 0.4s ease-in-out;
     
-    &:valid {
-        color: black;
+    &:invalid {
+        color: #D1D1D1;
     }
 
-    &::after {
-        position: relative;
-        top: -10%;
-        right: 30%;
-        color: red;
-        content: '*';
-    }
 
-//     option {
-//         border-left: 1px solid black;
-//         
-//     }
 }
 
 
 span.star {
-    position: relative;
-    top: -10%;
-    right: 6%;
+    position: absolute;
+    top: -2%;
+    right: 2%;
     color: red;
-    font-size: 20px;
+    font-size: 30px;
 }

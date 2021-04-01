@@ -6,54 +6,32 @@
 
         <h2>join us</h2>
 
-        <form action="" >
-          <!-- [formGroup]="form" (ngSubmit)="onSubmit()" -->
+        <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class='join-form-contacts'>
-                <!-- <app-join-input-form [(ngModel)]="name" formControlName="FullName"></app-join-input-form> -->
-                            
+                    
+                <app-join-input [placeholder] ="'Fullname...'" [type]="'text'" [name]="'Fullname'"></app-join-input>
+                <app-join-input [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
+                <app-join-input [placeholder] ="'Location (country/city)...'" [type]="'text'" [name]="'Location'"></app-join-input>
+                <app-join-input [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
                 
-                <app-join-input-form></app-join-input-form>
-                <app-join-input-form></app-join-input-form>
+                <div class='join-form-contacts-row'>
+                    <div class='join-form-contacts-row-input'>
+                        <app-join-input [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'GitHib'"></app-join-input>
+                    </div>
+                    <div class='join-form-contacts-row-select'>
+                        <app-join-select class='form-control' formControlName='English'></app-join-select>
+                    </div>
+                </div>
                 
-                <!-- <input type="text" name="FullName" formControlName="FullName" placeholder="Full Name..." required>
-                <input type="tel" name = 'Telephone' formControlName="Telephone" placeholder="Telephone..." required>
-                <input type="text" name = 'Location' formControlName="Location" placeholder="Location (country and city) ..." required>
-                <input type="email" name='Email' formControlName="Email" placeholder="Email..." required>
-                <input type="url" name='GitHub' formControlName="GitHub" placeholder="CitHub link..." required> -->
-                <app-join-select></app-join-select>
                 
-                <!-- <select required>
-                    <option value=""  hidden>English level...</option>
-                    <option value="A1" name='english'>A1</option>
-                    <option value="A2" name='english'>A2</option>
-                    <option value="B1" name='english'>B1</option>
-                    <option value="B2" name='english'>B2</option>
-                    <option value="C1" name='english'>C1</option>
-                    <option value="C2" name='english'>C2</option>
-                </select> -->
             </div>
 
 
             <div class='join-form-CV'>
                 <div class='join-form-CV-icon'>
-                    <svg width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d)">
-                        <rect width="134.549" height="75" rx="37.5" fill="#979797"/>
-                    </g>
-                    <path d="M67 46.2578C66.5559 46.2578 66.1313 46.0883 65.8258 45.7895L54.4521 34.6883C53.4664 33.7275 54.1986 32.1289 55.6263 32.1289H61.5839V20.523C61.5839 19.1323 62.7993 18 64.292 18H69.708C71.2007 18 72.4161 19.1323 72.4161 20.523V32.1289H78.3737C79.8014 32.1289 80.5336 33.7275 79.5479 34.6883L68.1742 45.7895C67.8687 46.0883 67.4441 46.2578 67 46.2578Z" fill="white"/>
-                    <path d="M88.3542 58.9253H45.6458C43.6354 58.9253 42 57.2042 42 55.0885V53.9923C42 51.8766 43.6354 50.1555 45.6458 50.1555H88.3542C90.3646 50.1555 92 51.8766 92 53.9923V55.0885C92 57.2042 90.3646 58.9253 88.3542 58.9253Z" fill="white"/>
-                    <defs>
-                    <filter id="filter0_d" x="0" y="0" width="142.549" height="83" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                    <feOffset dx="4" dy="4"/>
-                    <feGaussianBlur stdDeviation="2"/>
-                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                    </filter>
-                    </defs>
-                    </svg>
+                    <img class='oval' src="../assets/images/oval.png" alt="upload your CV">
+                    <img class='arrow' src="../assets/images/arrow.png" >
+                    <img class='line' src="../assets/images/line.png" >
                 </div>
 
                 <div class='join-form-CV-upload'>
@@ -64,18 +42,12 @@
             </div>
 
 
-            <div class='join-form-timetable'>
+            <div class='join-form-interview'>
                 <span>Here you must choose suitable time for you for an interview:</span>
-                <div class='join-form-slots' formArrayName='interviewDay' (click)="onAddInterviewDay()">
-                    <div class='form-control'>
-                        <app-join-input-date></app-join-input-date>
-                    </div>
-                    <div class='form-control'>
-                        <app-join-input-date></app-join-input-date>
-                    </div>
-                    <div class='form-control'>
-                        <app-join-input-date></app-join-input-date>
-                    </div>
+                <div class='join-form-timetable' formArrayName='Interview' (click)="onAddInterview()">
+                    <app-join-input-date></app-join-input-date>
+                    <app-join-input-date></app-join-input-date>
+                    <app-join-input-date></app-join-input-date>
                 </div>
             </div>
 

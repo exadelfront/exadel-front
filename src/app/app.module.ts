@@ -5,17 +5,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JoinFormComponent } from './join-form/join-form.component';
-import { JoinInputFormComponent } from './join-input-form/join-input-form.component';
 import { JoinInputDateComponent } from './join-input-date/join-input-date.component';
 import { JoinSelectComponent } from './join-select/join-select.component';
+import { JoinInputComponent } from './join-input/join-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JoinFormComponent,
-    JoinInputFormComponent,
     JoinInputDateComponent,
     JoinSelectComponent,
+    JoinInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +23,7 @@ import { JoinSelectComponent } from './join-select/join-select.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

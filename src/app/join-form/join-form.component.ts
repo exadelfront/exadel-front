@@ -1,16 +1,5 @@
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
-import { Component, Input, Output, OnInit } from '@angular/core';
-
-// import { JoinInputFormComponent } from '../join-input-form/join-input-form.component';
-
-//  export interface JoinInputFormComponent {
-//   type: String;
-//   name: String;
-//   placeholder: String;
-//   formControlName: String;
-//   required: boolean;
-
-// }
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-join-form',
@@ -23,60 +12,32 @@ import { Component, Input, Output, OnInit } from '@angular/core';
 
 export class JoinFormComponent implements OnInit {
 
-    // Fullname: string;
-    // tel: 'Telephone',
-    // location: 'Location',
-    // email: 'Email',
-    // GitHub: 'GitHub',
-    // english: 'English',
-    // interview: [],
-    // agreement: "Agreement",
-    // notification: 'Notification',
-
-
-  // type: String;
-  // name: String;
-  // placeholder: String;
-  // formControlName: String;
-  // required: boolean;
-
- 
-  // inputs: JoinInputForm[] = [
-  //   {type: 'text', name: 'Fullname', placeholder: 'Fullname...', formControlName: 'Fullname', required: true},
-  //   {type: 'tel', name: 'Telephone', placeholder: 'Telephone...', formControlName: 'Telephone', required: true},
-  //   {type: 'text', name: 'Location', placeholder: 'Location...', formControlName: 'Location', required: true},
-  //   {type: 'email', name: 'Email', placeholder: 'Telephone...', formControlName: 'Email', required: true},
-  //   {type: 'url', name: 'GitHub', placeholder: 'GitHub link ...', formControlName: 'GitHub', required: true}
-  // ];
-
-
   form: any = FormGroup;
 
-  constructor() { 
-
-  }
-
+  constructor() { }
 
 
   ngOnInit(): void {
+    
     this.form = new FormGroup({
-      'Fullname': new FormControl(null, Validators.required),
-      'Telephone': new FormControl(null, Validators.required),
-      'Email': new FormControl(null, [Validators.required, Validators.email]),
-      'GitHub': new FormControl(null, Validators.required),
-      'interviewDay': new FormArray([]),
-      'CV': new FormControl(null),
-      'agreement': new FormControl(null, Validators.requiredTrue),
-      'notifications': new FormControl(null),
+      'Fullname': new FormControl('', Validators.required),
+      'Telephone': new FormControl('', Validators.required),
+      'Email': new FormControl('', [Validators.required, Validators.email]),
+      'GitHub': new FormControl('', Validators.required),
+      'English': new FormControl('', Validators.required),
+      'Interview': new FormArray([]),
+      'CV': new FormControl(''),
+      'agreement': new FormControl('', Validators.requiredTrue),
+      'notifications': new FormControl(''),
     });
   }
 
 
 
-  onAddInterviewDay(){
+  onAddInterview(){
 
     const control = new FormControl(null, Validators.required);
-    (<FormArray>this.form.get("interviewDay")).push(control);
+    (<FormArray>this.form.get("Interview")).push(control);
 
   }
 
@@ -85,10 +46,9 @@ export class JoinFormComponent implements OnInit {
   onSubmit(){
 
     if(this.form.valid) {
-    const FormData = {...this.form.value}
-    console.log(FormData);
+      const FormData = {...this.form.value}
+      console.log(FormData);
     }
-
     this.form.reset();
    
   }

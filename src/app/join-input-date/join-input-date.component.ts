@@ -1,18 +1,29 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-join-input-date',
-  template:  `<input type="date" name="date" required/>
-              <select name="time" required>
-                <option name="time" value="" hidden>Part of the day</option>
-                <option name="time" value="10.00 - 13.00">10.00 - 13.00</option>
-                <option name="time" value="13.00 - 16.00">13.00 - 16.00</option>
-                <option name="time" value="16.00 - 19.00">16.00 - 19.00</option>
-              </select>`,
+  template:  `<div class="join-form-slots" >
+                <div class='join-form-slots-date' >
+                  <input type="date" name="date"/>
+                  <span class="star">*</span>
+                </div>
+                <div class='join-form-slots-hours'>
+                  <select name="hours">
+                    <option name="hours" value="" hidden>Part of the day</option>
+                    <option name="hours" *ngFor="let hours of InterviewHours"
+                          value="{{hours}}"
+                    >{{hours}}
+                    </option>
+                  </select>
+                  <span class="star">*</span>
+                </div>
+              </div>`,
   styleUrls: ['./join-input-date.component.scss']
 })
 
 export class JoinInputDateComponent implements OnInit {
+
+  @Input() InterviewHours:string[] = ['10.00 - 13.00', '13.00 - 16.00', '16.00 - 19.00'];
 
   constructor() { }
 
