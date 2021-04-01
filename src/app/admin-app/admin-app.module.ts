@@ -5,14 +5,18 @@ import { AdminAppRoutingModule } from './admin-app-routing.module';
 import { AdminAppComponent } from './admin-app.component';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { ApproveRejectButtonComponent } from './approve-reject-button/approve-reject-button.component';
+import { TextareaComponent } from './textarea/textarea.component';
+
 
 
 @NgModule({
   declarations: [
     AdminAppComponent,
     LoginMenuComponent,
-    ApproveRejectButtonComponent
+    ApproveRejectButtonComponent,
+    TextareaComponent
   ],
+
   imports: [
     CommonModule,
     AdminAppRoutingModule
@@ -20,6 +24,5 @@ import { ApproveRejectButtonComponent } from './approve-reject-button/approve-re
   exports: [
     AdminAppComponent
   ]
-
 })
 export class AdminAppModule { }
