@@ -41,7 +41,6 @@ export class JoinFormComponent implements OnInit {
   }
 
   
- 
   onSubmit(){
 
     if(this.form.valid) {
