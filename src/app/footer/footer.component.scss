@@ -1,0 +1,26 @@
+footer {
+    max-width: 1920px;
+    height: 120px;
+    background: #d1d1d1;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    div {
+        width: 389px;
+        height: 87px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        a {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+            color: #000000;
+            text-decoration: none;
+        }
+    }
+}
