@@ -23,6 +23,8 @@
 }
 
 
+
+
 input[type=date] {
     width:100%;
     margin-bottom: 22px;
@@ -32,9 +34,9 @@ input[type=date] {
     box-sizing: border-box;
     border: 3px solid rgba(0, 0, 0, 0.15);
     outline: none;
-    text-indent: 25px;
-    font-size: 2.25rem;
-    line-height: 49px;
+    text-indent: 15px;
+    font-size: 18px;
+    line-height: 27px;
     border-radius: 100px;
     color: #D1D1D1;
 
@@ -52,15 +54,10 @@ select {
     box-sizing: border-box;
     outline: none;
     border-radius: 100px;
-    text-indent: 55px;
-    font-size: 36px;
-    line-height: 49px;
-    
-    
-    option[hidden] {
-        color: #D1D1D1; 
-    }
-   
+    text-indent: 30px;
+    font-size: 18px;
+    line-height: 27px;
+    color: #D1D1D1;   
 
 }
 
@@ -68,7 +65,32 @@ select {
 span.star {
     position: absolute;
     top: -2%;
-    right: 2%;
+    right: 4%;
     color: red;
-    font-size: 30px;
+    font-size: 25px;
+}
+
+
+
+@media (max-width:900px) {
+    .join-form-slots {
+        flex-direction: column;
+        justify-content: center;
+
+        &-date, &-hours{
+            width: 100%;
+            margin-left:0px;
+        }
+
+    }
+    
+    input[type=date] {
+        margin-bottom: 10px;
+    }
+
+    select{
+        margin-bottom: 40px;
+    }
+   
+    
 }

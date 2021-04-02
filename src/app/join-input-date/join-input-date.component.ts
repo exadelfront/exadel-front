@@ -9,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
                 </div>
                 <div class='join-form-slots-hours'>
                   <select name="hours">
-                    <option name="hours" value="" hidden>Part of the day</option>
+                    <option name="hours" value="" hidden>Part of the day...</option>
                     <option name="hours" *ngFor="let hours of InterviewHours"
                           value="{{hours}}"
                     >{{hours}}

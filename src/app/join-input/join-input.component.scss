@@ -13,9 +13,9 @@ input {
     border: 3px solid rgba(0, 0, 0, 0.15);
     border-radius: 100px;
     outline: none;
-    text-indent: 55px;
-    font-size: 2.25rem;
-    line-height: 49px;
+    text-indent: 30px;
+    font-size: 18px;
+    line-height: 27px;
 
     &::placeholder{
         color: #D1D1D1;
@@ -27,7 +27,10 @@ input {
 span.star {
     position: absolute;
     top: -2%;
-    right: 2%;
+    right: 4%;
     color: red;
-    font-size: 30px;
+    font-size: 25px;
 }
+
+
+

@@ -11,7 +11,7 @@
                     
                 <app-join-input [placeholder] ="'Fullname...'" [type]="'text'" [name]="'Fullname'"></app-join-input>
                 <app-join-input [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
-                <app-join-input [placeholder] ="'Location (country/city)...'" [type]="'text'" [name]="'Location'"></app-join-input>
+                <app-join-input [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>
                 <app-join-input [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
                 
                 <div class='join-form-contacts-row'>
@@ -28,7 +28,7 @@
 
 
             <div class='join-form-CV'>
-                <div class='join-form-CV-icon'>
+                <div class='join-form-CV-icon'>              
                     <img class='oval' src="../assets/images/oval.png" alt="upload your CV">
                     <img class='arrow' src="../assets/images/arrow.png" >
                     <img class='line' src="../assets/images/line.png" >
@@ -53,22 +53,31 @@
 
            
             <div class='join-form-agree'>
-                <label class="switch">
-                    <input type="checkbox" formControlName="agreement"/>
-                    <span class="slider round"></span>
-                </label>
+
+               <div>
+                    <label class="switch">
+                        <input type="checkbox" formControlName="agreement"/>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
                 <span class='agree'>I agree to the processing and storage of my personal data</span>
+                              
+             
             </div>
 
             <div class='join-form-notification'>
-                <label class="switch">
-                    <input type="checkbox" formControlName="notifications"/>
-                    <span class="slider round"></span>
-                </label>
+                <div>
+                   <label class="switch">
+                        <input type="checkbox" formControlName="notifications"/>
+                        <span class="slider round"></span>
+                    </label> 
+                </div>
                 <span>I want to receive notifications for similar events</span>
             </div>
                            
-            <input type="submit" value="Submit">
+            <div class='join-form-submit'>
+                <input type="submit" value="Submit">
+            </div>
 
         </form>
 
