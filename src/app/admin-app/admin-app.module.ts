@@ -6,6 +6,7 @@ import { AdminAppComponent } from './admin-app.component';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { ApproveRejectButtonComponent } from './approve-reject-button/approve-reject-button.component';
 import { TextareaComponent } from './textarea/textarea.component';
+import { SectionHeaderComponent } from './section-header/section-header.component';
 
 
 
@@ -14,7 +15,8 @@ import { TextareaComponent } from './textarea/textarea.component';
     AdminAppComponent,
     LoginMenuComponent,
     ApproveRejectButtonComponent,
-    TextareaComponent
+    TextareaComponent,
+    SectionHeaderComponent
   ],
 
   imports: [
