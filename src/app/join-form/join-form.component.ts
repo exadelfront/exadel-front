@@ -41,14 +41,7 @@ export class JoinFormComponent implements OnInit {
   }
 
   
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
-
-
+ 
   onSubmit(){
 
     if(this.form.valid) {
