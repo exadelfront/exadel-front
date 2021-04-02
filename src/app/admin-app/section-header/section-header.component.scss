@@ -1,0 +1,30 @@
+$border_style: 1px solid #2ea3f2;
+$text_color: #2ea3f2;
+
+.text_field {
+  border-bottom: $border_style;
+  font-family: Poppins;
+  font-size: 36px;
+  white-space: nowrap;
+}
+.text_div {
+  display: inline-flex;
+}
+.name {
+  color: $text_color;
+  padding-left: 2%;
+}
+.cv_button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.cv_logo:hover {
+  fill: $text_color;
+}
+.header_div {
+  padding: 1% 0;
+  display: flex;
+  justify-content: space-between;
+}
