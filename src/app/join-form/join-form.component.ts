@@ -18,7 +18,7 @@ export class JoinFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
     this.form = new FormGroup({
       'Fullname': new FormControl('', Validators.required),
       'Telephone': new FormControl('', Validators.required),
@@ -33,24 +33,20 @@ export class JoinFormComponent implements OnInit {
   }
 
 
-
-  onAddInterview(){
+  onAddInterview() {
 
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.form.get("Interview")).push(control);
   }
 
-  
+  onSubmit() {
 
-
-  onSubmit(){
-
-    if(this.form.valid) {
-      const FormData = {...this.form.value}
+    if (this.form.valid) {
+      const FormData = { ...this.form.value }
       console.log(FormData);
     }
     this.form.reset();
-   
+
   }
 
 
