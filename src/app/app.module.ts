@@ -12,8 +12,7 @@ import { AdditionalInformationComponent } from './additional-information/additio
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
-import { AdminAppModule} from './admin-app/admin-app.module'
-
+import { AdminAppModule} from './admin-app/admin-app.module';
 
 @NgModule({
   declarations: [
