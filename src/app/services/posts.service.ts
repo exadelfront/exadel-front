@@ -13,7 +13,7 @@ export interface Post {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsService {
 
@@ -21,5 +21,9 @@ export class PostsService {
 
   fetchEvents(): Observable<Post[]> {
     return this.http.get<Post[]>('');
+  }
+
+  fetchPostById(id: number): Observable<Post> {
+    return this.http.get<Post>(``);
   }
 }
