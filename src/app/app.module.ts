@@ -1,10 +1,9 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { HeaderAppComponent } from './header-app/header-app.component';
 import { HomeButtonComponent } from './home-button/home-button.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,8 +13,10 @@ import { JoinInputDateComponent } from './join-input-date/join-input-date.compon
 import { JoinSelectComponent } from './join-select/join-select.component';
 import { JoinInputComponent } from './join-input/join-input.component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
-
-
+import { MainPageComponent } from './main-page/main-page.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { HeaderAppComponent } from './header-app/header-app.component';
+import { AdminAppModule} from './admin-app/admin-app.module';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,17 @@ import { AdditionalInformationComponent } from './additional-information/additio
     NavigationMenuComponent,
     FooterComponent,
     InternshipCardComponent,
-    JoinFormComponent,
-    AdditionalInformationComponent
+    AdditionalInformationComponent,
+    MainPageComponent,
+    PostPageComponent,
+    HeaderAppComponent,
 ],
   imports: [
     BrowserModule,
     FormsModule, 
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminAppModule
   ],
   exports: [],
   providers: [],

@@ -2,9 +2,10 @@
 
 <div class='join-form'>
 
-    <div class='join-form-wrapper'>
+  <div class='join-form-wrapper'>
 
-        <h2>join us</h2>
+    <h2>join us</h2>
+
 
         <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class='join-form-contacts'>
@@ -22,11 +23,9 @@
                         <app-join-select class='form-control' formControlName='English'></app-join-select>
                     </div>
                 </div>
+          </div>
                 
                 
-            </div>
-
-
             <div class='join-form-CV'>
                 <div class='join-form-CV-icon'>              
                     <img class='oval' src="../assets/images/oval.png" alt="upload your CV">
@@ -79,8 +78,8 @@
                 <input type="submit" value="Submit">
             </div>
 
-        </form>
+    </form>
 
-    </div>
+  </div>
 
 </div>

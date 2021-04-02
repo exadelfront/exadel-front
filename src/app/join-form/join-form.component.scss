@@ -158,6 +158,7 @@ img.oval {
     height: auto;
 }
 
+
 img.arrow, img.line {
     max-width: 100%;
     height: auto;
@@ -172,6 +173,9 @@ img.arrow {
     width:26px;
     transform: translate(-50%, -90%);
 }
+
+
+
 
 img.line{
     width:50px;
@@ -193,16 +197,17 @@ img.line{
     }
 }
   
+
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 
     &:before {
         position: absolute;
@@ -219,27 +224,28 @@ img.line{
     &.round {
         border-radius: 34px;
     }
-
+  
     &.slider.round:before {
-        border-radius: 50%;
+      border-radius: 50%;
     }
 
 }
-  
+
 input:checked + .slider {
-    background-color: $blue;
+  background-color: $blue;
 }
-  
+
 input:focus + .slider {
-    box-shadow: 0 0 1px $blue;
+  box-shadow: 0 0 1px $blue;
 }
-  
+
 input:checked + .slider:before {
+
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+
 }
-  
 
 @media (min-width: 900px) {
 
@@ -247,6 +253,7 @@ input:checked + .slider:before {
         display: flex;
         flex-direction: row;
         align-items:start;
+
 
         &-input {
             justify-self: flex-start;
@@ -341,3 +348,4 @@ input:checked + .slider:before {
     }
    
 }
+

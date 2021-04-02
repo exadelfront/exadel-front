@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InternshipPost} from '../app.component';
+import {Post} from '../services/post-cards.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-internship-card',
@@ -8,12 +9,17 @@ import {InternshipPost} from '../app.component';
 })
 export class InternshipCardComponent implements OnInit {
 
-  @Input() post: InternshipPost;
+  @Input() post: Post;
   @Input() isGray: boolean;
+  @Input() isBtnPresent: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToPostPage(): void {
+    this.router.navigate([`/post/${this.post.id}`]);
   }
 
 }

@@ -38,6 +38,12 @@ export class JoinFormComponent implements OnInit {
 
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.form.get("Interview")).push(control);
+  }
+
+  
+  constructor() { }
+
+  ngOnInit(): void {
 
   }
 
