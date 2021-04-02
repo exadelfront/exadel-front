@@ -7,6 +7,7 @@ import { AdminAppComponent } from './admin-app.component';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { ApproveRejectButtonComponent } from './approve-reject-button/approve-reject-button.component';
 import { TextareaComponent } from './textarea/textarea.component';
+import { ChooseDateComponent } from './choose-date/choose-date.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
     LoginMenuComponent,
     ApproveRejectButtonComponent,
     TextareaComponent,
+    ChooseDateComponent,
     SectionHeaderComponent
   ],
   imports: [
