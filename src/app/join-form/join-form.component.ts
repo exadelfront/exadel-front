@@ -39,11 +39,6 @@ export class JoinFormComponent implements OnInit {
     (<FormArray>this.form.get("Interview")).push(control);
   }
 
-<<<<<<< HEAD
-=======
-  
->>>>>>> 18cd0299234f633947cc1c331c7ff43ef8855f53
-
   onSubmit() {
 
     if (this.form.valid) {
