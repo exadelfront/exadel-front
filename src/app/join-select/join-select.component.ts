@@ -2,14 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-join-select',
-  template: `<select name="English">
-              <option value="" hidden>English level...</option>
-              <option *ngFor="let eng of englishArr"
-                      value="{{eng}}"
-              >
-              {{eng}}</option>
-            </select>
-            <span class='star'>*</span>`,
+  template: ` <div>
+                  <select name="English" (ngChange) = "onChangeColor()">
+                    <option value="" hidden>English level...</option>
+                    <option *ngFor="let eng of englishArr"
+                            value="{{eng}}"
+                    >
+                    {{eng}}</option>
+                  </select>
+              </div>`,
   styleUrls: ['./join-select.component.scss']
 })
 export class JoinSelectComponent implements OnInit {
@@ -19,6 +20,12 @@ export class JoinSelectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  onChangeColor() {
+    const select = document.querySelector("select");
+    console.log(select)
   }
 
 }

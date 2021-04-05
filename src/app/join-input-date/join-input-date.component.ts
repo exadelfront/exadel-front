@@ -5,7 +5,6 @@ import { Component, Input, OnInit } from '@angular/core';
   template:  `<div class="join-form-slots" >
                 <div class='join-form-slots-date' >
                   <input type="date" name="date"/>
-                  <span class="star">*</span>
                 </div>
                 <div class='join-form-slots-hours'>
                   <select name="hours">
@@ -15,7 +14,6 @@ import { Component, Input, OnInit } from '@angular/core';
                     >{{hours}}
                     </option>
                   </select>
-                  <span class="star">*</span>
                 </div>
               </div>`,
   styleUrls: ['./join-input-date.component.scss']

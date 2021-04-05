@@ -7,19 +7,19 @@ select {
     outline: none;
     border-radius: 100px;
     text-indent: 30px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 27px;
     color: #D1D1D1;
 }
 
 
-
-span.star {
+div::after {
     position: absolute;
+    content: "*";
     top: -2%;
-    right: 4%;
+    right: 2%;
     color: red;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 
@@ -36,3 +36,6 @@ span.star {
         margin-bottom: 40px;
     }
 }
+
+
+

@@ -4,8 +4,7 @@ import { Component, OnInit, Input} from '@angular/core';
   selector: 'app-join-input',
   template: `<div>
               <input class="form-control" placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
-              <span class="star">*</span>
-            </div>`,
+             </div>`,
   styleUrls: ['./join-input.component.scss']
 })
 export class JoinInputComponent implements OnInit {

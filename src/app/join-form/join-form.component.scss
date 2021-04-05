@@ -17,11 +17,16 @@ $blue: #2EA3F2;
         display: flex; 
         flex-direction: column;
 
+        &-row {
+            display: flex;
+            justify-content:space-between;
 
-        &-row-select {
+            &-select {
+            width: 32.6%;
+            justify-self: flex-end;
             position: relative;
+            }
         }
-        
     }
 
     &-CV {
