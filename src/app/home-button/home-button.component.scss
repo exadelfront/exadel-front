@@ -54,3 +54,13 @@ $btn_icon_hover: #2ea3f2;
 .home_page_button:active + .home_icon {
   transform: translateY(3px);
 }
+@media (max-width: 1400px) {
+  .home_icon {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .home_page_button {
+    padding: 0.5% 5%;
+  }
+}
