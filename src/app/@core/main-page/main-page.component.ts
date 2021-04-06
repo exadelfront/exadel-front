@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Post, PostCardsService} from '../services/post-cards.service';
+import {Post, PostCardsService} from '../../services/post-cards.service';
 
 @Component({
   selector: 'app-main-page',
