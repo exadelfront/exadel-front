@@ -1,6 +1,9 @@
 $bg_main_color: white;
 $btn_bg: #2ea3f2;
-$btn_border_color: #2ea3f2;
+$btn_border: 1px solid #2ea3f2;
+$btn_shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+$btn_shadow_hover: 0 0 5px #2ea3f2;
+$btn_shadow_active: 0 0 5px white;
 $btn_icon_color: white;
 $btn_bg_hover_color: white;
 $btn_icon_hover: #2ea3f2;
@@ -19,7 +22,7 @@ $btn_icon_hover: #2ea3f2;
   min-width: 13vw;
   background-color: $btn_bg;
   color: $btn_icon_color;
-  border: 1px solid $btn_border_color;
+  border: $btn_border;
   border-radius: 100px 0px 100px 0px;
   padding: 0.5% 2%;
   font-family: Poppins;
@@ -27,11 +30,11 @@ $btn_icon_hover: #2ea3f2;
   cursor: pointer;
   display: inline-flex;
   justify-content: space-between;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: $btn_shadow;
 }
 .home_icon {
   fill: $btn_icon_color;
-  left: 11vw;
+  left: 12vw;
   top: 3vh;
   position: absolute;
   pointer-events: none;
@@ -41,16 +44,26 @@ $btn_icon_hover: #2ea3f2;
   background-color: $btn_bg_hover_color;
   color: $btn_icon_hover;
   transition: all ease 0.3s;
-  box-shadow: 0 0 5px $btn_border_color;
+  box-shadow: $btn_shadow_hover;
 }
 .home_page_button:hover + .home_icon {
   fill: #2ea3f2;
   transition: all ease 0.3s;
 }
 .home_page_button:active {
-  box-shadow: 0 0 5px $bg_main_color;
+  box-shadow: $btn_shadow_active;
   transform: translateY(3px);
 }
 .home_page_button:active + .home_icon {
   transform: translateY(3px);
+}
+@media (max-width: 1400px) {
+  .home_icon {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .home_page_button {
+    padding: 0.5% 5%;
+  }
 }

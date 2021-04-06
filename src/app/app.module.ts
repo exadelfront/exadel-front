@@ -1,7 +1,6 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +17,18 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { AdminAppModule} from './admin-app/admin-app.module';
+
 import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LangSwitchButtonComponent } from './lang-switch-button/lang-switch-button.component';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +46,7 @@ import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.
     PostPageComponent,
     HeaderAppComponent,
     JoinSelectHoursComponent,
+    LangSwitchButtonComponent,
 ],
   imports: [
     BrowserModule,
@@ -44,7 +54,16 @@ import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.
     ReactiveFormsModule,
     AppRoutingModule,
     AdminAppModule,
-    HttpClientModule
+    HttpClientModule,
+    
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+          },
+          defaultLanguage: 'en'
+        })
   ],
   exports: [],
   providers: [],

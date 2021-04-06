@@ -1,0 +1,35 @@
+$btn_bg: #2ea3f2;
+$btn_border: 1px solid #2ea3f2;
+$btn_shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+$btn_shadow_hover: 0 0 5px #2ea3f2;
+$btn_shadow_active: 0 0 5px white;
+$btn_bg_hover_color: white;
+
+.translate_div {
+  position: absolute;
+  top: 3%;
+  left: 95%;
+}
+.trans_btn {
+  background-color: $btn_bg;
+  color: white;
+  border: $btn_border;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 15px;
+}
+.trans_btn,
+.trans_btn:active,
+.trans_btn:focus {
+  outline: none;
+}
+.trans_btn:hover {
+  background-color: $btn_bg_hover_color;
+  color: $btn_bg;
+  transition: all ease 0.3s;
+  box-shadow: $btn_shadow_hover;
+}
+.trans_btn:active {
+  box-shadow: $btn_shadow_active;
+  transform: translateY(3px);
+}
