@@ -17,7 +17,14 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { AdminAppModule} from './admin-app/admin-app.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LangSwitchButtonComponent } from './lang-switch-button/lang-switch-button.component';
 
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +41,23 @@ import { AdminAppModule} from './admin-app/admin-app.module';
     MainPageComponent,
     PostPageComponent,
     HeaderAppComponent,
+    LangSwitchButtonComponent,
 ],
   imports: [
     BrowserModule,
     FormsModule, 
     ReactiveFormsModule,
     AppRoutingModule,
-    AdminAppModule
+    AdminAppModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+          },
+          defaultLanguage: 'en'
+        })
   ],
   exports: [],
   providers: [],

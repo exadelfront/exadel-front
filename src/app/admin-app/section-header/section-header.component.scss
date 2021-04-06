@@ -2,7 +2,6 @@ $border_style: 1px solid #2ea3f2;
 $text_color: #2ea3f2;
 
 .text_field {
-  border-bottom: $border_style;
   font-family: Poppins;
   font-size: 36px;
   white-space: nowrap;
@@ -24,7 +23,8 @@ $text_color: #2ea3f2;
   fill: $text_color;
 }
 .header_div {
-  padding: 1% 0;
+  padding: 0 0;
   display: flex;
   justify-content: space-between;
+  border-bottom: $border_style;
 }
