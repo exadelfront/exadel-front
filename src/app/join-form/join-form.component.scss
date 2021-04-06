@@ -17,6 +17,19 @@ $blue: #2EA3F2;
         display: flex; 
         flex-direction: column;
 
+        &-fullname {
+            display: flex; 
+            flex-direction:row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        &-firstname, &-lastname {
+            width:49%;
+            position: relative;
+        }
+
+        
         &-row {
             display: flex;
             justify-content:space-between;
@@ -34,10 +47,6 @@ $blue: #2EA3F2;
         align-items: center;
         margin-top: 7px;
         margin-bottom: 61px;
-
-        &-icon {
-            position: relative;
-        }
 
         &-upload {
             padding-left: 44px;
@@ -58,6 +67,24 @@ $blue: #2EA3F2;
         justify-content: center;
         margin-top: 32px;
         margin-bottom: 37px;
+
+        &-slot {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 22px;
+
+            &-day {
+                width: 66%;
+                justify-self: flex-start;
+            }
+
+            &-hours {
+                width: 32.6%;
+                justify-self: flex-end;
+            }
+        }
+
     }
 
     &-agree, &-notification {
@@ -89,7 +116,7 @@ h2 {
 }
 
 span {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 27px;
     color: #000000;
 
@@ -156,35 +183,8 @@ input {
     
 }
 
-img.oval {
-    max-width: 100%;
-    border-radius: 40px;
-    width: 134.55px;
-    height: auto;
-}
-
-
-img.arrow, img.line {
-    max-width: 100%;
-    height: auto;
-    position: absolute;
-    z-index:5;
-    left: 50%;
-    top:50%;
-    margin-right: -50%;
-}
-
-img.arrow {
-    width:26px;
-    transform: translate(-50%, -90%);
-}
-
-
-
-
-img.line{
-    width:50px;
-    transform: translate(-50%, -10%);
+.svg:active{
+    stroke: #2ea3f2;
 }
 
 
@@ -270,22 +270,51 @@ input:checked + .slider:before {
             margin-left: 18px;
             justify-self: flex-end;
             width:32.6%;
-            position: relative;
+
         }
 
     }
-
 }
 
 
 @media (max-width: 900px) {
-    img.oval {
-        width:100px;
+
+    .join-form-contacts-row {
+        flex-direction: column;
+
+        &-select {
+            width: 100%;
+        }
     }
-    
+
+    .join-form-contacts-fullname{
+        flex-direction: column;
+    }
+
+    .join-form-contacts-firstname, .join-form-contacts-lastname {
+        width:100%;
+    }
+
     .join-form-timetable {
         margin-bottom: 0px;
+
+        &-slot {
+            flex-direction: column;
+    
+            &-day, &-hours {
+                width: 100%;
+            }
+        }
     }
+
+    input[type=submit]{
+         height:55px;
+    }
+
+    .svg {
+        width:100px;
+    }  
+    
 }
 
 
@@ -340,17 +369,10 @@ input:checked + .slider:before {
         }
     }
 
-    img.oval {
+    .svg {
          width:100px;
     }
 
 }
 
-
-@media (max-width:900px){
-    input[type=submit]{
-         height:55px;
-    }
-   
-}
 

@@ -1,50 +1,7 @@
-.join-form-slots {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    &-date, &-hours {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-    }
-
-    &-date {
-        width: 66%;
-        justify-self: flex-start;
-    }
-
-    &-hours {
-        margin-left: 18px;
-        width: 32.6%;
-        justify-self: flex-end;
-    }
-
+div {
+    position: relative;
 }
 
-
-
-
-input[type=date] {
-    width:100%;
-    margin-bottom: 22px;
-    height: 70px;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    box-sizing: border-box;
-    border: 3px solid rgba(0, 0, 0, 0.15);
-    outline: none;
-    text-indent: 15px;
-    font-size: 20px;
-    line-height: 27px;
-    border-radius: 100px;
-    color: #D1D1D1;
-
-    &:checked {
-        color: black;
-    }
-   
-}
 
 select {
     width: 100%;
@@ -58,40 +15,17 @@ select {
     font-size: 20px;
     line-height: 27px;
     color: #D1D1D1;   
+    appearance: none;
 
 }
 
 
-.join-form-slots-date::after, .join-form-slots-hours::after {
+div:after {
     position: absolute;
     content:"*";
-    top: -2%;
-    right: 2%;
+    top: 7px;
+    right: 20px;
     color: red;
     font-size: 22px;
 }
 
-
-
-@media (max-width:900px) {
-    .join-form-slots {
-        flex-direction: column;
-        justify-content: center;
-
-        &-date, &-hours{
-            width: 100%;
-            margin-left:0px;
-        }
-
-    }
-    
-    input[type=date] {
-        margin-bottom: 10px;
-    }
-
-    select{
-        margin-bottom: 40px;
-    }
-   
-    
-}

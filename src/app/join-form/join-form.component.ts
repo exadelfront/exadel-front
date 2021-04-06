@@ -1,5 +1,7 @@
-import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ExadelValidators } from './exadel.validators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-join-form',
@@ -14,40 +16,45 @@ export class JoinFormComponent implements OnInit {
 
   form: any = FormGroup;
 
-  constructor() { }
+  constructor(private sent: HttpClient) { }
 
 
   ngOnInit(): void {
-
     this.form = new FormGroup({
-      'Fullname': new FormControl('', Validators.required),
-      'Telephone': new FormControl('', Validators.required),
-      'Email': new FormControl('', [Validators.required, Validators.email]),
-      'GitHub': new FormControl('', Validators.required),
-      'English': new FormControl('', Validators.required),
-      'Interview': new FormArray([]),
-      'CV': new FormControl(''),
-      'agreement': new FormControl('', Validators.requiredTrue),
-      'notifications': new FormControl(''),
+      FirstName: new FormControl(null, Validators.required),
+      LastName: new FormControl(null, Validators.required),
+      Telephone: new FormControl(null, [Validators.required, Validators.pattern(/[0-9.+()]\s/)]),
+      Location : new FormControl(null, Validators.required),
+      Email: new FormControl(null, [Validators.required, Validators.email]),
+      Skype: new FormControl(null, Validators.required),
+      GitHub: new FormControl(null, [Validators.required, ExadelValidators.restrictedGitHubLink]),
+      English: new FormControl(null, Validators.required),
+      day1: new FormControl(null, Validators.required),
+      hours1: new FormControl(null, Validators.required),
+      day2: new FormControl(null, Validators.required),
+      hours2: new FormControl(null, Validators.required),
+      day3: new FormControl(null, Validators.required),
+      hours3: new FormControl(null, Validators.required),
+      CV: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes]),
+      Agreement: new FormControl(null, Validators.requiredTrue),
+      Notifications: new FormControl(null),
     });
   }
 
 
-  onAddInterview() {
-
-    const control = new FormControl(null, Validators.required);
-    (<FormArray>this.form.get("Interview")).push(control);
-  }
-
+  // onAddCV():void{
+  //   console.log('jhkhk')
+  // }
 
   onSubmit() {
+    console.log(this.form, this.form.status);
 
     if (this.form.valid) {
       const FormData = { ...this.form.value }
-      console.log(FormData);
+      this.sent.post('https://', FormData)
+      this.form.reset();
     }
-    this.form.reset();
-
+  
   }
 
 
