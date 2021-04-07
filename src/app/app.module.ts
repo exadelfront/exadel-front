@@ -15,7 +15,7 @@ import { CoreModule } from './@core/@core.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AdminAppModule,
