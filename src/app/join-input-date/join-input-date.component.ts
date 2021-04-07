@@ -4,9 +4,9 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'app-join-input-date',
   template:  `<div>
                 <select name="day" class='form-control'>
-                  <option name="day" value="" hidden>Day of the week...</option>
+                  <option name="day" value="" hidden>{{'POST_PAIGE.JOIN_FORM.InterviewDay' | translate}}</option>
                   <option name="day" *ngFor="let day of InterviewDays"
-                        value="{{day}}"
+                        value="{day}"
                   >{{day}}
                   </option>
                 </select>

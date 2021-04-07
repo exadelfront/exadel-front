@@ -3,7 +3,7 @@
 
   <div class='join-form-wrapper'>
 
-    <h2>join us</h2>
+    <h2>{{'POST_PAIGE.JOIN_FORM.Title' | translate}}</h2>
 
 
         <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -11,7 +11,7 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='FirstName' [placeholder] ="'First Name...'" [type]="'text'" [name]="'Firstname'"></app-join-input>
+                        <app-join-input class='form-control' ngDefaultControl formControlName='FirstName' [placeholder] ="'First Name'" [type]="'text'" [name]="'Firstname'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-lastname'>
                         <app-join-input class='form-control' ngDefaultControl formControlName='LastName' [placeholder] ="'Last Name...'" [type]="'text'" [name]="'Lastname'"></app-join-input>
@@ -58,15 +58,32 @@
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>Drop or <input class='form-control' ngDefaultControl formControlName='CV' id='file-input' type="file" name="file"> 
+                    <span class='drop'>Drop or <input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file"> 
                         <label for="file-input">Select </label>Your CV
                     </span>
                 </div>
-            </div>
 
+                <!-- <div *ngIf="FileUpload.invalid && uploadPanel">
+                    <small *ngIf="FileUpload.errors?.required" class="text-danger"
+                      >File is required</small
+                    >
+                    <small
+                      *ngIf="FileUpload.errors?.requiredFileType"
+                      class="text-danger"
+                      >{{ fileType }} type is not allowed</small
+                    >
+                    <small
+                      *ngIf="FileUpload.errors?.fileSizeValidator"
+                      class="text-danger"
+                      >{{ fileSize }} KB size is not allowed.</small
+                    >
+                  </div> -->
+                </div>
+
+         
 
             <div class='join-form-interview'>
-                <span>Choose suitable time for you for an interview:</span>
+                <span>{{'POST_PAIGE.JOIN_FORM.Interview' | translate}}</span>
                 <div class='join-form-timetable'>
                     <div class='join-form-timetable-slot'>
                         <div class='join-form-timetable-slot-day'>
@@ -109,7 +126,7 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <span class='agree'>I agree to the processing and storage of my personal data</span>
+                <span class='agree'>{{'POST_PAIGE.JOIN_FORM.Agreement' | translate}}</span>
                               
              
             </div>
@@ -121,11 +138,11 @@
                         <span class="slider round"></span>
                     </label> 
                 </div>
-                <span>I want to receive notifications for similar events</span>
+                <span>{{'POST_PAIGE.JOIN_FORM.Notification' | translate}}</span>
             </div>
                            
             <div class='join-form-submit'>
-                <input type="submit" class='form-control' value="Submit">
+                <input type="submit" class='form-control' value="{{'POST_PAIGE.JOIN_FORM.SubmitBtn' | translate}}">
             </div>
 
     </form>

@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-join-select',
   template: ` <div>
                   <select name="English" (ngChange) = "onChangeColor()">
-                    <option value="" hidden>English level...</option>
+                    <option value="" hidden>{{'POST_PAIGE.JOIN_FORM.English' | translate}}</option>
                     <option *ngFor="let eng of englishArr"
                             value="{{eng}}"
                     >

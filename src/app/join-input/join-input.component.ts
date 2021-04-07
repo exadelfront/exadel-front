@@ -9,7 +9,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class JoinInputComponent implements OnInit {
 
-  @Input() placeholder: string;
+  @Input() placeholder: any;
   @Input() type:string;
   @Input() name:string;
   
