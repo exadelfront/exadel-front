@@ -19,6 +19,7 @@ export class MainPageComponent implements OnInit {
   fetchPosts(): void {
     this.postsService.fetchEvents()
       .subscribe(posts => {
+        console.log(posts);
         this.posts = posts;
       });
   }

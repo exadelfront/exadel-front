@@ -17,6 +17,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { AdminAppModule} from './admin-app/admin-app.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,11 @@ import { AdminAppModule} from './admin-app/admin-app.module';
 ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AdminAppModule
+    AdminAppModule,
+    HttpClientModule
   ],
   exports: [],
   providers: [],
