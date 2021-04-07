@@ -20,7 +20,7 @@ import { CoreModule } from './@core/@core.module';
     AppRoutingModule,
     AdminAppModule,
     SharedModule,
-    CoreModule
+    CoreModule,
   ],
   exports: [],
   providers: [],

@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -6,7 +8,7 @@ import { HomeButtonComponent } from './home-button/home-button.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { InternshipCardComponent } from './internship-card/internship-card.component';
-import { JoinFormComponent } from './join-form/join-form.component';
+import { JoinFormComponent } from '../@core/join-form/join-form.component';
 import { JoinInputDateComponent } from './join-input-date/join-input-date.component';
 import { JoinSelectComponent } from './join-select/join-select.component';
 import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
@@ -48,6 +50,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChooseDateComponent,
     SectionHeaderComponent],
   imports: [
+    FormsModule, 
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
         TranslateModule.forRoot({
@@ -78,6 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TextareaComponent,
     ChooseDateComponent,
     SectionHeaderComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }
