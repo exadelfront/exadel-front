@@ -17,7 +17,7 @@
                         <app-join-input class='form-control' ngDefaultControl formControlName='LastName' [placeholder] ="'Last Name...'" [type]="'text'" [name]="'Lastname'"></app-join-input>
                     </div>
                 </div>
-               
+
                 <app-join-input class='form-control' ngDefaultControl formControlName='Telephone' [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
                 <app-join-input class='form-control' ngDefaultControl formControlName='Location' [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>
                 <app-join-input class='form-control' ngDefaultControl formControlName='Email' [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
@@ -32,10 +32,10 @@
                     </div>
                 </div>
           </div>
-                
-                
+
+
             <div class='join-form-CV'>
-                <div class='join-form-CV-icon'>        
+                <div class='join-form-CV-icon'>
                     <svg  class='svg' width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d)">
                         <rect width="134.549" height="75" rx="37.5" fill="#979797"/>
@@ -54,11 +54,11 @@
                         </filter>
                         </defs>
                         </svg>
-                              
+
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'> 
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'>
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
                 </div>
@@ -80,7 +80,7 @@
                   </div> -->
                 </div>
 
-         
+
 
             <div class='join-form-interview'>
                 <span>{{'JOIN_FORM.Interview' | translate}}</span>
@@ -92,8 +92,8 @@
                         <div class='join-form-timetable-slot-hours'>
                             <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours1'></app-join-select-hours>
                         </div>
-                    </div>    
-                    
+                    </div>
+
                     <div class='join-form-timetable-slot'>
                         <div class='join-form-timetable-slot-day'>
                             <app-join-input-date class='form-control' ngDefaultControl formControlName='day2'></app-join-input-date>
@@ -101,7 +101,7 @@
                         <div class='join-form-timetable-slot-hours'>
                             <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours2'></app-join-select-hours>
                         </div>
-                    </div>     
+                    </div>
 
                     <div class='join-form-timetable-slot'>
                         <div class='join-form-timetable-slot-day'>
@@ -110,14 +110,14 @@
                         <div class='join-form-timetable-slot-hours'>
                             <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours3'></app-join-select-hours>
                         </div>
-                    </div>     
-                                   
-                    
-                   
+                    </div>
+
+
+
                 </div>
             </div>
 
-           
+
             <div class='join-form-agree'>
 
                <div>
@@ -127,8 +127,8 @@
                     </label>
                 </div>
                 <span class='agree'>{{'JOIN_FORM.Agreement' | translate}}</span>
-                              
-             
+
+
             </div>
 
             <div class='join-form-notification'>
@@ -136,13 +136,13 @@
                    <label class="switch">
                         <input type="checkbox" class='form-control' ngDefaultControl formControlName="Notifications"/>
                         <span class="slider round"></span>
-                    </label> 
+                    </label>
                 </div>
                 <span>{{'JOIN_FORM.Notification' | translate}}</span>
             </div>
-                           
+
             <div class='join-form-submit'>
-                <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">
+              <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">
             </div>
 
     </form>
