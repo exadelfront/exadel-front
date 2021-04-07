@@ -3,10 +3,10 @@
 
   <div class='join-form-wrapper'>
 
-    <h2>{{'POST_PAIGE.JOIN_FORM.Title' | translate}}</h2>
+    <h2>{{'JOIN_FORM.Title' | translate}}</h2>
 
 
-        <form action="" formGroup="form" (ngSubmit)="onSubmit()">
+        <form action="#" formGroup="form" (ngSubmit)="onSubmit()">
             <div class='join-form-contacts'>
 
                 <div class='join-form-contacts-fullname'>
@@ -58,8 +58,8 @@
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>Drop or <input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file"> 
-                        <label for="file-input">Select </label>Your CV
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'> 
+                        <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
                 </div>
 
@@ -83,7 +83,7 @@
          
 
             <div class='join-form-interview'>
-                <span>{{'POST_PAIGE.JOIN_FORM.Interview' | translate}}</span>
+                <span>{{'JOIN_FORM.Interview' | translate}}</span>
                 <div class='join-form-timetable'>
                     <div class='join-form-timetable-slot'>
                         <div class='join-form-timetable-slot-day'>
@@ -126,7 +126,7 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <span class='agree'>{{'POST_PAIGE.JOIN_FORM.Agreement' | translate}}</span>
+                <span class='agree'>{{'JOIN_FORM.Agreement' | translate}}</span>
                               
              
             </div>
@@ -138,11 +138,11 @@
                         <span class="slider round"></span>
                     </label> 
                 </div>
-                <span>{{'POST_PAIGE.JOIN_FORM.Notification' | translate}}</span>
+                <span>{{'JOIN_FORM.Notification' | translate}}</span>
             </div>
                            
             <div class='join-form-submit'>
-                <input type="submit" class='form-control' value="{{'POST_PAIGE.JOIN_FORM.SubmitBtn' | translate}}">
+                <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">
             </div>
 
     </form>

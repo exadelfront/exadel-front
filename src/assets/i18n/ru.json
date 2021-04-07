@@ -1,32 +1,6 @@
 {
     "POST_PAIGE":{
-        "HOME_BUTTON":"Главная страница",
-        "JOIN_FORM": {
-            "Title":"Заполните анкету",
-             "FirstName":"Имя...",
-            "LastName":"Фамилия...",
-            "Telephone":"Телефон...",
-            "Location":"Место проживания...",
-            "Email":"Email...",
-            "Skype":"Skype...",
-            "GitHub":"GitHub...",
-            "English":"Уровень английского...",
-            "CV": "Загрузите Ваше резюме",
-            "Interview": "Выберите подходящее для Вас время для проведения интервью:",
-            "InterviewDay": "День недели",
-            "InterviewDays": {
-                "Monday":"Понедельник", 
-                "Tuesday":"Вторник", 
-                "Wednesday":"Среда", 
-                "Thursday":"Четверг",
-                "Friday":"Пятница",
-                "Saturday":"Суббота"
-            },
-            "InterviewHours": "Часовой интервал",
-            "Agreement": "Согласен на обработку и хранение персональных данных",
-            "Notification": "Разрешаю отправку уведомлений о подобных меропритиях",
-            "SubmitBtn": "Отправить"
-        }
+        "HOME_BUTTON":"Главная страница"
     },
     "MAIN_PAIGE":{
         "FILTERS":{
@@ -35,5 +9,33 @@
             "Event_type":"Тип ивента",
             "Internship_status":"Статус стажировки"
         }
+    },
+    "JOIN_FORM": {
+        "Title":"Заполните анкету",
+         "FirstName":"Имя...",
+        "LastName":"Фамилия...",
+        "Telephone":"Телефон...",
+        "Location":"Место проживания...",
+        "Email":"Email...",
+        "Skype":"Skype...",
+        "GitHub":"GitHub...",
+        "English":"Уровень английского...",
+        "Drop": "Перетащите сюда или ",
+        "Select":"загрузите ",
+        "CV": "Ваше резюме",
+        "Interview": "Выберите подходящее для Вас время для проведения интервью:",
+        "InterviewDay": "День недели",
+        "InterviewDays": {
+            "Monday":"Понедельник", 
+            "Tuesday":"Вторник", 
+            "Wednesday":"Среда", 
+            "Thursday":"Четверг",
+            "Friday":"Пятница",
+            "Saturday":"Суббота"
+        },
+        "InterviewHours": "Часовой интервал",
+        "Agreement": "Согласен на обработку и хранение персональных данных",
+        "Notification": "Разрешаю отправку уведомлений о подобных меропритиях",
+        "SubmitBtn": "Отправить"
     }
 }

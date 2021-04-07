@@ -1,8 +1,8 @@
-import { FormControl, FormGroup, FormBuilder,  Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ExadelValidators } from './exadel.validators';
 import { HttpClient } from '@angular/common/http';
-// import { NGValidators } from 'ng-validators';
+
 
 @Component({
   selector: 'app-join-form',
@@ -14,10 +14,15 @@ import { HttpClient } from '@angular/common/http';
 export class JoinFormComponent implements OnInit {
 
   form: any = FormGroup;
+  CV: File = null;
 
-  constructor(private sent: HttpClient, private fb: FormBuilder) {
-    
-    this.form = fb.group({
+   
+  constructor(private sent: HttpClient) {    
+  }
+
+
+  ngOnInit(): void {
+    this.form = new FormGroup({
       FirstName: new FormControl(null, Validators.required),
       LastName: new FormControl(null, Validators.required),
       Telephone: new FormControl(null, [Validators.required, Validators.pattern(/[0-9.+()]\s/)]),
@@ -32,21 +37,20 @@ export class JoinFormComponent implements OnInit {
       hours2: new FormControl(null, Validators.required),
       day3: new FormControl(null, Validators.required),
       hours3: new FormControl(null, Validators.required),
-      CV: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes, ExadelValidators.fileSizeValidator]),
+      CV: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes]),
       Agreement: new FormControl(null, Validators.requiredTrue),
       Notifications: new FormControl(null),
     }); 
   }
 
 
-  ngOnInit(): void {
-    
+  handleFiles(CV) {
+    console.log(CV.files.item[0])
   }
-
 
  
   onSubmit() {
-    console.log(this.form, this.form.status);
+    console.log(1, this.form, this.form.status, { ...this.form.value });
 
       if (this.form.valid) {
         const FormData = { ...this.form.value }
@@ -56,29 +60,7 @@ export class JoinFormComponent implements OnInit {
   
   }
 
-
-
 }
 
 
 
-
-export function fileSizeValidator(files: FileList) {
-  return function(control: FormControl) {
-    // return (control: AbstractControl): { [key: string]: any } | null => {
-    const file = control.value;
-    if (file) {
-      var path = file.replace(/^.*[\\\/]/, "");
-      const fileSize = files.item(0).size;
-      const fileSizeInKB = Math.round(fileSize / 1024);
-      if (fileSizeInKB >= 19) {
-        return {
-          fileSizeValidator: true
-        };
-      } else {
-        return null;
-      }
-    }
-    return null;
-  };
-}
