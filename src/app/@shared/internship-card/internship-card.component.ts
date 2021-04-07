@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Post} from '../services/post-cards.service';
+import {Post} from '../../services/post-cards.service';
 import {Router} from '@angular/router';
 
 @Component({

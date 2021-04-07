@@ -1,0 +1,13 @@
+{
+    "POST_PAIGE":{
+        "HOME_BUTTON":"Home page"
+    },
+    "MAIN_PAIGE":{
+        "FILTERS":{
+            "Location":"Location",
+            "Technology":"Technology",
+            "Event_type":"Event type",
+            "Internship_status":"Internship status"
+        }
+    }
+}

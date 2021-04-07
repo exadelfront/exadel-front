@@ -6,11 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./textarea.component.scss']
 })
 export class TextareaComponent implements OnInit {
-  @Input() Approved: boolean;
-  @Input() Reject: boolean;
-  @Input() Placeholder: string;
-  @Input() Readonly: boolean;
-  @Input() Text: string;
+  @Input() approved: boolean;
+  @Input() reject: boolean;
+  @Input() placeholder: string;
+  @Input() readonly: boolean;
+  @Input() textarea_text: string;
   
   constructor() { }
 

@@ -1,0 +1,13 @@
+<div class="text">
+<textarea *ngIf="readonly" class="textarea" placeholder="{{placeholder}}" readonly 
+[ngClass]="{
+    textarea_approved:approved,
+    textarea_reject:reject
+}">{{textarea_text}}</textarea>
+
+<textarea *ngIf="!readonly" class="textarea" placeholder="{{placeholder}}"
+[ngClass]="{
+    textarea_approved:approved,
+    textarea_reject:reject
+}">{{textarea_text}}</textarea>
+</div>
