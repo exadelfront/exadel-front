@@ -59,9 +59,6 @@ nav a {
   top: 1vw;
   color: $link_hover_color;
 }
-.top_menu li a:hover {
-  color: $link_hover_color;
-}
 .sub_menu {
   position: absolute;
   left: 50%;
@@ -73,20 +70,26 @@ nav a {
   opacity: 0;
   transform: scale(0.8);
   transition: 0.4s ease-in-out;
+  li{
+    padding: 5px 0;
+  }
 }
 .top_menu > li:hover .sub_menu {
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 0);
 }
-.sub_menu a {
+.sub_menu label {
   font-family: Poppins;
   letter-spacing: 1px;
-  padding: 3% 0;
+  line-height: 30px;
   color: $default_link_color;
   transition: 0.3s linear;
 }
 .sub_menu li a:hover {
   background: $bg_hover_color;
   color: $sub_menu_link_hover_color;
+}
+li input[type="checkbox"]:checked + #word_opts {
+  color: $bg_hover_color;
 }
