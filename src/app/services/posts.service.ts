@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {INTERNSHIPS_PAGE_URL} from '../../environments/environment';
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { INTERNSHIPS_PAGE_URL } from '../../environments/environment';
 
 export interface Post {
   title: string;
   subjects: string[];
   countries: string[];
   description: string;
-  imageUrl: string;
+  image: string;
   startDate: string;
   endDate?: string;
   id?: number;
