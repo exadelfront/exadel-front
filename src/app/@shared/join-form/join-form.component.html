@@ -11,57 +11,57 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='FirstName' [placeholder] ="'First Name'" [type]="'text'" [name]="'Firstname'"></app-join-input>
+                        <app-join-input class='form-control' ngDefaultControl [controlName]="'FirstName'" [parentForm]="form" [placeholder] ="'First Name'" [type]="'text'" [name]="'Firstname'"></app-join-input>
                     </div>
-                    <div class='join-form-contacts-lastname'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='LastName' [placeholder] ="'Last Name...'" [type]="'text'" [name]="'Lastname'"></app-join-input>
-                    </div>
+<!--                    <div class='join-form-contacts-lastname'>-->
+<!--                        <app-join-input class='form-control' ngDefaultControl formControlName='LastName' [placeholder] ="'Last Name...'" [type]="'text'" [name]="'Lastname'"></app-join-input>-->
+<!--                    </div>-->
                 </div>
 
-                <app-join-input class='form-control' ngDefaultControl formControlName='Telephone' [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Location' [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Email' [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Skype' [placeholder] ="'Skype...'" [type]="'text'" [name]="'Skype'"></app-join-input>
+<!--                <app-join-input class='form-control' ngDefaultControl formControlName='Telephone' [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>-->
+<!--                <app-join-input class='form-control' ngDefaultControl formControlName='Location' [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>-->
+                <app-join-input class='form-control' ngDefaultControl [controlName]="'Email'" [parentForm]="form"  [placeholder]="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
+<!--                <app-join-input class='form-control' ngDefaultControl formControlName='Skype' [placeholder] ="'Skype...'" [type]="'text'" [name]="'Skype'"></app-join-input>-->
 
-                <div class='join-form-contacts-row'>
-                    <div class='join-form-contacts-row-input'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='GitHub' [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'GitHib'"></app-join-input>
-                    </div>
-                    <div class='join-form-contacts-row-select'>
-                        <app-join-select class='form-control' ngDefaultControl formControlName='English'></app-join-select>
-                    </div>
-                </div>
-          </div>
+<!--                <div class='join-form-contacts-row'>-->
+<!--                    <div class='join-form-contacts-row-input'>-->
+<!--                        <app-join-input class='form-control' ngDefaultControl formControlName='GitHub' [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'GitHib'"></app-join-input>-->
+<!--                    </div>-->
+<!--                    <div class='join-form-contacts-row-select'>-->
+<!--                        <app-join-select class='form-control' ngDefaultControl formControlName='English'></app-join-select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--          </div>-->
 
 
-            <div class='join-form-CV'>
-                <div class='join-form-CV-icon'>
-                    <svg  class='svg' width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_d)">
-                        <rect width="134.549" height="75" rx="37.5" fill="#979797"/>
-                        </g>
-                        <path d="M67 46.2578C66.5559 46.2578 66.1313 46.0883 65.8258 45.7895L54.4521 34.6883C53.4664 33.7275 54.1986 32.1289 55.6263 32.1289H61.5839V20.523C61.5839 19.1323 62.7993 18 64.292 18H69.708C71.2007 18 72.4161 19.1323 72.4161 20.523V32.1289H78.3737C79.8014 32.1289 80.5336 33.7275 79.5479 34.6883L68.1742 45.7895C67.8687 46.0883 67.4441 46.2578 67 46.2578Z" fill="white"/>
-                        <path d="M88.3542 58.9253H45.6458C43.6354 58.9253 42 57.2042 42 55.0885V53.9923C42 51.8766 43.6354 50.1555 45.6458 50.1555H88.3542C90.3646 50.1555 92 51.8766 92 53.9923V55.0885C92 57.2042 90.3646 58.9253 88.3542 58.9253Z" fill="white"/>
-                        <defs>
-                        <filter id="filter0_d" x="0" y="0" width="142.549" height="83" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset dx="4" dy="4"/>
-                        <feGaussianBlur stdDeviation="2"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                        </filter>
-                        </defs>
-                        </svg>
+<!--            <div class='join-form-CV'>-->
+<!--                <div class='join-form-CV-icon'>-->
+<!--                    <svg  class='svg' width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                        <g filter="url(#filter0_d)">-->
+<!--                        <rect width="134.549" height="75" rx="37.5" fill="#979797"/>-->
+<!--                        </g>-->
+<!--                        <path d="M67 46.2578C66.5559 46.2578 66.1313 46.0883 65.8258 45.7895L54.4521 34.6883C53.4664 33.7275 54.1986 32.1289 55.6263 32.1289H61.5839V20.523C61.5839 19.1323 62.7993 18 64.292 18H69.708C71.2007 18 72.4161 19.1323 72.4161 20.523V32.1289H78.3737C79.8014 32.1289 80.5336 33.7275 79.5479 34.6883L68.1742 45.7895C67.8687 46.0883 67.4441 46.2578 67 46.2578Z" fill="white"/>-->
+<!--                        <path d="M88.3542 58.9253H45.6458C43.6354 58.9253 42 57.2042 42 55.0885V53.9923C42 51.8766 43.6354 50.1555 45.6458 50.1555H88.3542C90.3646 50.1555 92 51.8766 92 53.9923V55.0885C92 57.2042 90.3646 58.9253 88.3542 58.9253Z" fill="white"/>-->
+<!--                        <defs>-->
+<!--                        <filter id="filter0_d" x="0" y="0" width="142.549" height="83" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">-->
+<!--                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>-->
+<!--                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>-->
+<!--                        <feOffset dx="4" dy="4"/>-->
+<!--                        <feGaussianBlur stdDeviation="2"/>-->
+<!--                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>-->
+<!--                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>-->
+<!--                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>-->
+<!--                        </filter>-->
+<!--                        </defs>-->
+<!--                        </svg>-->
 
-                </div>
+<!--                </div>-->
 
-                <div class='join-form-CV-upload'>
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'>
-                        <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
-                    </span>
-                </div>
+<!--                <div class='join-form-CV-upload'>-->
+<!--                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'>-->
+<!--                        <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}-->
+<!--                    </span>-->
+<!--                </div>-->
 
                 <!-- <div *ngIf="FileUpload.invalid && uploadPanel">
                     <small *ngIf="FileUpload.errors?.required" class="text-danger"
@@ -82,64 +82,64 @@
 
 
 
-            <div class='join-form-interview'>
-                <span>{{'JOIN_FORM.Interview' | translate}}</span>
-                <div class='join-form-timetable'>
-                    <div class='join-form-timetable-slot'>
-                        <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day1'></app-join-input-date>
-                        </div>
-                        <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours1'></app-join-select-hours>
-                        </div>
-                    </div>
+<!--            <div class='join-form-interview'>-->
+<!--                <span>{{'JOIN_FORM.Interview' | translate}}</span>-->
+<!--                <div class='join-form-timetable'>-->
+<!--                    <div class='join-form-timetable-slot'>-->
+<!--                        <div class='join-form-timetable-slot-day'>-->
+<!--                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day1'></app-join-input-date>-->
+<!--                        </div>-->
+<!--                        <div class='join-form-timetable-slot-hours'>-->
+<!--                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours1'></app-join-select-hours>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <div class='join-form-timetable-slot'>
-                        <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day2'></app-join-input-date>
-                        </div>
-                        <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours2'></app-join-select-hours>
-                        </div>
-                    </div>
+<!--                    <div class='join-form-timetable-slot'>-->
+<!--                        <div class='join-form-timetable-slot-day'>-->
+<!--                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day2'></app-join-input-date>-->
+<!--                        </div>-->
+<!--                        <div class='join-form-timetable-slot-hours'>-->
+<!--                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours2'></app-join-select-hours>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <div class='join-form-timetable-slot'>
-                        <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day3'></app-join-input-date>
-                        </div>
-                        <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours3'></app-join-select-hours>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
+<!--                    <div class='join-form-timetable-slot'>-->
+<!--                        <div class='join-form-timetable-slot-day'>-->
+<!--                            <app-join-input-date class='form-control' ngDefaultControl formControlName='day3'></app-join-input-date>-->
+<!--                        </div>-->
+<!--                        <div class='join-form-timetable-slot-hours'>-->
+<!--                            <app-join-select-hours class='form-control' ngDefaultControl formControlName='hours3'></app-join-select-hours>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 
-            <div class='join-form-agree'>
 
-               <div>
-                    <label class="switch">
-                        <input type="checkbox" ngDefaultControl formControlName="Agreement"/>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <span class='agree'>{{'JOIN_FORM.Agreement' | translate}}</span>
+<!--                </div>-->
+<!--            </div>-->
 
 
-            </div>
+<!--            <div class='join-form-agree'>-->
 
-            <div class='join-form-notification'>
-                <div>
-                   <label class="switch">
-                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="Notifications"/>
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <span>{{'JOIN_FORM.Notification' | translate}}</span>
-            </div>
+<!--               <div>-->
+<!--                    <label class="switch">-->
+<!--                        <input type="checkbox" ngDefaultControl formControlName="Agreement"/>-->
+<!--                        <span class="slider round"></span>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <span class='agree'>{{'JOIN_FORM.Agreement' | translate}}</span>-->
+
+
+<!--            </div>-->
+
+<!--            <div class='join-form-notification'>-->
+<!--                <div>-->
+<!--                   <label class="switch">-->
+<!--                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="Notifications"/>-->
+<!--                        <span class="slider round"></span>-->
+<!--                    </label>-->
+<!--                </div>-->
+<!--                <span>{{'JOIN_FORM.Notification' | translate}}</span>-->
+<!--            </div>-->
 
             <div class='join-form-submit'>
               <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">

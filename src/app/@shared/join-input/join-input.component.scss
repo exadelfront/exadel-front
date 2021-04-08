@@ -20,7 +20,11 @@ input {
     &::placeholder{
         color: #D1D1D1;
     }
-  
+
+    &.ng-invalid {
+      border: 1px solid red;
+    }
+
 }
 
 

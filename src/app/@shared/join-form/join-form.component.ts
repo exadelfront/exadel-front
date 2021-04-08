@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class JoinFormComponent implements OnInit {
 
-  form: any = FormGroup;
+  form: FormGroup;
   CV: File = null;
 
   constructor(private sent: HttpClient) {
@@ -22,7 +22,10 @@ export class JoinFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      FirstName: new FormControl(null, Validators.required),
+      FirstName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      // FirstName: new FormGroup({
+      //   name: new FormControl(null, Validators.required),
+      // }),
       LastName: new FormControl(null, Validators.required),
       Telephone: new FormControl(null, [Validators.required, Validators.pattern(/[0-9.+()]\s/)]),
       Location : new FormControl(null, Validators.required),
