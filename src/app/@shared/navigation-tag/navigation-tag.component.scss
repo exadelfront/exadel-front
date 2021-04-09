@@ -10,11 +10,7 @@ $border_color: rgba(0,0,0,0.25);
 * {
   box-sizing: border-box;
 }
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+
 li{
   padding: 5px 0;
 }
@@ -27,7 +23,7 @@ li > p {
   font-family: Poppins;
   font-size: 0.8vw;
 }
-.sub_menu label {
+.sub_menu{
   font-family: Poppins;
   letter-spacing: 1px;
   line-height: 30px;
