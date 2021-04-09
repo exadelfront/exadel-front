@@ -20,6 +20,7 @@ import { ApproveRejectButtonComponent } from './approve-reject-button/approve-re
 import { TextareaComponent } from './textarea/textarea.component';
 import { ChooseDateComponent } from './choose-date/choose-date.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
+import { NavigationTagComponent } from './navigation-tag/navigation-tag.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -42,7 +43,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApproveRejectButtonComponent,
     TextareaComponent,
     ChooseDateComponent,
-    SectionHeaderComponent],
+    SectionHeaderComponent,
+    NavigationTagComponent,
+    NavigationTagComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

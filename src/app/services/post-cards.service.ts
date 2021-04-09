@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export interface Post {
   title: string;
+  type:string;
   tags: string[];
   location: string;
   description: string;
@@ -17,6 +18,7 @@ export class PostCardsService {
   postCards: Post[] = [
     {
       title: 'JavaScript Internship',
+      type: 'Internship',
       tags: ['JS', 'Java', 'something'],
       location: 'Belarus',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
@@ -32,6 +34,7 @@ export class PostCardsService {
     },
     {
       title: 'C# Meetup',
+      type: 'Meetup',
       tags: ['some', 'lorem'],
       location: 'Russia',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +
@@ -47,6 +50,7 @@ export class PostCardsService {
     },
     {
       title: '.Net Internship ',
+      type: 'Internship',
       tags: ['.NET', 'backend'],
       location: 'Ukraine',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' +

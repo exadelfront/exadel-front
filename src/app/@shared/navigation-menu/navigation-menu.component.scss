@@ -59,7 +59,7 @@ nav a {
   top: 1vw;
   color: $link_hover_color;
 }
-.sub_menu {
+app-navigation-tag{
   position: absolute;
   left: 50%;
   width: 100%;
@@ -74,7 +74,27 @@ nav a {
     padding: 5px 0;
   }
 }
-.top_menu > li:hover .sub_menu {
+.sub_menu  {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  background: $sub_menu_bg_color;
+  border: 1px solid $sub_menu_border_color;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.4s ease-in-out;
+  li{
+    padding: 5px 0;
+  }
+}
+.top_menu > li:hover app-navigation-tag  {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.top_menu > li:hover .sub_menu  {
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 0);
@@ -92,4 +112,5 @@ nav a {
 }
 li input[type="checkbox"]:checked + #word_opts {
   color: $bg_hover_color;
+
 }
