@@ -3,7 +3,7 @@ import { Component, OnInit, Input} from '@angular/core';
 @Component({
   selector: 'app-join-input',
   template: `<div>
-              <input class="form-control" placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
+              <input placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
              </div>`,
   styleUrls: ['./join-input.component.scss']
 })
