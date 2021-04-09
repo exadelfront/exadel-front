@@ -14,8 +14,12 @@ select {
     text-indent: 30px;
     font-size: 20px;
     line-height: 27px;
-    color: #D1D1D1;   
+    color: #D1D1D1;
     appearance: none;
+
+    &.ng-invalid.ng-touched {
+      border: 2px solid red;
+    }
 
 }
 

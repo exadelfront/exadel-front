@@ -13,7 +13,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class JoinFormComponent implements OnInit {
 
-  form: any = FormGroup;
+
+
+  form: FormGroup;
   CV: File = null;
 
   constructor(private sent: HttpClient) {
@@ -40,22 +42,23 @@ export class JoinFormComponent implements OnInit {
       Agreement: new FormControl(null, Validators.requiredTrue),
       Notifications: new FormControl(null),
     });
+
   }
 
 
-  handleFiles(CV): void {
-    console.log(CV.files.item[0]);
-  }
-
-
+  // handleFiles(CV): void {
+  //   console.log(CV.files.item[0]);
+  // }
+  //
+  //
   onSubmit(): void {
-    console.log(1, this.form, this.form.status, { ...this.form.value });
-
-    if (this.form.valid) {
-      const FormData = { ...this.form.value };
-      this.sent.post('https://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/', FormData);
-      this.form.reset();
-    }
+  console.log(1, this.form, this.form.status, { ...this.form.value });
+  //
+  //   if (this.form.valid) {
+  //     const FormData = { ...this.form.value };
+  //     this.sent.post('https://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/', FormData);
+  //     this.form.reset();
+  //   }
 
   }
 

@@ -11,6 +11,11 @@ select {
     line-height: 27px;
     color: #D1D1D1;
     appearance: none;
+
+      &.ng-invalid.ng-touched {
+        border: 2px solid red;
+      }
+
 }
 
 

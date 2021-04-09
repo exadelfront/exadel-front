@@ -8,7 +8,7 @@ import { HomeButtonComponent } from './home-button/home-button.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { InternshipCardComponent } from './internship-card/internship-card.component';
-import { JoinFormComponent } from '../@core/join-form/join-form.component';
+import { JoinFormComponent } from './join-form/join-form.component';
 import { JoinInputDateComponent } from './join-input-date/join-input-date.component';
 import { JoinSelectComponent } from './join-select/join-select.component';
 import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
@@ -50,7 +50,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ChooseDateComponent,
     SectionHeaderComponent],
   imports: [
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     FormsModule,

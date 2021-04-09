@@ -1,21 +1,23 @@
 import { Component, OnInit, Input} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-input',
-  template: `<div>
-              <input placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
+  template: `<div [formGroup]="parentForm">
+              <input class="form-control" formControlName="{{controlName}}" placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
              </div>`,
   styleUrls: ['./join-input.component.scss']
 })
 export class JoinInputComponent implements OnInit {
 
-  @Input() placeholder: any;
-  @Input() type:string;
-  @Input() name:string;
-  
+  @Input() placeholder: string;
+  @Input() type: string;
+  @Input() name: string;
+  @Input() controlName: string;
+  @Input() parentForm: FormGroup;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
