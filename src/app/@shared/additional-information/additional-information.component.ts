@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-additional-information',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./additional-information.component.scss']
 })
 export class AdditionalInformationComponent implements OnInit {
+
+  @Input() additionalInfo: string;
 
   constructor() { }
 
