@@ -8,6 +8,7 @@
             "Technology":"Технология",
             "Event_type":"Тип ивента",
             "Internship_status":"Статус стажировки"
-        }
+        },
+        "MORE_DETAILS_BUTTON": "Подробнее"
     }
 }
