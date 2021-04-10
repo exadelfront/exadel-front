@@ -22,7 +22,7 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-nav a {
+nav p {
   text-decoration: none;
   outline: none;
   display: block;
@@ -43,7 +43,7 @@ nav a {
 .top_menu > li:first-child {
   border: none;
 }
-.top_menu > li > a {
+.top_menu > li > p {
   padding: 1vw 3vw;
   color: $default_link_color;
   font-weight: bold;
