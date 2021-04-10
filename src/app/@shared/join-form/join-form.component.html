@@ -11,24 +11,24 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='FirstName' [placeholder] ="'First Name'" [type]="'text'" [name]="'Firstname'"></app-join-input>
+                        <app-join-input class='form-control' ngDefaultControl formControlName='name' [controlName]="'name'" [parentForm]="form" [placeholder] ="'Name'" [type]="'text'" [name]="'name'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-lastname'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='LastName' [placeholder] ="'Last Name...'" [type]="'text'" [name]="'Lastname'"></app-join-input>
+                        <app-join-input class='form-control' ngDefaultControl formControlName='surname' [controlName]="'surname'" [parentForm]="form" [placeholder] ="'surname...'" [type]="'text'" [name]="'surname'"></app-join-input>
                     </div>
                 </div>
 
-                <app-join-input class='form-control' ngDefaultControl formControlName='Telephone' [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Location' [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Email' [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
-                <app-join-input class='form-control' ngDefaultControl formControlName='Skype' [placeholder] ="'Skype...'" [type]="'text'" [name]="'Skype'"></app-join-input>
+                <app-join-input class='form-control' ngDefaultControl formControlName='phone' [controlName]="'phone'" [parentForm]="form" [placeholder] ="'Phone number...'" [type]="'tel'" [name]="'phone'"></app-join-input>
+                <app-join-input class='form-control' ngDefaultControl formControlName='location' [controlName]="'location'" [parentForm]="form" [placeholder] ="'Location...'" [type]="'text'" [name]="'location'"></app-join-input>
+                <app-join-input class='form-control' ngDefaultControl formControlName='email' [controlName]="'email'" [parentForm]="form" [placeholder] ="'Email...'" [type]="'email'" [name]="'email'"></app-join-input>
+                <app-join-input class='form-control' ngDefaultControl formControlName='skype' [controlName]="'skype'" [parentForm]="form" [placeholder] ="'Skype...'" [type]="'text'" [name]="'skype'"></app-join-input>
 
                 <div class='join-form-contacts-row'>
                     <div class='join-form-contacts-row-input'>
-                        <app-join-input class='form-control' ngDefaultControl formControlName='GitHub' [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'GitHib'"></app-join-input>
+                        <app-join-input class='form-control' ngDefaultControl formControlName='github' [controlName]="'github'" [parentForm]="form" [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'githib'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-row-select'>
-                        <app-join-select class='form-control' ngDefaultControl formControlName='English'></app-join-select>
+                        <app-join-select class='form-control' ngDefaultControl formControlName='english'></app-join-select>
                     </div>
                 </div>
           </div>
@@ -58,9 +58,10 @@
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'>
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='cv' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' (change)="handleFiles($event)">
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
+                  <div *ngIf="cv">{{cv.name}}</div>
                 </div>
 
                 <!-- <div *ngIf="FileUpload.invalid && uploadPanel">
@@ -122,7 +123,7 @@
 
                <div>
                     <label class="switch">
-                        <input type="checkbox" ngDefaultControl formControlName="Agreement"/>
+                        <input type="checkbox" ngDefaultControl formControlName="agreement"/>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -134,7 +135,7 @@
             <div class='join-form-notification'>
                 <div>
                    <label class="switch">
-                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="Notifications"/>
+                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="recipient"/>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -144,6 +145,8 @@
             <div class='join-form-submit'>
               <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">
             </div>
+          <div *ngIf="isSubmitted" class="join-form-alert">{{'JOIN_FORM.SubmitNotification' | translate}}</div>
+
 
     </form>
 

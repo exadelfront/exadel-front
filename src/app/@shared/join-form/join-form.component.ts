@@ -1,7 +1,7 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { ExadelValidators } from './exadel.validators';
-import { HttpClient } from '@angular/common/http';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, OnInit} from '@angular/core';
+import {ExadelValidators} from './exadel.validators';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -14,7 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class JoinFormComponent implements OnInit {
 
   form: any = FormGroup;
-  CV: File = null;
+  cv: File = null;
+  isSubmitted = false;
 
   constructor(private sent: HttpClient) {
   }
@@ -22,42 +23,45 @@ export class JoinFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      FirstName: new FormControl(null, Validators.required),
-      LastName: new FormControl(null, Validators.required),
-      Telephone: new FormControl(null, [Validators.required, Validators.pattern(/[0-9.+()]\s/)]),
-      Location : new FormControl(null, Validators.required),
-      Email: new FormControl(null, [Validators.required, Validators.email]),
-      Skype: new FormControl(null, Validators.required),
-      GitHub: new FormControl(null, [Validators.required, ExadelValidators.restrictedGitHubLink]),
-      English: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
+      surname: new FormControl(null, Validators.required),
+      phone: new FormControl(null, [Validators.required, Validators.pattern('[0-9.+()]{10,}')]),
+      location: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      skype: new FormControl(null, Validators.required),
+      github: new FormControl(null, ExadelValidators.restrictedGitHubLink),
+      english: new FormControl(null, Validators.required),
       day1: new FormControl(null, Validators.required),
       hours1: new FormControl(null, Validators.required),
       day2: new FormControl(null, Validators.required),
       hours2: new FormControl(null, Validators.required),
       day3: new FormControl(null, Validators.required),
       hours3: new FormControl(null, Validators.required),
-      CV: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes]),
-      Agreement: new FormControl(null, Validators.requiredTrue),
-      Notifications: new FormControl(null),
+      cv: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes, ExadelValidators.fileSizeValidator]),
+      agreement: new FormControl(null, Validators.requiredTrue),
+      recipient: new FormControl(null),
     });
   }
 
 
-  handleFiles(CV): void {
-    console.log(CV.files.item[0]);
+  handleFiles(event: any): void {
+    this.cv = event.target.files[0];
+    console.log(this.cv);
   }
 
-
   onSubmit(): void {
-    console.log(1, this.form, this.form.status, { ...this.form.value });
+    console.log(this.form, {...this.form.value}, this.form.status);
+
 
     if (this.form.valid) {
-      const FormData = { ...this.form.value };
+      this.isSubmitted = true;
+      const FormData = {...this.form.value};
       this.sent.post('https://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/', FormData);
       this.form.reset();
     }
 
   }
+
 
 }
 
