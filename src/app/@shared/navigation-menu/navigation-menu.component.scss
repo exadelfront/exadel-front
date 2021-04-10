@@ -22,7 +22,7 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-nav a {
+nav p {
   text-decoration: none;
   outline: none;
   display: block;
@@ -43,7 +43,7 @@ nav a {
 .top_menu > li:first-child {
   border: none;
 }
-.top_menu > li > a {
+.top_menu > li > p {
   padding: 1vw 3vw;
   color: $default_link_color;
   font-weight: bold;
@@ -59,10 +59,7 @@ nav a {
   top: 1vw;
   color: $link_hover_color;
 }
-.top_menu li a:hover {
-  color: $link_hover_color;
-}
-.sub_menu {
+app-navigation-tag{
   position: absolute;
   left: 50%;
   width: 100%;
@@ -73,20 +70,14 @@ nav a {
   opacity: 0;
   transform: scale(0.8);
   transition: 0.4s ease-in-out;
+  li{
+    padding: 5px 0;
+  }
 }
-.top_menu > li:hover .sub_menu {
+.top_menu > li:hover app-navigation-tag  {
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 0);
 }
-.sub_menu a {
-  font-family: Poppins;
-  letter-spacing: 1px;
-  padding: 3% 0;
-  color: $default_link_color;
-  transition: 0.3s linear;
-}
-.sub_menu li a:hover {
-  background: $bg_hover_color;
-  color: $sub_menu_link_hover_color;
-}
+
+
