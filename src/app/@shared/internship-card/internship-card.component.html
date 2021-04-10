@@ -19,7 +19,7 @@
       </p>
       <p class="post__description">{{ post.description }}</p>
       <div class="post__additional">
-        <button *ngIf="isBtnPresent" class="post__btn" (click)="goToPostPage()">More details</button>
+        <button *ngIf="isBtnPresent" class="post__btn" (click)="goToPostPage()">{{ 'MAIN_PAIGE.MORE_DETAILS_BUTTON' | translate }}</button>
         <p class="post__date">{{ post.startDate }}</p>
       </div>
     </div>
