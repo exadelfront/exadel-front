@@ -2,6 +2,9 @@ $placeholder_color: #d1d1d1;
 $default_border: 3px solid #d1d1d1;
 $approved_border: 3px solid #2ea3f2;
 $reject_border: 3px solid red;
+$default_bg: #d1d1d1;
+$approved_bg: #2ea3f2;
+$reject_bg: red;
 
 .text {
   max-width: 100vw;
@@ -12,12 +15,12 @@ $reject_border: 3px solid red;
 }
 .textarea {
   border: $default_border;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 50%;
   height: 300px;
   padding: 1%;
   resize: none;
-  overflow: hidden;
+  overflow: auto;
   font-family: Poppins;
   font-size: 24px;
   text-align: left;
@@ -37,31 +40,29 @@ $reject_border: 3px solid red;
 .textarea::placeholder {
   color: $placeholder_color;
 }
-.textarea_approved,
-.textarea_reject {
-  border: $approved_border;
-  border-radius: 10px;
-  padding: 1.5% 1%;
-  filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.25));
-  overflow: auto;
-}
-.textarea_approved::-webkit-scrollbar,
-.textarea_reject::-webkit-scrollbar {
+.textarea::-webkit-scrollbar {
   width: 8px;
   left: 5px;
 }
-.textarea_approved::-webkit-scrollbar-thumb,
-.textarea_reject::-webkit-scrollbar-thumb {
+.textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #2ea3f2;
+  background-color: $default_bg;
 }
-.textarea_approved::-webkit-scrollbar-track,
-.textarea_reject:-webkit-scrollbar-track {
+.textarea::-webkit-scrollbar-track {
   border-radius: 10px;
+}
+.textarea_approved,
+.textarea_reject {
+  border: $approved_border;
+  padding: 1.5% 1%;
+  filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.25));
+}
+.textarea_approved::-webkit-scrollbar-thumb {
+  background-color: $approved_bg;
 }
 .textarea_reject {
   border: $reject_border;
 }
 .textarea_reject::-webkit-scrollbar-thumb {
-  background-color: rgb(168, 5, 5);
+  background-color: $reject_bg;
 }
