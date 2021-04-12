@@ -24,16 +24,16 @@
         "Select":"Select ",
         "CV": "your CV",
         "Interview": "Choose suitable time for you for an interview:",
-        "InterviewDay": "Part of the week",
+        "InterviewDay": "Part of the week...",
         "InterviewDays": {
-            "Monday":"Monday", 
-            "Tuesday":"Tuesday", 
-            "Wednesday":"Wednesday", 
+            "Monday":"Monday",
+            "Tuesday":"Tuesday",
+            "Wednesday":"Wednesday",
             "Thursday":"Thursday",
             "Friday":"Friday",
             "Saturday":"Saturday"
         },
-        "InterviewHours": "Part of the day",
+        "InterviewHours": "Part of the day...",
         "Agreement": "I agree to the processing and storage of my personal data",
         "Notification": "I want to receive notifications for similar events",
         "SubmitBtn": "Submit"

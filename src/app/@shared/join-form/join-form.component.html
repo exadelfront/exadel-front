@@ -11,24 +11,24 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'FirstName'" [placeholder] ="'JOIN_FORM.FirstName' | translate" [type]="'text'" [name]="'Firstname'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'name'" [placeholder] ="'JOIN_FORM.FirstName' | translate" [type]="'text'" [name]="'Firstname'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-lastname'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'LastName'" [placeholder] ="'JOIN_FORM.LastName' | translate" [type]="'text'" [name]="'Lastname'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'surname'" [placeholder] ="'JOIN_FORM.LastName' | translate" [type]="'text'" [name]="'Lastname'"></app-join-input>
                     </div>
                 </div>
 
-                <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'Telephone'" [placeholder] ="'JOIN_FORM.Telephone' | translate" [type]="'tel'" [name]="'Telephone'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'Location'" [placeholder] ="'JOIN_FORM.Location' | translate" [type]="'text'" [name]="'Location'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'Email'" [placeholder] ="'JOIN_FORM.Email' | translate" [type]="'email'" [name]="'Email'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'Skype'" [placeholder] ="'JOIN_FORM.Skype' | translate" [type]="'text'" [name]="'Skype'"></app-join-input>
+                <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'phone'" [placeholder] ="'JOIN_FORM.Telephone' | translate" [type]="'tel'" [name]="'Telephone'"></app-join-input>
+                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'location'" [placeholder] ="'JOIN_FORM.Location' | translate" [type]="'text'" [name]="'Location'"></app-join-input>
+                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'email'" [placeholder] ="'JOIN_FORM.Email' | translate" [type]="'email'" [name]="'Email'"></app-join-input>
+                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'skype'" [placeholder] ="'JOIN_FORM.Skype' | translate" [type]="'text'" [name]="'Skype'"></app-join-input>
 
                 <div class='join-form-contacts-row'>
                     <div class='join-form-contacts-row-input'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'GitHub'" [placeholder] ="'JOIN_FORM.GitHub' | translate" [type]="'url'" [name]="'GitHib'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'github'" [placeholder] ="'JOIN_FORM.GitHub' | translate" [type]="'url'" [name]="'GitHib'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-row-select'>
-                        <app-join-select [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'English'"></app-join-select>
+                        <app-join-select [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'english'"></app-join-select>
                     </div>
                 </div>
           </div>
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='CV' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png'>
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='cv' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' >
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
                 </div>
@@ -69,32 +69,32 @@
             <div class='join-form-interview'>
                 <span>{{'JOIN_FORM.Interview' | translate}}</span>
                 <div class='join-form-timetable'>
-                    <div class='join-form-timetable-slot'>
+                    <div class='join-form-timetable-slot' [formArrayName]="slot1">
                         <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day1'"></app-join-input-date>
+                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'slot1'" (change)="setSelect()" ></app-join-input-date>
                         </div>
                         <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours1'"></app-join-select-hours>
+                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'slot1'" (change)="setSelect()" ></app-join-select-hours>
                         </div>
                     </div>
 
-                    <div class='join-form-timetable-slot'>
-                        <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day2'"></app-join-input-date>
-                        </div>
-                        <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours2'"></app-join-select-hours>
-                        </div>
-                    </div>
+<!--                    <div class='join-form-timetable-slot'>-->
+<!--                        <div class='join-form-timetable-slot-day'>-->
+<!--                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day2'"></app-join-input-date>-->
+<!--                        </div>-->
+<!--                        <div class='join-form-timetable-slot-hours'>-->
+<!--                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours2'"></app-join-select-hours>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <div class='join-form-timetable-slot'>
-                        <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day3'"></app-join-input-date>
-                        </div>
-                        <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours3'"></app-join-select-hours>
-                        </div>
-                    </div>
+<!--                    <div class='join-form-timetable-slot'>-->
+<!--                        <div class='join-form-timetable-slot-day'>-->
+<!--                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day3'"></app-join-input-date>-->
+<!--                        </div>-->
+<!--                        <div class='join-form-timetable-slot-hours'>-->
+<!--                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours3'"></app-join-select-hours>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
 
 
@@ -106,7 +106,7 @@
 
                <div>
                     <label class="switch">
-                        <input type="checkbox" ngDefaultControl formControlName="Agreement"/>
+                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="agreement"/>
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -118,7 +118,7 @@
             <div class='join-form-notification'>
                 <div>
                    <label class="switch">
-                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="Notifications"/>
+                        <input type="checkbox" class='form-control' ngDefaultControl formControlName="recipient"/>
                         <span class="slider round"></span>
                     </label>
                 </div>

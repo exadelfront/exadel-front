@@ -3,11 +3,11 @@ import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-input-date',
-  template:  `<div [formGroup]="parentForm">
+  template:  `<div [formGroup]="parentForm" >
                 <select name="day" formControlName="{{controlName}}" class='form-control'>
-                  <option name="day" value="" hidden>{{'JOIN_FORM.InterviewDay' | translate}}</option>
+                  <option name="day" value="" hidden >{{'JOIN_FORM.InterviewDay' | translate}}</option>
                   <option name="day" *ngFor="let day of InterviewDays"
-                        value="day"
+                        value="{{day}}"
                   >{{day}}
                   </option>
                 </select>

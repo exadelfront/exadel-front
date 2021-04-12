@@ -6,8 +6,7 @@ import {FormGroup} from '@angular/forms';
   template: `<div [formGroup]="parentForm">
               <select name="hours" formControlName="{{controlName}}" class='form-control' >
                 <option name="hours" value="" hidden>{{'JOIN_FORM.InterviewHours' | translate}}</option>
-                <option name="hours" *ngFor="let hours of InterviewHours"
-                      value="hours"
+                <option name="hours" *ngFor="let hours of InterviewHours" value="{{hours}}"
                 >{{hours}}
                 </option>
               </select>

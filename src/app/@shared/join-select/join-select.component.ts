@@ -4,12 +4,11 @@ import {FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-join-select',
   template: ` <div [formGroup]="parentForm" >
-                  <select name="English" formControlName="{{controlName}}" class='form-control' >
+                  <select name="English" formControlName="{{controlName}}" class="form-control" >
                     <option name="English" value="" hidden>{{'JOIN_FORM.English' | translate}}</option>
                     <option name="English" *ngFor="let eng of englishArr"
-                            value="eng"
-                    >
-                    {{eng}}
+                            value="{{eng}}"
+                    >{{eng}}
                     </option>
                   </select>
               </div>`,
@@ -26,10 +25,6 @@ export class JoinSelectComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // onChangeColor():void {
-  //   const select = document.querySelector("select");
-  //   console.log(select);  }
 
 }
 
