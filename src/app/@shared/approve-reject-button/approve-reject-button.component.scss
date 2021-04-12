@@ -1,6 +1,6 @@
 .approve_btn{
   width: 270px;
-  height: 80px;
+  height: 65px;
   border: none;
   border-radius: 100px 0 100px 0;
   font-family: Poppins;
@@ -14,6 +14,18 @@
   background: white;
 }
 
+@media (max-width: 1200px) {
+  .approve_btn{
+    width: 170px;
+    height: 45px;
+  }
+}
+@media (max-width: 700px) {
+  .approve_btn{
+    width: 120px;
+    height: 25px;
+  }
+}
 .approve_btn:hover{
   cursor: pointer;
 }
