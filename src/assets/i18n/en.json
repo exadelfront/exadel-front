@@ -36,6 +36,7 @@
         "InterviewHours": "Part of the day...",
         "Agreement": "I agree to the processing and storage of my personal data",
         "Notification": "I want to receive notifications for similar events",
-        "SubmitBtn": "Submit"
+        "SubmitBtn": "Submit",
+        "SubmitNotification": "Your request is received. We will contact you soon."
     }
 }

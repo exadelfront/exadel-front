@@ -1,5 +1,5 @@
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ExadelValidators } from './exadel.validators';
 import { HttpClient } from '@angular/common/http';
 
@@ -16,9 +16,9 @@ export class JoinFormComponent implements OnInit {
 
   form: FormGroup;
   CV: File = null;
-  fileToUpload: File = null;
+  cv: File = null;
+  isSubmitted = false;
   slot1: FormArray;
-
 
   constructor(private sent: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class JoinFormComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
-      phone: new FormControl(null, [Validators.required]),
+      phone: new FormControl(null, [Validators.required, Validators.pattern('[0-9.+()]{10,}')]),
       location : new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       skype: new FormControl(null, Validators.required),
@@ -50,29 +50,24 @@ export class JoinFormComponent implements OnInit {
       recipient: new FormControl(null)
     });
 
-
   }
 
   // slot1 = this.form.get("slot1") as FormArray;
 
-  setSelect(): void {
-    const var1 = new FormControl('', Validators.required);
-    this.slot1.push(var1);
+  // setSelect(): void {
+  //   const var1 = new FormControl('', Validators.required);
+  //   this.slot1.push(var1);
+
+  handleFiles(event: any): void {
+    this.cv = event.target.files[0];
+    console.log(this.cv);
   }
-  // setSelect(event) {
-  //   this.form.controls['slot1'].setValue(event);
-  // }
-
-
-  // handleFileInput(files: FileList): void {
-  //   this.fileToUpload = files.item(0);
-  //   console.log(this.fileToUpload);
-  // }
 
   onSubmit():void {
   console.log(1, this.form, this.form.status, { ...this.form.value }, this.form.get('slot1').value);
 
     // if(this.form.valid) {
+      this.isSubmitted = true;
       const FormData = { ...this.form.value};
       const date: string = new Date().toString();
       FormData.utc = date;
@@ -83,6 +78,7 @@ export class JoinFormComponent implements OnInit {
   //   Object.keys(this.form.controls)
   //     .forEach(controlName => this.form.controls[controlName].markAsTouched());
    }
+
 
 }
 

@@ -11,6 +11,7 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
+
                         <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'name'" [placeholder] ="'JOIN_FORM.FirstName' | translate" [type]="'text'" [name]="'Firstname'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-lastname'>
@@ -58,9 +59,10 @@
                 </div>
 
                 <div class='join-form-CV-upload'>
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='cv' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' >
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='cv' id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' (change)="handleFiles($event)">
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
+                  <div *ngIf="cv">{{cv.name}}</div>
                 </div>
             </div>
 
@@ -128,6 +130,8 @@
             <div class='join-form-submit'>
               <input type="submit" class='form-control' value="{{'JOIN_FORM.SubmitBtn' | translate}}">
             </div>
+          <div *ngIf="isSubmitted" class="join-form-alert">{{'JOIN_FORM.SubmitNotification' | translate}}</div>
+
 
     </form>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input} from '@angular/core';
+
+import {Component, OnInit, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 
 @Component({
@@ -15,6 +16,7 @@ export class JoinInputComponent implements OnInit {
   @Input() name: string;
   @Input() controlName: string;
   @Input() parentForm: FormGroup;
+
 
   constructor() { }
 
