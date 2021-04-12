@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+}
+table,
+mat-form-field,
+mat-paginator {
+  font-family: Poppins;
+}
+td,
+th {
+  max-width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tr:hover {
+  background: whitesmoke;
+}
+td:hover {
+  color: #2ea3f2;
+  cursor: pointer;
+}
+mat-form-field input,
+mat-label,
+mat-form-field-underline,
+::ng-deep mat-paginator,
+::ng-deep mat-option.mat-selected {
+  color: #2ea3f2 !important;
+}
+::ng-deep .mat-sort-header-arrow {
+  color: white;
+}
+.mat-header-cell {
+  background-color: #2ea3f2;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+.mat-form-field {
+  width: 100%;
+}
