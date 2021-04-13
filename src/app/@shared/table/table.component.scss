@@ -16,7 +16,7 @@ th {
 tr:hover {
   background: whitesmoke;
 }
-td:hover {
+.td_hover:hover {
   color: #2ea3f2;
   cursor: pointer;
 }
@@ -38,4 +38,7 @@ mat-form-field-underline,
 }
 .mat-form-field {
   width: 100%;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #2ea3f2 !important;
 }

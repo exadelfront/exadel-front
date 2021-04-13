@@ -11,17 +11,7 @@ export interface StudentData {
   hrManager: string;
 }
 const STUDENTS_DATA: StudentData[] = [
-  {name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
-  {name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status:'Approved', hrManager:'Name Surname'},
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  {name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status:'Approved', hrManager:'Name Surname'},
+  { name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
@@ -36,11 +26,21 @@ const STUDENTS_DATA: StudentData[] = [
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  {name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status:'Approved', hrManager:'Name Surname'},
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  {name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status:'Approved', hrManager:'Name Surname'}
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' }
 ];
 @Component({
   selector: 'app-table',
@@ -57,7 +57,7 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    this.dataSource = new MatTableDataSource(STUDENTS_DATA);
+    
   }
 
   ngAfterViewInit() {
@@ -68,12 +68,12 @@ export class TableComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-  OpenInfo():void {
+
+  openInfo():void {
     window.open('http://google.com', '_blank');
   }
 }
