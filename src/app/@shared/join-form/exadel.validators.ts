@@ -19,27 +19,4 @@ export class ExadelValidators {
         }
     }
 
-
-
-    // static fileSizeValidator(control: FormControl): { [key: string]: boolean } {
-    //   const file = control.value;
-      // const fileSize = control.files[0];
-      // if (file) {
-        // console.log(document.getElementById('file-input'));
-        // fRead.readAsDataURL(file.files[0]);
-      // }
-
-
-      // const file = document.getElementById('file-input').files[0];
-      /*
-      const fileSizeInKB = Math.round(fileSize / 1024);
-      if (file && fileSizeInKB >= 19) {
-          return {fileSizeValidator: true};
-      }
-       */
-    //   return null;
-    // }
-
-
-
 }

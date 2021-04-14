@@ -22,7 +22,8 @@
         "English":"English level...",
         "Drop": "Drop or ",
         "Select":"Select ",
-        "CV": "your CV",
+        "CV": "your CV (.pdf/.doc/.docx/.png-format are permitted)",
+        "FileSize": "Size of file exceeded",
         "Interview": "Choose suitable time for you for an interview:",
         "InterviewDay": "Part of the week...",
         "InterviewDays": {
@@ -37,6 +38,7 @@
         "Agreement": "I agree to the processing and storage of my personal data",
         "Notification": "I want to receive notifications for similar events",
         "SubmitBtn": "Submit",
-        "SubmitNotification": "Your request is received. We will contact you soon."
+        "SubmitNotification": "Your request is received. We will contact you soon.",
+        "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
     }
 }

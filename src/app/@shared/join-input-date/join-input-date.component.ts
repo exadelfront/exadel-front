@@ -3,8 +3,8 @@ import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-input-date',
-  template:  `<div [formGroup]="parentForm" >
-                <select name="day" formControlName="{{controlName}}" class='form-control'>
+  template:  `<div [formGroup]="parentForm" class="form-control">
+                <select name="day" formControlName="{{controlName}}" ngModel>
                   <option name="day" value="" hidden >{{'JOIN_FORM.InterviewDay' | translate}}</option>
                   <option name="day" *ngFor="let day of InterviewDays"
                         value="{{day}}"
@@ -22,6 +22,7 @@ export class JoinInputDateComponent implements OnInit {
   @Input() InterviewDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   @Input() controlName: string;
   @Input() parentForm: FormGroup;
+
 
   constructor() { }
 

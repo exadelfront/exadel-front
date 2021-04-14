@@ -109,6 +109,12 @@ $blue: #2EA3F2;
     padding-bottom: 70px;
   }
 
+  &-danger {
+    font-size: 23px;
+    color: red;
+    padding-bottom: 70px;
+  }
+
 }
 
 h2 {
@@ -126,7 +132,8 @@ span {
   line-height: 27px;
   color: #000000;
 
-  &.agree:after {
+  &.agree:after,
+  &.drop:after{
     content: '*';
     top: -4%;
     left: 1%;
@@ -161,11 +168,6 @@ input {
     background: $blue;
     border: 1px solid $blue;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    /*
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: none;
-    border-top-right-radius: none;
-    border-bottom-right-radius: 100px;*/
     border-radius: 100px 0 100px 0;
     outline: none;
     font-size: 24px;
@@ -190,11 +192,6 @@ input {
   }
 
 }
-
-.svg:active {
-  stroke: #2ea3f2;
-}
-
 
 .switch {
   margin-right: 42px;
@@ -265,7 +262,7 @@ input:checked + .slider:before {
   .join-form-contacts-row {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: flex-start;
 
 
     &-input {
@@ -383,6 +380,5 @@ input:checked + .slider:before {
   }
 
 }
-
 
 

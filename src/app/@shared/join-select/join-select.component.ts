@@ -1,13 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-join-select',
-  template: ` <div [formGroup]="parentForm" >
-                  <select name="English" formControlName="{{controlName}}" class="form-control" >
-                    <option name="English" value="" hidden>{{'JOIN_FORM.English' | translate}}</option>
-                    <option name="English" *ngFor="let eng of englishArr"
-                            value="{{eng}}"
+  template: ` <div [formGroup]="parentForm" class="form-control">
+                  <select formControlName="{{controlName}}" name="english" ngModel >
+                    <option value="" hidden>{{'JOIN_FORM.English' | translate}}</option>
+                    <option *ngFor="let eng of englishArr" value="{{eng}}"
                     >{{eng}}
                     </option>
                   </select>
@@ -22,9 +21,7 @@ export class JoinSelectComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 
 }
 

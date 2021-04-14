@@ -1,7 +1,7 @@
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExadelValidators } from './exadel.validators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -15,36 +15,33 @@ import { HttpClient } from '@angular/common/http';
 export class JoinFormComponent implements OnInit {
 
   form: FormGroup;
-  CV: File = null;
   cv: File = null;
+  fileSizeMb: number;
   isSubmitted = false;
-  slot1: FormArray;
+  notSubmitted = false;
+  interviews: { day: any, time: any }[] = [];
+  cvlink: any;
+  urlForCV = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/upload';
+  urlForForm = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/registration';
 
   constructor(private sent: HttpClient) { }
-
 
   ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
-      phone: new FormControl(null, [Validators.required, Validators.pattern('[0-9.+()]{10,}')]),
+      phone: new FormControl(null, [Validators.required, Validators.pattern('/^([+]?[0-9\\s-\\(\\)]{3,25})*$/i')]),
       location : new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       skype: new FormControl(null, Validators.required),
-      github: new FormControl(null, [Validators.required, ExadelValidators.restrictedGitHubLink]),
+      github: new FormControl(null, ExadelValidators.restrictedGitHubLink),
       english: new FormControl(null, Validators.required),
-      slot1: new FormArray([]),
-
-
-      // slot1: new FormGroup({
-      //   day1: new FormControl(null, Validators.required),
-      //   hours1: new FormControl(null, Validators.required),
-      // }),
-
-      // day2: new FormControl(null, Validators.required),
-      // hours2: new FormControl(null, Validators.required),
-      // day3: new FormControl(null, Validators.required),
-      // hours3: new FormControl(null, Validators.required),
+      day1: new FormControl(null, Validators.required),
+      hours1: new FormControl(null, Validators.required),
+      day2: new FormControl(null, Validators.required),
+      hours2: new FormControl(null, Validators.required),
+      day3: new FormControl(null, Validators.required),
+      hours3: new FormControl(null, Validators.required),
       cv: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes]),
       agreement: new FormControl(null, Validators.requiredTrue),
       recipient: new FormControl(null)
@@ -52,34 +49,84 @@ export class JoinFormComponent implements OnInit {
 
   }
 
-  // slot1 = this.form.get("slot1") as FormArray;
-
-  // setSelect(): void {
-  //   const var1 = new FormControl('', Validators.required);
-  //   this.slot1.push(var1);
-
   handleFiles(event: any): void {
     this.cv = event.target.files[0];
-    console.log(this.cv);
+    this.sendCV(this.cv);
   }
 
-  onSubmit():void {
-  console.log(1, this.form, this.form.status, { ...this.form.value }, this.form.get('slot1').value);
 
-    // if(this.form.valid) {
+  uploadFile(event: any): void {
+    this.cv = event[0];
+    this.sendCV(this.cv);
+  }
+
+
+  sendCV(cv: any): void {
+    this.fileSizeMb = this.cv.size / (1024 * 1024);
+    if (this.fileSizeMb < 20) {
+      const fileToUpload: FormData = new FormData();
+      fileToUpload.append('file', this.cv, this.cv.name);
+      const HTTPOptions = {
+        headers: new HttpHeaders(),
+        responseType: 'text' as 'json'
+      };
+      this.sent.post<string>( this.urlForCV,
+        fileToUpload, HTTPOptions)
+        .subscribe(response => {
+          this.cvlink = response;
+          console.log(response);
+        }, error => {
+          console.error(error);
+        });
+    }
+  }
+
+
+
+  higlightTextColor(event: any): any {
+    for (let i = 1; i < event.target.children.length; i++) {
+      event.target.children[i].style.color = 'black';
+      if (event.target.children[i].selected) {
+         event.target.style.color = 'black';
+      }
+    }
+  }
+
+
+  changeToArray(): void {
+    this.interviews[0] = {day: this.form.value.day1, time: this.form.value.hours1};
+    this.interviews[1] = {day: this.form.value.day2, time: this.form.value.hours2};
+    this.interviews[2] = {day: this.form.value.day3, time: this.form.value.hours3};
+
+    this.form.value.dates = this.interviews;
+
+    delete this.form.value.day1;
+    delete this.form.value.day2;
+    delete this.form.value.day3;
+    delete this.form.value.hours1;
+    delete this.form.value.hours2;
+    delete this.form.value.hours3;
+    this.form.value.cv = this.cvlink;
+  }
+
+
+  onSubmit(): void {
+    this.changeToArray();
+    console.log({...this.form.value}, this.form.status);
+
+    if (this.form.valid) {
       this.isSubmitted = true;
-      const FormData = { ...this.form.value};
+      const FormData = {...this.form.value};
       const date: string = new Date().toString();
       FormData.utc = date;
-      console.log((FormData));
-      this.sent.post('http://localhost:4200/post/1', FormData);
-      // this.form.reset();
-    // } else {
-  //   Object.keys(this.form.controls)
-  //     .forEach(controlName => this.form.controls[controlName].markAsTouched());
-   }
-
-
+      this.sent.post(this.urlForForm, FormData)
+        .subscribe(ev => {
+        });
+      this.form.reset();
+    } else {
+        this.notSubmitted = true;
+    }
+  }
 }
 
 

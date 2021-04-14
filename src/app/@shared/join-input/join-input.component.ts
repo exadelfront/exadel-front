@@ -5,7 +5,7 @@ import {FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-join-input',
   template: `<div [formGroup]="parentForm">
-              <input class="form-control" formControlName="{{controlName}}" placeholder="{{placeholder}}" type="{{type}}" name="{{name}}"/>
+              <input class="form-control" formControlName="{{controlName}}" placeholder="{{placeholder}}" type="{{type}}" name="{{name}}" />
              </div>`,
   styleUrls: ['./join-input.component.scss']
 })

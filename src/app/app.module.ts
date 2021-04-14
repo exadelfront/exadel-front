@@ -11,7 +11,6 @@ import { CoreModule } from './@core/@core.module';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -23,9 +22,10 @@ import { CoreModule } from './@core/@core.module';
     AppRoutingModule,
     AdminAppModule,
     SharedModule,
-    CoreModule,
+    CoreModule
   ],
-  exports: [],
+  exports: [
+  ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

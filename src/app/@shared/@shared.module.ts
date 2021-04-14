@@ -25,6 +25,8 @@ import { TextareaComponent } from './textarea/textarea.component';
 import { ChooseDateComponent } from './choose-date/choose-date.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 
+import { DndDirective} from '../directives/dnd.directive';
+
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http);
 }
@@ -48,7 +50,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ApproveRejectButtonComponent,
     TextareaComponent,
     ChooseDateComponent,
-    SectionHeaderComponent],
+    SectionHeaderComponent,
+    DndDirective
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -83,7 +87,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ApproveRejectButtonComponent,
     TextareaComponent,
     ChooseDateComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    DndDirective
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

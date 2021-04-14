@@ -6,16 +6,15 @@ select {
     border: 3px solid rgba(0, 0, 0, 0.15);
     outline: none;
     border-radius: 100px;
-    text-indent: 30px;
+    padding-left: 30px;
     font-size: 20px;
     line-height: 27px;
     color: #D1D1D1;
     appearance: none;
 
-      &.ng-invalid.ng-touched {
+      &.ng-invalid.ng-touched.ng-dirty {
         border: 2px solid red;
       }
-
 }
 
 
@@ -42,6 +41,4 @@ div::after {
         margin-bottom: 40px;
     }
 }
-
-
 

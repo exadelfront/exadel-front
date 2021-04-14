@@ -3,8 +3,8 @@ import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-select-hours',
-  template: `<div [formGroup]="parentForm">
-              <select name="hours" formControlName="{{controlName}}" class='form-control' >
+  template: `<div [formGroup]="parentForm" class="form-control">
+              <select name="hours" formControlName="{{controlName}}"  ngModel>
                 <option name="hours" value="" hidden>{{'JOIN_FORM.InterviewHours' | translate}}</option>
                 <option name="hours" *ngFor="let hours of InterviewHours" value="{{hours}}"
                 >{{hours}}
