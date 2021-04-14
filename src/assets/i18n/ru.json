@@ -8,7 +8,8 @@
             "Technology":"Технология",
             "Event_type":"Тип ивента",
             "Internship_status":"Статус стажировки"
-        }
+        },
+      "MORE_DETAILS_BUTTON": "Подробнее"
     },
     "JOIN_FORM": {
         "Title":"Заполните анкету",

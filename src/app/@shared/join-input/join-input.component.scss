@@ -21,14 +21,14 @@ input {
         color: #D1D1D1;
     }
 
-  //&.ng-invalid.ng-touched {
-  //  border: 1px solid red;
-  //}
-
+    &.ng-invalid.ng-touched.ng-dirty,
+    &.ng-invalid.ng-touched.ng-pristine {
+      border: 2px solid red;
+    }
 }
 
 
-div::after {
+div:not(:nth-child(7))::after {
   position: absolute;
   content: "*";
   top: 7px;
@@ -38,6 +38,8 @@ div::after {
 }
 
 
-input.ng-invalid.ng-touched.ng-dirty, input.ng-invalid.ng-touched.ng-pristine {
-  border: 2px solid red;
+
+div input[type=url]::after {
+  content: none;
+
 }

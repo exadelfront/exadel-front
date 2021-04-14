@@ -12,7 +12,8 @@ select {
     color: #D1D1D1;
     appearance: none;
 
-      &.ng-invalid.ng-touched.ng-dirty {
+      &.ng-invalid.ng-touched.ng-dirty,
+      &.ng-invalid.ng-touched.ng-pristine {
         border: 2px solid red;
       }
 }

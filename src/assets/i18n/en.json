@@ -8,7 +8,8 @@
             "Technology":"Technology",
             "Event_type":"Event type",
             "Internship_status":"Internship status"
-        }
+        },
+        "MORE_DETAILS_BUTTON": "More details"
     },
     "JOIN_FORM": {
         "Title":"Join us",
@@ -41,4 +42,6 @@
         "SubmitNotification": "Your request is received. We will contact you soon.",
         "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
     }
+
 }
+
