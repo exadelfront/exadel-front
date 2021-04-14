@@ -119,8 +119,8 @@ export class JoinFormComponent implements OnInit {
     if (this.form.valid) {
       this.isSubmitted = true;
       const FormData = {...this.form.value};
-      const date: string = new Date().toString();
-      FormData.utc = date;
+      // const date: string = new Date().toString();
+      // FormData.utc = date;
       this.sent.post(this.urlForForm, FormData)
         .subscribe(ev => {
         });
