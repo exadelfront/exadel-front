@@ -14,7 +14,7 @@ export class ExadelValidators {
     const file = control.value;
     // const fileSize = control.files[0];
     if (file) {
-      // console.log(document.getElementById('file-input'));
+      console.log(control);
       // fRead.readAsDataURL(file.files[0]);
     }
 
