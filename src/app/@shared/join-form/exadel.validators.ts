@@ -10,7 +10,6 @@ export class ExadelValidators {
         }
     }
 
-
     static restrictedGitHubLink(control: FormControl): {[key: string]: boolean} {
         if (/^https:\/\/github.com\//.test(control.value) || /^http:\/\/github.com\//.test(control.value)){
               return null;

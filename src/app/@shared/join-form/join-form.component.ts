@@ -1,8 +1,8 @@
-import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { ExadelValidators } from './exadel.validators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, OnInit} from '@angular/core';
+import {ExadelValidators} from './exadel.validators';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 @Component({
@@ -24,7 +24,9 @@ export class JoinFormComponent implements OnInit {
   urlForCV = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/upload';
   urlForForm = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/registration';
 
-  constructor(private sent: HttpClient) { }
+
+  constructor(private sent: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
