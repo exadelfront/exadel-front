@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminAppModule} from './admin-app/admin-app.module';
+import {HttpClientModule} from '@angular/common/http';
 import { SharedModule } from './@shared/@shared.module';
 import { CoreModule } from './@core/@core.module';
 
@@ -14,12 +15,13 @@ import { CoreModule } from './@core/@core.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AdminAppModule,
+    HttpClientModule,
     SharedModule,
-    CoreModule
+    CoreModule,
   ],
   exports: [],
   providers: [],

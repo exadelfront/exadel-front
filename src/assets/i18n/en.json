@@ -8,6 +8,7 @@
             "Technology":"Technology",
             "Event_type":"Event type",
             "Internship_status":"Internship status"
-        }
+        },
+        "MORE_DETAILS_BUTTON": "More details"
     }
 }

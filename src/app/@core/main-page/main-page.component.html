@@ -1,6 +1,6 @@
 <app-navigation-menu></app-navigation-menu>
 <app-internship-card
-  *ngFor="let post of postCardsService.postCards; let idx = index"
+  *ngFor="let post of posts; let idx = index"
   [post]="post"
   [isGray]="idx % 2 !== 0 ? false: true"
   [isBtnPresent]="true"
