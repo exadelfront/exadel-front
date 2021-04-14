@@ -1,0 +1,20 @@
+.stud-info-container,
+.interviews-container {
+  padding: 5vh 20vw;
+}
+.stud-info,
+.cv-container,
+.chose-hr-date,
+.textarea-div,
+.english-level-header,
+.english-rate-container {
+  padding: 2.5vh 0;
+}
+.chose-hr-date-header {
+  padding: 0 0 2.5vh 0;
+}
+.english-rate-container,
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
