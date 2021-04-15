@@ -1,16 +1,28 @@
 .hr-review-form {
   margin: 0 auto;
   width: 1000px;
+  padding-top: 50px;
+}
+
+.title-wrapper {
+  margin-bottom: 39px;
+}
+
+.textarea-wrapper {
+  margin-bottom: 60px;
 }
 
 .english-levels {
   width: 100%;
+  margin-bottom: 60px;
   display: flex;
   justify-content: space-between;
 }
 
 .approve-reject-buttons {
   width: 100%;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
