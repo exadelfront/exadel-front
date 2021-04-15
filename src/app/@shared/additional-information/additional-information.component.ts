@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AdditionalInformationComponent implements OnInit {
 
-  @Input() additionalInfo: string;
+  @Input() additionalInfoInternship: string;
 
   constructor() { }
 

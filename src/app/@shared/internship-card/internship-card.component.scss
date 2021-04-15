@@ -9,7 +9,8 @@ $btn_bg_hover_color: white;
 $btn_icon_hover: #2ea3f2;
 
 .post {
-  height: 415px;
+  padding: 25px;
+  max-height: 415px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +124,8 @@ $btn_icon_hover: #2ea3f2;
 
 @media (max-width: 1259px) {
   .post {
-    height: 680px;
+    padding: 15px;
+    max-height: 680px;
 
     &__wrapper {
       width: 600px;
@@ -141,7 +143,7 @@ $btn_icon_hover: #2ea3f2;
 
 @media (max-width: 699px) {
  .post {
-
+   padding: 15px;
    &__wrapper {
      width: 300px;
    }
