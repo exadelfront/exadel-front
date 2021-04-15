@@ -1,0 +1,43 @@
+<form class="hr-review-form" action="#">
+  <app-section-header
+    [header_text]="'Please describe the candidate'"
+    [name]="'Sergey Danchenko'"
+    [is_button]="false"
+  ></app-section-header>
+  <app-textarea
+    [placeholder]="'Type here...'"
+    [readonly]="false"
+  ></app-textarea>
+  <app-section-header
+    [header_text]="'Please rate the level of English of the candidate'"
+    [is_button]="false"
+  ></app-section-header>
+  <div class="english-levels">
+    <app-rate-btn
+      *ngFor="let englishLevel of englishLevels; index as id"
+      [id]="id"
+      [name]="'english'"
+      [value]="englishLevel"
+    ></app-rate-btn>
+  </div>
+  <app-section-header
+    [header_text]="'Please choose the date of technical interview'"
+    [is_button]="false"
+  ></app-section-header>
+  <app-join-input
+    [placeholder]="'d/m/y, time'"
+    [type]="'datetime-local'"
+    [name]="'technical-interview-date'"
+  ></app-join-input>
+  <div class="approve-reject-buttons">
+    <app-approve-reject-button
+      [text]="'Approve'"
+      [bgcolor]="'#2EA3F2'"
+    ></app-approve-reject-button>
+    <app-approve-reject-button
+      [text]="'Reject'"
+      [bgcolor]="'#F22E2E'"
+    ></app-approve-reject-button>
+  </div>
+</form>
+

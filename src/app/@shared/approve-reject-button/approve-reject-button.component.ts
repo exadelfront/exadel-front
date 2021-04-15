@@ -9,7 +9,7 @@ export class ApproveRejectButtonComponent implements OnInit {
 
   @Input() text = '';
   @Input() bgcolor = '#2EA3F2';
-  @Input() align = 'right';
+  // @Input() align = 'right';
 
   constructor() { }
 
