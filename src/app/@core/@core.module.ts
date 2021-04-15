@@ -8,6 +8,7 @@ import { SharedModule } from '../@shared/@shared.module';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { InfoStudentPageComponent } from './info-student-page/info-student-page.component';
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
+import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TechnicalEstimateComponent } from './technical-estimate/technical-estim
     PostPageComponent,
     LoginMenuComponent,
     InfoStudentPageComponent,
-    TechnicalEstimateComponent
+    TechnicalEstimateComponent,
+    StudentsTablePageComponent
   ],
   imports: [
     CommonModule,

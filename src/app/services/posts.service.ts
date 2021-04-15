@@ -12,7 +12,12 @@ export interface Post {
   startDate: string;
   endDate?: string;
   id?: number;
-  additionalInfo?: string;
+  additionalInfoInternship?: string;
+  format?: string;
+  skills?: string[];
+  startRequestDate?: string;
+  endRequestDate?: string;
+  internshipType?: string;
 }
 
 @Injectable({
