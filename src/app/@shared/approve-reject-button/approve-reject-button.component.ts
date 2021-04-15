@@ -7,9 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ApproveRejectButtonComponent implements OnInit {
 
-  @Input() text = '';
+  @Input() text: string;
   @Input() bgcolor = '#2EA3F2';
-  // @Input() align = 'right';
+  @Input() border = '#FFFFFF';
 
   constructor() { }
 

@@ -1,0 +1,13 @@
+<app-header-app></app-header-app>
+<div class="container">
+  <div class="text_part">
+    <h2 class="text_part__title">Please describe the candidate <b class="text_part__title__blue">Name Surname</b></h2>
+    <hr class="text_part__line">
+    <app-textarea class="text_part__text_input"></app-textarea>
+  </div>
+  <div class="buttons_part">
+    <app-approve-reject-button [text]="'Approve'" [bgcolor]="'#2EA3F2'" ></app-approve-reject-button>
+    <app-approve-reject-button [text]="'Reject'"  [bgcolor]="'#F22E2E'" ></app-approve-reject-button>
+  </div>
+</div>
+<app-footer></app-footer>

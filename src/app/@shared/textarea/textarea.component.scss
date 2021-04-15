@@ -16,8 +16,8 @@ $reject_bg: red;
 .textarea {
   border: $default_border;
   border-radius: 10px;
-  width: 50%;
-  height: 300px;
+  width: 100%;
+  height: 500px;
   padding: 1%;
   resize: none;
   overflow: auto;
@@ -65,4 +65,10 @@ $reject_bg: red;
 }
 .textarea_reject::-webkit-scrollbar-thumb {
   background-color: $reject_bg;
+}
+
+@media (max-width: 1200px) {
+  .textarea{
+    font-size: 18px;
+  }
 }
