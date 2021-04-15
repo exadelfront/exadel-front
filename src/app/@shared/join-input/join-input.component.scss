@@ -28,15 +28,6 @@ input {
 }
 
 
-div:not(:nth-child(7))::after {
-  position: absolute;
-  content: "*";
-  top: 7px;
-  right: 20px;
-  color: red;
-  font-size: 22px;
-}
-
 
 
 div input[type=url]::after {
