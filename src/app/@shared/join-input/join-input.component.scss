@@ -27,19 +27,3 @@ input {
     }
 }
 
-
-div:not(:nth-of-type(7))::after {
-  position: absolute;
-  content: "*";
-  top: 7px;
-  right: 20px;
-  color: red;
-  font-size: 22px;
-}
-
-
-
-div input[type=url]::after {
-  content: none;
-
-}

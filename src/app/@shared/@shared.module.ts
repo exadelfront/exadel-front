@@ -27,12 +27,27 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { NavigationTagComponent } from './navigation-tag/navigation-tag.component';
 import { StudentInfoComponent } from './student-info/student-info.component';
 import { InfoSectionHeaderComponent } from './info-section-header/info-section-header.component';
+import { TableComponent } from './table/table.component';
+
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 import { DndDirective} from '../directives/dnd.directive';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http);
 }
+
+const MaterialModules = [
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
+];
 
 @NgModule({
   declarations: [
@@ -57,15 +72,15 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     DndDirective,
     NavigationTagComponent,
     StudentInfoComponent,
-    InfoSectionHeaderComponent
+    InfoSectionHeaderComponent,
+    TableComponent
   ],
 
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
+    ...MaterialModules,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -97,9 +112,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SectionHeaderComponent,
     DndDirective,
     StudentInfoComponent,
-    InfoSectionHeaderComponent
+    InfoSectionHeaderComponent,
+    TableComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
-
 })
+
 export class SharedModule { }

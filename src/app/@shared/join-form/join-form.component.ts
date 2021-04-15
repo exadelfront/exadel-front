@@ -32,11 +32,11 @@ export class JoinFormComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
-      phone: new FormControl(null, [Validators.required, Validators.pattern('/^([+]?[0-9\\s-\\(\\)]{3,25})*$/i')]),
+      phone: new FormControl(null, Validators.required),
       location : new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       skype: new FormControl(null, Validators.required),
-      github: new FormControl(null, ExadelValidators.restrictedGitHubLink),
+      github: new FormControl(null),
       english: new FormControl(null, Validators.required),
       day1: new FormControl(null, Validators.required),
       hours1: new FormControl(null, Validators.required),
@@ -44,7 +44,7 @@ export class JoinFormComponent implements OnInit {
       hours2: new FormControl(null, Validators.required),
       day3: new FormControl(null, Validators.required),
       hours3: new FormControl(null, Validators.required),
-      cv: new FormControl(null, [Validators.required, ExadelValidators.restrictedFileTypes]),
+      cv: new FormControl(null, Validators.required),
       agreement: new FormControl(null, Validators.requiredTrue),
       recipient: new FormControl(null)
     });
