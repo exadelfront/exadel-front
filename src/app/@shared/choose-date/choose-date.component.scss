@@ -1,72 +1,39 @@
-.choose-date-wrapper {
-    font-family: 'Poppins';
-    margin: 0px auto;
-    max-width:1000px;
-    display: flex;
-    flex-direction: column;
-
-    .choose-date-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .choose-date-line {
-        display: flex;
-        margin-bottom:45px;
-    }
-
-    .choose-date-input {
-        display: flex;
-    }
-
+.choose-date-input {
+  display: flex;
 }
 
-span{
-    font-size: 36px;
-    line-height: 54px;
-    color: #000000;
+input[type="datetime-local"] {
+  width: 100%;
+  height: 70px;
+  background: #ffffff;
+  border: 3px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 100px;
+  font-size: 24px;
+  line-height: 36px;
+  text-indent: 5%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  color: #d1d1d1;
+
+  &:focus {
+    transition: all ease 0.3s;
+    border: 3px solid#2EA3F2;
+  }
+  &:valid {
+    color: #2ea3f2;
+  }
 }
-
-input[type=datetime-local]{
-    width: 100%;
-    height: 70px;
-    background: #FFFFFF;
-    border: 3px solid rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
-    border-radius: 100px;
-    font-size: 24px;
-    line-height: 36px;
-    text-indent: 5%;
-    display: flex;
-    align-items: center;
-    color: #D1D1D1;
+@media (max-width: 699px) {
+  input[type="datetime-local"] {
+    height: 40px;
+    font-size: 14px;
+  }
 }
-
-input[type=datetime-local]{
-    width: 100%;
-    height: 70px;
-    background: #FFFFFF;
-    border: 3px solid rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
-    border-radius: 100px;
-    font-size: 24px;
-    line-height: 36px;
-    text-indent: 5%;
-    outline: none;
-    display: flex;
-    align-items: center;
-    color: #D1D1D1;
-
-    &:hover, &:active {
-        border: 3px solid#2EA3F2;
-        color: #2EA3F2;
-    }
-   
-}
-
-
-.svg:hover{
-    fill: #2EA3F2;
-    stroke: #2EA3F2;
+@media (min-width: 700px) and (max-width: 1100px) {
+  input[type="datetime-local"] {
+    height: 50px;
+    font-size: 18px;
+  }
 }
