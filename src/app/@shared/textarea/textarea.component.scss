@@ -67,8 +67,15 @@ $reject_bg: red;
   background-color: $reject_bg;
 }
 
-@media (max-width: 1200px) {
-  .textarea{
+@media (max-width: 699px) {
+  .textarea {
+    font-size: 14px;
+    height: 200px;
+  }
+}
+@media (min-width: 700px) and (max-width: 1100px) {
+  .textarea {
     font-size: 18px;
+    height: 300px;
   }
 }
