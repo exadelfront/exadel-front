@@ -63,7 +63,7 @@ export class JoinFormComponent implements OnInit {
   }
 
 
-  sendCV(cv: any): void {
+  sendCV(cv: File): void {
     this.fileSizeMb = this.cv.size / (1024 * 1024);
     if (this.fileSizeMb < 20) {
       const fileToUpload: FormData = new FormData();
@@ -114,7 +114,7 @@ export class JoinFormComponent implements OnInit {
 
   onSubmit(): void {
     this.changeToArray();
-    console.log({...this.form.value}, this.form.status);
+    console.log(this.form, {...this.form.value}, this.form.status);
 
     if (this.form.valid) {
       this.isSubmitted = true;

@@ -28,7 +28,7 @@ input {
 }
 
 
-div:not(:nth-child(7))::after {
+div:not(:nth-of-type(7))::after {
   position: absolute;
   content: "*";
   top: 7px;

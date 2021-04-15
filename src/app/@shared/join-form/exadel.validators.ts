@@ -1,7 +1,6 @@
 import {FormControl} from '@angular/forms';
 
 export class ExadelValidators {
-
     static restrictedFileTypes(control: FormControl): {[key: string]: boolean} {
         if (/.pdf$/.test(control.value) || /.doc$/.test(control.value) || /.docx$/.test(control.value) || /.png$/.test(control.value)) {
           return null;
@@ -9,7 +8,6 @@ export class ExadelValidators {
           return {restrictedFileTypes: true};
         }
     }
-
     static restrictedGitHubLink(control: FormControl): {[key: string]: boolean} {
         if (/^https:\/\/github.com\//.test(control.value) || /^http:\/\/github.com\//.test(control.value)){
               return null;
@@ -17,5 +15,4 @@ export class ExadelValidators {
              return {restrictedGitHubLink: true};
         }
     }
-
 }

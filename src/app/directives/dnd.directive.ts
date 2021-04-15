@@ -23,7 +23,6 @@ export class DndDirective {
       event.preventDefault();
       event.stopPropagation();
       const files = event.dataTransfer.files;
-      console.log(files);
       if (files.length > 0) {
         this.FileDropped.emit(files);
       }
