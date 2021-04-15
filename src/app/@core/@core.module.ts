@@ -7,6 +7,8 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { SharedModule } from '../@shared/@shared.module';
 import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { InfoStudentPageComponent } from './info-student-page/info-student-page.component';
+import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { InfoStudentPageComponent } from './info-student-page/info-student-page.
     MainPageComponent,
     PostPageComponent,
     LoginMenuComponent,
-    InfoStudentPageComponent
+    InfoStudentPageComponent,
+    TechnicalEstimateComponent
   ],
   imports: [
     CommonModule,

@@ -23,11 +23,26 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { NavigationTagComponent } from './navigation-tag/navigation-tag.component';
 import { StudentInfoComponent } from './student-info/student-info.component';
 import { InfoSectionHeaderComponent } from './info-section-header/info-section-header.component';
+import { TableComponent } from './table/table.component';
+
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
+
+const MaterialModules = [
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
+];
 
 @NgModule({
   declarations: [
@@ -49,11 +64,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     SectionHeaderComponent,
     NavigationTagComponent,
     StudentInfoComponent,
-    InfoSectionHeaderComponent
+    InfoSectionHeaderComponent,
+    TableComponent
   ],
 
   imports: [
     CommonModule,
+    ...MaterialModules,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -82,7 +99,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChooseDateComponent,
     SectionHeaderComponent,
     StudentInfoComponent,
-    InfoSectionHeaderComponent
+    InfoSectionHeaderComponent,
+    TableComponent
   ]
 })
 export class SharedModule { }
