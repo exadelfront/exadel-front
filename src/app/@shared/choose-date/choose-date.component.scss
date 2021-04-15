@@ -25,3 +25,15 @@ input[type="datetime-local"] {
     color: #2ea3f2;
   }
 }
+@media (max-width: 699px) {
+  input[type="datetime-local"] {
+    height: 40px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 700px) and (max-width: 1100px) {
+  input[type="datetime-local"] {
+    height: 50px;
+    font-size: 18px;
+  }
+}
