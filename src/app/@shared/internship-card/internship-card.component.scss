@@ -121,6 +121,22 @@ $btn_icon_hover: #2ea3f2;
   }
   }
 
+@media (max-width: 1259px) {
+  .post {
+    height: 680px;
+
+    &__wrapper {
+      width: 600px;
+      flex-wrap: wrap-reverse;
+      justify-content: center;
+    }
+
+    &__image {
+      width: 340px;
+      margin-bottom: 30px;
+    }
+  }
+}
 
 
 @media (max-width: 699px) {
