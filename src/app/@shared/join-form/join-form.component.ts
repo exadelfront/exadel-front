@@ -123,6 +123,7 @@ export class JoinFormComponent implements OnInit {
       // FormData.utc = date;
       this.sent.post(this.urlForForm, FormData)
         .subscribe(ev => {
+          console.log(ev);
         });
       this.form.reset();
     } else {
