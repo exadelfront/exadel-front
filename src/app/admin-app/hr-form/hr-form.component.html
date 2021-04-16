@@ -1,4 +1,8 @@
-<form class="hr-review-form" action="#">
+<form
+  class="hr-review-form"
+  action="#"
+  [formGroup]="form"
+  (ngSubmit)="submit()">
   <div class="title-wrapper">
     <app-section-header
       [header_text]="'Please describe the candidate'"
@@ -8,6 +12,8 @@
   </div>
   <div class="textarea-wrapper">
     <app-textarea
+      [parentForm]="form"
+      [controlName]="'review'"
       [placeholder]="'Type here...'"
       [readonly]="false"
     ></app-textarea>
@@ -41,10 +47,12 @@
     <app-approve-reject-button
       [text]="'Approve'"
       [bgcolor]="'#2EA3F2'"
+      [parentForm]="form"
     ></app-approve-reject-button>
     <app-approve-reject-button
       [text]="'Reject'"
       [bgcolor]="'#F22E2E'"
+      [parentForm]="form"
     ></app-approve-reject-button>
   </div>
 </form>
