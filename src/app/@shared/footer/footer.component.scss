@@ -1,7 +1,8 @@
+@import "src/styles";
 footer {
   max-width: 1920px;
   height: 80px;
-  background: #d1d1d1;
+  background: $main_grey;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -19,7 +20,7 @@ footer {
       font-weight: normal;
       font-size: 14px;
       line-height: 19px;
-      color: #000000;
+      color: black;
       text-decoration: none;
     }
   }

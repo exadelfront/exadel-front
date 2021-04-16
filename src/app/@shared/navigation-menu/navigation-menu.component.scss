@@ -1,15 +1,5 @@
-$bg_color: #ffffff;
-$bg_hover_color: #2ea3f2;
-$default_link_color: black;
-$link_hover_color: #2ea3f2;
-$sub_menu_bg_color: #fafafa;
-$sub_menu_border_color: #ededed;
-$sub_menu_link_hover_color: white;
-$border_color: rgba(0,0,0,0.25);
+@import "/src/styles";
 
-* {
-  box-sizing: border-box;
-}
 nav {
   outline: 3px $border_color;
   border: 3px solid $border_color;
@@ -45,7 +35,7 @@ nav p {
 }
 .top_menu > li > p {
   padding: 1vw 3vw;
-  color: $default_link_color;
+  color: black;
   font-weight: bold;
   letter-spacing: 1px;
   font-family: Poppins;
@@ -57,14 +47,14 @@ nav p {
   left: 8vw;
   width: 10vw;
   top: 1vw;
-  color: $link_hover_color;
+  color: $main_blue;
 }
 app-navigation-tag{
   position: absolute;
   left: 50%;
   width: 100%;
-  background: $sub_menu_bg_color;
-  border: 1px solid $sub_menu_border_color;
+  background: white;
+  border: 1px solid $lighter_grey;
   z-index: 5;
   visibility: hidden;
   opacity: 0;

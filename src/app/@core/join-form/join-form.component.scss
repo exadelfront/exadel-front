@@ -1,7 +1,7 @@
-$blue: #2EA3F2;
+@import "src/styles";
 
 .join-form {
-    margin: 0px auto; 
+    margin: 0px auto;
     font-family: 'Open Sans', sans-serif;
 
     &-wrapper {
@@ -14,14 +14,14 @@ $blue: #2EA3F2;
 
     &-contacts {
         margin-top: 46px;
-        display: flex; 
+        display: flex;
         flex-direction: column;
 
 
         &-row-select {
             position: relative;
         }
-        
+
     }
 
     &-CV {
@@ -40,7 +40,7 @@ $blue: #2EA3F2;
 
     }
 
-   
+
     &-interview {
         display: flex;
         flex-direction: column;
@@ -80,13 +80,13 @@ h2 {
     font-size: 30px;
     line-height: 35px;
     text-transform: uppercase;
-    color: $blue;
+    color: $main_blue;
 }
 
 span {
     font-size: 18px;
     line-height: 27px;
-    color: #000000;
+    color: black;
 
     &.agree:after {
         content: '*';
@@ -97,10 +97,10 @@ span {
     }
 
     &.drop label {
-        color: $blue;    
+        color: $main_blue;
     }
 
-    
+
 }
 
 
@@ -110,19 +110,19 @@ input {
         position: absolute;
         z-index: -10;
     }
-        
+
     &[type=file] label:hover {
         cursor: pointer;
     }
-    
+
     &[type=submit] {
         margin-top: 61px;
         width: 559px;
         height: 78px;
         text-align: center;
-        background: $blue;
-        border: 1px solid $blue;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        background: $main_blue;
+        border: 1px solid $main_blue;
+        box-shadow: 0 0 5px $input_shadow;
         border-top-left-radius: 100px;
         border-bottom-left-radius: none;
         border-top-right-radius: none;
@@ -132,14 +132,14 @@ input {
         font-weight: 700;
         line-height: 30px;
         text-indent: 0px;
-        color: #FFFFFF;
+        color: white;
 
         &:hover {
             background-color: white;
-            fill: $blue;
-            color: $blue; 
+            fill: $main_blue;
+            color: $main_blue;
             transition: all ease 0.3s;
-            box-shadow: 0 0 5px $blue;
+            box-shadow: 0 0 5px $main_blue;
             cursor: pointer;
         }
 
@@ -148,7 +148,7 @@ input {
             transform: translateY(3px);
         }
     }
-    
+
 }
 
 img.oval {
@@ -196,7 +196,7 @@ img.line{
         height: 0;
     }
 }
-  
+
 
 .slider {
   position: absolute;
@@ -224,7 +224,7 @@ img.line{
     &.round {
         border-radius: 34px;
     }
-  
+
     &.slider.round:before {
       border-radius: 50%;
     }
@@ -232,11 +232,11 @@ img.line{
 }
 
 input:checked + .slider {
-  background-color: $blue;
+  background-color: $main_blue;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $blue;
+  box-shadow: 0 0 1px $main_blue;
 }
 
 input:checked + .slider:before {
@@ -277,7 +277,7 @@ input:checked + .slider:before {
     img.oval {
         width:100px;
     }
-    
+
     .join-form-timetable {
         margin-bottom: 0px;
     }
@@ -299,7 +299,7 @@ input:checked + .slider:before {
         width: 30px;
         height: 16px;
     }
-      
+
     .slider:before {
             position: absolute;
             content: "";
@@ -314,8 +314,8 @@ input:checked + .slider:before {
             &.round {
                 border-radius: 24px;
             }
-    }   
-      
+    }
+
     input:checked + .slider:before {
         -webkit-transform: translateX(90%);
         -ms-transform: translateX(16px);
@@ -329,7 +329,7 @@ input:checked + .slider:before {
 
     .join-form-CV {
         flex-direction: column;
-        
+
         &-upload{
             padding-left: 0px;
         }
@@ -346,6 +346,6 @@ input:checked + .slider:before {
     input[type=submit]{
          height:55px;
     }
-   
+
 }
 
