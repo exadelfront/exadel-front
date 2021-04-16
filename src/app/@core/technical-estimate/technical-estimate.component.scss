@@ -3,6 +3,7 @@
   max-width: 70%;
   display: block;
   margin: 0 auto;
+  min-height: 90%;
 }
 .text_part{
 
@@ -39,10 +40,6 @@
 hr{
   margin: 5px 0 4% 0;
   color: $main_blue;
-}
-app-textarea{
-
-
 }
 .buttons_part{
   margin: 1% 0 5% 0;
