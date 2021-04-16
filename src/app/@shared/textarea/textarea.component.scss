@@ -1,20 +1,10 @@
-$placeholder_color: #d1d1d1;
-$default_border: 3px solid #d1d1d1;
-$approved_border: 3px solid #2ea3f2;
-$reject_border: 3px solid red;
-$default_bg: #d1d1d1;
-$approved_bg: #2ea3f2;
-$reject_bg: red;
+@import "/src/styles";
 
 .text {
   max-width: 100vw;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: center;
-  // align-items: center;
 }
 .textarea {
-  border: $default_border;
+  border: $text_input_border;
   border-radius: 10px;
   width: 100%;
   height: 500px;
@@ -29,16 +19,16 @@ $reject_bg: red;
   outline: none;
 }
 .textarea::-webkit-input-placeholder {
-  color: $placeholder_color;
+  color: $main_grey;
 }
 .textarea:-ms-input-placeholder {
-  color: $placeholder_color;
+  color: $main_grey;
 }
 .textarea::-ms-input-placeholder {
-  color: $placeholder_color;
+  color: $main_grey;
 }
 .textarea::placeholder {
-  color: $placeholder_color;
+  color: $main_grey;
 }
 .textarea::-webkit-scrollbar {
   width: 8px;
@@ -46,7 +36,7 @@ $reject_bg: red;
 }
 .textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: $default_bg;
+  background-color: $main_grey;
 }
 .textarea::-webkit-scrollbar-track {
   border-radius: 10px;
@@ -55,16 +45,16 @@ $reject_bg: red;
 .textarea_reject {
   border: $approved_border;
   padding: 1.5% 1%;
-  filter: drop-shadow(2px 5px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(2px 5px 4px $border_color);
 }
 .textarea_approved::-webkit-scrollbar-thumb {
-  background-color: $approved_bg;
+  background-color: $main_blue;
 }
 .textarea_reject {
   border: $reject_border;
 }
 .textarea_reject::-webkit-scrollbar-thumb {
-  background-color: $reject_bg;
+  background-color: red;
 }
 
 @media (max-width: 699px) {

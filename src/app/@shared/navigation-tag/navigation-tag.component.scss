@@ -1,15 +1,4 @@
-$bg_color: #ffffff;
-$bg_hover_color: #2ea3f2;
-$default_link_color: black;
-$link_hover_color: #2ea3f2;
-$sub_menu_bg_color: #fafafa;
-$sub_menu_border_color: #ededed;
-$sub_menu_link_hover_color: white;
-$border_color: rgba(0,0,0,0.25);
-
-* {
-  box-sizing: border-box;
-}
+@import "/src/styles";
 
 li{
   padding: 5px 0;
@@ -17,7 +6,7 @@ li{
 
 li > p {
   padding: 1vw 3vw;
-  color: $default_link_color;
+  color: black;
   font-weight: bold;
   letter-spacing: 1px;
   font-family: Poppins;
@@ -27,14 +16,14 @@ li > p {
   font-family: Poppins;
   letter-spacing: 1px;
   line-height: 30px;
-  color: $default_link_color;
+  color: black;
   transition: 0.3s linear;
 }
 .sub_menu li a:hover {
-  background: $bg_hover_color;
-  color: $sub_menu_link_hover_color;
+  background: $main_blue;
+  color: white;
 }
 li input[type="checkbox"]:checked + #word_opts {
-  color: $bg_hover_color;
+  color: $main_blue;
 
 }

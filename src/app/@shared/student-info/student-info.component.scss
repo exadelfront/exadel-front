@@ -1,3 +1,5 @@
+@import "/src/styles";
+
 .text_div {
   font-size: 24px;
   color: black;
@@ -7,16 +9,16 @@
 }
 .type_name {
   font-size: 48px;
-  color: #2ea3f2;
+  color: $main_blue;
   padding-top: 0;
   margin-top: -2vh;
 }
 .type_status {
-  color: #2ea3f2;
+  color: $main_blue;
 }
 .type_link a {
   text-decoration: none;
-  color: #2ea3f2;
+  color: $main_blue;
 }
 @media (max-width: 699px) {
   .text_div {
