@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-approve-reject-button',
@@ -10,10 +11,9 @@ export class ApproveRejectButtonComponent implements OnInit {
   @Input() text: string;
   @Input() bgcolor = '#2EA3F2';
   @Input() border = '#FFFFFF';
+  @Input() parentForm: FormGroup;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

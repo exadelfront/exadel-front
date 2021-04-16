@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -68,19 +69,20 @@ const MaterialModules = [
     TableComponent
   ],
 
-  imports: [
-    CommonModule,
-    ...MaterialModules,
-    HttpClientModule,
+    imports: [
+        CommonModule,
+        ...MaterialModules,
+        HttpClientModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
-          },
-          defaultLanguage: 'en'
-        })
-  ],
+            },
+            defaultLanguage: 'en'
+        }),
+        ReactiveFormsModule
+    ],
   exports: [
     JoinInputDateComponent,
     JoinSelectComponent,
