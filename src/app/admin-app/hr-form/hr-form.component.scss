@@ -1,10 +1,11 @@
 .hr-review-form {
   margin: 0 auto;
-  width: 1000px;
+  max-width: 1000px;
   padding-top: 50px;
 }
 
 .title-wrapper {
+  width: 100%;
   margin-bottom: 39px;
 }
 
@@ -21,8 +22,37 @@
 
 .approve-reject-buttons {
   width: 100%;
-  margin-bottom: 30px;
+  margin: 40px 0 30px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 1100px) {
+  .hr-review-form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hr-review-form {
+    padding-top: 20px;
+  }
+
+  .title-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .textarea-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .english-levels {
+    margin-bottom: 30px;
+  }
+
+  .approve-reject-buttons {
+    margin-top: 20px;
+  }
+}
+
