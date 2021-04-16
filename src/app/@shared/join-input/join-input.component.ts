@@ -11,9 +11,9 @@ import { Component, OnInit, Input} from '@angular/core';
 export class JoinInputComponent implements OnInit {
 
   @Input() placeholder: string;
-  @Input() type:string;
-  @Input() name:string;
-  
+  @Input() type: string;
+  @Input() name: string;
+
   constructor() { }
 
   ngOnInit(): void {

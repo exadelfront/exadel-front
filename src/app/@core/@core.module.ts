@@ -25,12 +25,13 @@ import { StudentsTablePageComponent } from './students-table-page/students-table
     CommonModule,
     SharedModule
   ],
-  exports: [
-    JoinFormComponent,
-    MainPageComponent,
-    PostPageComponent,
-    LoginMenuComponent,
-    InfoStudentPageComponent
-  ],
+    exports: [
+        JoinFormComponent,
+        MainPageComponent,
+        PostPageComponent,
+        LoginMenuComponent,
+        InfoStudentPageComponent,
+        TechnicalEstimateComponent
+    ],
 })
 export class CoreModule { }
