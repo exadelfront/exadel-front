@@ -3,14 +3,21 @@
 .text_field {
   font-family: Poppins;
   font-size: 36px;
-  white-space: nowrap;
+  //white-space: nowrap;
 }
 .text_div {
-  display: inline-flex;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
+.text {
+  padding-right: 2%;
+}
+
 .name {
   color: $main_blue;
   padding-left: 2%;
+
 }
 .cv_button {
   border: none;
