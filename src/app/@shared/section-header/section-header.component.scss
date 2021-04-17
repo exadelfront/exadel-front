@@ -1,17 +1,23 @@
-$border_style: 1px solid #2ea3f2;
-$text_color: #2ea3f2;
+@import "/src/styles";
 
 .text_field {
   font-family: Poppins;
   font-size: 36px;
-  white-space: nowrap;
+  //white-space: nowrap;
 }
 .text_div {
-  display: inline-flex;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
+.text {
+  padding-right: 2%;
+}
+
 .name {
-  color: $text_color;
+  color: $main_blue;
   padding-left: 2%;
+
 }
 .cv_button {
   border: none;
@@ -20,11 +26,31 @@ $text_color: #2ea3f2;
   cursor: pointer;
 }
 .cv_logo:hover {
-  fill: $text_color;
+  fill: $main_blue;
 }
 .header_div {
   padding: 0 0;
   display: flex;
   justify-content: space-between;
-  border-bottom: $border_style;
+  border-bottom: $btn_border;
+}
+
+@media (max-width: 699px) {
+  .text_field {
+    font-size: 18px;
+  }
+  .cv_button svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+  .text_field {
+    font-size: 24px;
+  }
+  .cv_button svg {
+    width: 40px;
+    height: 40px;
+  }
 }

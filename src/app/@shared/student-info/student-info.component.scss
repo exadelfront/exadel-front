@@ -1,19 +1,39 @@
+@import "/src/styles";
+
 .text_div {
   font-size: 24px;
   color: black;
   font-family: Poppins;
   border-bottom: 1px solid black;
-  width: 50%;
-  padding-top: 2%;
+  padding-top: 3vh;
 }
 .type_name {
-  font-size: 36px;
-  color: #2ea3f2;
+  font-size: 48px;
+  color: $main_blue;
+  padding-top: 0;
+  margin-top: -2vh;
 }
 .type_status {
-  color: #2ea3f2;
+  color: $main_blue;
 }
 .type_link a {
   text-decoration: none;
-  color: #2ea3f2;
+  color: $main_blue;
+}
+@media (max-width: 699px) {
+  .text_div {
+    font-size: 14px;
+  }
+  .type_name {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+  .text_div {
+    font-size: 24px;
+  }
+  .type_name {
+    font-size: 36px;
+  }
 }

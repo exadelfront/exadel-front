@@ -1,26 +1,42 @@
+@import "src/styles";
 footer {
-    max-width: 1920px;
+  max-width: 1920px;
+  height: 80px;
+  background: $main_grey;
+  margin: 0 auto;
+  display: flex;
+  div {
+    width: 389px;
     height: 80px;
-    background: #d1d1d1;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    div {
-        width: 389px;
-        height: 80px;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        a {
-            font-family: Open Sans;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 19px;
-            color: #000000;
-            text-decoration: none;
-        }
+    a {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 19px;
+      color: black;
+      text-decoration: none;
     }
+  }
+}
+@media (max-width: 699px) {
+  footer div a {
+    font-size: 10px;
+  }
+  footer{
+    height: 40px;
+    div{
+      height: 40px;
+    }
+  }
+}
+@media (min-width: 700px) and (max-width: 1100px) {
+  footer div a {
+    font-size: 14px;
+  }
 }

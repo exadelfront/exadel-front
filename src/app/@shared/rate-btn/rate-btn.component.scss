@@ -1,3 +1,5 @@
+@import "/src/styles";
+
 .rate-btn {
   display: inline-block;
 
@@ -13,17 +15,38 @@
     height: 90px;
     cursor: pointer;
     user-select: none;
-    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #C4C4C4;
+    filter: drop-shadow(2px 4px 4px $border_color);
+    box-shadow: 0px 4px 4px $border_color;
+    background-color: $dark_grey;
     font-family: Poppins;
     font-size: 24px;
     border-radius: 20px;
     transition: .3s;
+
+    @media (max-width: 1200px) {
+      width: 70px;
+      height: 70px;
+      font-size: 18px;
+      border-radius: 15px;
+    }
+
+    @media (max-width: 700px) {
+      width: 50px;
+      height: 50px;
+      font-size: 12px;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 399px) {
+      width: 40px;
+      height: 40px;
+      font-size: 12px;
+      border-radius: 12px;
+    }
   }
 
   input[type=radio]:checked + label {
-    background-color: #2EA3F2;
-    color: #fff;
+    background-color: $main_blue;
+    color: white;
   }
 }

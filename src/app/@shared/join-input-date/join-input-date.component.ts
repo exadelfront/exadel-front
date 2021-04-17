@@ -23,7 +23,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class JoinInputDateComponent implements OnInit {
 
-  @Input() InterviewHours:string[] = ['10.00 - 13.00', '13.00 - 16.00', '16.00 - 19.00'];
+  @Input() InterviewHours: string[] = ['10.00 - 13.00', '13.00 - 16.00', '16.00 - 19.00'];
 
   constructor() { }
 
