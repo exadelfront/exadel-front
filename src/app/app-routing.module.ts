@@ -8,6 +8,7 @@ import {StudentInfoComponent} from "./@shared/student-info/student-info.componen
 import {TechnicalEstimateComponent} from "./@core/technical-estimate/technical-estimate.component";
 import {HrFormComponent} from "./admin-app/hr-form/hr-form.component";
 
+
 const routes: Routes = [
   {
     path: '',
