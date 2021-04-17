@@ -1,3 +1,5 @@
+@import "/src/styles";
+
 .table-div {
   padding: 5vh 15vw;
 }
@@ -27,11 +29,11 @@ th {
 }
 
 tr:hover {
-  background: whitesmoke;
+  background: $sub_menu_bg_color;
 }
 
 .td_hover:hover {
-  color: #2ea3f2;
+  color: $main_blue;
   cursor: pointer;
 }
 
@@ -40,14 +42,14 @@ mat-label,
 mat-form-field-underline,
 ::ng-deep mat-paginator,
 ::ng-deep mat-option.mat-selected {
-  color: #2ea3f2 !important;
+  color: $main_blue !important;
 }
 ::ng-deep .mat-sort-header-arrow {
   color: white;
 }
 
 .mat-header-cell {
-  background-color: #2ea3f2;
+  background-color: $main_blue;
   color: white;
   font-weight: 600;
   font-size: 18px;
@@ -58,7 +60,7 @@ mat-form-field-underline,
 }
 
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: #2ea3f2 !important;
+  background-color: $main_blue !important;
 }
 
 @media (max-width: 699px) {

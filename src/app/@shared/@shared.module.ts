@@ -85,15 +85,15 @@ const MaterialModules = [
     CommonModule,
     ...MaterialModules,
     HttpClientModule,
-        TranslateModule.forRoot({
+    TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
-          },
-          defaultLanguage: 'en'
+            },
+            defaultLanguage: 'en'
         })
-  ],
+    ],
   exports: [
     JoinFormComponent,
     JoinInputDateComponent,

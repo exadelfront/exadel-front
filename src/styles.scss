@@ -1,7 +1,30 @@
+//@import "/src/styles";
+
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
+$main_blue: #2EA3F2;
+$input_shadow: rgba(0, 0, 0, 0.5);
+$border_color: rgba(0,0,0,0.25);
+$input_border_color: rgba(0, 0, 0, 0.15);
+
+$dark_grey: #C4C4C4;
+$main_grey: #D1D1D1;
+$light_grey: #EBEBEB;
+$lighter_grey: #EDEDED;
+$sub_menu_bg_color: #FAFAFA;
+
+$btn_border: 1px solid $main_blue;
+$btn_shadow: 0 0 5px $input_shadow;
+$btn_shadow_hover: 0 0 5px $main_blue;
+$btn_shadow_active: 0 0 5px white;
+
+$approved_border: 3px solid #2ea3f2;
+$reject_border: 3px solid red;
+$text_input_border: 3px solid $main_grey;
+$input_border: 3px solid $input_border_color;
+$text_input_border: 3px solid $main_grey;
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,3 +33,4 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

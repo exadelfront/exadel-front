@@ -1,9 +1,4 @@
-$btn_bg: #2ea3f2;
-$btn_border: 1px solid #2ea3f2;
-$btn_shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-$btn_shadow_hover: 0 0 5px #2ea3f2;
-$btn_shadow_active: 0 0 5px white;
-$btn_bg_hover_color: white;
+@import "/src/styles";
 
 .translate_div {
   position: absolute;
@@ -11,7 +6,7 @@ $btn_bg_hover_color: white;
   left: 95%;
 }
 .trans_btn {
-  background-color: $btn_bg;
+  background-color: $main_blue;
   color: white;
   border: $btn_border;
   cursor: pointer;
@@ -24,8 +19,8 @@ $btn_bg_hover_color: white;
   outline: none;
 }
 .trans_btn:hover {
-  background-color: $btn_bg_hover_color;
-  color: $btn_bg;
+  background-color: white;
+  color: $main_blue;
   transition: all ease 0.3s;
   box-shadow: $btn_shadow_hover;
 }

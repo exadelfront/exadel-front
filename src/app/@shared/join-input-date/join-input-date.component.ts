@@ -16,8 +16,6 @@ import {FormGroup} from '@angular/forms';
 
 export class JoinInputDateComponent implements OnInit {
 
-
-
   @Input() InterviewDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   @Input() controlName: string;
   @Input() parentForm: FormGroup;
@@ -27,7 +25,5 @@ export class JoinInputDateComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 
 }
