@@ -2,7 +2,6 @@ import {AfterViewInit,Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {Router} from '@angular/router';
 
 export interface StudentData {
   name: string;
@@ -43,7 +42,6 @@ const STUDENTS_DATA: StudentData[] = [
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
   { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' }
 ];
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -58,7 +56,7 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router) {
+  constructor() {
     
   }
 
@@ -76,6 +74,6 @@ export class TableComponent implements AfterViewInit {
   }
 
   openInfo():void {
-    this.router.navigate([`/admin/info/email`]);
+    window.open('http://google.com', '_blank');
   }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-menu',
@@ -8,11 +7,9 @@ import {Router} from '@angular/router';
 })
 export class LoginMenuComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  goToTablePage(): void {
-    this.router.navigate([`/admin/table`]);
-  }
+
 }
