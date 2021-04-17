@@ -13,7 +13,7 @@ import { JoinInputDateComponent } from './join-input-date/join-input-date.compon
 import { JoinSelectComponent } from './join-select/join-select.component';
 import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
 import { JoinInputComponent } from './join-input/join-input.component';
-import {JoinSelectLocationComponent} from './location-select/join-select-location-component';
+import {JoinSelectLocationComponent} from './join-select-location/join-select-location-component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { LangSwitchButtonComponent } from './lang-switch-button/lang-switch-button.component';
