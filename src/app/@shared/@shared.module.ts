@@ -13,6 +13,7 @@ import { JoinInputDateComponent } from './join-input-date/join-input-date.compon
 import { JoinSelectComponent } from './join-select/join-select.component';
 import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
 import { JoinInputComponent } from './join-input/join-input.component';
+import {JoinSelectLocationComponent} from './location-select/join-select-location-component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { LangSwitchButtonComponent } from './lang-switch-button/lang-switch-button.component';
@@ -38,6 +39,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import { DndDirective} from '../directives/dnd.directive';
 
+
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http);
 }
@@ -56,6 +58,7 @@ const MaterialModules = [
     JoinSelectComponent,
     JoinInputComponent,
     JoinSelectHoursComponent,
+    JoinSelectLocationComponent,
     HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,
@@ -97,6 +100,7 @@ const MaterialModules = [
     JoinSelectComponent,
     JoinInputComponent,
     JoinSelectHoursComponent,
+    JoinSelectLocationComponent,
     HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,

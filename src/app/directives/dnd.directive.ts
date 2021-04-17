@@ -3,8 +3,8 @@ import {Directive, Output, EventEmitter, HostBinding, HostListener} from '@angul
 @Directive({
   selector: '[appDnd]'
 })
-
 export class DndDirective {
+
   @HostBinding('style.stroke') private stroke = 'none';
   @Output() FileDropped = new EventEmitter();
 
@@ -24,7 +24,7 @@ export class DndDirective {
       event.stopPropagation();
       const files = event.dataTransfer.files;
       if (files.length > 0) {
-        this.FileDropped.emit(files);
+        this.FileDropped.emit(files[0]);
       }
       this.stroke = 'none';
   }

@@ -17,10 +17,11 @@ export class JoinFormComponent implements OnInit {
   form: FormGroup;
   cv: File = null;
   fileSizeMb: number;
+  fileType: string;
   isSubmitted = false;
   notSubmitted = false;
   interviews: { day: any, time: any }[] = [];
-  cvlink: any;
+  cvlink: string;
   urlForCV = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/upload';
   urlForForm = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship/1/registration';
 
@@ -36,7 +37,7 @@ export class JoinFormComponent implements OnInit {
       location : new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       skype: new FormControl(null, Validators.required),
-      github: new FormControl(null),
+      github: new FormControl(null, ExadelValidators.restrictedGitHubLink),
       english: new FormControl(null, Validators.required),
       day1: new FormControl(null, Validators.required),
       hours1: new FormControl(null, Validators.required),
@@ -44,7 +45,6 @@ export class JoinFormComponent implements OnInit {
       hours2: new FormControl(null, Validators.required),
       day3: new FormControl(null, Validators.required),
       hours3: new FormControl(null, Validators.required),
-      cv: new FormControl(null, Validators.required),
       agreement: new FormControl(null, Validators.requiredTrue),
       recipient: new FormControl(null)
     });
@@ -58,14 +58,15 @@ export class JoinFormComponent implements OnInit {
 
 
   uploadFile(event: any): void {
-    this.cv = event[0];
+    this.cv = event;
     this.sendCV(this.cv);
   }
 
 
   sendCV(cv: File): void {
     this.fileSizeMb = this.cv.size / (1024 * 1024);
-    if (this.fileSizeMb < 20) {
+    this.fileType = this.cv.name.split('.')[this.cv.name.split('.').length - 1];
+    if (this.cv && this.fileSizeMb < 20 && (this.fileType === 'pdf' || this.fileType === 'png' || this.fileType === 'doc' || this.fileType === 'docx')) {
       const fileToUpload: FormData = new FormData();
       fileToUpload.append('file', this.cv, this.cv.name);
       const HTTPOptions = {
@@ -114,19 +115,22 @@ export class JoinFormComponent implements OnInit {
 
   onSubmit(): void {
     this.changeToArray();
-    console.log(this.form, {...this.form.value}, this.form.status);
 
+    console.log(this.form.controls, {...this.form.value}, this.form.status);
+
+    const FormData = {...this.form.value};
     if (this.form.valid) {
       this.isSubmitted = true;
-      const FormData = {...this.form.value};
+      this.notSubmitted = false;
       // const date: string = new Date().toString();
       // FormData.utc = date;
       this.sent.post(this.urlForForm, FormData)
         .subscribe(ev => {
+          console.log(ev);
         });
       this.form.reset();
     } else {
-        this.notSubmitted = true;
+      this.notSubmitted = true;
     }
   }
 }

@@ -26,7 +26,6 @@ $blue: #2EA3F2;
 
     &-firstname, &-lastname {
       width: 49%;
-      position: relative;
     }
 
 
@@ -63,7 +62,6 @@ $blue: #2EA3F2;
   &-timetable {
     display: flex;
     flex-direction: column;
-    //justify-content: space-between;
     justify-content: center;
     margin-top: 32px;
     margin-bottom: 37px;
@@ -257,6 +255,7 @@ input:checked + .slider:before {
 
 }
 
+
 @media (min-width: 900px) {
 
   .join-form-contacts-row {
@@ -281,11 +280,17 @@ input:checked + .slider:before {
   }
 }
 
+@media (max-width: 1200px) {
+  .join-form-wrapper {
+      padding-right: 5%;
+      padding-left: 5%;
+  }
+}
 
 @media (max-width: 900px) {
 
   .join-form-contacts-row {
-    flex-direction: column;
+      flex-direction: column;
 
     &-select {
       width: 100%;
@@ -293,15 +298,15 @@ input:checked + .slider:before {
   }
 
   .join-form-contacts-fullname {
-    flex-direction: column;
+      flex-direction: column;
   }
 
   .join-form-contacts-firstname, .join-form-contacts-lastname {
-    width: 100%;
+      width: 100%;
   }
 
   .join-form-timetable {
-    margin-bottom: 0;
+      margin-bottom: 0;
 
     &-slot {
       flex-direction: column;

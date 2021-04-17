@@ -3,16 +3,15 @@ import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-input-date',
-  template:  `<div [formGroup]="parentForm" class="form-control">
+  template:  `<div [formGroup]="parentForm">
                 <select name="day" formControlName="{{controlName}}" ngModel>
-                  <option name="day" value="" hidden >{{'JOIN_FORM.InterviewDay' | translate}}</option>
-                  <option name="day" *ngFor="let day of InterviewDays"
-                        value="{{day}}"
+                  <option name="day" value="" hidden >Part of the day...</option>
+                  <option name="day" *ngFor="let day of InterviewDays" [value]="day"
                   >{{day}}
                   </option>
                 </select>
               </div>`,
-  styleUrls: ['./join-input-date.component.scss']
+  styleUrls: ['./join-input-date.component.scss'],
 })
 
 export class JoinInputDateComponent implements OnInit {

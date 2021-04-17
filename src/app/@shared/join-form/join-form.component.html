@@ -11,21 +11,21 @@
 
                 <div class='join-form-contacts-fullname'>
                     <div class='join-form-contacts-firstname'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'name'" [placeholder] ="'JOIN_FORM.FirstName' | translate" [type]="'text'" [name]="'name'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'name'" [placeholder] ="'First Name...'" [type]="'text'" [name]="'name'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-lastname'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'surname'" [placeholder] ="'JOIN_FORM.LastName' | translate" [type]="'text'" [name]="'surname'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'surname'" [placeholder] ="'Last Name...' " [type]="'text'" [name]="'surname'"></app-join-input>
                     </div>
                 </div>
 
-                <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'phone'" [placeholder] ="'JOIN_FORM.Telephone' | translate" [type]="'tel'" [name]="'phone'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'location'" [placeholder] ="'JOIN_FORM.Location' | translate" [type]="'text'" [name]="'location'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'email'" [placeholder] ="'JOIN_FORM.Email' | translate" [type]="'email'" [name]="'email'"></app-join-input>
-                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'skype'" [placeholder] ="'JOIN_FORM.Skype' | translate" [type]="'text'" [name]="'skype'"></app-join-input>
+                <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'phone'" [placeholder] ="'Phone number...'" [type]="'tel'" [name]="'phone'"></app-join-input>
+                <app-join-select-location [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'location'" (click)="higlightTextColor($event)"></app-join-select-location>
+                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'email'" [placeholder] ="'E-mail...'" [type]="'email'" [name]="'email'"></app-join-input>
+                <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'skype'" [placeholder] ="'Skype...'" [type]="'text'" [name]="'skype'"></app-join-input>
 
                 <div class='join-form-contacts-row'>
                     <div class='join-form-contacts-row-input'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'github'" [placeholder] ="'JOIN_FORM.GitHub' | translate" [type]="'url'" [name]="'github'"></app-join-input>
+                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'github'" [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'github'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-row-select'>
                         <app-join-select [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'english'" (click)="higlightTextColor($event)"></app-join-select>
@@ -35,7 +35,7 @@
 
 
             <div class='join-form-CV'  >
-                <div class='join-form-CV-icon' appDnd (FileDropped)="uploadFile($event)">
+                <div class='join-form-CV-icon' appDnd (FileDropped)="uploadFile($event)" >
                     <svg  class='svg' width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d)">
                         <rect width="134.549" height="75" rx="37.5" fill="#979797"/>
@@ -54,15 +54,15 @@
                         </filter>
                         </defs>
                     </svg>
-
                 </div>
 
                 <div class='join-form-CV-upload' >
-                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input class='form-control'  ngDefaultControl formControlName='cv' id='file-input' type="file" ng-model="file" name="file" accept='.pdf, .doc, .docx, .png' ngf-max-size="20MB" (change)="handleFiles($event)">
+                    <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' ngf-max-size="20MB" (change)="handleFiles($event)">
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
-                    <div *ngIf="cv && (fileSizeMb < 20)" [ngStyle]="{color:'#2EA3F2'}">{{cv.name}}</div>
-                    <div *ngIf="cv && (fileSizeMb >= 20)" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileSize' | translate}}</div>
+                    <div *ngIf="cv && (fileSizeMb < 20) && fileType === 'pdf' || fileType === 'png' || fileType === 'doc' || fileType === 'docx'" [ngStyle]="{color:'#2EA3F2'}">{{cv.name}}</div>
+                    <div *ngIf="cv && (fileSizeMb >= 20) && (fileType === 'pdf' || fileType === 'png' || fileType === 'doc' || fileType === 'docx')" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileSize' | translate}}</div>
+                  <div *ngIf="cv && fileType != 'pdf' && fileType != 'png' && fileType != 'doc' && fileType != 'docx'" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileType' | translate}}</div>
                </div>
             </div>
 
@@ -110,7 +110,6 @@
                     </label>
                </div>
                 <span class='agree'>{{'JOIN_FORM.Agreement' | translate}}</span>
-                <div *ngIf="form.controls['agreement'].touched && form.controls['agreement'].invalid">You should agree</div>
             </div>
 
             <div class='join-form-notification'>

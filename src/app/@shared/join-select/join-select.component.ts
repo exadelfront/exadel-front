@@ -3,10 +3,10 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-join-select',
-  template: ` <div [formGroup]="parentForm" class="form-control">
-                  <select formControlName="{{controlName}}" name="english" ngModel >
-                    <option value="" hidden>{{'JOIN_FORM.English' | translate}}</option>
-                    <option *ngFor="let eng of englishArr" value="{{eng}}"
+  template: ` <div [formGroup]="parentForm" >
+                  <select class="form-control" name="english" formControlName="{{controlName}}" ngModel >
+                    <option value="" hidden>English level...</option>
+                    <option *ngFor="let eng of englishArr" [value]="eng"
                     >{{eng}}
                     </option>
                   </select>
