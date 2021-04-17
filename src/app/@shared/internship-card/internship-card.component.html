@@ -1,0 +1,28 @@
+<div
+  class="post"
+  [ngClass]="{
+    post_white: !isGray,
+    post_gray: isGray
+  }">
+  <div class="post__wrapper">
+    <div class="post__content">
+      <h3 class="post__title">{{ post.title }}</h3>
+      <p class="post__tags">
+      <span *ngFor="let tag of post.subjects">
+        #{{ tag }}&nbsp;
+      </span>
+      </p>
+      <p class="post__location">
+        <span *ngFor="let location of post.countries">
+          {{ location }}&nbsp;
+        </span>
+      </p>
+      <p class="post__description">{{ post.description }}</p>
+      <div class="post__additional">
+        <button *ngIf="isBtnPresent" class="post__btn" (click)="goToPostPage()">{{ 'MAIN_PAIGE.MORE_DETAILS_BUTTON' | translate }}</button>
+        <p class="post__date">{{ post.startDate }}</p>
+      </div>
+    </div>
+    <img class="post__image" src="{{ post.image }}" alt="technology image">
+  </div>
+</div>

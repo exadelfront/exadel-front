@@ -3,28 +3,27 @@ import { CommonModule } from '@angular/common';
 
 import { AdminAppRoutingModule } from './admin-app-routing.module';
 import { AdminAppComponent } from './admin-app.component';
-import { LoginMenuComponent } from './login-menu/login-menu.component';
-import { ApproveRejectButtonComponent } from './approve-reject-button/approve-reject-button.component';
-import { TextareaComponent } from './textarea/textarea.component';
-import { ChooseDateComponent } from './choose-date/choose-date.component';
-
+import { SharedModule } from '../@shared/@shared.module';
+import { CoreModule } from '../@core/@core.module';
+import { HrFormComponent } from './hr-form/hr-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AdminAppComponent,
-    LoginMenuComponent,
-    ApproveRejectButtonComponent,
-    TextareaComponent,
-    ChooseDateComponent
+    HrFormComponent
   ],
-
   imports: [
     CommonModule,
-    AdminAppRoutingModule
+    CoreModule,
+    SharedModule,
+    AdminAppRoutingModule,
+    ReactiveFormsModule,
   ],
   exports: [
-    AdminAppComponent
+    AdminAppComponent,
+    HrFormComponent
   ]
 })
 export class AdminAppModule { }

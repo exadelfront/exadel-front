@@ -1,0 +1,85 @@
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+
+<div class='join-form'>
+
+  <div class='join-form-wrapper'>
+
+    <h2>join us</h2>
+
+
+        <form action="" formGroup="form" (ngSubmit)="onSubmit()">
+            <div class='join-form-contacts'>
+
+                <app-join-input [placeholder] ="'Fullname...'" [type]="'text'" [name]="'Fullname'"></app-join-input>
+                <app-join-input [placeholder] ="'Telephone...'" [type]="'tel'" [name]="'Telephone'"></app-join-input>
+                <app-join-input [placeholder] ="'Location...'" [type]="'text'" [name]="'Location'"></app-join-input>
+                <app-join-input [placeholder] ="'Email...'" [type]="'email'" [name]="'Email'"></app-join-input>
+
+                <div class='join-form-contacts-row'>
+                    <div class='join-form-contacts-row-input'>
+                        <app-join-input [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'GitHib'"></app-join-input>
+                    </div>
+                    <div class='join-form-contacts-row-select'>
+                        <app-join-select class='form-control' ngDefaultControl formControlName='English'></app-join-select>
+                    </div>
+                </div>
+          </div>
+
+
+            <div class='join-form-CV'>
+                <div class='join-form-CV-icon'>
+                    <img class='oval' src="../assets/images/oval.png" alt="upload your CV">
+                    <img class='arrow' src="../assets/images/arrow.png" >
+                    <img class='line' src="../assets/images/line.png" >
+                </div>
+
+                <div class='join-form-CV-upload'>
+                    <span class='drop'>Drop or <input id="file-input" type="file" name="file">
+                        <label for="file-input">Select </label>Your CV
+                    </span>
+                </div>
+            </div>
+
+
+            <div class='join-form-interview'>
+                <span>Choose suitable time for you for an interview:</span>
+                <div class='join-form-timetable' formArrayName='Interview' (click)="onAddInterview()">
+                    <app-join-input-date></app-join-input-date>
+                    <app-join-input-date></app-join-input-date>
+                    <app-join-input-date></app-join-input-date>
+                </div>
+            </div>
+
+
+            <div class='join-form-agree'>
+
+               <div>
+                    <label class="switch">
+                        <input type="checkbox" formControlName="agreement"/>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <span class='agree'>I agree to the processing and storage of my personal data</span>
+
+
+            </div>
+
+            <div class='join-form-notification'>
+                <div>
+                   <label class="switch">
+                        <input type="checkbox" formControlName="notifications"/>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <span>I want to receive notifications for similar events</span>
+            </div>
+
+            <div class='join-form-submit'>
+                <input type="submit" value="Submit">
+            </div>
+
+    </form>
+
+  </div>
+
+</div>

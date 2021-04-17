@@ -1,7 +1,0 @@
-<app-navigation-menu></app-navigation-menu>
-<app-internship-card
-  *ngFor="let post of postCardsService.postCards; let idx = index"
-  [post]="post"
-  [isGray]="idx % 2 !== 0 ? false: true"
-  [isBtnPresent]="true"
-></app-internship-card>

@@ -1,0 +1,47 @@
+@import "/src/styles";
+.approve_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 65px;
+  border: none;
+  border-radius: 100px 0 100px 0;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: white;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  background: white;
+}
+
+.approve_btn:hover{
+  cursor: pointer;
+  background: white;
+  border: black;
+}
+
+.approve_btn,
+.approve_btn:active,
+.approve_btn:focus,
+.approve_btn:after{
+  outline: none;
+}
+
+@media (max-width: 1200px) {
+  .approve_btn{
+    width: 170px;
+    height: 45px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 700px) {
+  .approve_btn {
+    width: 120px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

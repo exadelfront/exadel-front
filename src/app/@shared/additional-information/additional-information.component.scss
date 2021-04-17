@@ -1,0 +1,38 @@
+@import "src/styles";
+
+.additional{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.additional-info{
+  display: block;
+  margin: 4% auto;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: black;
+  max-width: 80%;
+  @media (max-width: 1200px) {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  @media (max-width: 700px) {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  b{
+    color: $main_blue;
+    font-weight: 800;
+  }
+
+  div{
+  margin-bottom: 1em;
+  }
+}

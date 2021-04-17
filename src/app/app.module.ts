@@ -1,39 +1,33 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeButtonComponent } from './home-button/home-button.component';
-import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { InternshipCardComponent } from './internship-card/internship-card.component';
-import { JoinFormComponent } from './join-form/join-form.component';
-import { AdditionalInformationComponent } from './additional-information/additional-information.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { PostPageComponent } from './post-page/post-page.component';
-import { HeaderAppComponent } from './header-app/header-app.component';
-import { AdminAppModule} from './admin-app/admin-app.module';
-
+import { AdminAppModule } from './admin-app/admin-app.module';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './@shared/@shared.module';
+import { CoreModule } from './@core/@core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeButtonComponent,
-    NavigationMenuComponent,
-    FooterComponent,
-    InternshipCardComponent,
-    JoinFormComponent,
-    AdditionalInformationComponent,
-    MainPageComponent,
-    PostPageComponent,
-    HeaderAppComponent,
-],
+    AppComponent
+  ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    AdminAppModule
+    AdminAppModule,
+    HttpClientModule,
+    SharedModule,
+    CoreModule,
+    BrowserAnimationsModule,
   ],
+  exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

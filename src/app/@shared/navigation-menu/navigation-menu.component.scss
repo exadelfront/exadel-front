@@ -1,0 +1,73 @@
+@import "/src/styles";
+
+nav {
+  outline: 3px $border_color;
+  border: 3px solid $border_color;
+  border-radius: 50px;
+  margin: 0 auto;
+}
+nav ul {
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav p {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  transition: 0.4s ease-in-out;
+  width: 15vw;
+}
+.menu_div {
+  padding: 2vh 18vw;
+}
+.top_menu {
+  text-align: center;
+}
+.top_menu > li {
+  display: inline-block;
+  position: relative;
+  border-left: 2px solid $border_color;
+}
+.top_menu > li:first-child {
+  border: none;
+}
+.top_menu > li > p {
+  padding: 1vw 3vw;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: Poppins;
+  font-size: 0.8vw;
+}
+.top_menu > li:after {
+  position: absolute;
+  content: "\25BC";
+  left: 8vw;
+  width: 10vw;
+  top: 1vw;
+  color: $main_blue;
+}
+app-navigation-tag{
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  background: white;
+  border: 1px solid $lighter_grey;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.4s ease-in-out;
+  li{
+    padding: 5px 0;
+  }
+}
+.top_menu > li:hover app-navigation-tag  {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+

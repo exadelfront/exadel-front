@@ -1,0 +1,56 @@
+@import "/src/styles";
+
+.text_field {
+  font-family: Poppins;
+  font-size: 36px;
+  //white-space: nowrap;
+}
+.text_div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.text {
+  padding-right: 2%;
+}
+
+.name {
+  color: $main_blue;
+  padding-left: 2%;
+
+}
+.cv_button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.cv_logo:hover {
+  fill: $main_blue;
+}
+.header_div {
+  padding: 0 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $btn_border;
+}
+
+@media (max-width: 699px) {
+  .text_field {
+    font-size: 18px;
+  }
+  .cv_button svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1100px) {
+  .text_field {
+    font-size: 24px;
+  }
+  .cv_button svg {
+    width: 40px;
+    height: 40px;
+  }
+}

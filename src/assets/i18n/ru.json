@@ -1,0 +1,14 @@
+{
+    "POST_PAIGE":{
+        "HOME_BUTTON":"Главная страница"
+    },
+    "MAIN_PAIGE":{
+        "FILTERS":{
+            "Location":"Локация",
+            "Technology":"Технология",
+            "Event_type":"Тип ивента",
+            "Internship_status":"Статус стажировки"
+        },
+        "MORE_DETAILS_BUTTON": "Подробнее"
+    }
+}

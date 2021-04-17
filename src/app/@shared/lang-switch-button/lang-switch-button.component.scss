@@ -1,0 +1,30 @@
+@import "/src/styles";
+
+.translate_div {
+  position: absolute;
+  top: 3%;
+  left: 95%;
+}
+.trans_btn {
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 15px;
+}
+.trans_btn,
+.trans_btn:active,
+.trans_btn:focus {
+  outline: none;
+}
+.trans_btn:hover {
+  background-color: white;
+  color: $main_blue;
+  transition: all ease 0.3s;
+  box-shadow: $btn_shadow_hover;
+}
+.trans_btn:active {
+  box-shadow: $btn_shadow_active;
+  transform: translateY(3px);
+}
