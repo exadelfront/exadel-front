@@ -127,8 +127,6 @@ export class JoinFormComponent implements OnInit {
       this.sent.post(this.urlForForm, FormData)
         .subscribe(ev => {
           console.log(ev);
-        }, error => {
-          console.error(error);
         });
       this.form.reset();
     } else {
