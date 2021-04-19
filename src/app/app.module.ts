@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminAppModule } from './admin-app/admin-app.module';
-import { HttpClientModule } from '@angular/common/http';
+
+import { AdminAppModule} from './admin-app/admin-app.module';
+import {HttpClientModule} from '@angular/common/http';
+
 import { SharedModule } from './@shared/@shared.module';
 import { CoreModule } from './@core/@core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     AppRoutingModule,
     AdminAppModule,
     HttpClientModule,
@@ -25,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     BrowserAnimationsModule,
   ],
-  exports: [],
+  exports: [
+  ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

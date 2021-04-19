@@ -1,9 +1,19 @@
 @import "/src/styles";
 div {
-    display: flex;
-    width: 100%;
-    position: relative;
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "*";
+    top: 7px;
+    right: 20px;
+    color: red;
+    font-size: 22px;
+  }
 }
+
 
 input {
     margin-bottom: 22px;
@@ -22,16 +32,27 @@ input {
         color: $main_grey;
     }
 
+    &.ng-invalid.ng-touched.ng-dirty,
+    &.ng-invalid.ng-touched.ng-pristine {
+      border: 2px solid red;
+    }
 }
 
-
-span.star {
-    position: absolute;
-    top: -2%;
-    right: 4%;
-    color: red;
-    font-size: 25px;
+@media (max-width: 1000px) {
+  input {
+    height: 55px;
+  }
 }
 
+@media (max-width: 700px) {
+  input {
+    height: 50px;
+  }
+}
 
+@media (max-width: 500px) {
+  input {
+    height: 45px;
+  }
+}
 

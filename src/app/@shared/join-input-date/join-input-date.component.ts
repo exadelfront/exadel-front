@@ -1,29 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-join-input-date',
-  template:  `<div class="join-form-slots" >
-                <div class='join-form-slots-date' >
-                  <input type="date" name="date"/>
-                  <span class="star">*</span>
-                </div>
-                <div class='join-form-slots-hours'>
-                  <select name="hours">
-                    <option name="hours" value="" hidden>Part of the day...</option>
-                    <option name="hours" *ngFor="let hours of InterviewHours"
-                          value="{{hours}}"
-                    >{{hours}}
-                    </option>
-                  </select>
-                  <span class="star">*</span>
-                </div>
+  template:  `<div [formGroup]="parentForm">
+                <select name="day" formControlName="{{controlName}}" ngModel>
+                  <option name="day" value="" hidden >Part of the week...</option>
+                  <option name="day" *ngFor="let day of InterviewDays" [value]="day"
+                  >{{day}}
+                  </option>
+                </select>
               </div>`,
-  styleUrls: ['./join-input-date.component.scss']
+  styleUrls: ['./join-input-date.component.scss'],
 })
 
 export class JoinInputDateComponent implements OnInit {
 
-  @Input() InterviewHours: string[] = ['10.00 - 13.00', '13.00 - 16.00', '16.00 - 19.00'];
+  @Input() InterviewDays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  @Input() controlName: string;
+  @Input() parentForm: FormGroup;
+
 
   constructor() { }
 

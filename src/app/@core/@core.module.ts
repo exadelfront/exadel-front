@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { JoinFormComponent } from './join-form/join-form.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { SharedModule } from '../@shared/@shared.module';
@@ -11,9 +10,9 @@ import { TechnicalEstimateComponent } from './technical-estimate/technical-estim
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
 
 
+
 @NgModule({
   declarations: [
-    JoinFormComponent,
     MainPageComponent,
     PostPageComponent,
     LoginMenuComponent,
@@ -25,13 +24,12 @@ import { StudentsTablePageComponent } from './students-table-page/students-table
     CommonModule,
     SharedModule
   ],
-    exports: [
-        JoinFormComponent,
-        MainPageComponent,
-        PostPageComponent,
-        LoginMenuComponent,
-        InfoStudentPageComponent,
-        TechnicalEstimateComponent
-    ],
+  exports: [
+    MainPageComponent,
+    PostPageComponent,
+    LoginMenuComponent,
+    InfoStudentPageComponent,
+    TechnicalEstimateComponent
+    ]
 })
 export class CoreModule { }

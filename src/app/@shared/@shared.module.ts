@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -6,9 +8,12 @@ import { HomeButtonComponent } from './home-button/home-button.component';
 import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { InternshipCardComponent } from './internship-card/internship-card.component';
+import { JoinFormComponent } from './join-form/join-form.component';
 import { JoinInputDateComponent } from './join-input-date/join-input-date.component';
 import { JoinSelectComponent } from './join-select/join-select.component';
+import { JoinSelectHoursComponent } from './join-select-hours/join-select-hours.component';
 import { JoinInputComponent } from './join-input/join-input.component';
+import {JoinSelectLocationComponent} from './join-select-location/join-select-location-component';
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { HeaderAppComponent } from './header-app/header-app.component';
 import { LangSwitchButtonComponent } from './lang-switch-button/lang-switch-button.component';
@@ -31,10 +36,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
-import {ReactiveFormsModule} from "@angular/forms";
+
+import { DndDirective} from '../directives/dnd.directive';
 
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     return new TranslateHttpLoader(http);
 }
 
@@ -47,9 +53,12 @@ const MaterialModules = [
 
 @NgModule({
   declarations: [
+    JoinFormComponent,
     JoinInputDateComponent,
     JoinSelectComponent,
     JoinInputComponent,
+    JoinSelectHoursComponent,
+    JoinSelectLocationComponent,
     HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,
@@ -63,30 +72,35 @@ const MaterialModules = [
     TextareaComponent,
     ChooseDateComponent,
     SectionHeaderComponent,
+    DndDirective,
     NavigationTagComponent,
     StudentInfoComponent,
     InfoSectionHeaderComponent,
     TableComponent
   ],
 
-    imports: [
-        CommonModule,
-        ...MaterialModules,
-        HttpClientModule,
-        TranslateModule.forRoot({
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    ...MaterialModules,
+    HttpClientModule,
+    TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             },
             defaultLanguage: 'en'
-        }),
-        ReactiveFormsModule
+        })
     ],
   exports: [
+    JoinFormComponent,
     JoinInputDateComponent,
     JoinSelectComponent,
     JoinInputComponent,
+    JoinSelectHoursComponent,
+    JoinSelectLocationComponent,
     HeaderAppComponent,
     HomeButtonComponent,
     NavigationMenuComponent,
@@ -100,9 +114,12 @@ const MaterialModules = [
     TextareaComponent,
     ChooseDateComponent,
     SectionHeaderComponent,
+    DndDirective,
     StudentInfoComponent,
     InfoSectionHeaderComponent,
     TableComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class SharedModule { }

@@ -1,50 +1,15 @@
 @import "/src/styles";
-.join-form-slots {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
-    &-date, &-hours {
-        display: flex;
-        flex-direction: row;
-        position: relative;
+div {
+    position: relative;
+    &:after {
+      position: absolute;
+      content:"*";
+      top: 7px;
+      right: 20px;
+      color: red;
+      font-size: 22px;
     }
-
-    &-date {
-        width: 66%;
-        justify-self: flex-start;
-    }
-
-    &-hours {
-        margin-left: 18px;
-        width: 32.6%;
-        justify-self: flex-end;
-    }
-
-}
-
-
-
-
-input[type=date] {
-    width:100%;
-    margin-bottom: 22px;
-    height: 70px;
-    box-sizing: border-box;
-    background: white;
-    box-sizing: border-box;
-    border: $input_border;
-    outline: none;
-    text-indent: 15px;
-    font-size: 18px;
-    line-height: 27px;
-    border-radius: 100px;
-    color: $main_grey;
-
-    &:checked {
-        color: black;
-    }
-
 }
 
 select {
@@ -55,43 +20,38 @@ select {
     box-sizing: border-box;
     outline: none;
     border-radius: 100px;
-    text-indent: 30px;
-    font-size: 18px;
+    padding-left: 30px;
+    font-size: 20px;
     line-height: 27px;
+    appearance: none;
     color: $main_grey;
 
+    &.ng-invalid.ng-touched {
+      border: 2px solid red;
+    }
+
 }
 
 
-span.star {
-    position: absolute;
-    top: -2%;
-    right: 4%;
-    color: red;
-    font-size: 25px;
+@media (max-width: 1000px) {
+  select {
+    height: 55px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  select {
+    height: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  select {
+    height: 45px;
+  }
 }
 
 
 
-@media (max-width:900px) {
-    .join-form-slots {
-        flex-direction: column;
-        justify-content: center;
 
-        &-date, &-hours{
-            width: 100%;
-            margin-left:0px;
-        }
-
-    }
-
-    input[type=date] {
-        margin-bottom: 10px;
-    }
-
-    select{
-        margin-bottom: 40px;
-    }
-
-
-}
