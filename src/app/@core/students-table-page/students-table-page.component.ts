@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Student, StudentsService} from '../../services/students.service';
 
 @Component({
   selector: 'app-students-table-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsTablePageComponent implements OnInit {
 
-  constructor() { }
+  students: Student[] = [];
+  
+  constructor( private studentsService: StudentsService ) { }
 
   ngOnInit(): void {
+    this.fetchStudents();
   }
-
+  fetchStudents(): void {
+    this.studentsService.fetchEvents()
+      .subscribe(students => {
+        this.students = students;
+      });
+  }
 }

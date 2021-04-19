@@ -1,50 +1,9 @@
-import {AfterViewInit,Component, ViewChild} from '@angular/core';
+import {AfterViewInit,Component, ViewChild, Input} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
-
-export interface StudentData {
-  name: string;
-  email: string;
-  technology: string;
-  status: string;
-  telephone: string;
-  github: string;
-  hrManager: string;
-}
-const STUDENTS_DATA: StudentData[] = [
-  { name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', telephone:'+380961234567', github:'http://github.com', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' }
-];
+import {Student} from '../../services/students.service';
 
 @Component({
   selector: 'app-table',
@@ -54,11 +13,12 @@ const STUDENTS_DATA: StudentData[] = [
 
 export class TableComponent implements AfterViewInit {
   
-  displayedColumns: string[] = ['name', 'email', 'technology', 'status','telephone','github', 'hrManager'];
-  dataSource = new MatTableDataSource<StudentData>(STUDENTS_DATA);
-  
+  @Input() student: Student;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  
+  public displayedColumns: string[] = ['name', 'email', 'technology', 'status','telephone','github', 'hrManager'];
+  public dataSource : MatTableDataSource<Student>;
 
   constructor(private router: Router) {
     
@@ -78,9 +38,10 @@ export class TableComponent implements AfterViewInit {
   }
 
   openInfo():void {
-    this.router.navigate([`/admin/info/email`]);
+    this.router.navigate([`/admin/info/${this.student.email}`]);
   }
-   openGithub():void {
-     window.open('http://github.com', '_blank');
+  openGithub():void {
+     window.open(this.student.github, '_blank');
   }
 }
+
