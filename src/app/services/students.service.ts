@@ -8,8 +8,6 @@ export interface Student {
     email: string;
     technology: string;
     status: string;
-    telephone: string;
-    github: string;
     hrManager: string;
 }
 

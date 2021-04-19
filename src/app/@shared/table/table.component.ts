@@ -17,7 +17,7 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  public displayedColumns: string[] = ['name', 'email', 'technology', 'status','telephone','github', 'hrManager'];
+  public displayedColumns: string[] = ['name', 'email', 'technology', 'status','hrManager'];
   public dataSource : MatTableDataSource<Student>;
 
   constructor(private router: Router) {
@@ -39,9 +39,6 @@ export class TableComponent implements AfterViewInit {
 
   openInfo():void {
     this.router.navigate([`/admin/info/${this.student.email}`]);
-  }
-  openGithub():void {
-     window.open(this.student.github, '_blank');
   }
 }
 
