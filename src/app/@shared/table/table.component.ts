@@ -9,39 +9,41 @@ export interface StudentData {
   email: string;
   technology: string;
   status: string;
+  telephone: string;
+  github: string;
   hrManager: string;
 }
 const STUDENTS_DATA: StudentData[] = [
-  { name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' }
+  { name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', telephone:'+380961234567', github:'http://github.com', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' },
+  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', telephone:'+380961234567', github:'http://github.com', hrManager: 'Name Surname' }
 ];
 
 @Component({
@@ -52,7 +54,7 @@ const STUDENTS_DATA: StudentData[] = [
 
 export class TableComponent implements AfterViewInit {
   
-  displayedColumns: string[] = ['name', 'email', 'technology', 'status', 'hrManager'];
+  displayedColumns: string[] = ['name', 'email', 'technology', 'status','telephone','github', 'hrManager'];
   dataSource = new MatTableDataSource<StudentData>(STUDENTS_DATA);
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -77,5 +79,8 @@ export class TableComponent implements AfterViewInit {
 
   openInfo():void {
     this.router.navigate([`/admin/info/email`]);
+  }
+   openGithub():void {
+     window.open('http://github.com', '_blank');
   }
 }
