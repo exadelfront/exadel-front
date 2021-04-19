@@ -27,6 +27,16 @@
             <td mat-cell *matCellDef="let row" > {{row.status}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="telephone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+            <td mat-cell *matCellDef="let row"> {{row.telephone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="github">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Github </th>
+            <td mat-cell *matCellDef="let row" (click)="openGithub()" class="td_hover"> {{row.github}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="hrManager">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>HR Manager </th>
             <td mat-cell *matCellDef="let row" > {{row.hrManager}} </td>
