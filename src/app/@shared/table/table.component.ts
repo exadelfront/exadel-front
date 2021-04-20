@@ -17,11 +17,11 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
-  public displayedColumns: string[] = ['name', 'email', 'technology', 'status','hrManager'];
+  public displayedColumns: string[] = ['name', 'email', 'subjects', 'status','hrManager'];
   public dataSource : MatTableDataSource<Student>;
 
+  
   constructor(private router: Router) {
-    
   }
 
   ngAfterViewInit() {
@@ -36,9 +36,8 @@ export class TableComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
   openInfo():void {
-    this.router.navigate([`/admin/info/${this.student.email}`]);
+    this.router.navigate([`/admin/info/${this.student.id}`]);
   }
 }
 

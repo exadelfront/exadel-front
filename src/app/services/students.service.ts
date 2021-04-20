@@ -4,11 +4,16 @@ import { Observable } from 'rxjs';
 import { STUDENTS_TABLE_URL } from '../../environments/environment';
 
 export interface Student {
-    name: string;
+    id?: number;
+    traineeName: string;
+    traineeSurname:string;
     email: string;
-    technology: string;
-    status: string;
-    hrManager: string;
+    subjects: string [];
+    traineeStatus: string;
+    adminName: string;
+    adminSurname:string;
+    internshipName:string;
+    location:string;
 }
 
 @Injectable({
@@ -22,7 +27,7 @@ export class StudentsService {
     return this.http.get<Student[]>(STUDENTS_TABLE_URL);
   }
 
-  fetchStudentByEmail(email: string): Observable<Student> {
-    return this.http.get<Student>(`${STUDENTS_TABLE_URL}/${email}`);
+  fetchStudentByEmail(id: number): Observable<Student> {
+    return this.http.get<Student>(`${STUDENTS_TABLE_URL}/${id}`);
   }
 }
