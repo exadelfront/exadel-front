@@ -46,6 +46,9 @@
   .text_div {
     font-size: 14px;
   }
+  .text_input {
+    font-size: 14px;
+  }
   .type_name {
     font-size: 24px;
   }
@@ -53,6 +56,9 @@
 
 @media (min-width: 700px) and (max-width: 1100px) {
   .text_div {
+    font-size: 24px;
+  }
+  .text_input {
     font-size: 24px;
   }
   .type_name {
