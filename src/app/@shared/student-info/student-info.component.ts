@@ -9,7 +9,7 @@ export class StudentInfoComponent implements OnInit {
   
   @Input() type_name: boolean;
   @Input() type_link: boolean;
-  @Input() type_status: boolean;
+  @Input() type_blue: boolean;
   @Input() text: string;
   @Input() github_href:string;
   
