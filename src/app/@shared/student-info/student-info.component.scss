@@ -1,11 +1,33 @@
 @import "/src/styles";
 
 .text_div {
+  display: flex;
+  justify-content: space-between;
   font-size: 24px;
   color: black;
   font-family: Poppins;
   border-bottom: 1px solid black;
   padding-top: 3vh;
+}
+.text_input {
+  font-size: 24px;
+  color: black;
+  font-family: Poppins;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+.cor_button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.cor_logo:hover {
+  fill: $main_blue;
+}
+.border_blue {
+  border-bottom: 2px solid $main_blue;
 }
 .type_name {
   font-size: 48px;
