@@ -1,0 +1,153 @@
+@import "src/styles";
+
+.post-creation {
+  margin: 0 auto;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+
+    h2{
+      font-size: 36px;
+      line-height: 54px;
+      margin-top: 1.5em;
+    }
+
+    h3{
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 2em;
+    }
+
+    b{
+      color: red;
+    }
+
+
+    hr{
+      height: 1px;
+      color: $main_blue;
+      background: $main_blue;
+      border: none;
+      margin-bottom: 2em;
+    }
+    .subheading{
+      margin-bottom: 0;
+    }
+  }
+  &-image {
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 61px;
+
+    &-upload {
+      padding-left: 44px;
+      font-size: 24px;
+      font-weight: 500;
+      input{
+        position: absolute;
+        z-index: -10;
+        opacity: 0;
+      }
+      label{
+        color: $main_blue;
+      }
+    }
+
+    &-icon {
+      position: relative;
+    }
+
+  }
+
+  &-inputs{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    div{
+      width: 49%;
+    }
+  }
+  &-date{
+    &-row{
+      margin: 1.5em auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      div{
+        width: 49%;
+      }
+      span{
+        font-size: 24px;
+      }
+    }
+    input{
+      width: 100%;
+      height: 70px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 3px solid rgba(0, 0, 0, 0.15);
+      border-radius: 100px;
+      outline: none;
+      text-indent: 30px;
+      font-size: 20px;
+      line-height: 27px;
+
+      &::placeholder{
+        color: #D1D1D1;
+      }
+
+      &.ng-invalid.ng-touched.ng-dirty,
+      &.ng-invalid.ng-touched.ng-pristine {
+        border: 2px solid red;
+      }
+
+      &.ng-valid.ng-touched.ng-dirty,
+      &.ng-valid.ng-touched.ng-pristine {
+        border: 2px solid $main_blue;
+      }
+    }
+  }
+  &-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+    height: 65px;
+    border: none;
+    border-radius: 100px 0 100px 0;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+    background: $main_blue;
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  &-alert {
+    font-size: 23px;
+    color: #2EA3F2;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  &-danger {
+    font-size: 23px;
+    color: red;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+form{
+  padding-bottom: 2em;
+}
+
+.split{
+  height: 1.5em;
+}

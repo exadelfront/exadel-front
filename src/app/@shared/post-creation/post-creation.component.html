@@ -1,0 +1,153 @@
+<div class="post-creation">
+  <div class="post-creation-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <h2>{{'POST_CREATION.Heading' | translate}}</h2>
+      <hr class="subheading">
+      <h3>
+        {{'POST_CREATION.FirstSubheading' | translate}}
+        <b> * </b>
+        {{'POST_CREATION.SecondSubheading' | translate}}
+      </h3>
+
+      <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'title'"
+                      [placeholder]="'POST_CREATION.Title' | translate" [type]="'text'"
+                      [name]="'title'"></app-join-input>
+
+      <div class="post-creation-inputs">
+        <div>
+          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'internshipType'"
+                          [placeholder]="'POST_CREATION.Type' | translate" [type]="'text'"
+                          [name]="'internshipType'"></app-join-input>
+        </div>
+        <div>
+          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'format'"
+                          [placeholder]="'POST_CREATION.Format' | translate" [type]="'text'"
+                          [name]="'format'"></app-join-input>
+        </div>
+      </div>
+      <div class="post-creation-inputs">
+        <div>
+          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'subjects'"
+                          [placeholder]="'POST_CREATION.Technologies' | translate" [type]="'text'"
+                          [name]="'subjects'"></app-join-input>
+        </div>
+        <div>
+          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'countries'"
+                          [placeholder]="'POST_CREATION.Countries' | translate" [type]="'text'"
+                          [name]="'countries'"></app-join-input>
+        </div>
+      </div>
+
+      <div class="post-creation-inputs">
+        <div>
+          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'skills'"
+                          [placeholder]="'POST_CREATION.Skills' | translate" [type]="'text'"
+                          [name]="'skills'"></app-join-input>
+        </div>
+      </div>
+
+      <h2>{{'POST_CREATION.Time' | translate}}</h2>
+      <hr>
+
+      <div class="post-creation-date">
+        <div class="post-creation-date-row">
+          <div>
+            <input type="text" placeholder="{{'POST_CREATION.RecruitmentStart' | translate}}" onfocus="(this.type='date')" formControlName="startRequestDate">
+          </div>
+          <div>
+            <input type="text" placeholder="{{'POST_CREATION.RecruitmentEnd' | translate}}" onfocus="(this.type='date')" formControlName="endRequestDate">
+          </div>
+        </div>
+        <div class="post-creation-date-row">
+          <div>
+            <input type="text" placeholder="{{'POST_CREATION.EventStart' | translate}}" onfocus="(this.type='date')" formControlName="startDate">
+          </div>
+          <div>
+            <input type="text" placeholder="{{'POST_CREATION.EventEnd' | translate}}" onfocus="(this.type='date')" formControlName="endDate">
+          </div>
+        </div>
+      </div>
+
+      <h2>{{'POST_CREATION.Media' | translate}}</h2>
+      <hr>
+
+      <div class='post-creation-image'>
+        <div class='post-creation-image-icon' appDnd (FileDropped)="uploadFile($event)">
+          <svg class='svg' width="143" height="83" viewBox="0 0 143 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d)">
+              <rect width="134.549" height="75" rx="37.5" fill="#979797"/>
+            </g>
+            <path
+              d="M67 46.2578C66.5559 46.2578 66.1313 46.0883 65.8258 45.7895L54.4521 34.6883C53.4664 33.7275 54.1986 32.1289 55.6263 32.1289H61.5839V20.523C61.5839 19.1323 62.7993 18 64.292 18H69.708C71.2007 18 72.4161 19.1323 72.4161 20.523V32.1289H78.3737C79.8014 32.1289 80.5336 33.7275 79.5479 34.6883L68.1742 45.7895C67.8687 46.0883 67.4441 46.2578 67 46.2578Z"
+              fill="white"/>
+            <path
+              d="M88.3542 58.9253H45.6458C43.6354 58.9253 42 57.2042 42 55.0885V53.9923C42 51.8766 43.6354 50.1555 45.6458 50.1555H88.3542C90.3646 50.1555 92 51.8766 92 53.9923V55.0885C92 57.2042 90.3646 58.9253 88.3542 58.9253Z"
+              fill="white"/>
+            <defs>
+              <filter id="filter0_d" x="0" y="0" width="142.549" height="83" filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                <feOffset dx="4" dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+              </filter>
+            </defs>
+          </svg>
+        </div>
+
+        <div class='post-creation-image-upload'>
+                    <span class='drop'>{{'POST_CREATION.Drop' | translate}}<input id='file-input' type="file"
+                                                                                  name="file" accept=',jpg, .jpeg, .png'
+                                                                                  ngf-max-size="20MB"
+                                                                                  (change)="handleFiles($event)">
+                        <label
+                          for="file-input">{{'POST_CREATION.Select' | translate}}
+                        </label>
+                      {{'POST_CREATION.Image' | translate}}
+                      (
+                        <label
+                          for="file-input">.jpg or .png</label>
+                      )
+                    </span>
+          <div
+            *ngIf="image && (fileSizeMb < 20) && fileType === 'jpg' || fileType === 'jpeg' || fileType === 'png'"
+            [ngStyle]="{color:'#2EA3F2'}">{{image.name}}</div>
+          <div
+            *ngIf="image && (fileSizeMb >= 20) && (fileType === 'jpg' || fileType === 'jpeg' || fileType === 'png')"
+            [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileSize' | translate}}</div>
+          <div *ngIf="image && fileType != 'jpg' && fileType != 'jpeg' && fileType != 'png'"
+               [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileType' | translate}}</div>
+
+        </div>
+      </div>
+
+      <h2>{{'POST_CREATION.Info' | translate}}</h2>
+      <hr>
+
+      <app-textarea [parentForm]="form"
+                    [placeholder]="'POST_CREATION.ShortInfo' | translate"
+                    [controlName]="'description'"
+      ></app-textarea>
+
+      <div class="split"></div>
+
+      <app-textarea [parentForm]="form"
+                    [placeholder]="'POST_CREATION.Description' | translate"
+                    [controlName]="'additionalInfoInternship'"
+      ></app-textarea>
+
+      <div class="split"></div>
+
+      <app-approve-reject-button [text]="'POST_CREATION.Submit' | translate" [parentForm]="form"></app-approve-reject-button>
+
+      <div *ngIf="isSubmitted" class="post-creation-alert">{{'POST_CREATION.SubmitNotification' | translate}}</div>
+      <div *ngIf="notSubmitted" class="post-creation-danger">{{'POST_CREATION.SubmitAlert' | translate}}</div>
+
+    </form>
+  </div>
+
+</div>

@@ -38,6 +38,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 
 import { DndDirective} from '../directives/dnd.directive';
+import { PostCreationComponent } from './post-creation/post-creation.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -76,7 +77,8 @@ const MaterialModules = [
     NavigationTagComponent,
     StudentInfoComponent,
     InfoSectionHeaderComponent,
-    TableComponent
+    TableComponent,
+    PostCreationComponent
   ],
 
   imports: [
