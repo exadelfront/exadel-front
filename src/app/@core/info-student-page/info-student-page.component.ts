@@ -13,7 +13,11 @@ export class InfoStudentPageComponent implements OnInit {
   status: string = "In waiting list";
   telephone: string = "+380966666666";
   github_link: string = "http://google.com";
-  dates: string[] = [" 2021/08/08,14:00-16:00"," 2021/08/09,13:00-15:00"];
+  dates: string[] = ["Thursday,14:00-16:00"," Monday,13:00-15:00"," Monday,15:00-18:00"];
+  skype:string="skype";
+  location:string="Ukraine";
+  internship:string="JS + Java Internship";
+  english:string="B2";
 
   student: Student;
   
@@ -24,7 +28,7 @@ export class InfoStudentPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.studentsService.fetchStudentByEmail(params.email)
+      this.studentsService.fetchStudentById(params.id)
         .subscribe(student => {
           console.log(student);
           this.student = student;

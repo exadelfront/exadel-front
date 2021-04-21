@@ -27,7 +27,7 @@ export class StudentsService {
     return this.http.get<Student[]>(STUDENTS_TABLE_URL);
   }
 
-  fetchStudentByEmail(id: number): Observable<Student> {
+  fetchStudentById(id: number): Observable<Student> {
     return this.http.get<Student>(`${STUDENTS_TABLE_URL}/${id}`);
   }
 }
