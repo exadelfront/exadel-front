@@ -12,10 +12,14 @@ export class StudentInfoComponent implements OnInit {
   @Input() type_blue: boolean;
   @Input() text: string;
   @Input() github_href:string;
+  @Input() is_readonly: boolean = true;
   
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  correct(): void {
+    this.is_readonly = !this.is_readonly;
+  }
+  onKey(event) {this.text = event.target.value;}
 }

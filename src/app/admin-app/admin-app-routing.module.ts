@@ -15,7 +15,7 @@ const routes: Routes = [
     component: StudentsTablePageComponent
   },
   {
-    path: 'admin/info/email',
+    path: 'admin/stud-info/:id',
     component: InfoStudentPageComponent
   }
 ];

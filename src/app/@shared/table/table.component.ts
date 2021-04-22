@@ -1,9 +1,9 @@
-import {AfterViewInit,Component, ViewChild, Input} from '@angular/core';
+import {OnInit,Component, ViewChild, Input} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {Router} from '@angular/router';
-import {Student} from '../../services/students.service';
+import {Student, StudentsService} from '../../services/students.service';
 
 @Component({
   selector: 'app-table',
@@ -11,22 +11,30 @@ import {Student} from '../../services/students.service';
   styleUrls: ['./table.component.scss']
 })
 
-export class TableComponent implements AfterViewInit {
+export class TableComponent implements OnInit {
   
-  @Input() student: Student;
+  @Input() students: Student[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
+  
   public displayedColumns: string[] = ['name', 'email', 'subjects', 'status','hrManager'];
-  public dataSource : MatTableDataSource<Student>;
+  public dataSource = new MatTableDataSource();
 
   
-  constructor(private router: Router) {
+  constructor(private router: Router, private studentsService: StudentsService) {
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  private getData(): void {
+    this.studentsService.fetchEvents().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {
@@ -36,8 +44,8 @@ export class TableComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  openInfo():void {
-    this.router.navigate([`/admin/info/${this.student.id}`]);
+  openInfo(id:number):void {
+    this.router.navigate([`/admin/stud-info/${id}`]);
   }
 }
 
