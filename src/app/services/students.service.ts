@@ -7,9 +7,7 @@ export interface Student {
   additionalInfoId: number;
   traineeName: string;
   traineeSurname:string;
-  email: string;
   subjects: string [];
-  traineeStatus?: string;
   adminName: string;
   adminSurname:string;
   internshipName:string;
@@ -17,6 +15,7 @@ export interface Student {
   
   cv?: string;
   dates?:object[];
+  email?:string;
   english?: string;
   github?: string;
   hrInterview?: string;
@@ -29,6 +28,7 @@ export interface Student {
   surname?: string;
   techInterview?: string;
   traineeId?: number;
+  traineeStatus:string;
 }
 
 @Injectable({

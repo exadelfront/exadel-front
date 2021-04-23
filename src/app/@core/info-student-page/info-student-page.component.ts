@@ -25,12 +25,12 @@ export class InfoStudentPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.studentsService.fetchStudentById(params.id)
         .subscribe(student => {
-          //console.log(student);
+          console.log(student);
           this.student = student;
           this.stud_name = student.name + " " + student.surname;
           this.dates=this.getDates(this.dates);
-          student.email = 'test_email';
-          student.traineeStatus = "status";
+         // student.email = 'test_email';
+          //student.traineeStatus = "status";
         });
     });
 
