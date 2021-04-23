@@ -1,9 +1,13 @@
-<div class="rate-btn">
+<div
+  class="rate-btn"
+  [formGroup]="parentForm"
+>
   <input
     type="radio"
     [id]="name + '-' + id"
     [name]="name"
     [value]="value"
+    formControlName="{{ controlName }}"
   >
   <label [for]="name + '-' + id">{{ value }}</label>
 </div>

@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const INTERNSHIPS_PAGE_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship';
-
+export const HR_REVIEW_SEND_URL = '';
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

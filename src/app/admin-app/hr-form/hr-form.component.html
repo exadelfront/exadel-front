@@ -28,8 +28,10 @@
     <app-rate-btn
       *ngFor="let englishLevel of englishLevels; index as id"
       [id]="id"
-      [name]="'english'"
+      [name]="'englishLevel'"
       [value]="englishLevel"
+      [parentForm]="form"
+      [controlName]="'englishLevel'"
     ></app-rate-btn>
   </div>
   <div class="title-wrapper">
@@ -42,6 +44,8 @@
       [placeholder]="'d/m/y, time'"
       [type]="'datetime-local'"
       [name]="'technical-interview-date'"
+      [parentForm]="form"
+      [controlName]="'technicalInterviewDate'"
   ></app-join-input>
   <div class="approve-reject-buttons">
     <app-approve-reject-button
