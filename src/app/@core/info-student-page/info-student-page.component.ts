@@ -9,7 +9,6 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./info-student-page.component.scss']
 })
 export class InfoStudentPageComponent implements OnInit {
-  
   stud_name: string;
   dates: string="";
   form: FormGroup;

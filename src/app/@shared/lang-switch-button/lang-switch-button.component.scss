@@ -28,3 +28,18 @@
   box-shadow: $btn_shadow_active;
   transform: translateY(3px);
 }
+@media (max-width: 699px) {
+  .translate_div {
+    top: 1%;
+    left: 90%;
+  }
+  .trans_btn {
+    font-size: 10px;
+  }
+}
+@media (min-width: 700px) and (max-width: 1000px) {
+  .translate_div {
+    top: 3%;
+    left: 90%;
+  }
+}
