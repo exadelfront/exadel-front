@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
   public displayedColumns: string[] = ['name', 'email', 'subjects', 'status','hrManager'];
   public dataSource = new MatTableDataSource();
   
-  constructor(private router: Router, private studentsService: StudentsService) {
+  constructor(private router: Router, private studentsService: StudentsService) {}
 
   ngOnInit(): void {
     this.getData();
@@ -47,4 +47,3 @@ export class TableComponent implements OnInit {
     this.router.navigate([`/admin/stud-info/${id}`]);
   }
 }
-
