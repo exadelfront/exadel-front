@@ -16,12 +16,33 @@
   border: none;
   width: 100%;
   outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .cor_button {
   border: none;
   outline: none;
   background: none;
   cursor: pointer;
+}
+.save_btn {
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  border-radius: 10px;
+  padding: 0.01% 1%;
+  margin: 1% 2%;
+  font-family: Poppins;
+  font-size: 14px;
+  cursor: pointer;
+}
+.save_btn:hover {
+  fill: $main_blue;
+  background-color: white;
+  color: $main_blue;
+  transition: all ease 0.3s;
+  box-shadow: $btn_shadow_hover;
 }
 .cor_logo:hover {
   fill: $main_blue;

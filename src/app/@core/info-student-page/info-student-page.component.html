@@ -2,20 +2,24 @@
 <app-info-section-header header1_text="Candidate description" header2_text="Info"></app-info-section-header>
 <div class="stud-info-container">
     <div class="stud-info">
-        <app-student-info type_name=true text={{stud_name}}></app-student-info>
-        <app-student-info text={{student.email}}></app-student-info>
-        <app-student-info type_blue=true text={{student.traineeStatus}}></app-student-info>
-        <app-student-info text={{student.phone}}></app-student-info>
-        <app-student-info type_link=true text="Github page (click to open)" github_href={{student.github}}>
+        <app-student-info [student]="student" name="name" type_name=true text={{name}}></app-student-info>
+        <app-student-info [student]="student" name="surname" type_name=true text={{surname}}></app-student-info>
+        <app-student-info [student]="student" text={{email}} type_div=true></app-student-info>
+        <app-student-info [student]="student" name="traineeStatus" type_blue=true text={{status}}></app-student-info>
+        <app-student-info [student]="student" name="phone" text={{phone}}></app-student-info>
+        <app-student-info [student]="student" type_link=true text="Github page (click to open)" github_href={{github}}>
         </app-student-info>
-        <app-student-info text={{student.skype}}></app-student-info>
-        <app-student-info type_blue=true text={{student.location}}></app-student-info>
-        <app-student-info text={{student.internshipTitle}}></app-student-info>
-        <app-student-info type_blue=true text={{student.english}}></app-student-info>
-        <app-student-info text={{dates}}></app-student-info>
+        <app-student-info [student]="student" name="skype" text={{skype}}></app-student-info>
+        <app-student-info [student]="student" name="location" type_blue=true text={{location}}></app-student-info>
+        <app-student-info [student]="student" name="internshipTitle" text={{intern_title}}></app-student-info>
+        <app-student-info [student]="student" name="english" type_blue=true text={{english}}></app-student-info>
+        <app-student-info [student]="student" text={{dates}} type_div=true></app-student-info>
     </div>
     <div class="cv-container">
-        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{student.cv}}></app-section-header>
+        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{cv}}></app-section-header>
+    </div>
+    <div>
+        <button (click)="deleteData()" class="delete-btn">Delete student</button>
     </div>
     <div class="chose-hr-date">
         <div class="chose-hr-date-header">
