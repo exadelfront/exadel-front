@@ -22,4 +22,5 @@ export class StudentInfoComponent implements OnInit {
     this.is_readonly = !this.is_readonly;
   }
   onKey(event) {this.text = event.target.value;}
+
 }
