@@ -1,5 +1,6 @@
+@import "src/styles";
 .header_div {
-  background-color: #ebebeb;
+  background-color: $light_grey;
 }
 .header_1,
 .header_2 {
@@ -10,7 +11,7 @@
 .header_1 {
   font-size: 36px;
   text-transform: uppercase;
-  color: #2ea3f2;
+  color: $main_blue;
 }
 .header_2 {
   font-size: 24px;

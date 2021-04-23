@@ -1,8 +1,9 @@
-$bg_hover_color: #2EA3F2;
+@import "src/styles";
 .container{
   max-width: 70%;
   display: block;
   margin: 0 auto;
+  min-height: 90%;
 }
 .text_part{
 
@@ -18,28 +19,27 @@ $bg_hover_color: #2EA3F2;
     font-size: 36px;
     line-height: 54px;
     flex-direction: row;
-  @media (max-width: 1200px) {
-    font-size: 24px;
-    line-height: 46px
-  }
+    @media (max-width: 1200px) {
+      font-size: 24px;
+      line-height: 46px
+    }
+
     @media (max-width: 700px) {
       font-size: 16px;
       line-height: 24px
     }
+
     &__blue{
       font-style: normal;
       font-weight: normal;
-      color: $bg_hover_color;
+      color: $main_blue;
     }
   }
 }
+
 hr{
   margin: 5px 0 4% 0;
-  color: $bg_hover_color;
-}
-app-textarea{
-
-
+  color: $main_blue;
 }
 .buttons_part{
   margin: 1% 0 5% 0;

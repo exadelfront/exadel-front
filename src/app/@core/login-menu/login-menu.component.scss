@@ -1,3 +1,4 @@
+@import "src/styles";
 .container{
   margin: auto;
   max-width: 600px;
@@ -6,7 +7,7 @@
 
 }
 .login{
-  border: 2px solid #2EA3F2;
+  border: 2px solid $main_blue;
   max-width: 600px;
   height: 250px;
   display: flex;
@@ -31,16 +32,13 @@
   input {
     height: 55px;
     width: 505px;
-    background: #FFFFFF;
-
+    background: white;
     font-family: Poppins;
     font-weight: 400;
-
     text-indent: 20px;
     font-size: 24px;
     line-height: 36px;
-
-    border: 2px solid #2EA3F2;
+    border: 2px solid $main_blue;
     box-sizing: border-box;
     border-radius: 100px;
   }
@@ -48,7 +46,7 @@
     outline: none;
   }
   ::placeholder{
-    color: #D1D1D1;
+    color: $main_grey;
   }
 }
 

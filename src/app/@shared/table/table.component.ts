@@ -1,68 +1,38 @@
-import {AfterViewInit,Component, ViewChild} from '@angular/core';
+import {OnInit,Component, ViewChild, Input} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
+import {Student, StudentsService} from '../../services/students.service';
 
-export interface StudentData {
-  name: string;
-  email: string;
-  technology: string;
-  status: string;
-  hrManager: string;
-}
-const STUDENTS_DATA: StudentData[] = [
-  { name: 'Name SurnameLonggggggggggggggggggggggggggggg', email: 'mail@gmail.comLonggggggggggggggggggggggggggggg', technology: 'JS', status:'Approved', hrManager:'Name SurnameLonggggggggggggggggggggggggggggg'},
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' },
-  { name: 'Name Surname', email: 'mail@gmail.com', technology: 'JS', status: 'Approved', hrManager: 'Name Surname' }
-];
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
 
-export class TableComponent implements AfterViewInit {
+export class TableComponent implements OnInit {
   
-  displayedColumns: string[] = ['name', 'email', 'technology', 'status', 'hrManager'];
-  dataSource = new MatTableDataSource<StudentData>(STUDENTS_DATA);
-  
+  @Input() students: Student[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  
+  
+  public displayedColumns: string[] = ['name', 'email', 'subjects', 'status','hrManager'];
+  public dataSource = new MatTableDataSource();
+  
+  constructor(private router: Router, private studentsService: StudentsService) {}
 
-  constructor() {
-    
+  ngOnInit(): void {
+    this.getData();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  private getData(): void {
+    this.studentsService.fetchEvents().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {
@@ -73,7 +43,7 @@ export class TableComponent implements AfterViewInit {
     }
   }
 
-  openInfo():void {
-    window.open('http://google.com', '_blank');
+  openInfo(id:number):void {
+    this.router.navigate([`/admin/stud-info/${id}`]);
   }
 }

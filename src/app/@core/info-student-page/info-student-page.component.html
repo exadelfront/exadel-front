@@ -3,41 +3,58 @@
 <div class="stud-info-container">
     <div class="stud-info">
         <app-student-info type_name=true text={{stud_name}}></app-student-info>
-        <app-student-info text={{email}}></app-student-info>
-        <app-student-info type_status=true text={{status}}></app-student-info>
-        <app-student-info text={{telephone}}></app-student-info>
-        <app-student-info type_link=true text="Github page (click to open)" github_href={{github_link}}></app-student-info>
+        <app-student-info text={{student.email}}></app-student-info>
+        <app-student-info type_blue=true text={{student.traineeStatus}}></app-student-info>
+        <app-student-info text={{student.phone}}></app-student-info>
+        <app-student-info type_link=true text="Github page (click to open)" github_href={{student.github}}>
+        </app-student-info>
+        <app-student-info text={{student.skype}}></app-student-info>
+        <app-student-info type_blue=true text={{student.location}}></app-student-info>
+        <app-student-info text={{student.internshipTitle}}></app-student-info>
+        <app-student-info type_blue=true text={{student.english}}></app-student-info>
         <app-student-info text={{dates}}></app-student-info>
     </div>
     <div class="cv-container">
-        <app-section-header header_text="Open a CV of the candidate" is_button=true></app-section-header>
+        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{student.cv}}></app-section-header>
     </div>
     <div class="chose-hr-date">
-        <div class="chose-hr-date-header"><app-section-header header_text="Please chose the date of HR interview"></app-section-header></div>
+        <div class="chose-hr-date-header">
+            <app-section-header header_text="Please chose the date of HR interview"></app-section-header>
+        </div>
         <app-choose-date></app-choose-date>
     </div>
 </div>
 <app-info-section-header header1_text="Interviews conclusion" header2_text="HR and Technical"></app-info-section-header>
 <div class="interviews-container">
-    <div class="textareas-container">
-        <div class="textarea-div"><app-textarea placeholder="Has not happened yet..." readonly=true></app-textarea></div>
-        <div class="textarea-div"><app-textarea placeholder="Has not happened yet..." readonly=true></app-textarea></div>
-    </div>
-    <div class="english-level-container">
-        <div class="english-level-header">
-            <app-section-header header_text="The level of English of the candidate"></app-section-header>
+    <form action="#" formGroup="form">
+        <div class="textareas-container">
+            <div class="textarea-div">
+                <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
+                    [controlName]="'review'"></app-textarea>
+            </div>
+            <div class="textarea-div">
+                <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
+                    [controlName]="'review'"></app-textarea>
+            </div>
         </div>
-        <div class="english-rate-container">
-            <app-rate-btn id=1 value="A1"></app-rate-btn>
-            <app-rate-btn id=2 value="A2"></app-rate-btn>
-            <app-rate-btn id=3 value="B1"></app-rate-btn>
-            <app-rate-btn id=4 value="B2"></app-rate-btn>
-            <app-rate-btn id=5 value="C1"></app-rate-btn>
-            <app-rate-btn id=6 value="C2"></app-rate-btn>
+        <div class="english-level-container">
+            <div class="english-level-header">
+                <app-section-header header_text="The level of English of the candidate"></app-section-header>
+            </div>
+            <div class="english-rate-container">
+                <app-rate-btn id=1 value="A1"></app-rate-btn>
+                <app-rate-btn id=2 value="A2"></app-rate-btn>
+                <app-rate-btn id=3 value="B1"></app-rate-btn>
+                <app-rate-btn id=4 value="B2"></app-rate-btn>
+                <app-rate-btn id=5 value="C1"></app-rate-btn>
+                <app-rate-btn id=6 value="C2"></app-rate-btn>
+            </div>
         </div>
-    </div>
-    <div class="buttons-container">
-        <app-approve-reject-button [text]="'Approve'" [bgcolor]="'#2EA3F2'"></app-approve-reject-button>
-        <app-approve-reject-button [text]="'Reject'" [bgcolor]="'#F22E2E'"></app-approve-reject-button>
-    </div>
+        <div class="buttons-container">
+            <app-approve-reject-button [text]="'Approve'" [bgcolor]="'#2EA3F2'" [parentForm]="form">
+            </app-approve-reject-button>
+            <app-approve-reject-button [text]="'Reject'" [bgcolor]="'#F22E2E'" [parentForm]="form">
+            </app-approve-reject-button>
+        </div>
+    </form>
 </div>

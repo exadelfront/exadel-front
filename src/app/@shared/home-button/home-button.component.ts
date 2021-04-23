@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home-button',
@@ -8,13 +8,13 @@ import {Router} from '@angular/router';
 })
 export class HomeButtonComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private _location: Location) { }
 
   ngOnInit(): void {
   }
 
   goToStartPage(): void {
-    this.router.navigate(['/']);
+    this._location.back();
   }
 
 }
