@@ -8,6 +8,7 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { InfoStudentPageComponent } from './info-student-page/info-student-page.component';
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -20,10 +21,11 @@ import { StudentsTablePageComponent } from './students-table-page/students-table
     TechnicalEstimateComponent,
     StudentsTablePageComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule
+    ],
   exports: [
     MainPageComponent,
     PostPageComponent,
