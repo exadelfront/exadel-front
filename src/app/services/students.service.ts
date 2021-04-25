@@ -27,6 +27,7 @@ export interface Student {
   skype?: string;
   surname?: string;
   techInterview?: string;
+  id: number;
   traineeId?: number;
   traineeStatus?:string;
 }
@@ -55,5 +56,8 @@ export class StudentsService {
   
   deleteStudent(id: number){
     return this.http.delete(`${STUDENTS_TABLE_URL}/${id}/delete`);
+  }
+  deleteStudentInfo(id: number){
+    return this.http.delete(`${STUDENTS_TABLE_URL}/ai/${id}/delete`);
   }
 }

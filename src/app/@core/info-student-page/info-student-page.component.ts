@@ -40,7 +40,9 @@ export class InfoStudentPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
+          console.log(student);
           this.student = student;
+          
           this.name = this.student.name;
           this.surname = this.student.surname;
           this.email= this.student.email;
@@ -67,11 +69,11 @@ export class InfoStudentPageComponent implements OnInit {
     });
     return dates;
   }
-  deleteData(): void{
-    const message = `Are you sure you want to delete student ` +this.student.name+ " " +this.student.surname +' ?';
+  deleteStudent(): void{
+    const message = `Are you sure you want to DELETE STUDENT ` +this.student.name+ " " +this.student.surname +' (according to email)? It include NOT ONLY this information, but ALL student info in ALL Internships';
     const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
-      maxWidth: "70vw",
+      maxWidth: "60vw",
       data: dialogData
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
@@ -81,6 +83,23 @@ export class InfoStudentPageComponent implements OnInit {
         data => console.log(data)
       );
         this._location.back();
+    }
+    });
+  }
+  deleteInfo(): void{
+    const message = `Are you sure you want to DELETE THIS INFO of the student ` +this.student.name+ " " +this.student.surname +' (according to email)? It include ONLY this info of the student. Another student info (in different internships) will be safe.';
+    const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      maxWidth: "60vw",
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.result = dialogResult;
+      if (this.result) {
+      this.studentsService.deleteStudentInfo(this.student.id).subscribe(
+        data => console.log(data)
+      );
+        //this._location.back();
     }
     });
   }
