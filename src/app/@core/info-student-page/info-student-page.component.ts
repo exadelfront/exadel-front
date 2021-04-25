@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Student, StudentsService} from '../../services/students.service';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
-
+import { FormControl, FormGroup } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-info-student-page',
   templateUrl: './info-student-page.component.html',
@@ -23,13 +25,15 @@ export class InfoStudentPageComponent implements OnInit {
   english: string;
   cv: string;
   form: FormGroup;
-  del_form: FormGroup;
   student: Student;
+  result: boolean;
   
   constructor(
     private route: ActivatedRoute,
     private studentsService: StudentsService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
@@ -55,9 +59,6 @@ export class InfoStudentPageComponent implements OnInit {
     this.form = new FormGroup({
       review: new FormControl(null),
     });
-    this.del_form = new FormGroup({
-      review: new FormControl(null),
-    });
   }
 
   getDates(dates:string): string{
@@ -67,9 +68,20 @@ export class InfoStudentPageComponent implements OnInit {
     return dates;
   }
   deleteData(): void{
-    this.studentsService.deleteStudent(this.student.traineeId).subscribe(
-      data => console.log(data)
-    );
-    this.router.navigate([`/admin/table`]);
+    const message = `Are you sure you want to delete student ` +this.student.name+ " " +this.student.surname +' ?';
+    const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      maxWidth: "70vw",
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.result = dialogResult;
+      if (this.result) {
+      this.studentsService.deleteStudent(this.student.traineeId).subscribe(
+        data => console.log(data)
+      );
+        this._location.back();
+    }
+    });
   }
 }
