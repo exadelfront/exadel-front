@@ -13,17 +13,6 @@ import { Location } from '@angular/common';
 })
 export class InfoStudentPageComponent implements OnInit {
   dates: string = "";
-  name: string;
-  surname: string;
-  email: string;
-  status: string;
-  phone: number;
-  github: string;
-  skype: string;
-  location: string;
-  intern_title: string;
-  english: string;
-  cv: string;
   form: FormGroup;
   student: Student;
   result: boolean;
@@ -41,23 +30,15 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
-          this.name = this.student.name;
-          this.surname = this.student.surname;
-          this.email= this.student.email;
-          this.status= this.student.traineeStatus;
-          this.phone= this.student.phone;
-          this.github= this.student.github;
-          this.skype= this.student.skype;
-          this.location= this.student.location;
-          this.intern_title= this.student.internshipTitle;
-          this.english = this.student.english;
-          this.cv = this.student.cv;
           this.dates=this.getDates(this.dates);
+          this.form.get("techReview").patchValue(this.student.techInterview);
+          this.form.get("hrReview").patchValue(this.student.hrInterview);
         });
     });
-
+    
     this.form = new FormGroup({
-      review: new FormControl(null),
+      hrReview: new FormControl(null),
+      techReview: new FormControl(null),
     });
   }
 
