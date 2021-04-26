@@ -9,6 +9,8 @@ import { InfoStudentPageComponent } from './info-student-page/info-student-page.
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
 import { StudentHistoryPageComponent } from './student-history-page/student-history-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 
 
@@ -22,10 +24,11 @@ import { StudentHistoryPageComponent } from './student-history-page/student-hist
     StudentsTablePageComponent,
     StudentHistoryPageComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule
+    ],
   exports: [
     MainPageComponent,
     PostPageComponent,
