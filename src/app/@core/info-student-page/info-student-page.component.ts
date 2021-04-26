@@ -40,9 +40,7 @@ export class InfoStudentPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
-          console.log(student);
           this.student = student;
-          
           this.name = this.student.name;
           this.surname = this.student.surname;
           this.email= this.student.email;
@@ -99,8 +97,12 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.deleteStudentInfo(this.student.id).subscribe(
         data => console.log(data)
       );
-        //this._location.back();
+        this._location.back();
     }
     });
+  }
+  openHistory(): void{
+    const id = this.student.traineeId;
+    this.router.navigate([`/admin/stud-info/history/${id}`]);
   }
 }
