@@ -26,10 +26,7 @@
   </div>
   <div class="english-levels">
     <app-rate-btn
-      *ngFor="let englishLevel of englishLevels; index as id"
-      [id]="id"
-      [name]="'englishLevel'"
-      [value]="englishLevel"
+      [items]="englishLevels"
       [parentForm]="form"
       [controlName]="'englishLevel'"
     ></app-rate-btn>
