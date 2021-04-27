@@ -9,7 +9,7 @@ import { InfoStudentPageComponent } from './info-student-page/info-student-page.
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import {PostsService} from '../services/posts.service';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     LoginMenuComponent,
     InfoStudentPageComponent,
     TechnicalEstimateComponent,
-    StudentsTablePageComponent
+    StudentsTablePageComponent,
   ],
     imports: [
         CommonModule,
@@ -32,6 +32,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     LoginMenuComponent,
     InfoStudentPageComponent,
     TechnicalEstimateComponent
-    ]
+    ],
+  providers: [PostsService]
 })
 export class CoreModule { }

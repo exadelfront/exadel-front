@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-
-import {Post, PostCardsService} from '../../services/post-cards.service';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Post} from '../../services/posts.service';
 
 @Component({
   selector: 'app-navigation-tag',
@@ -9,9 +8,19 @@ import {Post, PostCardsService} from '../../services/post-cards.service';
 })
 
 export class NavigationTagComponent implements OnInit {
-  constructor(public postCardsService: PostCardsService) { }
-  @Input() post: Post;
-  ngOnInit(): void {
+  @Input() posts: Post[];
+  @Input() title: string[];
+  @Output() selectedFilter: EventEmitter<any> = new EventEmitter<any>();
+
+
+  constructor() {}
+
+
+  ngOnInit(): void { }
+
+  filter(event): void {
+    console.log(this.posts, this.selectedFilter, this.title);
+    this.selectedFilter.emit({selectedFilter: event.target.innerHTML});
   }
 
 }

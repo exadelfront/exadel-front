@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {Post, PostsService} from '../../services/posts.service';
 
 @Component({
@@ -8,9 +8,9 @@ import {Post, PostsService} from '../../services/posts.service';
 })
 export class MainPageComponent implements OnInit {
 
-  posts: Post[] = [];
+  @Output() posts: Post[] = [];
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.fetchPosts();
@@ -21,6 +21,15 @@ export class MainPageComponent implements OnInit {
       .subscribe(posts => {
         this.posts = posts;
       });
+  }
+
+
+
+  filterPosts(event: any): void {
+ //   console.log(event);
+    this.posts = this.posts.filter(post => post.countries.includes(event.selectedFilter));
+    console.log(this.posts);
+
   }
 
 }
