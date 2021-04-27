@@ -1,3 +1,4 @@
+import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -49,7 +50,8 @@ const MaterialModules = [
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+  MatTableModule,
+  MatSelectModule
 ];
 
 @NgModule({

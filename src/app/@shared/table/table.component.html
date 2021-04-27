@@ -1,4 +1,22 @@
 <div class="table-div">
+    <div class="filter-container">
+        <mat-form-field class="filter">
+            <mat-select  placeholder="Location">
+                <mat-option (click)="selectFilter(' ')">All</mat-option>
+                <mat-option *ngFor="let location of locations" [value]="location" (click)="selectFilter(location)">
+                    {{location}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-select  placeholder="Internship">
+                <mat-option (click)="selectFilter(' ')">All</mat-option>
+                <mat-option *ngFor="let internship of internships" [value]="internship" (click)="selectFilter(internship)">
+                    {{internship}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
