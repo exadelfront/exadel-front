@@ -7,12 +7,14 @@ import { SharedModule } from '../@shared/@shared.module';
 import { CoreModule } from '../@core/@core.module';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { IntrviewerAddPageComponent } from './intrviewer-add-page/intrviewer-add-page.component';
 
 
 @NgModule({
   declarations: [
     AdminAppComponent,
-    HrFormComponent
+    HrFormComponent,
+    IntrviewerAddPageComponent
   ],
   imports: [
     CommonModule,
@@ -21,9 +23,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     AdminAppRoutingModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    AdminAppComponent,
-    HrFormComponent
-  ]
+    exports: [
+        AdminAppComponent,
+        HrFormComponent,
+        IntrviewerAddPageComponent
+    ]
 })
 export class AdminAppModule { }
