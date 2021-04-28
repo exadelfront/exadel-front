@@ -45,4 +45,10 @@ export class StudentsService {
   fetchStudentById(id: number): Observable<Student> {
     return this.http.get<Student>(`${STUDENTS_TABLE_URL}/ai/${id}`);
   }
+  filterDataOne(parameter:string, value: string): Observable<Student[]> {
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter}=='${value}'`);
+  }
+  filterDataMany(parameter_1:string, value_1: string, parameter_2:string, value_2: string): Observable<Student[]> {
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter_1}=='${value_1}';${parameter_2}=='${value_2}'`);
+  }
 }
