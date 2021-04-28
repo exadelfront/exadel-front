@@ -1,8 +1,11 @@
 <div [formGroup]="parentForm">
-  <button type="submit"
-     [ngStyle]="{
-       background: bgcolor,
-       border: bgcolor
-       }"
+  <button
+    type="submit"
+    (click)="onClick()"
+    [disabled]="parentForm.invalid"
+    [ngStyle]="{
+      background: bgcolor,
+      border: bgcolor
+    }"
      class="approve_btn"> {{text}} </button>
 </div>

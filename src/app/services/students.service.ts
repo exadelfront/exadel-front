@@ -6,16 +6,16 @@ import { STUDENTS_TABLE_URL } from '../../environments/environment';
 export interface Student {
   additionalInfoId: number;
   traineeName: string;
-  traineeSurname:string;
+  traineeSurname: string;
   subjects: string [];
   adminName: string;
-  adminSurname:string;
-  internshipName:string;
+  adminSurname: string;
+  internshipName: string;
   traineeLocation: string;
-  
+
   cv?: string;
-  dates?:object[];
-  email?:string;
+  dates?: object[];
+  email?: string;
   english?: string;
   github?: string;
   hrInterview?: string;
@@ -28,7 +28,7 @@ export interface Student {
   surname?: string;
   techInterview?: string;
   traineeId?: number;
-  traineeStatus:string;
+  traineeStatus: string;
 }
 
 @Injectable({

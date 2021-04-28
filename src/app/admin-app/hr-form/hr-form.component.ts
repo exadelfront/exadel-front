@@ -11,6 +11,7 @@ import { HrReview } from '../../services/hr-form.service';
 export class HrFormComponent implements OnInit {
 
   form: FormGroup;
+  isApproved: boolean;
   englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
   constructor(private hrFormService: HrFormService) { }
@@ -19,15 +20,23 @@ export class HrFormComponent implements OnInit {
     this.form = new FormGroup({
       review: new FormControl(null, [
         Validators.required,
-        Validators.minLength(50),
+        Validators.minLength(5),
       ]),
       englishLevel: new FormControl(null, Validators.required),
       technicalInterviewDate: new FormControl(null, Validators.required),
     });
   }
 
+  setInterviewResult(isApproved: boolean): void {
+    this.isApproved = isApproved;
+  }
+
   submit(): void {
-    const hrReview: HrReview = { ...this.form.value };
+    if (this.form.invalid) {
+      console.log(this.form.status);
+      return;
+    }
+    const hrReview = { ...this.form.value, isApproved: this.isApproved};
     console.log(hrReview);
   }
 }

@@ -6,6 +6,7 @@ export interface HrReview {
   review: string;
   englishLevel: string;
   technicalInterviewDate: string;
+  isApproved: boolean;
 }
 
 @Injectable({
@@ -15,9 +16,7 @@ export class HrFormService {
 
   constructor(private http: HttpClient) { }
 
-  sendHrFormData(hrReview: HrReview): Promise<void> {
-    return new Promise<void>(() => {
-      this.http.post(HR_REVIEW_SEND_URL, hrReview);
-    });
+  sendHrFormData(hrReview: HrReview): any {
+    this.http.post(HR_REVIEW_SEND_URL, hrReview);
   }
 }

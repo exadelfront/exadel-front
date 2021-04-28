@@ -41,7 +41,7 @@
       [placeholder]="'d/m/y, time'"
       [type]="'datetime-local'"
       [name]="'technical-interview-date'"
-      [parentForm]="form"
+      [parentForm]=form
       [controlName]="'technicalInterviewDate'"
   ></app-join-input>
   <div class="approve-reject-buttons">
@@ -49,11 +49,17 @@
       [text]="'Approve'"
       [bgcolor]="'#2EA3F2'"
       [parentForm]="form"
+      [isApproveBtn]="true"
+      [controlName]="'isApprove'"
+      (noApproveReject)="setInterviewResult($event)"
     ></app-approve-reject-button>
     <app-approve-reject-button
       [text]="'Reject'"
       [bgcolor]="'#F22E2E'"
       [parentForm]="form"
+      [isApproveBtn]="false"
+      [controlName]="'isApprove'"
+      (noApproveReject)="setInterviewResult($event)"
     ></app-approve-reject-button>
   </div>
 </form>
