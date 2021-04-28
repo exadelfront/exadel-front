@@ -1,4 +1,11 @@
-<app-navigation-menu [posts] ="posts"  (selectedFilter)="filterPosts($event)"></app-navigation-menu>
+<app-navigation-menu
+  [posts]="posts"
+  [countries]="countries"
+  [subjects]="subjects"
+  [internshipType]="internshipType"
+  [format]="format"
+  (selectedFilter)="filterPosts($event)"
+></app-navigation-menu>
 <app-internship-card
   *ngFor="let post of posts; let idx = index"
   [post]="post"

@@ -2,16 +2,16 @@
     <nav>
         <ul class="top_menu" >
             <li><p>{{'MAIN_PAIGE.FILTERS.Location' | translate}}</p>
-              <app-navigation-tag [posts]="posts" [title]=" location " (selectedFilter)="onFilter($event)"></app-navigation-tag>
+              <app-navigation-tag [posts]="posts" [title]="countries" [name]="'countries'"  (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Technology' | translate}}</p>
-              <app-navigation-tag [posts]="posts" [title]=" technology " (selectedFilter)="onFilter($event)"></app-navigation-tag>
+              <app-navigation-tag [posts]="posts" [title]="subjects" [name]="'subjects'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Event_type' | translate}}</p>
-              <app-navigation-tag [posts]="posts" [title]=" eventType " (selectedFilter)="onFilter($event)"></app-navigation-tag>
+              <app-navigation-tag [posts]="posts"  [title]="internshipType" [name]="'internshipType'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Internship_status' | translate}}</p>
-              <app-navigation-tag [posts]="posts" [title]=" internshipStatus " (selectedFilter)="onFilter($event)"></app-navigation-tag>
+              <app-navigation-tag [posts]="posts"  [title]="format" [name]="'format'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
         </ul>
     </nav>

@@ -10,6 +10,7 @@ import {Post} from '../../services/posts.service';
 export class NavigationTagComponent implements OnInit {
   @Input() posts: Post[];
   @Input() title: string[];
+  @Input() name: string;
   @Output() selectedFilter: EventEmitter<any> = new EventEmitter<any>();
 
 
@@ -19,8 +20,10 @@ export class NavigationTagComponent implements OnInit {
   ngOnInit(): void { }
 
   filter(event): void {
-    console.log(this.posts, this.selectedFilter, this.title);
-    this.selectedFilter.emit({selectedFilter: event.target.innerHTML});
+     this.selectedFilter.emit({name: this.name,
+                                    selectedValue: event.target.innerHTML,
+                                    isChecked: event.target.parentElement.previousElementSibling.checked
+     });
   }
 
 }
