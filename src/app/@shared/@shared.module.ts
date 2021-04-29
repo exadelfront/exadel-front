@@ -54,7 +54,7 @@ const MaterialModules = [
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
     MatDialogModule,
     MatButtonModule
 ];
