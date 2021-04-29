@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { STUDENTS_TABLE_URL } from '../../environments/environment';
+import { Post, PostsService } from './posts.service';
 
 export interface Student {
   additionalInfoId: number;
@@ -27,8 +28,9 @@ export interface Student {
   skype?: string;
   surname?: string;
   techInterview?: string;
+  id: number;
   traineeId?: number;
-  traineeStatus:string;
+  traineeStatus?:string;
 }
 
 @Injectable({
@@ -44,5 +46,22 @@ export class StudentsService {
 
   fetchStudentById(id: number): Observable<Student> {
     return this.http.get<Student>(`${STUDENTS_TABLE_URL}/ai/${id}`);
+  }
+
+  updateData(student: Student, id: number){
+    const data = JSON.stringify(student);
+    let myHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(`${STUDENTS_TABLE_URL}/${id}`, data, {headers:myHeaders});
+  }
+
+  deleteStudent(id: number){
+    return this.http.delete(`${STUDENTS_TABLE_URL}/${id}/delete`);
+  }
+  deleteStudentInfo(id: number){
+    return this.http.delete(`${STUDENTS_TABLE_URL}/ai/${id}/delete`);
+  }
+
+  fetchStudentHistory(id: number) {
+    return this.http.get<Post[]>(`${STUDENTS_TABLE_URL}/${id}/history`);
   }
 }

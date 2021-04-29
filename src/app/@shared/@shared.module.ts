@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -35,10 +36,12 @@ import { TableComponent } from './table/table.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule} from '@angular/material/button';
 
 import { DndDirective} from '../directives/dnd.directive';
 import { PostCreationComponent } from './post-creation/post-creation.component';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -49,7 +52,9 @@ const MaterialModules = [
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+  MatDialogModule,
+    MatButtonModule
 ];
 
 @NgModule({
@@ -78,7 +83,8 @@ const MaterialModules = [
     StudentInfoComponent,
     InfoSectionHeaderComponent,
     TableComponent,
-    PostCreationComponent
+    PostCreationComponent,
+    DialogConfirmComponent
   ],
 
   imports: [
@@ -119,9 +125,12 @@ const MaterialModules = [
     DndDirective,
     StudentInfoComponent,
     InfoSectionHeaderComponent,
-    TableComponent
+    TableComponent,
+    DialogConfirmComponent
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [DialogConfirmComponent]
 })
 
 export class SharedModule { }
+export class CustomMaterialModule {}

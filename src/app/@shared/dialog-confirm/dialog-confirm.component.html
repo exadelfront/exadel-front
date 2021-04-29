@@ -1,0 +1,12 @@
+<h1 class = "conf_header " mat-dialog-title>
+    {{title}}
+</h1>
+
+<div mat-dialog-content>
+    <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions>
+    <button class="conf_btn" mat-raised-button (click)="onDismiss()">No</button>
+    <button class="conf_btn" mat-raised-button (click)="onConfirm()">Yes</button>
+</div>
