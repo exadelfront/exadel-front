@@ -1,0 +1,12 @@
+<div class="info_div"
+[ngClass]="{
+    info_div_white: !isGray,
+    info_div_gray: isGray
+  }">
+    <div class="title_div">{{post.title}}</div>
+    <div class="subjects_div"><span *ngFor="let tag of post.subjects">
+        #{{ tag }}&nbsp;
+    </span></div>
+    <div class="date_div">{{post.startDate +'/'+post.endDate}}</div>
+    <button class="info_btn" (click)="openInfo(post.additionalInfoId)">Student info</button>
+</div>

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { STUDENTS_TABLE_URL } from '../../environments/environment';
-import { Post, PostsService } from './posts.service';
 
 export interface Student {
   additionalInfoId: number;
@@ -62,8 +61,5 @@ export class StudentsService {
   }
   deleteStudentInfo(id: number){
     return this.http.delete(`${STUDENTS_TABLE_URL}/ai/${id}/delete`);
-  }
-  fetchStudentHistory(id: number) {
-    return this.http.get<Post[]>(`${STUDENTS_TABLE_URL}/${id}/history`);
   }
 }
