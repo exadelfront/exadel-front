@@ -2,20 +2,26 @@
 <app-info-section-header header1_text="Candidate description" header2_text="Info"></app-info-section-header>
 <div class="stud-info-container">
     <div class="stud-info">
-        <app-student-info type_name=true text={{stud_name}}></app-student-info>
-        <app-student-info text={{student.email}}></app-student-info>
-        <app-student-info type_blue=true text={{student.traineeStatus}}></app-student-info>
-        <app-student-info text={{student.phone}}></app-student-info>
-        <app-student-info type_link=true text="Github page (click to open)" github_href={{student.github}}>
+        <app-student-info [student]="student" name="name" type_name=true text={{student?.name}}></app-student-info>
+        <app-student-info [student]="student" name="surname" type_name=true text={{student?.surname}}></app-student-info>
+        <app-student-info [student]="student" text={{student?.email}} type_div=true></app-student-info>
+        <app-student-info [student]="student" name="traineeStatus" type_blue=true text={{student?.traineeStatus}}></app-student-info>
+        <app-student-info [student]="student" name="phone" text={{student?.phone}}></app-student-info>
+        <app-student-info [student]="student" type_link=true text="Github page (click to open)" github_href={{student?.github}}>
         </app-student-info>
-        <app-student-info text={{student.skype}}></app-student-info>
-        <app-student-info type_blue=true text={{student.location}}></app-student-info>
-        <app-student-info text={{student.internshipTitle}}></app-student-info>
-        <app-student-info type_blue=true text={{student.english}}></app-student-info>
-        <app-student-info text={{dates}}></app-student-info>
+        <app-student-info [student]="student" name="skype" text={{student?.skype}}></app-student-info>
+        <app-student-info [student]="student" name="location" type_blue=true text={{student?.location}}></app-student-info>
+        <app-student-info [student]="student" name="internshipTitle" text={{student?.internshipTitle}} type_div=true></app-student-info>
+        <app-student-info [student]="student" name="english" type_blue=true text={{student?.english}}></app-student-info>
+        <app-student-info [student]="student" text={{dates}} type_div=true></app-student-info>
     </div>
     <div class="cv-container">
-        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{student.cv}}></app-section-header>
+        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{student?.cv}}></app-section-header>
+    </div>
+    <div class="action-btns">
+        <button (click)="deleteStudent()" class="delete-btn ">Delete student</button>
+        <button (click)="deleteInfo()" class="delete-btn ">Delete this info</button>
+        <button (click)="openHistory()"class="delete-btn history_btn">Open history</button>
     </div>
     <div class="chose-hr-date">
         <div class="chose-hr-date-header">
@@ -26,15 +32,14 @@
 </div>
 <app-info-section-header header1_text="Interviews conclusion" header2_text="HR and Technical"></app-info-section-header>
 <div class="interviews-container">
-    <form action="#" formGroup="form">
         <div class="textareas-container">
             <div class="textarea-div">
                 <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
-                    [controlName]="'review'"></app-textarea>
+                    [controlName]="'techReview'" ></app-textarea>
             </div>
             <div class="textarea-div">
                 <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
-                    [controlName]="'review'"></app-textarea>
+                    [controlName]="'hrReview'"  ></app-textarea>
             </div>
         </div>
         <div class="english-level-container">
@@ -42,7 +47,7 @@
                 <app-section-header header_text="The level of English of the candidate"></app-section-header>
             </div>
             <div class="english-rate-container">
-                <app-rate-btn id=1 value="A1"></app-rate-btn>
+                <app-rate-btn id=1 value="A1" checked></app-rate-btn>
                 <app-rate-btn id=2 value="A2"></app-rate-btn>
                 <app-rate-btn id=3 value="B1"></app-rate-btn>
                 <app-rate-btn id=4 value="B2"></app-rate-btn>
@@ -56,5 +61,4 @@
             <app-approve-reject-button [text]="'Reject'" [bgcolor]="'#F22E2E'" [parentForm]="form">
             </app-approve-reject-button>
         </div>
-    </form>
 </div>
