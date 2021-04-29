@@ -34,6 +34,7 @@ export class TableComponent implements OnInit {
  getData(): void {
     this.studentsService.fetchEvents().subscribe(res => {
       this.students = res;
+      console.log(this.students);
       this.getStatuses();
       this.getInternships();
       this.dataSource = new MatTableDataSource(res);
@@ -57,6 +58,14 @@ export class TableComponent implements OnInit {
   changeInternship(event: MatSelectChange) {
     this.internship = event.value;
   }
+  clearStatuses():void {
+    this.status = '';
+    this.selectFilterServer();
+  }
+  clearInternships(): void {
+    this.internship = '';
+    this.selectFilterServer();
+  }
   selectFilterServer() {
     if (this.status === '' && this.internship != '') {
       this.studentsService.filterDataOne('internship.title', this.internship).subscribe(res => {
@@ -76,6 +85,8 @@ export class TableComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
+    } else if (this.internship === '' && this.status === '') {
+      this.getData();
     } else {
       this.studentsService.filterDataMany('traineeStatus', this.status, 'internship.title', this.internship).subscribe(res => {
         this.students = res;

@@ -2,6 +2,7 @@
     <div class="filter-container">
         <mat-form-field class="filter">
             <mat-select  placeholder="Student Status" (selectionChange)="changeStatus($event)">
+                <mat-option (click)="clearStatuses()">All</mat-option>
                 <mat-option *ngFor="let status of statuses" [value]=status (click)="selectFilterServer()">
                     {{status}}
                 </mat-option>
@@ -9,6 +10,7 @@
         </mat-form-field>
         <mat-form-field >
             <mat-select  placeholder="Internship" (selectionChange)="changeInternship($event)">
+                <mat-option (click)="clearInternships()">All</mat-option>
                 <mat-option *ngFor="let internship of internships" [value]=internship (click)="selectFilterServer()">
                     {{internship}}
                 </mat-option>
