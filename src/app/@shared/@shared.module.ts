@@ -1,3 +1,4 @@
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -53,7 +54,8 @@ const MaterialModules = [
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-  MatDialogModule,
+    MatSelectModule
+    MatDialogModule,
     MatButtonModule
 ];
 
