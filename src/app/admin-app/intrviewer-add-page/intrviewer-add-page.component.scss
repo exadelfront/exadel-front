@@ -1,9 +1,11 @@
+@import "/src/styles";
+
 .content {
   margin: 0 auto;
   max-width: 1000px;
 
   .title-wrapper {
-    margin: 100px 0 60px 0;
+    margin: 60px 0;
   }
 
   .row-input-wrapper {
@@ -12,6 +14,119 @@
 
     .input-wrapper {
       width: 49%;
+    }
+  }
+
+  .date-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .input-wrapper {
+      width: 80%;
+    }
+
+    .add-btn {
+      margin-bottom: 22px;
+      width: 190px;
+      height: 45px;
+      font-family: Poppins;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 27px;
+      background-color: $main_blue;
+      color: white;
+      border: $btn_border;
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+      outline: none;
+
+      &:hover {
+        fill: $main_blue;
+        background-color: white;
+        color: $main_blue;
+        transition: all ease 0.3s;
+        box-shadow: $btn_shadow_hover;
+      }
+
+      &:active {
+        box-shadow: $btn_shadow_active;
+        transform: translateY(3px);
+      }
+    }
+  }
+
+  .selected-dates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .selected-date-wrapper {
+      min-width: 480px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 3px solid rgba(0, 0, 0, 0.15);
+      border-radius: 22px;
+      padding: 10px;
+      margin-bottom: 20px;
+
+      .selected-date {
+        font-size: 30px;
+      }
+
+      .delete-btn {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          top: 50%;
+          left: 0;
+          margin-top: -1px;
+          background: #D1D1D1;
+          border-radius: 5px;
+          height: 12px;
+          margin-top: -6px;
+          transform: rotate(45deg);
+          transition: all .3s;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 100%;
+          top: 50%;
+          left: 0;
+          margin-top: -1px;
+          background: #D1D1D1;
+          transform: rotate(-45deg);
+          height: 12px;
+          margin-top: -6px;
+          border-radius: 5px;
+          transition: all .3s;
+        }
+
+        &:hover:after {
+          background-color: red;
+        }
+
+        &:hover:before {
+          background-color: red;
+        }
+      }
     }
   }
 }
