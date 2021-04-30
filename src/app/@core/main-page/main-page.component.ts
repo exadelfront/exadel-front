@@ -1,6 +1,5 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {Post, PostsService} from '../../services/posts.service';
-import {objectKeys} from 'codelyzer/util/objectKeys';
 
 @Component({
   selector: 'app-main-page',
@@ -18,6 +17,7 @@ export class MainPageComponent implements OnInit {
     internshipType: [],
     format: []
   };
+
   @Output() countries: string[];
   @Output() subjects: string[];
   @Output() internshipType: string[];
@@ -29,7 +29,6 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchPosts();
-    this.filteredPosts = this.posts.splice(0, this.posts.length);
   }
 
   fetchPosts(): void {
@@ -57,133 +56,138 @@ export class MainPageComponent implements OnInit {
 
   filterPosts(event: any): void {
 
-    const name = event.name;
-    const selectedValue = event.selectedValue;
-    const isChecked = event.isChecked;
+    const choosen: Post[] = [];
+    const choosenCountries: Post[] = [];
+    const choosenSubjects: Post[] = [];
+    const choosenInternshipType: Post[] = [];
+    const choosenFormat: Post[] = [];
+    const choosenArray = [choosenCountries, choosenSubjects, choosenInternshipType, choosenFormat];
+
+    this.checkFilters(event);
+
+    this.choosePosts(choosen, choosenCountries, choosenSubjects, choosenInternshipType, choosenFormat);
 
 
-    if (!isChecked) {
-      this.filtration[name].push(selectedValue);
-    } else {
-      const i = this.filtration[name].indexOf(selectedValue);
-      this.filtration[name].splice(i, 1);
+    for (let i = 0; i < choosenArray.length; i++) {
+      if (choosenArray[i].length === 0) {
+        choosenArray.splice(i, 1);
+        --i;
+      }
     }
 
-   console.log(this.filtration);
-
-    let choosen = [];
-    let choosenCountries = [];
-    let choosenSubjects = [];
-    let choosenInternshipType = [];
-    let choosenFormat = [];
-
-
-    Object.values(this.filtration).forEach((el: [] , i: number) => {
-      const key = Object.keys(this.filtration)[i];
-
-      for (let e of el){
-        choosen = this.postsCopy.filter(post => post[key].includes(e));
-        console.log(choosen);
-
-        if (key === 'countries'){
-          choosenCountries = choosenCountries.concat(choosen);
-          console.log(choosenCountries);
-
-        } else if (key === 'subjects'){
-          choosenSubjects = choosenSubjects.concat(choosen);
-          console.log(choosenSubjects);
-
-        } else if (key === 'internshipType'){
-          choosenInternshipType = choosenInternshipType.concat(choosen);
-          console.log(choosenInternshipType);
-
-        } else if (key === 'format') {
-          choosenFormat = choosenFormat.concat(choosen);
-          console.log(choosenFormat);
-        }
-      }
-    });
-
-      if (this.filteredPosts.length === 0){
-
-          this.filteredPosts = choosen;
-          this.posts = this.filteredPosts;
-
-      } else {
-
-        if (choosenCountries.length > 0 && choosenSubjects.length === 0 && choosenFormat.length === 0 && choosenInternshipType.length === 0) {
-          this.filteredPosts = choosenCountries;
-          this.posts = this.filteredPosts;
-
-        } else if (choosenCountries.length === 0 && choosenSubjects.length > 0 && choosenFormat.length === 0 && choosenInternshipType.length === 0){
-          this.filteredPosts = choosenSubjects;
-          this.posts = this.filteredPosts;
-
-        } else if (choosenCountries.length === 0 && choosenSubjects.length === 0 && choosenFormat.length > 0 && choosenInternshipType.length === 0){
-          this.filteredPosts = choosenFormat;
-          this.posts = this.filteredPosts;
-
-        } else if (choosenCountries.length === 0 && choosenSubjects.length === 0 && choosenFormat.length === 0 && choosenInternshipType.length > 0){
-          this.filteredPosts = choosenInternshipType;
-          this.posts = this.filteredPosts;
-
-        } else if (choosenCountries.length === 0 && choosenSubjects.length === 0 && choosenFormat.length === 0 && choosenInternshipType.length === 0){
-          this.filteredPosts = this.postsCopy;
-          this.posts = this.filteredPosts;
-
-        } else {
-
-          this.filteredPosts.forEach((el, i) => {
-            if (choosenCountries.length > 0 && !choosenCountries.includes(el)) {
-                this.filteredPosts.splice(i, 1);
-                this.posts = this.filteredPosts;
-            } else if (choosenSubjects.length > 0 && !choosenSubjects.includes(el)) {
-              this.filteredPosts.splice(i, 1);
-              this.posts = this.filteredPosts;
-            } else if (choosenFormat.length > 0 && !choosenFormat.includes(el)) {
-              this.filteredPosts.splice(i, 1);
-              this.posts = this.filteredPosts;
-            } else if (choosenInternshipType.length > 0 && !choosenInternshipType.includes(el)) {
-              this.filteredPosts.splice(i, 1);
-              this.posts = this.filteredPosts;
-            }
-
-          })
-        }
-      }
-
+    this.showPosts(choosenArray);
 
   }
 
+
+  checkFilters(event): void {
+
+    if (!event.isChecked) {
+      this.filtration[event.name].push(event.selectedValue);
+    } else {
+      const i = this.filtration[event.name].indexOf(event.selectedValue);
+      this.filtration[event.name].splice(i, 1);
+    }
+
+  }
+
+
+  choosePosts(choosen, choosenCountries, choosenSubjects, choosenInternshipType, choosenFormat): void {
+
+    Object.values(this.filtration).forEach((el: [], i: number) => {
+      const key = Object.keys(this.filtration)[i];
+
+      for (const e of el) {
+        choosen = this.postsCopy.filter(post => post[key].includes(e));
+
+        if (key === 'countries') {
+          this.checkDuplicate(choosen, choosenCountries);
+
+        } else if (key === 'subjects') {
+          this.checkDuplicate(choosen, choosenSubjects);
+
+        } else if (key === 'internshipType') {
+          this.checkDuplicate(choosen, choosenInternshipType);
+
+        } else if (key === 'format') {
+          this.checkDuplicate(choosen, choosenFormat);
+        }
+
+      }
+
+    });
+
+  }
+
+
+  checkDuplicate(choosen: Post[], choosenArray: Post[]): void {
+
+    choosen.forEach(el => {
+      if (!choosenArray.includes(el)) {
+        choosenArray.push(el);
+      }
+    });
+
+  }
+
+
+  showPosts(choosenArray): void {
+
+    if (choosenArray.length === 0) {
+      this.showAllPosts();
+
+    } else if (choosenArray.length === 1) {
+      this.showPostsByOneFilter(choosenArray);
+
+    } else if (choosenArray.length === 2) {
+      this.showPostsBySeveralFilters(choosenArray);
+
+    } else if (choosenArray.length === 3) {
+      this.showPostsBySeveralFilters(choosenArray);
+
+    } else if (choosenArray.length === 4) {
+      this.showPostsBySeveralFilters(choosenArray);
+
+    }
+
+  }
+
+
+  showAllPosts(): void {
+
+    this.filteredPosts = [];
+    this.posts = this.postsCopy;
+  }
+
+
+  showPostsByOneFilter(choosenArray): void {
+
+    this.filteredPosts = choosenArray[0];
+    this.posts = this.filteredPosts;
+
+  }
+
+
+  showPostsBySeveralFilters(choosenArray): void {
+
+    const [firstArr, ...rest] = choosenArray;
+
+    for (let i = 1; i < choosenArray.length; i++) {
+      for (let j = 0; j < firstArr.length; j++) {
+        if (!choosenArray[i].includes(firstArr[j])) {
+          firstArr.splice(j, 1);
+          --j;
+        }
+      }
+    }
+
+    this.filteredPosts = firstArr;
+    this.posts = this.filteredPosts;
+
+  }
+
+
 }
-
-
-
-
-  //
-  //   if (name === 'location') {
-  //
-  //     if (!isChecked) {
-  //       const filterLocation = this.postsCopy.filter(post => post.countries.includes(selectedValue));
-  //       for (let item of filterLocation) {
-  //         this.filteredPosts.push(item);
-  //       }
-  //
-  //       this.posts = this.filteredPosts;
-  //
-  //     } else {
-  //
-  //       const unfilterLocation = this.postsCopy.filter(post => post.countries.includes(selectedValue));
-  //
-  //       for (let item of unfilterLocation) {
-  //         const index = this.posts.indexOf(item);
-  //         this.posts.splice(index, 1);
-  //       }
-  //     }
-  //
-
-
-
 
 
 
