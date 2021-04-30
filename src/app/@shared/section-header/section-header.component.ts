@@ -10,12 +10,13 @@ export class SectionHeaderComponent implements OnInit {
   @Input() header_text: string;
   @Input() name: string;
   @Input() is_button: boolean;
+  @Input() href: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
   openCV(): void {
-    window.open('http://google.com', '_blank');
+    window.open(this.href, '_blank');
   }
 }

@@ -1,11 +1,54 @@
 @import "/src/styles";
 
 .text_div {
+  display: flex;
+  justify-content: space-between;
   font-size: 24px;
   color: black;
   font-family: Poppins;
   border-bottom: 1px solid black;
   padding-top: 3vh;
+}
+.text_input {
+  font-size: 24px;
+  color: black;
+  font-family: Poppins;
+  border: none;
+  width: 100%;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cor_button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.save_btn {
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  border-radius: 10px;
+  padding: 0.01% 1%;
+  margin: 1% 2%;
+  font-family: Poppins;
+  font-size: 14px;
+  cursor: pointer;
+}
+.save_btn:hover {
+  fill: $main_blue;
+  background-color: white;
+  color: $main_blue;
+  transition: all ease 0.3s;
+  box-shadow: $btn_shadow_hover;
+}
+.cor_logo:hover {
+  fill: $main_blue;
+}
+.border_blue {
+  border-bottom: 2px solid $main_blue;
 }
 .type_name {
   font-size: 48px;
@@ -24,6 +67,9 @@
   .text_div {
     font-size: 14px;
   }
+  .text_input {
+    font-size: 14px;
+  }
   .type_name {
     font-size: 24px;
   }
@@ -31,6 +77,9 @@
 
 @media (min-width: 700px) and (max-width: 1100px) {
   .text_div {
+    font-size: 24px;
+  }
+  .text_input {
     font-size: 24px;
   }
   .type_name {

@@ -1,0 +1,14 @@
+@import "/src/styles";
+.conf_btn {
+  margin: 5% 5% 5% 0;
+  background-color: $main_grey;
+}
+.conf_header {
+  padding: 2% 0;
+  color: $main_blue;
+  text-transform: uppercase;
+}
+.conf_btn:hover {
+  background-color: $main_blue;
+  color: white;
+}

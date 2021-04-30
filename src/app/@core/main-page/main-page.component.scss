@@ -1,0 +1,8 @@
+div {
+ min-height: calc(100% - 160px);
+
+  @media(max-width: 700px) {
+    min-height: calc(100% - 80px);
+  }
+
+}

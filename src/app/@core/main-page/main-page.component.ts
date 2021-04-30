@@ -38,16 +38,16 @@ export class MainPageComponent implements OnInit {
         this.postsCopy = this.posts;
 
         const countriesArr: string [] = this.posts.map(el => el.countries).join(',').split(',');
-        this.countries = countriesArr.filter((el: string, i: number) => countriesArr.indexOf(el) === i).sort();
+        this.countries =  Array.from(new Set(countriesArr)).sort();
 
         const subjectsArr: string [] = this.posts.map(el => el.subjects).join(',').split(',');
-        this.subjects = subjectsArr.filter((el: string, i: number) => subjectsArr.indexOf(el) === i).sort();
+        this.subjects = Array.from(new Set(subjectsArr)).sort();
 
         const internshipTypeArr: string [] = this.posts.map(el => el.internshipType);
-        this.internshipType = internshipTypeArr.filter((el: string, i: number) => internshipTypeArr.indexOf(el) === i).sort();
+        this.internshipType = Array.from(new Set(internshipTypeArr)).sort();
 
         const formatArr: string [] = this.posts.map(el => el.format);
-        this.format = formatArr.filter((el: string, i: number) => formatArr.indexOf(el) === i).sort();
+        this.format = Array.from(new Set(formatArr)).sort();
       });
 
 

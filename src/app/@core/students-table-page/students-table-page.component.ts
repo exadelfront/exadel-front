@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Student} from '../../services/students.service';
 
 @Component({
   selector: 'app-students-table-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsTablePageComponent implements OnInit {
 
-  constructor() { }
+  students: Student[] = [];
+  
+  constructor( ) { }
 
   ngOnInit(): void {
+    
   }
-
+  
 }

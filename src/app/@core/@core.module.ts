@@ -8,8 +8,10 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { InfoStudentPageComponent } from './info-student-page/info-student-page.component';
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
+import { StudentHistoryPageComponent } from './student-history-page/student-history-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PostsService} from '../services/posts.service';
+
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import {PostsService} from '../services/posts.service';
     InfoStudentPageComponent,
     TechnicalEstimateComponent,
     StudentsTablePageComponent,
+    StudentHistoryPageComponent
   ],
     imports: [
         CommonModule,
