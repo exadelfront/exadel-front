@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { STUDENTS_TABLE_URL } from '../../environments/environment';
 
 export interface HistoryPost {
-  title: string;
+  internshipTitle: string;
   subjects: string[];
   startDate: string;
   endDate: string;

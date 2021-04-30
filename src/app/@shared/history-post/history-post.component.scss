@@ -23,8 +23,9 @@
   color: $main_blue;
   padding: 0 2% 0 2%;
 }
-.subjects_div {
-  min-width: 20vw;
+.subjects_div,
+.title_div {
+  min-width: 22vw;
 }
 .info_btn {
   min-width: 10vw;
