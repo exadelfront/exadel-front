@@ -17,7 +17,7 @@ export class MainPageComponent implements OnInit {
     internshipType: [],
     format: []
   };
-
+  @Output() notFound: boolean;
   @Output() countries: string[];
   @Output() subjects: string[];
   @Output() internshipType: string[];
@@ -76,6 +76,13 @@ export class MainPageComponent implements OnInit {
     }
 
     this.showPosts(choosenArray);
+
+
+    if (this.filteredPosts.length === 0) {
+      this.notFound = true;
+    } else  {
+      this.notFound = false;
+    }
 
   }
 

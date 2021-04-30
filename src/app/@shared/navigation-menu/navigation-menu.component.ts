@@ -15,6 +15,7 @@ export class NavigationMenuComponent implements OnInit {
   @Input() internshipType: string[];
   @Input() format: string[];
   @Input() title;
+  @Input() notFound;
   @Output() name: string;
 
   @Output() selectedFilter: EventEmitter<any> = new EventEmitter<any>();

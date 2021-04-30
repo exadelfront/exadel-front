@@ -9,7 +9,8 @@
             "Event_type":"Event type",
             "Internship_status":"Internship status"
         },
-        "MORE_DETAILS_BUTTON": "More details"
+        "MORE_DETAILS_BUTTON": "More details",
+        "NOT_FOUND": "No activities related to this request"
     },
     "JOIN_FORM": {
         "Title":"Join us",
