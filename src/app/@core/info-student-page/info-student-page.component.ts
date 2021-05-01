@@ -52,7 +52,7 @@ export class InfoStudentPageComponent implements OnInit {
     const message = `Are you sure you want to DELETE STUDENT ` +this.student.name+ " " +this.student.surname +' (according to email)? It include NOT ONLY this information, but ALL student info in ALL Internships';
     const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
-      maxWidth: "60vw",
+      maxWidth: "65vw",
       data: dialogData
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
@@ -69,7 +69,7 @@ export class InfoStudentPageComponent implements OnInit {
     const message = `Are you sure you want to DELETE THIS INFO of the student ` +this.student.name+ " " +this.student.surname +' (according to email)? It include ONLY this info of the student. Another student info (in different internships) will be safe.';
     const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
-      maxWidth: "60vw",
+      maxWidth: "65vw",
       data: dialogData
     });
     dialogRef.afterClosed().subscribe(dialogResult => {
