@@ -6,6 +6,10 @@
 
   .title-wrapper {
     margin: 60px 0;
+
+    @media (max-width: 700px) {
+      margin: 30px 0;
+    }
   }
 
   .row-input-wrapper {
@@ -22,8 +26,16 @@
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 400px) {
+      flex-wrap: wrap;
+    }
+
     .input-wrapper {
-      width: 80%;
+      width: 75%;
+
+      @media (max-width: 400px) {
+        width: 100%;
+      }
     }
 
     .add-btn {
@@ -41,6 +53,13 @@
       border-bottom-right-radius: 50px;
       filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
       outline: none;
+
+      @media (max-width: 700px) {
+        width: 120px;
+        height: 25px;
+        font-size: 12px;
+        line-height: 18px;
+      }
 
       &:hover {
         fill: $main_blue;
@@ -62,6 +81,10 @@
     max-width: 400px;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 700px) {
+      max-width: 250px;
+    }
 
     .type-btn {
       display: inline-block;
@@ -130,6 +153,10 @@
       margin: 5px 5px;
       user-select: none;
 
+      @media (max-width: 700px) {
+        font-size: 14px;
+      }
+
       &_picked {
         background-color: #2EA3F2;
         color: #fff;
@@ -146,8 +173,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
+    @media (max-width: 1100px) {
+      max-width: 720px;
+    }
+
     .selected-date-wrapper {
-      min-width: 480px;
+      width: 480px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -156,8 +187,21 @@
       padding: 10px;
       margin-bottom: 20px;
 
+      @media (max-width: 1100px) {
+        width: 350px;
+        padding: 5px 10px;
+      }
+
       .selected-date {
         font-size: 30px;
+
+        @media (max-width: 1100px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 380px) {
+          font-size: 16px;
+        }
       }
 
       .delete-btn {
@@ -167,6 +211,11 @@
         height: 50px;
         overflow: hidden;
 
+        @media (max-width: 1100px) {
+          width: 40px;
+          height: 40px;
+        }
+
         &:hover {
           cursor: pointer;
         }
@@ -174,7 +223,6 @@
         &:before {
           content: "";
           position: absolute;
-          height: 2px;
           width: 100%;
           top: 50%;
           left: 0;
@@ -190,7 +238,6 @@
         &:after {
           content: "";
           position: absolute;
-          height: 2px;
           width: 100%;
           top: 50%;
           left: 0;
@@ -216,6 +263,10 @@
 
   .submit-btn-wrapper {
     margin: 30px 0 50px 0;
+
+    @media (max-width: 700px) {
+      margin: 10px 0 20px 0;
+    }
   }
 }
 

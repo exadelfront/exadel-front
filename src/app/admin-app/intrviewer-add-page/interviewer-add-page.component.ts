@@ -4,11 +4,11 @@ import { SubjectsService } from '../../services/subjects.service';
 import { InterviewerService } from '../../services/interviewer.service';
 
 @Component({
-  selector: 'app-intrviewer-add-page',
-  templateUrl: './intrviewer-add-page.component.html',
-  styleUrls: ['./intrviewer-add-page.component.scss']
+  selector: 'app-interviewer-add-page',
+  templateUrl: './interviewer-add-page.component.html',
+  styleUrls: ['./interviewer-add-page.component.scss']
 })
-export class IntrviewerAddPageComponent implements OnInit {
+export class InterviewerAddPageComponent implements OnInit {
 
   form: FormGroup;
   selectDateForm: FormGroup;
@@ -21,7 +21,8 @@ export class IntrviewerAddPageComponent implements OnInit {
       surname: new FormControl(null, Validators.required),
       email: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required),
-      skype: new FormControl(null, Validators.required),
+      skype: new FormControl(null, Validators.required,
+      ),
       type: new FormControl(null, Validators.required),
     });
     this.selectDateForm = new FormGroup({
@@ -34,8 +35,9 @@ export class IntrviewerAddPageComponent implements OnInit {
 
   onAddDateBtnClick(): void {
     if (!this.selectDateForm.invalid) {
-      const { selectedDate } = this.selectDateForm.value;
+      const selectedDate  = this.selectDateForm.get('selectedDate').value;
       this.selectedDates.push(selectedDate);
+      this.selectDateForm.reset();
       return;
     }
     console.log('invalid');
@@ -60,12 +62,16 @@ export class IntrviewerAddPageComponent implements OnInit {
       };
     });
     if (this.form.value.type === 'HR') {
-      // console.log({ ...this.form.value, interviewTimes });
+      console.log({ ...this.form.value, interviewTimes });
       this.interviewerService.sendDate({ ...this.form.value, interviewTimes }).subscribe();
+      this.resetForm();
+      return;
     }
     this.interviewerService
-      .sendDate({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjects })
+      .sendDate({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjectsNames })
       .subscribe();
+    console.log({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjectsNames });
+    this.resetForm();
   }
 
   selectTech(): void {
@@ -73,6 +79,14 @@ export class IntrviewerAddPageComponent implements OnInit {
   }
 
   selectHr(): void {
+    this.showSubjects = false;
+  }
+
+  resetForm(): void {
+    this.form.reset();
+    this.selectDateForm.reset();
+    this.subjectsService.resetSelectedSubjects();
+    this.selectedDates = [];
     this.showSubjects = false;
   }
 }

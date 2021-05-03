@@ -22,7 +22,6 @@ export class InterviewerService {
   constructor(private http: HttpClient) {}
 
   sendDate(interviewer: Interviewer): Observable<object> {
-    console.log(interviewer);
     return this.http.post<Interviewer>(INTERVIEWER_INFO_SEND_URL, interviewer);
   }
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IntrviewerAddPageComponent } from './intrviewer-add-page.component';
+import { InterviewerAddPageComponent } from './interviewer-add-page.component';
 
 describe('IntrviewerAddPageComponent', () => {
-  let component: IntrviewerAddPageComponent;
-  let fixture: ComponentFixture<IntrviewerAddPageComponent>;
+  let component: InterviewerAddPageComponent;
+  let fixture: ComponentFixture<InterviewerAddPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IntrviewerAddPageComponent ]
+      declarations: [ InterviewerAddPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IntrviewerAddPageComponent);
+    fixture = TestBed.createComponent(InterviewerAddPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
