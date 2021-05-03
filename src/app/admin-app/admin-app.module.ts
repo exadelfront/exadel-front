@@ -8,13 +8,15 @@ import { CoreModule } from '../@core/@core.module';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { IntrviewerAddPageComponent } from './intrviewer-add-page/intrviewer-add-page.component';
+import {AddClassIfTrueDirective} from '../directives/add-class-if-true.directive';
 
 
 @NgModule({
   declarations: [
     AdminAppComponent,
     HrFormComponent,
-    IntrviewerAddPageComponent
+    IntrviewerAddPageComponent,
+    AddClassIfTrueDirective
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { IntrviewerAddPageComponent } from './intrviewer-add-page/intrviewer-add
     exports: [
         AdminAppComponent,
         HrFormComponent,
-        IntrviewerAddPageComponent
+        IntrviewerAddPageComponent,
+        AddClassIfTrueDirective
     ]
 })
 export class AdminAppModule { }

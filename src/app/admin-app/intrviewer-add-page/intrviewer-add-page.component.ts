@@ -1,5 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SubjectsService } from '../../services/subjects.service';
+import { InterviewerService } from '../../services/interviewer.service';
 
 @Component({
   selector: 'app-intrviewer-add-page',
@@ -10,15 +12,17 @@ export class IntrviewerAddPageComponent implements OnInit {
 
   form: FormGroup;
   selectDateForm: FormGroup;
-  selectedDates: string[] = ['2021-04-29T19:51', '2021-04-29T19:51', '2021-04-29T19:51'];
+  selectedDates: string[] = [];
+  showSubjects = false;
 
-  constructor() {
+  constructor(public subjectsService: SubjectsService, private interviewerService: InterviewerService) {
     this.form = new FormGroup({
-      name: new FormControl(null),
-      surname: new FormControl(null),
-      email: new FormControl(null),
-      phone: new FormControl(null),
-      skype: new FormControl(null),
+      name: new FormControl(null, Validators.required),
+      surname: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      phone: new FormControl(null, Validators.required),
+      skype: new FormControl(null, Validators.required),
+      type: new FormControl(null, Validators.required),
     });
     this.selectDateForm = new FormGroup({
       selectedDate: new FormControl(null, Validators.required),
@@ -50,6 +54,25 @@ export class IntrviewerAddPageComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
+    const interviewTimes = this.selectedDates.map(startDate => {
+      return {
+        startDate,
+      };
+    });
+    if (this.form.value.type === 'HR') {
+      // console.log({ ...this.form.value, interviewTimes });
+      this.interviewerService.sendDate({ ...this.form.value, interviewTimes }).subscribe();
+    }
+    this.interviewerService
+      .sendDate({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjects })
+      .subscribe();
+  }
+
+  selectTech(): void {
+    this.showSubjects = true;
+  }
+
+  selectHr(): void {
+    this.showSubjects = false;
   }
 }

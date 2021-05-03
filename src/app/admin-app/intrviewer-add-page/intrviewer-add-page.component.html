@@ -55,6 +55,45 @@
       [header_text]="'Choose interviewer type'"
     ></app-section-header>
   </div>
+  <div class="interviewer-type">
+    <div class="type-btn">
+      <input
+        id="1"
+        type="radio"
+        name="type"
+        value="HR"
+        formControlName="type"
+
+      >
+      <label for="1" (click)="selectHr()">HR</label>
+    </div>
+    <div class="type-btn">
+      <input
+        id="2"
+        type="radio"
+        name="type"
+        value="TECH"
+        formControlName="type"
+      >
+      <label for="2" (click)="selectTech()">TECH</label>
+    </div>
+  </div>
+  <section class="subjects-section" *ngIf="showSubjects">
+    <div class="title-wrapper">
+      <app-section-header
+        [header_text]="'Choose interviewer subjects'"
+      ></app-section-header>
+    </div>
+    <div class="subjects">
+      <div
+        class="subject"
+        *ngFor="let subject of subjectsService.allSubjectsObjs"
+        [appAddClassIfTrue]="'subject_picked'"
+        [condition]="subject.isSelected"
+        (click)="subjectsService.onSubjectClick($event)"
+      >{{ subject.name }}</div>
+    </div>
+  </section>
   <div class="title-wrapper">
     <app-section-header
       [header_text]="'Choose interviewer free time'"
@@ -88,7 +127,7 @@
       <div class="delete-btn" (click)="deleteSelectedDate($event)"></div>
     </div>
   </div>
-  <div>
+  <div class="submit-btn-wrapper">
     <app-approve-reject-button
       [text]="'Submit'"
       [parentForm]="form"
