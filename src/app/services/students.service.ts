@@ -30,6 +30,9 @@ export interface Student {
   id: number;
   traineeId?: number;
   traineeStatus?:string;
+
+  traineeFullName:string;
+  adminFullName:string;
 }
 
 @Injectable({
