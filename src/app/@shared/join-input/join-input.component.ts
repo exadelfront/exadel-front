@@ -14,9 +14,9 @@ export class JoinInputComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: string;
   @Input() name: string;
-  @Input() controlName: string;
-  @Input() parentForm: FormGroup;
-
+  @Input() controlName: string = null;
+  @Input() parentForm: FormGroup = null;
+  value: string;
 
   constructor() { }
 

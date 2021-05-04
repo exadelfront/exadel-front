@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainPageComponent} from './@core/main-page/main-page.component';
-import {PostPageComponent} from './@core/post-page/post-page.component';
-import {TechnicalEstimateComponent} from "./@core/technical-estimate/technical-estimate.component";
-import {HrFormComponent} from "./admin-app/hr-form/hr-form.component";
+import { MainPageComponent } from './@core/main-page/main-page.component';
+import { PostPageComponent } from './@core/post-page/post-page.component';
+import { TechnicalEstimateComponent } from './@core/technical-estimate/technical-estimate.component';
+import { HrFormComponent } from './admin-app/hr-form/hr-form.component';
+import { InterviewerAddPageComponent } from './admin-app/intrviewer-add-page/interviewer-add-page.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'admin/techform',
     component: TechnicalEstimateComponent
+  },
+  {
+    path: 'admin/addInterviewer',
+    component: InterviewerAddPageComponent
   }
 ];
 
