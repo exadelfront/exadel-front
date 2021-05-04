@@ -43,8 +43,6 @@ export class TableComponent implements OnInit {
     for (let i = 0; i < this.students.length; i++){
       this.statuses.add(this.students[i].traineeStatus);
       this.internships.add(this.students[i].internshipName);
-      this.students[i].traineeFullName=this.students[i].traineeName+' '+this.students[i].traineeSurname;
-      this.students[i].adminFullName=this.students[i].adminName+' '+this.students[i].adminSurname;
     }
   }
   changeStatus(event: MatSelectChange) {
@@ -64,17 +62,13 @@ export class TableComponent implements OnInit {
   selectFilterServer() {
     if (this.status === '' && this.internship != '') {
       this.studentsService.filterDataOne('internship.title', this.internship).subscribe(res => {
-        this.students = res;
-        this.getStatusesAndInternships();
-        this.dataSource = new MatTableDataSource(this.students);
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
     } else if (this.internship === '' && this.status != '') {
       this.studentsService.filterDataOne('traineeStatus', this.status).subscribe(res => {
-        this.students = res;
-        this.getStatusesAndInternships();
-        this.dataSource = new MatTableDataSource(this.students);
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
@@ -82,9 +76,7 @@ export class TableComponent implements OnInit {
       this.getData();
     } else {
       this.studentsService.filterDataMany('traineeStatus', this.status, 'internship.title', this.internship).subscribe(res => {
-        this.students = res;
-        this.getStatusesAndInternships();
-        this.dataSource = new MatTableDataSource(this.students);
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
