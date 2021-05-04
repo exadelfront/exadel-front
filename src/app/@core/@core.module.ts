@@ -10,7 +10,7 @@ import { TechnicalEstimateComponent } from './technical-estimate/technical-estim
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
 import { StudentHistoryPageComponent } from './student-history-page/student-history-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import {PostsService} from '../services/posts.service';
 
 
 
@@ -35,6 +35,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     LoginMenuComponent,
     InfoStudentPageComponent,
     TechnicalEstimateComponent
-    ]
+    ],
+  providers: [PostsService]
 })
 export class CoreModule { }

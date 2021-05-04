@@ -1,18 +1,21 @@
 <div class="menu_div">
     <nav>
-        <ul class="top_menu">
+        <ul class="top_menu" >
             <li><p>{{'MAIN_PAIGE.FILTERS.Location' | translate}}</p>
-                <app-navigation-tag ></app-navigation-tag>
+              <app-navigation-tag [posts]="posts" [title]="countries" [name]="'countries'"  (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Technology' | translate}}</p>
-              <app-navigation-tag></app-navigation-tag>
+              <app-navigation-tag [posts]="posts" [title]="subjects" [name]="'subjects'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Event_type' | translate}}</p>
-              <app-navigation-tag></app-navigation-tag>
+              <app-navigation-tag [posts]="posts"  [title]="internshipType" [name]="'internshipType'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
             <li><p>{{'MAIN_PAIGE.FILTERS.Internship_status' | translate}}</p>
-              <app-navigation-tag></app-navigation-tag>
+              <app-navigation-tag [posts]="posts"  [title]="format" [name]="'format'" (selectedFilter)="onFilter($event)"></app-navigation-tag>
             </li>
         </ul>
     </nav>
 </div>
+
+
+<div *ngIf="notFound" class="not_found">{{'MAIN_PAIGE.NOT_FOUND' | translate}}</div>

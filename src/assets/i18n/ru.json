@@ -9,7 +9,8 @@
             "Event_type":"Тип ивента",
             "Internship_status":"Статус стажировки"
         },
-      "MORE_DETAILS_BUTTON": "Подробнее"
+      "MORE_DETAILS_BUTTON": "Подробнее",
+      "NOT_FOUND": "Мероприятий по заданным фильтрам нет"
     },
     "JOIN_FORM": {
         "Title":"Заполните анкету",

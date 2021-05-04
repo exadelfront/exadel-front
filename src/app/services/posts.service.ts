@@ -34,4 +34,5 @@ export class PostsService {
   fetchPostById(id: number): Observable<Post> {
     return this.http.get<Post>(`${INTERNSHIPS_PAGE_URL}/${id}`);
   }
+
 }
