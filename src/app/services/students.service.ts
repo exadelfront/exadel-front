@@ -56,10 +56,22 @@ export class StudentsService {
     return this.http.get<Student>(`${STUDENTS_TABLE_URL}/ai/${id}`);
   }
   filterDataOne(parameter:string, value: string): Observable<Student[]> {
-     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter}=='${value}'`);
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter}=='${value}'`).pipe(map(data=>{
+            return data.map(function(student:any) {
+              student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
+              student.adminFullName = student.adminName + ' ' + student.adminSurname;
+              return student;
+              });
+        }));
   }
   filterDataMany(parameter_1:string, value_1: string, parameter_2:string, value_2: string): Observable<Student[]> {
-     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter_1}=='${value_1}';${parameter_2}=='${value_2}'`);
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter_1}=='${value_1}';${parameter_2}=='${value_2}'`).pipe(map(data=>{
+            return data.map(function(student:any) {
+              student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
+              student.adminFullName = student.adminName + ' ' + student.adminSurname;
+              return student;
+              });
+        }));
   }
   updateData(student: Student, id: number){
     const data = JSON.stringify(student);
