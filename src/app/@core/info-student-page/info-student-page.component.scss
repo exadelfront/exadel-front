@@ -5,14 +5,15 @@
 }
 .stud-info,
 .cv-container,
-.chose-hr-date,
+.chose-date,
 .textarea-div,
 .english-level-header,
 .english-rate-container,
 .buttons-container {
   padding: 2.5vh 0;
 }
-.chose-hr-date-header {
+.chose-hr-date-header,
+.chose-tech-date-header {
   padding: 0 0 2.5vh 0;
 }
 .english-rate-container,
@@ -57,14 +58,15 @@
   }
   .stud-info,
   .cv-container,
-  .chose-hr-date,
+  .chose-date,
   .textarea-div,
   .english-level-header,
   .english-rate-container,
   .buttons-container {
     padding: 2vh 0;
   }
-  .chose-hr-date-header {
+  .chose-hr-date-header,
+  .chose-tech-date-header {
     padding: 0 0 2vh 0;
   }
   .delete-btn {
@@ -83,14 +85,15 @@
   }
   .stud-info,
   .cv-container,
-  .chose-hr-date,
+  .chose-date,
   .textarea-div,
   .english-level-header,
   .english-rate-container,
   .buttons-container {
     padding: 2.5vh 0;
   }
-  .chose-hr-date-header {
+  .chose-hr-date-header,
+  .chose-tech-date-header {
     padding: 0 0 2.5vh 0;
   }
   .delete-btn {
