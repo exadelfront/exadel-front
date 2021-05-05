@@ -1,0 +1,66 @@
+@import "/src/styles";
+
+.min_height {
+  min-height: 100vh;
+}
+.admin-info-container {
+  padding: 5vh 20vw;
+}
+.admin-info {
+  padding: 2.5vh 0;
+}
+.action-btns {
+  display: flex;
+  justify-content: row;
+}
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 65px;
+  border: none;
+  border-radius: 10px;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: white;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  background: $dark_grey;
+  margin: 4% 2% 2% 0;
+}
+.delete-btn:hover {
+  filter: drop-shadow(2px 4px 4px red);
+  background: red;
+  transition: all ease 0.3s;
+}
+@media (max-width: 699px) {
+  .admin-info-container {
+    padding: 4vh 2vw;
+  }
+  .admin-info {
+    padding: 2vh 0;
+  }
+  .delete-btn {
+    width: 120px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 3% 1% 1% 0;
+  }
+}
+@media (min-width: 700px) and (max-width: 1100px) {
+  .admin-info-container {
+    padding: 5vh 10vw;
+  }
+  .admin-info {
+    padding: 2.5vh 0;
+  }
+  .delete-btn {
+    width: 170px;
+    height: 45px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="min_height">
+    <app-home-button></app-home-button>
+    <app-info-section-header header1_text="Admin description" header2_text="Info"></app-info-section-header>
+    <div class="admin-info-container">
+        <div class="admin-info">
+            <app-student-info is_admin = true [admin]="admin" name="name" type_name=true text={{admin?.name}}></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" name="surname" type_name=true text={{admin?.surname}}></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" text={{admin?.email}} type_div=true></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" name="type" type_blue=true text={{admin?.type}}></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" name="phone" text={{admin?.phone}}></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" name="skype" text={{admin?.skype}}></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" text={{subjects}} type_div=true></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" text={{dates}} type_div=true></app-student-info>
+        </div>
+        <div class="action-btns">
+            <button (click)="deleteAdmin()" class="delete-btn ">Delete admin</button>
+        </div>
+    </div>
+</div>
