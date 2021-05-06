@@ -43,6 +43,9 @@ import { MatButtonModule} from '@angular/material/button';
 import { DndDirective} from '../directives/dnd.directive';
 import { PostCreationComponent } from './post-creation/post-creation.component';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
+import { PostTablePageComponent } from './post-table-page/post-table-page.component';
+import { PostViewAdminComponent } from './post-view-admin/post-view-admin.component';
+import { ChooseItemsComponent } from './choose-items/choose-items.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -86,7 +89,10 @@ const MaterialModules = [
     InfoSectionHeaderComponent,
     TableComponent,
     PostCreationComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    PostTablePageComponent,
+    PostViewAdminComponent,
+    ChooseItemsComponent
   ],
 
   imports: [

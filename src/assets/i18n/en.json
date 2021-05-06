@@ -50,6 +50,12 @@
       "Submit": "Submit",
       "SubmitNotification": "Your request is received.",
       "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
+    },
+    "ADMIN_POST_VIEW":{
+      "NewPost": "Add new internship post",
+      "Details": "Details",
+      "Published": "Published",
+      "NotPublished": "Not published"
     }
 }
 

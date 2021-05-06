@@ -1,4 +1,4 @@
-<div class="post-creation">
+<div class="post-creation" xmlns="http://www.w3.org/1999/html">
   <div class="post-creation-wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -10,42 +10,70 @@
         {{'POST_CREATION.SecondSubheading' | translate}}
       </h3>
 
+      <span>{{'POST_CREATION.Title' | translate}}</span>
       <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'title'"
-                      [placeholder]="'POST_CREATION.Title' | translate" [type]="'text'"
-                      [name]="'title'"></app-join-input>
+                      [type]="'text'"
+                      [name]="'title'"
+                      [placeholder]="'Title...'"
+      ></app-join-input>
 
       <div class="post-creation-inputs">
         <div>
-          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'internshipType'"
-                          [placeholder]="'POST_CREATION.Type' | translate" [type]="'text'"
-                          [name]="'internshipType'"></app-join-input>
+          <span>{{'POST_CREATION.Type' | translate}}</span>
+          <app-choose-items
+            [(ngModel)]="types"
+            [ngModelOptions]="{standalone: true}"
+            ngDefaultControl
+            [placeholder]="'Type...'"
+            [suggestions]="typeSuggests"
+          ></app-choose-items>
         </div>
         <div>
-          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'format'"
-                          [placeholder]="'POST_CREATION.Format' | translate" [type]="'text'"
-                          [name]="'format'"></app-join-input>
+          <span>{{'POST_CREATION.Format' | translate}}</span>
+          <select class="creation-select" formControlName="format"  [ngClass]="{'important-color': form.value.format === 'Format...'}">
+            <option [ngValue]="null" [disabled]="true" hidden>Format...</option>
+            <option *ngFor="let format of formatSuggests" value="{{format}}">
+              {{format}}
+            </option>
+          </select>
         </div>
       </div>
       <div class="post-creation-inputs">
         <div>
-          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'subjects'"
-                          [placeholder]="'POST_CREATION.Technologies' | translate" [type]="'text'"
-                          [name]="'subjects'"></app-join-input>
+          <span>{{'POST_CREATION.Technologies' | translate}}</span>
+          <app-choose-items
+            [(ngModel)]="subjects"
+            [ngModelOptions]="{standalone: true}"
+            ngDefaultControl
+            [placeholder]="'Technologies...'"
+            [suggestions]="subjectSuggests"
+          ></app-choose-items>
         </div>
         <div>
-          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'countries'"
-                          [placeholder]="'POST_CREATION.Countries' | translate" [type]="'text'"
-                          [name]="'countries'"></app-join-input>
+          <span>{{'POST_CREATION.Countries' | translate}}</span>
+          <app-choose-items
+            [(ngModel)]="countries"
+            [ngModelOptions]="{standalone: true}"
+            ngDefaultControl
+            [placeholder]="'Countries...'"
+            [suggestions]="countrySuggests"
+          ></app-choose-items>
         </div>
       </div>
 
       <div class="post-creation-inputs">
         <div>
-          <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'skills'"
-                          [placeholder]="'POST_CREATION.Skills' | translate" [type]="'text'"
-                          [name]="'skills'"></app-join-input>
+          <span>{{'POST_CREATION.Skills' | translate}}</span>
+          <app-choose-items
+            [(ngModel)]="skills"
+            [ngModelOptions]="{standalone: true}"
+            ngDefaultControl
+            [placeholder]="'Skills...'"
+            [suggestions]="skillSuggests"
+          ></app-choose-items>
         </div>
       </div>
+
 
       <h2>{{'POST_CREATION.Time' | translate}}</h2>
       <hr>
@@ -53,18 +81,26 @@
       <div class="post-creation-date">
         <div class="post-creation-date-row">
           <div>
-            <input type="text" placeholder="{{'POST_CREATION.RecruitmentStart' | translate}}" onfocus="(this.type='date')" formControlName="startRequestDate">
+            <span>{{'POST_CREATION.RecruitmentStart' | translate}}</span>
+            <input type="date"
+                    formControlName="startRequestDate">
           </div>
           <div>
-            <input type="text" placeholder="{{'POST_CREATION.RecruitmentEnd' | translate}}" onfocus="(this.type='date')" formControlName="endRequestDate">
+            <span>{{'POST_CREATION.RecruitmentEnd' | translate}}</span>
+            <input type="date"
+                   formControlName="endRequestDate">
           </div>
         </div>
         <div class="post-creation-date-row">
           <div>
-            <input type="text" placeholder="{{'POST_CREATION.EventStart' | translate}}" onfocus="(this.type='date')" formControlName="startDate">
+            <span>{{'POST_CREATION.EventStart' | translate}}</span>
+            <input type="date"
+                   formControlName="startDate">
           </div>
           <div>
-            <input type="text" placeholder="{{'POST_CREATION.EventEnd' | translate}}" onfocus="(this.type='date')" formControlName="endDate">
+            <span>{{'POST_CREATION.EventEnd' | translate}}</span>
+            <input type="date"
+                   formControlName="endDate">
           </div>
         </div>
       </div>
@@ -142,7 +178,8 @@
 
       <div class="split"></div>
 
-      <app-approve-reject-button [text]="'POST_CREATION.Submit' | translate" [parentForm]="form"></app-approve-reject-button>
+      <app-approve-reject-button [text]="'POST_CREATION.Submit' | translate"
+                                 [parentForm]="form"></app-approve-reject-button>
 
       <div *ngIf="isSubmitted" class="post-creation-alert">{{'POST_CREATION.SubmitNotification' | translate}}</div>
       <div *ngIf="notSubmitted" class="post-creation-danger">{{'POST_CREATION.SubmitAlert' | translate}}</div>
