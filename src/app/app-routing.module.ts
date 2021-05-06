@@ -5,6 +5,7 @@ import { PostPageComponent } from './@core/post-page/post-page.component';
 import { TechnicalEstimateComponent } from './@core/technical-estimate/technical-estimate.component';
 import { HrFormComponent } from './admin-app/hr-form/hr-form.component';
 import { InterviewerAddPageComponent } from './admin-app/intrviewer-add-page/interviewer-add-page.component';
+import { InterviewersTablePageComponent } from './admin-app/interviewers-table-page/interviewers-table-page.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'admin/addInterviewer',
     component: InterviewerAddPageComponent
+  },
+  {
+    path: 'admin/interviewers',
+    component: InterviewersTablePageComponent,
   }
 ];
 
