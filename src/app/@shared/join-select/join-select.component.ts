@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-join-select',
   template: ` <div [formGroup]="parentForm" >
-                  <select class="form-control" name="english" formControlName="{{controlName}}" ngModel >
+                  <select class="form-control" name="english" formControlName="{{controlName}}" >
                     <option [ngValue]="null" hidden>English level...</option>
                     <option *ngFor="let eng of englishArr" [ngValue]="eng"
                     >{{eng}}

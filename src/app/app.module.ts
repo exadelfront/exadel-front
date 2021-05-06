@@ -23,7 +23,7 @@ import { AddClassIfTrueDirective } from './directives/add-class-if-true.directiv
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    ReactiveFormsModule,
     AppRoutingModule,
     AdminAppModule,
     HttpClientModule,
