@@ -41,7 +41,9 @@ export class PostsService {
     return this.http.get<Post>(`${INTERNSHIPS_PAGE_URL}/${id}`);
   }
 
+
   fetchAdminsPostById(id: number): Observable<Post> {
     return this.http.get<Post>(`${INTERNSHIPS_PAGE_ADMIN_URL}/${id}`);
   }
+
 }

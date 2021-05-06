@@ -1,6 +1,6 @@
 <app-home-button></app-home-button>
-<app-internship-card *ngFor="let post of posts; let idx = index" 
-    [post]="post" 
-    [isGray]="idx % 2 !== 0 ? false: true"
-    [isBtnPresent]="true">
-</app-internship-card>
+<div class ="min_height"><app-history-post 
+  *ngFor="let post of posts; let idx = index"
+  [post]="post"
+  [isGray]="idx % 2 !== 0 ? false: true"></app-history-post>
+  </div>

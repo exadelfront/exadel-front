@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public displayedColumns: string[] = ['name', 'email', 'subjects', 'status','hrManager'];
+  public displayedColumns: string[] = ['traineeFullName', 'email', 'subjects', 'status','adminFullName'];
   public dataSource = new MatTableDataSource();
   public statuses = new Set();
   public internships = new Set();
@@ -30,25 +30,18 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
   }
-
- getData(): void {
-    this.studentsService.fetchEvents().subscribe(res => {
-      this.students = res;
-      console.log(this.students);
-      this.getStatuses();
-      this.getInternships();
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    });
-  }
-  getStatuses():void {
+  getData(): void {
+      this.studentsService.fetchEvents().subscribe(res => {
+        this.students = res;
+        this.getStatusesAndInternships();
+        this.dataSource = new MatTableDataSource(this.students);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+    }
+  getStatusesAndInternships():void {
     for (let i = 0; i < this.students.length; i++){
       this.statuses.add(this.students[i].traineeStatus);
-    }
-  }
-  getInternships():void {
-    for (let i = 0; i < this.students.length; i++){
       this.internships.add(this.students[i].internshipName);
     }
   }
@@ -69,18 +62,12 @@ export class TableComponent implements OnInit {
   selectFilterServer() {
     if (this.status === '' && this.internship != '') {
       this.studentsService.filterDataOne('internship.title', this.internship).subscribe(res => {
-        this.students = res;
-        this.getStatuses();
-        this.getInternships();
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
     } else if (this.internship === '' && this.status != '') {
       this.studentsService.filterDataOne('traineeStatus', this.status).subscribe(res => {
-        this.students = res;
-        this.getStatuses();
-        this.getInternships();
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -89,9 +76,6 @@ export class TableComponent implements OnInit {
       this.getData();
     } else {
       this.studentsService.filterDataMany('traineeStatus', this.status, 'internship.title', this.internship).subscribe(res => {
-        this.students = res;
-        this.getStatuses();
-        this.getInternships();
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -105,7 +89,6 @@ export class TableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
   openInfo(id:number):void {
     this.router.navigate([`/admin/stud-info/${id}`]);
   }

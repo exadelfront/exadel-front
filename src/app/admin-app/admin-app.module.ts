@@ -7,12 +7,16 @@ import { SharedModule } from '../@shared/@shared.module';
 import { CoreModule } from '../@core/@core.module';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { InterviewerAddPageComponent } from './intrviewer-add-page/interviewer-add-page.component';
+import {AddClassIfTrueDirective} from '../directives/add-class-if-true.directive';
 
 
 @NgModule({
   declarations: [
     AdminAppComponent,
-    HrFormComponent
+    HrFormComponent,
+    InterviewerAddPageComponent,
+    AddClassIfTrueDirective
   ],
   imports: [
     CommonModule,
@@ -21,9 +25,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     AdminAppRoutingModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    AdminAppComponent,
-    HrFormComponent
-  ]
+    exports: [
+        AdminAppComponent,
+        HrFormComponent,
+        InterviewerAddPageComponent,
+        AddClassIfTrueDirective
+    ]
 })
 export class AdminAppModule { }

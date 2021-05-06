@@ -8,6 +8,8 @@ import {PostCreationComponent} from '../@shared/post-creation/post-creation.comp
 import {StudentHistoryPageComponent} from '../@core/student-history-page/student-history-page.component';
 import {PostTablePageComponent} from '../@shared/post-table-page/post-table-page.component';
 import {PostViewAdminComponent} from '../@shared/post-view-admin/post-view-admin.component';
+import { AdminInfoPageComponent} from '../@core/admin-info-page/admin-info-page.component';
+
 const routes: Routes = [
   {
     path: 'admin',
@@ -36,6 +38,10 @@ const routes: Routes = [
   {
     path: 'admin/stud-info/history/:id',
     component: StudentHistoryPageComponent
+  },
+  {
+    path: 'admin/admin-info/:id',
+    component: AdminInfoPageComponent
   }
 ];
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { STUDENTS_TABLE_URL } from '../../environments/environment';
-import { Post, PostsService } from './posts.service';
+import { map } from 'rxjs/operators';
 
 export interface Student {
   additionalInfoId: number;
@@ -31,6 +31,9 @@ export interface Student {
   id: number;
   traineeId?: number;
   traineeStatus?:string;
+
+  traineeFullName:string;
+  adminFullName:string;
 }
 
 @Injectable({
@@ -41,16 +44,34 @@ export class StudentsService {
   constructor(private http: HttpClient) {}
 
   fetchEvents(): Observable<Student[]> {
-    return this.http.get<Student[]>(STUDENTS_TABLE_URL);
+    return this.http.get<Student[]>(STUDENTS_TABLE_URL).pipe(map(data=>{
+            return data.map(function(student:any) {
+              student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
+              student.adminFullName = student.adminName + ' ' + student.adminSurname;
+              return student;
+              });
+        }));
   }
   fetchStudentById(id: number): Observable<Student> {
     return this.http.get<Student>(`${STUDENTS_TABLE_URL}/ai/${id}`);
   }
   filterDataOne(parameter:string, value: string): Observable<Student[]> {
-     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter}=='${value}'`);
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter}=='${value}'`).pipe(map(data=>{
+            return data.map(function(student:any) {
+              student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
+              student.adminFullName = student.adminName + ' ' + student.adminSurname;
+              return student;
+              });
+        }));
   }
   filterDataMany(parameter_1:string, value_1: string, parameter_2:string, value_2: string): Observable<Student[]> {
-     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter_1}=='${value_1}';${parameter_2}=='${value_2}'`);
+     return this.http.get<Student[]>(`${STUDENTS_TABLE_URL}?search=${parameter_1}=='${value_1}';${parameter_2}=='${value_2}'`).pipe(map(data=>{
+            return data.map(function(student:any) {
+              student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
+              student.adminFullName = student.adminName + ' ' + student.adminSurname;
+              return student;
+              });
+        }));
   }
   updateData(student: Student, id: number){
     const data = JSON.stringify(student);
@@ -62,8 +83,5 @@ export class StudentsService {
   }
   deleteStudentInfo(id: number){
     return this.http.delete(`${STUDENTS_TABLE_URL}/ai/${id}/delete`);
-  }
-  fetchStudentHistory(id: number) {
-    return this.http.get<Post[]>(`${STUDENTS_TABLE_URL}/${id}/history`);
   }
 }

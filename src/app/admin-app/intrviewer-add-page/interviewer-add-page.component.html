@@ -1,0 +1,139 @@
+<app-admin-navigation></app-admin-navigation>
+
+<form class="content" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Add interviewer'"
+    ></app-section-header>
+  </div>
+  <div class="row-input-wrapper">
+    <div class="input-wrapper">
+      <app-join-input
+        [placeholder]="'Name...'"
+        [type]="'text'"
+        [parentForm]="form"
+        [controlName]="'name'"
+      ></app-join-input>
+    </div>
+    <div class="input-wrapper">
+      <app-join-input
+        [placeholder]="'Surname...'"
+        [type]="'text'"
+        [parentForm]="form"
+        [controlName]="'surname'"
+      ></app-join-input>
+    </div>
+  </div>
+  <div class="row-input-wrapper">
+    <div class="input-wrapper">
+      <app-join-input
+        [placeholder]="'Email...'"
+        [type]="'text'"
+        [parentForm]="form"
+        [controlName]="'email'"
+      ></app-join-input>
+    </div>
+    <div class="input-wrapper">
+      <app-join-input
+        [placeholder]="'Phone...'"
+        [type]="'text'"
+        [parentForm]="form"
+        [controlName]="'phone'"
+      ></app-join-input>
+    </div>
+  </div>
+  <div class="row-input-wrapper">
+    <div class="input-wrapper">
+      <app-join-input
+        [placeholder]="'Skype...'"
+        [type]="'text'"
+        [parentForm]="form"
+        [controlName]="'skype'"
+      ></app-join-input>
+    </div>
+  </div>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Choose interviewer type'"
+    ></app-section-header>
+  </div>
+  <div class="interviewer-type">
+    <div class="type-btn">
+      <input
+        id="1"
+        type="radio"
+        name="type"
+        value="HR"
+        formControlName="type"
+
+      >
+      <label for="1" (click)="selectHr()">HR</label>
+    </div>
+    <div class="type-btn">
+      <input
+        id="2"
+        type="radio"
+        name="type"
+        value="TECH"
+        formControlName="type"
+      >
+      <label for="2" (click)="selectTech()">TECH</label>
+    </div>
+  </div>
+  <section class="subjects-section" *ngIf="showSubjects">
+    <div class="title-wrapper">
+      <app-section-header
+        [header_text]="'Choose interviewer subjects'"
+      ></app-section-header>
+    </div>
+    <div class="subjects">
+      <div
+        class="subject"
+        *ngFor="let subject of subjectsService.allSubjectsObjs"
+        [appAddClassIfTrue]="'subject_picked'"
+        [condition]="subject.isSelected"
+        (click)="subjectsService.onSubjectClick($event)"
+      >{{ subject.name }}</div>
+    </div>
+  </section>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Choose interviewer free time'"
+    ></app-section-header>
+  </div>
+  <form class="date-time" [formGroup]="selectDateForm" (ngSubmit)="onAddDateBtnClick()">
+    <div class="input-wrapper">
+      <app-join-input
+        [type]="'datetime-local'"
+        [parentForm]="selectDateForm"
+        [controlName]="'selectedDate'"
+      ></app-join-input>
+    </div>
+    <button
+      class="add-btn"
+      type="submit"
+    >Add date</button>
+  </form>
+  <div
+    class="selected-dates"
+    *ngIf="selectedDates.length !== 0"
+  >
+    <div
+      class="selected-date-wrapper"
+      *ngFor="let selectedDate of selectedDates; index as i"
+      [attr.index]="i"
+    >
+      <div class="selected-date">
+        {{ dateToNormalView(selectedDate) }}
+      </div>
+      <div class="delete-btn" (click)="deleteSelectedDate($event)"></div>
+    </div>
+  </div>
+  <div class="submit-btn-wrapper">
+    <app-approve-reject-button
+      [text]="'Submit'"
+      [parentForm]="form"
+    >
+    </app-approve-reject-button>
+  </div>
+</form>
