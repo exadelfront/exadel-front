@@ -10,10 +10,31 @@
             <app-student-info is_admin = true [admin]="admin" name="phone" text={{admin?.phone}}></app-student-info>
             <app-student-info is_admin = true [admin]="admin" name="skype" text={{admin?.skype}}></app-student-info>
             <app-student-info is_admin = true [admin]="admin" text={{subjects}} type_div=true></app-student-info>
-            <app-student-info is_admin = true [admin]="admin" text={{dates}} type_div=true></app-student-info>
         </div>
         <div class="action-btns">
-            <button (click)="deleteAdmin()" class="delete-btn ">Delete admin</button>
+            <button (click)="deleteAdmin()" class="del-admin-btn ">Delete admin</button>
         </div>
+    
+    <div class="title-wrapper">
+        <app-section-header [header_text]="'Add/Delete interviewer free time'"></app-section-header>
+    </div>
+    <form class="date-time" [formGroup]="selectDateForm" (ngSubmit)="onAddDateBtnClick()">
+        <div class="input-wrapper">
+            <app-join-input [type]="'datetime-local'" [parentForm]="selectDateForm" [controlName]="'selectedDate'">
+            </app-join-input>
+        </div>
+        <button class="add-btn" type="submit">Add date</button>
+    </form>
+    <div class="selected-dates" *ngIf="selectedDates.length !== 0">
+        <div class="selected-date-wrapper" *ngFor="let selectedDate of selectedDates; index as i" [attr.index]="i">
+            <div class="selected-date">
+                {{ dateToNormalView(selectedDate) }}
+            </div>
+            <div class="delete-btn" (click)="deleteSelectedDate($event)"></div>
+        </div>
+    </div>
+    <div>
+        <app-approve-reject-button [text]="'Save dates'" [parentForm]="selectDateForm" (click)="submit()"></app-approve-reject-button>
+    </div>
     </div>
 </div>

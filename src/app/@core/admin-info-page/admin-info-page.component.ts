@@ -4,6 +4,7 @@ import {Admin, InterviewerService} from '../../services/interviewer.service';
 import {MatDialog} from '@angular/material/dialog';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
 import { Location } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-info-page',
@@ -12,38 +13,63 @@ import { Location } from '@angular/common';
 })
 export class AdminInfoPageComponent implements OnInit {
 
-  dates: string = "";
+  
   subjects: string = "";
   admin:Admin;
   result: boolean;
+  selectedDates: string[] = [];
+  selectDateForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private interviewerService: InterviewerService,
     public dialog: MatDialog,
     private _location: Location
-    ) { }
+  ) {
+    this.selectDateForm = new FormGroup({
+      selectedDate: new FormControl(null, Validators.required),
+    });
+    }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.interviewerService.getAdminInfo(+params.id)
         .subscribe(res => {
-          console.log(res);
           this.admin = res;
-          this.dates=this.getDates(this.dates);
           this.subjects=this.getSubjects(this.subjects);
+          this.getDates();
         });
     });
   }
-  getDates(dates:string): string{
-    this.admin.interviewTimes.forEach(function(value){
-      dates += "("+Object.values(value)+") ";
-    });
-    return dates;
+  onAddDateBtnClick(): void {
+    if (!this.selectDateForm.invalid) {
+      const selectedDate  = this.selectDateForm.get('selectedDate').value;
+      this.selectedDates.push(selectedDate);
+      this.selectDateForm.reset();
+      return;
+    }
+    console.log('invalid');
+  }
+  deleteSelectedDate(event: MouseEvent): void {
+    const deletedDate: number = +((event.target as HTMLElement).parentNode as HTMLElement)
+      .getAttribute('index');
+    this.selectedDates = this.selectedDates.slice();
+    this.selectedDates.splice(deletedDate, 1);
+  }
+
+  dateToNormalView(strDate: string): string {
+    const [date, time] = strDate.split('T');
+    return `Date: ${date}, Time: ${time}`;
+  }
+
+  getDates(){
+    for (let i = 0; i <= this.admin.interviewTimes.length; i++) {
+      this.selectedDates.push(this.admin.interviewTimes[i]["startDate"])
+    }
   }
   getSubjects(subjects:string): string{
     this.admin.subjects.forEach(function(value){
-      subjects = "#"+value+' ';
+      subjects += "#"+value+' ';
     });
     return subjects;
   }
@@ -63,5 +89,16 @@ export class AdminInfoPageComponent implements OnInit {
         this._location.back();
     }
     });
+  }
+  submit():void {
+    const interviewTimes = this.selectedDates.map(startDate => {
+      return {
+        startDate,
+      };
+    });
+    this.interviewerService
+      .sendTime({interviewTimes},this.admin.id)
+      .subscribe();
+    console.log({interviewTimes});
   }
 }

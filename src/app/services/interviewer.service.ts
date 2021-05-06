@@ -23,8 +23,9 @@ export interface Admin {
   skype: string;
   type: string;
   subjects?: string[];
-  interviewTimes?: string[];
+  interviewTimes?: object[];
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +37,14 @@ export class InterviewerService {
   sendDate(interviewer: Interviewer): Observable<object> {
     return this.http.post<Interviewer>(INTERVIEWER_INFO_SEND_URL, interviewer);
   }
+  sendTime(time: any, id: number): Observable<object> {
+    return this.http.post(`${INTERVIEWER_INFO_SEND_URL}/${id}/time`, time);
+  }
   getAdminInfo(id:number): Observable<Admin>{
     return this.http.get<Admin>(`${INTERVIEWER_INFO_SEND_URL}/${id}`);
   }
   deleteAdmin(id:number){
-    return this.http.delete(`${INTERVIEWER_INFO_SEND_URL}/${id}/delete`);
+    return this.http.delete(`${INTERVIEWER_INFO_SEND_URL}/${id}`);
   }
   updateData(admin: Admin, id: number){
     const data = JSON.stringify(admin);
