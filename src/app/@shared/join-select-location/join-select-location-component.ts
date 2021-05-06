@@ -5,8 +5,8 @@ import {FormGroup} from '@angular/forms';
   selector: 'app-join-select-location',
   template: `<div [formGroup]="parentForm">
               <select name="location" formControlName="{{controlName}}" ngModel>
-                <option name="location" value="" hidden>Location...</option>
-                <option name="location" *ngFor="let country of locationArr" [value]="country"
+                <option name="location" [ngValue]="null" hidden>Location...</option>
+                <option name="location" *ngFor="let country of locationArr" [ngValue]="country"
                 >{{country}}
                 </option>
               </select>

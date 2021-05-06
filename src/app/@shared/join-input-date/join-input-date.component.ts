@@ -5,8 +5,8 @@ import {FormGroup} from '@angular/forms';
   selector: 'app-join-input-date',
   template:  `<div [formGroup]="parentForm">
                 <select name="day" formControlName="{{controlName}}" ngModel>
-                  <option name="day" value="" hidden >Part of the week...</option>
-                  <option name="day" *ngFor="let day of InterviewDays" [value]="day"
+                  <option name="day" [ngValue]="null" hidden >Part of the week...</option>
+                  <option name="day" *ngFor="let day of InterviewDays" [ngValue]="day"
                   >{{day}}
                   </option>
                 </select>
