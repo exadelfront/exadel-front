@@ -78,7 +78,7 @@ export class MainPageComponent implements OnInit {
     this.showPosts(choosenArray);
 
 
-    if (this.filteredPosts.length === 0) {
+    if (this.filteredPosts.length === 0 && this.posts !== this.postsCopy) {
       this.notFound = true;
     } else  {
       this.notFound = false;

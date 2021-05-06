@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSelectChange } from '@angular/material/select';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-interviewers-table-page',
@@ -18,7 +19,7 @@ export class InterviewersTablePageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public interviewerService: InterviewerService) { }
+  constructor(private router: Router, public interviewerService: InterviewerService) { }
 
   ngOnInit(): void {
     this.interviewerService.getAllInterviewers()
@@ -47,5 +48,9 @@ export class InterviewersTablePageComponent implements OnInit {
     }
     this.interviewerService.getAllInterviewers()
       .subscribe(interviewers => this.interviewersChange(interviewers));
+  }
+
+  goToInterviewerInfoPage(id: number): void {
+    this.router.navigate([`/admin/admin-info/${id}`]);
   }
 }

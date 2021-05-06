@@ -20,25 +20,25 @@
     <!-- name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
-      <td mat-cell *matCellDef="let interviewer"> {{ interviewer.fullName }} </td>
+      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.fullName }} </td>
     </ng-container>
 
     <!-- email Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-      <td mat-cell *matCellDef="let interviewer"> {{ interviewer.email }} </td>
+      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.email }} </td>
     </ng-container>
 
     <!-- type Column -->
     <ng-container matColumnDef="type">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
-      <td mat-cell *matCellDef="let interviewer"> {{ interviewer.type }} </td>
+      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.type }} </td>
     </ng-container>
 
     <!-- subjects Column -->
     <ng-container matColumnDef="subjects">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Subjects </th>
-      <td mat-cell *matCellDef="let interviewer"> {{ interviewer.subjects }} </td>
+      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.subjects }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

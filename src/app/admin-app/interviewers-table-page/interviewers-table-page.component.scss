@@ -36,6 +36,11 @@ tr:hover {
   background: $sub_menu_bg_color;
 }
 
+.td_hover:hover {
+  color: $main_blue;
+  cursor: pointer;
+}
+
 mat-form-field input,
 mat-label,
 mat-form-field-underline,
