@@ -7,7 +7,7 @@ export interface Interview {
   traineeId: number;
   internshipId: number;
   interviewerId: number;
-  interviewTime: string;
+  interviewTimeId: number;
 }
 
 @Injectable({

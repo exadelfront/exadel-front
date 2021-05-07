@@ -1,15 +1,15 @@
 <div class='choose-date-input'>
     <mat-form-field class="filter">
-        <mat-select placeholder="Interviewer" (selectionChange)="changeInterviewer($event)">
-            <mat-option *ngFor="let interviewer of interviewers" [value]=interviewer>
-            {{interviewer.name+' '+interviewer.surname}}
+        <mat-select placeholder="Date" (selectionChange)="changeDate($event)">
+            <mat-option *ngFor="let time_slot of time_slots" [value]=time_slot>
+                {{time_slot.startDate}}
             </mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field class="filter">
-        <mat-select placeholder="Date" (selectionChange)="changeDate($event)">
-            <mat-option *ngFor="let date of interviewer?.dates" [value]=date>
-            {{date}}
+        <mat-select placeholder="Interviewer" (selectionChange)="changeInterviewer($event)">
+            <mat-option  *ngFor="let interviewer of interviewers" [value]=interviewer>
+                {{interviewer.name +' '+interviewer.surname}}
             </mat-option>
         </mat-select>
     </mat-form-field>

@@ -26,11 +26,11 @@
     <div class="chose-date">
         <div class="chose-hr-date-header">
             <app-section-header header_text="Please chose the date of HR interview"></app-section-header>
-            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.traineeId}} interviewers={{hrInterviewers}}></app-choose-date>
+            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} time_slots={{hrTimes}}></app-choose-date>
         </div>
         <div class="chose-tech-date-header">
             <app-section-header header_text="Please chose the date of Technical interview"></app-section-header>
-            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.traineeId}} interviewers={{techInterviewers}}></app-choose-date>
+            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} time_slots={{techTimes}}></app-choose-date>
         </div>
     </div>
 </div>

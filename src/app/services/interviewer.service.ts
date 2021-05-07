@@ -15,6 +15,22 @@ export interface Interviewer {
   dates?: string[];
 }
 
+export interface InterviewerTimes{
+  interviewTimeId: number;
+  startDate: string;
+  endDate: string;
+  interviewers: [{
+    interviewerId: number;
+    name: string;
+    surname: string;
+  }];
+}
+
+export interface Interviewers{
+  interviewerId: number;
+  name: string;
+  surname: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -25,10 +41,10 @@ export class InterviewerService {
   sendDate(interviewer: Interviewer): Observable<object> {
     return this.http.post<Interviewer>(INTERVIEWER_INFO_SEND_URL, interviewer);
   }
-  getHRInterviewers(): Observable<Interviewer[]>{
-     return this.http.get<Interviewer[]>(`${INTERVIEWER_INFO_SEND_URL}/available/hr`);
+  getHRInterviewers(): Observable<InterviewerTimes[]>{
+     return this.http.get<InterviewerTimes[]>(`${INTERVIEWER_INFO_SEND_URL}/available?search=type==hr`);
   }
-  getTechInterviewers(): Observable<Interviewer[]>{
-     return this.http.get<Interviewer[]>(`${INTERVIEWER_INFO_SEND_URL}/available/tech`);
+  getTechInterviewers(subjects:string[]): Observable<InterviewerTimes[]>{
+     return this.http.get<InterviewerTimes[]>(`${INTERVIEWER_INFO_SEND_URL}/available?search=type==tech;subjects.name=in=(${subjects})`);
   }
 }
