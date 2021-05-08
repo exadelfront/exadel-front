@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { InterviewerTimes,Interviewers } from '../../services/interviewer.service';
 import { Interview,InterviewService } from '../../services/interview.service';
+
 @Component({
   selector: 'app-choose-date',
   templateUrl: './choose-date.component.html',
@@ -15,12 +16,12 @@ export class ChooseDateComponent implements OnInit {
   time_slot: InterviewerTimes;
   interviewers: Interviewers[];
   interviewer: Interviewers;
-  interview: Interview;
-  time_id: number;
-
-  constructor(private interviewService:InterviewService) { }
+  
+  constructor(private interviewService:InterviewService) {
+   }
 
   ngOnInit(): void {
+    
   }
   changeInterviewer(event: MatSelectChange) {
     this.interviewer = event.value;
@@ -29,11 +30,11 @@ export class ChooseDateComponent implements OnInit {
     this.time_slot = event.value;
     this.interviewers = this.time_slot.interviewers;
   }
+  dateToNormalView(strDate: string): string {
+    const [date, time] = strDate.split('T');
+    return `Date: ${date}, Time: ${time}`;
+  }
   saveInterviewDate(): void{
-    this.interview.interviewerId = this.interviewer.interviewerId;
-    this.interview.traineeId = this.traineeId;
-    this.interview.internshipId = this.internshipId;
-    this.interview.interviewTimeId = this.time_id;
-    this.interviewService.sendDate(this.interview).subscribe();
+    this.interviewService.sendDate({interviewerId:this.interviewer.interviewerId,traineeId:this.traineeId,internshipId:this.internshipId,interviewTimeId:this.time_slot.interviewTimeId}).subscribe();
   }
 }

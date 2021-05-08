@@ -2,7 +2,7 @@
     <mat-form-field class="filter">
         <mat-select placeholder="Date" (selectionChange)="changeDate($event)">
             <mat-option *ngFor="let time_slot of time_slots" [value]=time_slot>
-                {{time_slot.startDate}}
+                {{dateToNormalView(time_slot?.startDate)}}
             </mat-option>
         </mat-select>
     </mat-form-field>

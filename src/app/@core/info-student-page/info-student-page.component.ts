@@ -40,7 +40,7 @@ export class InfoStudentPageComponent implements OnInit {
         });
     });
     
-    this.interviewerService.getHRInterviewers().subscribe(res => this.hrTimes = res);
+    this.interviewerService.getHRInterviewers().subscribe(res =>this.hrTimes = res);
     this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
 
     this.form = new FormGroup({
