@@ -36,6 +36,15 @@ div {
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
   background-color: $main_blue !important;
 }
+.success_msg,
+.error_msg {
+  font-size: 18px;
+  padding: 1% 0;
+  color: green;
+}
+.error_msg {
+  color: red;
+}
 @media (max-width: 699px) {
   .choose-date-input {
     display: block;

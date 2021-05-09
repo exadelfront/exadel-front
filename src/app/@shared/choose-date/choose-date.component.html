@@ -13,5 +13,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <div class="btn_div"><button class='save_btn' (click)=saveInterviewDate()>Save date</button></div>
+    <div *ngIf="change_date===true" class="btn_div"><button *ngIf="change_date===true" class='save_btn' (click)=saveInterviewDate()>Save date</button></div>
 </div>
+<div *ngIf="success===true" class="success_msg">Saved. {{dateToNormalView(time_slot?.startDate)}}, Interviewer - {{interviewer.name +' '+interviewer.surname}} </div>
+<div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
