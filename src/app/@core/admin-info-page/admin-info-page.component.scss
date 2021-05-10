@@ -35,7 +35,19 @@
   background: red;
   transition: all ease 0.3s;
 }
-
+.success_msg,
+.error_msg {
+  font-size: 28px;
+  padding: 1% 0;
+  color: green;
+}
+.error_msg {
+  color: red;
+}
+.submit_div {
+  display: flex;
+  justify-content: space-between;
+}
 .title-wrapper {
   margin: 60px 0;
 
@@ -203,6 +215,10 @@
     line-height: 18px;
     margin: 3% 1% 1% 0;
   }
+  .success_msg,
+  .error_msg {
+    font-size: 14px;
+  }
 }
 @media (min-width: 700px) and (max-width: 1100px) {
   .admin-info-container {
@@ -216,5 +232,9 @@
     height: 45px;
     font-size: 18px;
     line-height: 24px;
+  }
+  .success_msg,
+  .error_msg {
+    font-size: 20px;
   }
 }
