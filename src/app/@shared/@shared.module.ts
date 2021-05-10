@@ -43,7 +43,12 @@ import { MatButtonModule} from '@angular/material/button';
 import { DndDirective} from '../directives/dnd.directive';
 import { PostCreationComponent } from './post-creation/post-creation.component';
 import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
+import { PostTablePageComponent } from './post-table-page/post-table-page.component';
+import { PostViewAdminComponent } from './post-view-admin/post-view-admin.component';
+import { ChooseItemsComponent } from './choose-items/choose-items.component';
 import { HistoryPostComponent } from './history-post/history-post.component';
+import {AdminNavigationComponent} from './admin-navigation/admin-navigation.component';
+import {AppRoutingModule} from '../app-routing.module';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -88,7 +93,11 @@ const MaterialModules = [
     TableComponent,
     PostCreationComponent,
     DialogConfirmComponent,
-    HistoryPostComponent
+    PostTablePageComponent,
+    PostViewAdminComponent,
+    ChooseItemsComponent,
+    HistoryPostComponent,
+    AdminNavigationComponent
   ],
 
   imports: [
@@ -98,14 +107,15 @@ const MaterialModules = [
     ...MaterialModules,
     HttpClientModule,
     TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            },
-            defaultLanguage: 'en'
-        })
-    ],
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    }),
+    AppRoutingModule
+  ],
   exports: [
     JoinFormComponent,
     JoinInputDateComponent,
@@ -131,7 +141,8 @@ const MaterialModules = [
     InfoSectionHeaderComponent,
     TableComponent,
     DialogConfirmComponent,
-    HistoryPostComponent
+    HistoryPostComponent,
+    AdminNavigationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [DialogConfirmComponent]

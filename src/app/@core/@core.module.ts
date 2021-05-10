@@ -11,6 +11,7 @@ import { StudentsTablePageComponent } from './students-table-page/students-table
 import { StudentHistoryPageComponent } from './student-history-page/student-history-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PostsService} from '../services/posts.service';
+import { AdminInfoPageComponent } from './admin-info-page/admin-info-page.component';
 
 
 
@@ -22,7 +23,8 @@ import {PostsService} from '../services/posts.service';
     InfoStudentPageComponent,
     TechnicalEstimateComponent,
     StudentsTablePageComponent,
-    StudentHistoryPageComponent
+    StudentHistoryPageComponent,
+    AdminInfoPageComponent
   ],
     imports: [
         CommonModule,
@@ -34,7 +36,10 @@ import {PostsService} from '../services/posts.service';
     PostPageComponent,
     LoginMenuComponent,
     InfoStudentPageComponent,
-    TechnicalEstimateComponent
+    TechnicalEstimateComponent,
+    StudentsTablePageComponent,
+    StudentHistoryPageComponent,
+    AdminInfoPageComponent
     ],
   providers: [PostsService]
 })

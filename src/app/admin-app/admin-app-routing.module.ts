@@ -5,7 +5,11 @@ import {AdminAppComponent} from './admin-app.component';
 import {StudentsTablePageComponent} from '../@core/students-table-page/students-table-page.component';
 import {InfoStudentPageComponent} from '../@core/info-student-page/info-student-page.component';
 import {PostCreationComponent} from '../@shared/post-creation/post-creation.component';
-import { StudentHistoryPageComponent} from '../@core/student-history-page/student-history-page.component'
+import {StudentHistoryPageComponent} from '../@core/student-history-page/student-history-page.component';
+import {PostTablePageComponent} from '../@shared/post-table-page/post-table-page.component';
+import {PostViewAdminComponent} from '../@shared/post-view-admin/post-view-admin.component';
+import { AdminInfoPageComponent} from '../@core/admin-info-page/admin-info-page.component';
+
 const routes: Routes = [
   {
     path: 'admin',
@@ -20,12 +24,24 @@ const routes: Routes = [
     component: InfoStudentPageComponent
   },
   {
+    path: 'admin/post-table',
+    component: PostTablePageComponent
+  },
+  {
+    path: 'admin/post/:id',
+    component: PostViewAdminComponent
+  },
+  {
     path: 'admin/creation',
     component: PostCreationComponent
   },
   {
     path: 'admin/stud-info/history/:id',
     component: StudentHistoryPageComponent
+  },
+  {
+    path: 'admin/admin-info/:id',
+    component: AdminInfoPageComponent
   }
 ];
 
