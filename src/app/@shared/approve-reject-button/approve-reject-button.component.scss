@@ -1,5 +1,5 @@
 @import "/src/styles";
-.approve_btn{
+.approve_btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,21 +16,23 @@
   background: white;
 }
 
-.approve_btn:hover{
+.approve_btn:hover {
   cursor: pointer;
-  background: white;
-  border: black;
+  background-color: white;
+  transition: all ease 0.3s;
 }
 
 .approve_btn,
 .approve_btn:active,
 .approve_btn:focus,
-.approve_btn:after{
+.approve_btn:after {
   outline: none;
+  box-shadow: $btn_shadow_active;
+  transform: translateY(10px);
 }
 
 @media (max-width: 1200px) {
-  .approve_btn{
+  .approve_btn {
     width: 170px;
     height: 45px;
     font-size: 18px;

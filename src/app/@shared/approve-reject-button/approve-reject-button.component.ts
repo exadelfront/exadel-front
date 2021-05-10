@@ -12,8 +12,17 @@ export class ApproveRejectButtonComponent implements OnInit {
   @Input() bgcolor = '#2EA3F2';
   @Input() border = '#FFFFFF';
   @Input() parentForm: FormGroup;
-
+  text_color='#FFFFFF'
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+  hoverEffect(){
+    this.text_color=this.bgcolor;
+    this.bgcolor='#FFFFFF';
+  }
+  disableHoverEffect(){
+    this.bgcolor=this.text_color;
+    this.text_color='#FFFFFF';
+  }
 }

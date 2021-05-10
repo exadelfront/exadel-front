@@ -1,8 +1,9 @@
 <div [formGroup]="parentForm">
-  <button type="submit"
+  <button type="submit" (mouseover)="hoverEffect()" (mouseout)="disableHoverEffect()" id="hover_btn"
      [ngStyle]="{
        background: bgcolor,
-       border: bgcolor
+       border: text_color,
+       color:text_color
        }"
      class="approve_btn"> {{text}} </button>
 </div>
