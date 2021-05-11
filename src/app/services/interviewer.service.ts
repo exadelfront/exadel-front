@@ -5,7 +5,6 @@ import { INTERVIEWER_INFO_SEND_URL } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 export interface Interviewer {
-  id?: number;
   name: string;
   surname: string;
   fullName?: string;
