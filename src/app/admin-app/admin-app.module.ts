@@ -6,17 +6,33 @@ import { AdminAppComponent } from './admin-app.component';
 import { SharedModule } from '../@shared/@shared.module';
 import { CoreModule } from '../@core/@core.module';
 import { HrFormComponent } from './hr-form/hr-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { InterviewerAddPageComponent } from './intrviewer-add-page/interviewer-add-page.component';
-import {AddClassIfTrueDirective} from '../directives/add-class-if-true.directive';
+import { AddClassIfTrueDirective } from '../directives/add-class-if-true.directive';
+import { InterviewersTablePageComponent } from './interviewers-table-page/interviewers-table-page.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
+
+
+const MaterialModules = [
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+  MatSelectModule,
+];
 
 @NgModule({
   declarations: [
     AdminAppComponent,
     HrFormComponent,
     InterviewerAddPageComponent,
-    AddClassIfTrueDirective
+    AddClassIfTrueDirective,
+    InterviewersTablePageComponent
   ],
   imports: [
     CommonModule,
@@ -24,12 +40,14 @@ import {AddClassIfTrueDirective} from '../directives/add-class-if-true.directive
     SharedModule,
     AdminAppRoutingModule,
     ReactiveFormsModule,
+    ...MaterialModules,
   ],
     exports: [
         AdminAppComponent,
         HrFormComponent,
         InterviewerAddPageComponent,
-        AddClassIfTrueDirective
+        AddClassIfTrueDirective,
+        InterviewersTablePageComponent
     ]
 })
 export class AdminAppModule { }
