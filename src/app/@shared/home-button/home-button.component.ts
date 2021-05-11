@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input,OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -7,7 +7,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./home-button.component.scss']
 })
 export class HomeButtonComponent implements OnInit {
-
+  @Input() text="Home page";
+  @Input() not_svg:boolean;
   constructor(private _location: Location) { }
 
   ngOnInit(): void {

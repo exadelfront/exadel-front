@@ -7,7 +7,6 @@ nav {
   margin: 0 auto;
 }
 nav ul {
-
   list-style: none;
   margin: 0;
   padding: 0;
@@ -17,10 +16,10 @@ nav p {
   outline: none;
   display: block;
   transition: 0.4s ease-in-out;
-  width: 15vw;
+  width: 16vw;
 }
 .menu_div {
-  padding: 2vh 18vw;
+  padding: 2vh 15vw;
 }
 .top_menu {
   text-align: center;
@@ -39,17 +38,17 @@ nav p {
   font-weight: bold;
   letter-spacing: 1px;
   font-family: Poppins;
-  font-size: 0.8vw;
+  font-size: 1vw;
 }
 .top_menu > li:after {
   position: absolute;
   content: "\25BC";
-  left: 8vw;
+  left: 9vw;
   width: 10vw;
   top: 1vw;
   color: $main_blue;
 }
-app-navigation-tag{
+app-navigation-tag {
   position: absolute;
   left: 50%;
   width: 100%;
@@ -60,11 +59,15 @@ app-navigation-tag{
   opacity: 0;
   transform: scale(0.8);
   transition: 0.4s ease-in-out;
-  li{
+  li {
     padding: 5px 0;
   }
 }
-.top_menu > li:hover app-navigation-tag  {
+.top_menu > li > p:hover {
+  cursor: pointer;
+  color: $main_blue;
+}
+.top_menu > li:hover app-navigation-tag {
   visibility: visible;
   opacity: 1;
   transform: translate(-50%, 0);
@@ -76,4 +79,43 @@ app-navigation-tag{
   margin-top: 30px;
   font-size: 20px;
   color: $main_blue;
+}
+
+@media (max-width: 699px) {
+  .menu_div {
+    padding: 2vh 1vw;
+  }
+  nav p {
+    width: 37vw;
+  }
+  .top_menu > li > p {
+    font-size: 3vw;
+  }
+  .top_menu > li:after {
+    left: 33vw;
+    font-size: 14px;
+  }
+  .top_menu > li:first-child,
+  .top_menu > li:nth-child(3) {
+    border: none;
+  }
+  .top_menu > li:first-child:after,
+  .top_menu > li:nth-child(3):after {
+    left: 25vw;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1405px) {
+  .menu_div {
+    padding: 2vh 4vw;
+  }
+  nav p {
+    width: 22vw;
+  }
+  .top_menu > li > p {
+    font-size: 1.5vw;
+  }
+  .top_menu > li:after {
+    left: 15vw;
+  }
 }

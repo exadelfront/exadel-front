@@ -19,6 +19,8 @@ export class AdminInfoPageComponent implements OnInit {
   result: boolean;
   selectedDates: string[] = [];
   selectDateForm: FormGroup;
+  success=false;
+  error = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,8 +53,7 @@ export class AdminInfoPageComponent implements OnInit {
     console.log('invalid');
   }
   deleteSelectedDate(event: MouseEvent): void {
-    const deletedDate: number = +((event.target as HTMLElement).parentNode as HTMLElement)
-      .getAttribute('index');
+    const deletedDate: number = +((event.target as HTMLElement).parentNode as HTMLElement).getAttribute('index');
     this.selectedDates = this.selectedDates.slice();
     this.selectedDates.splice(deletedDate, 1);
   }
@@ -90,6 +91,18 @@ export class AdminInfoPageComponent implements OnInit {
     }
     });
   }
+  showErrorMsg() {
+    this.error = true;
+        setTimeout(function () {
+          this.error = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.success = true;
+        setTimeout(function () {
+          this.success = false;
+        }.bind(this), 5000);
+  }
   submit():void {
     const interviewTimes = this.selectedDates.map(startDate => {
       return {
@@ -98,7 +111,14 @@ export class AdminInfoPageComponent implements OnInit {
     });
     this.interviewerService
       .sendTime({interviewTimes},this.admin.id)
-      .subscribe();
+      .subscribe(
+        () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        }
+      );
     console.log({interviewTimes});
   }
 }
