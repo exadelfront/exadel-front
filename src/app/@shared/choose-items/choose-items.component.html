@@ -1,0 +1,22 @@
+<div class="choose-params">
+  <div class="visible">
+    <div class="input-params">
+      <input type="text" placeholder="{{placeholder}}" autocomplete="off"
+             (click)="suggest()"
+             [(ngModel)]="inputText"
+             (ngModelChange)="inputChanged()"
+      >
+    </div>
+    <div class="chosen">
+      <div class="chosen-params" *ngFor="let user of userSelects">
+        {{user}}
+        <span (click)="deleteSelects(user)" class="delete-icon-chip">&#10006;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="choose-items" *ngIf="visible">
+    <div *ngFor="let s of temporary" [ngClass]="isSelected(s) ? 'selected-suggestion' : ''"
+         (click)="selectSuggestion(s)">{{ s }}</div>
+  </div>
+</div>

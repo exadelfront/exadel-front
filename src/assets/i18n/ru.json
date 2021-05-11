@@ -46,14 +46,25 @@
       "Select": "Загрузите",
       "Image": " изображение",
       "Info": "Дополнительная информация",
+      "ShortInfo": "Короткая информация",
+      "Description": "Описание",
       "Submit": "Отправить",
       "SubmitNotification": "Форма отправлена.",
       "SubmitAlert": "Форма не отправлена. Пожалуйста, заполните обязательные поля."
     },
+
+    "ADMIN_POST_VIEW":{
+      "NewPost": "Добавить новую стажировку",
+      "Details": "Подробнее",
+      "Published": "Опубликовано",
+      "NotPublished": "Не опубликовано"
+    },
+
   "ADMIN_NAVIGATION": {
     "Students": "Студенты",
     "Interviewers": "Интервьюеры",
     "Add new interviewer": "Новый интервьюер",
     "Add new event": "Новое мероприятие"
   }
+
 }

@@ -1,0 +1,48 @@
+@import "/src/styles";
+.container{
+  padding: 5vh 10vw;
+}
+.buttons-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 4% auto;
+}
+
+.post__btn{
+  cursor: pointer;
+  width: 277px;
+  height: 45px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  &:hover{
+    background: white;
+    color: $main_blue;
+    transition-duration: 0.3s;
+  }
+}
+
+.red-btn{
+  background: red !important;
+  border-color: red !important;
+  &:hover{
+    color: red !important;
+    background: white !important;
+  }
+}
+
+.green-btn{
+  background: green !important;
+  border-color: green !important;
+  &:hover{
+    color: green !important;
+    background: white !important;
+  }
+}

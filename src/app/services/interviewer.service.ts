@@ -5,6 +5,7 @@ import { INTERVIEWER_INFO_SEND_URL } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 export interface Interviewer {
+  id?: number;
   name: string;
   surname: string;
   fullName?: string;
@@ -15,6 +16,23 @@ export interface Interviewer {
   subjects?: string[];
   dates?: string[];
   id?: number;
+}
+
+export interface InterviewerTimes{
+  interviewTimeId: number;
+  startDate: string;
+  endDate: string;
+  interviewers: [{
+    interviewerId: number;
+    name: string;
+    surname: string;
+  }];
+}
+
+export interface Interviewers{
+  interviewerId: number;
+  name: string;
+  surname: string;
 }
 
 export interface Admin {
@@ -28,7 +46,6 @@ export interface Admin {
   subjects?: string[];
   interviewTimes?: object[];
 }
-
 
 @Injectable({
   providedIn: 'root'
@@ -55,6 +72,13 @@ export class InterviewerService {
         interviewer.fullName = `${interviewer.name} ${interviewer.surname}`;
         return interviewer;
       })));
+  }
+
+  getHRInterviewers(): Observable<InterviewerTimes[]>{
+     return this.http.get<InterviewerTimes[]>(`${INTERVIEWER_INFO_SEND_URL}/available?search=type==hr`);
+  }
+  getTechInterviewers(subjects:string[]): Observable<InterviewerTimes[]>{
+     return this.http.get<InterviewerTimes[]>(`${INTERVIEWER_INFO_SEND_URL}/available?search=type==tech;subjects.name=in=(${subjects})`);
   }
 
   sendTime(time: any, id: number): Observable<object> {
