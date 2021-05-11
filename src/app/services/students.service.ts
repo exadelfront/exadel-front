@@ -13,6 +13,7 @@ export interface Student {
   adminSurname:string;
   internshipName:string;
   traineeLocation: string;
+  internshipId: number;
   
   cv?: string;
   dates?:object[];

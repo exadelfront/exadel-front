@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
 import { Location } from '@angular/common';
+import {InterviewerTimes, InterviewerService } from '../../services/interviewer.service';
 @Component({
   selector: 'app-info-student-page',
   templateUrl: './info-student-page.component.html',
@@ -16,10 +17,13 @@ export class InfoStudentPageComponent implements OnInit {
   form: FormGroup;
   student: Student;
   result: boolean;
+  hrTimes: InterviewerTimes[];
+  techTimes: InterviewerTimes[];
   
   constructor(
     private route: ActivatedRoute,
     private studentsService: StudentsService,
+    private interviewerService: InterviewerService,
     private router: Router,
     public dialog: MatDialog,
     private _location: Location
@@ -31,11 +35,14 @@ export class InfoStudentPageComponent implements OnInit {
         .subscribe(student => {
           this.student = student;
           this.dates=this.getDates(this.dates);
-          this.form.get("techReview").patchValue(this.student.techInterview);
-          this.form.get("hrReview").patchValue(this.student.hrInterview);
+          this.form.get("techReview").patchValue(this.student?.techInterview);
+          this.form.get("hrReview").patchValue(this.student?.hrInterview);
         });
     });
     
+    this.interviewerService.getHRInterviewers().subscribe(res =>this.hrTimes = res);
+    this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
+
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),

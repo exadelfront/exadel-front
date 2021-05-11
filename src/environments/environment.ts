@@ -18,6 +18,7 @@ export const FORMAT_LIST_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1
 export const TYPE_LIST_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship-type';
 export const INTERVIEWER_INFO_SEND_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/interviewer';
 export const SUBJECTS_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/subject';
+export const INTERVIEW_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/interview';
 
 /*
  * For easier debugging in development mode, you can import the following file
