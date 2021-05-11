@@ -3,7 +3,13 @@
 .table-div {
   padding: 5vh 15vw;
 }
-
+.filter-container {
+  display: flex;
+  color: $main_blue;
+}
+.filter {
+  margin: 0 1% 0 0;
+}
 table {
   width: 100%;
   text-align: center;

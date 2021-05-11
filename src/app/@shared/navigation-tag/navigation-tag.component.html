@@ -1,8 +1,10 @@
-  <label class="sub_menu" *ngFor="let post of postCardsService.postCards;" >
+  <label class="sub_menu" *ngFor="let item of this.title" name="name">
     <li>
-      <input type="checkbox" name="test" style="display:none"/>
-      <span id="word_opts">
-        <p>{{post.location}}</p>
+      <input type="checkbox" name="test" style="display:none" />
+      <span  id="word_opts">
+        <p (click)="filter($event)">{{item}}</p>
       </span>
     </li>
+
   </label>
+

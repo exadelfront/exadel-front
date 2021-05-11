@@ -1,4 +1,22 @@
 <div class="table-div">
+    <div class="filter-container">
+        <mat-form-field class="filter">
+            <mat-select  placeholder="Student Status" (selectionChange)="changeStatus($event)">
+                <mat-option (click)="clearStatuses()">All</mat-option>
+                <mat-option *ngFor="let status of statuses" [value]=status (click)="selectFilterServer()">
+                    {{status}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-select  placeholder="Internship" (selectionChange)="changeInternship($event)">
+                <mat-option (click)="clearInternships()">All</mat-option>
+                <mat-option *ngFor="let internship of internships" [value]=internship (click)="selectFilterServer()">
+                    {{internship}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
@@ -7,9 +25,9 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="traineeFullName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Name  </th>
-            <td mat-cell *matCellDef="let row" (click)="openInfo(row.additionalInfoId)" class="td_hover"> {{row.traineeName +' '+ row.traineeSurname}} </td>
+            <td mat-cell *matCellDef="let row" (click)="openInfo(row.additionalInfoId)" class="td_hover"> {{row.traineeFullName}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
@@ -27,9 +45,9 @@
             <td mat-cell *matCellDef="let row" > {{row.traineeStatus}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="hrManager">
+        <ng-container matColumnDef="adminFullName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>HR Manager </th>
-            <td mat-cell *matCellDef="let row" > {{row.adminName +' '+ row.adminSurname}} </td>
+            <td mat-cell *matCellDef="let row" > {{row.adminFullName}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

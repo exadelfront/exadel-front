@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HrFormService } from '../../services/hr-form.service';
-import { HrReview } from '../../services/hr-form.service';
+import { InterviewFeedbackService } from '../../services/interview-feedback.service';
+import { HrReview } from '../../services/interview-feedback.service';
 
 @Component({
-  selector: 'app-hr-form',
-  templateUrl: './hr-form.component.html',
-  styleUrls: ['./hr-form.component.scss']
+  selector: 'app-interview-feedback',
+  templateUrl: './interview-feedback.component.html',
+  styleUrls: ['./interview-feedback.component.scss']
 })
-export class HrFormComponent implements OnInit {
+export class InterviewFeedbackComponent implements OnInit {
 
   form: FormGroup;
   isApproved: boolean;
   englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
-  constructor(private hrFormService: HrFormService) { }
+  constructor(private interviewFeedbackService: InterviewFeedbackService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -23,7 +23,6 @@ export class HrFormComponent implements OnInit {
         Validators.minLength(5),
       ]),
       englishLevel: new FormControl(null, Validators.required),
-      technicalInterviewDate: new FormControl(null, Validators.required),
     });
   }
 
@@ -34,9 +33,11 @@ export class HrFormComponent implements OnInit {
   submit(): void {
     if (this.form.invalid) {
       console.log(this.form.status);
+      this.form.reset();
       return;
     }
     const hrReview = { ...this.form.value, isApproved: this.isApproved};
+    this.form.reset();
     console.log(hrReview);
   }
 }

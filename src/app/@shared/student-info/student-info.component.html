@@ -1,6 +1,6 @@
-<div class="info_div" *ngIf="!type_link && is_readonly">
+<div class="info_div" *ngIf="!type_div && !type_link && is_readonly">
     <div class="text_div">
-        <input class="text_input" value={{text}} readonly (keyup)="onKey($event)" [ngClass]="{
+        <input  class="text_input" value={{text}}  readonly [ngClass]="{
                 type_name:type_name,
                 type_blue:type_blue}">
         <button class="cor_button" (click)=correct()>
@@ -12,13 +12,14 @@
         </button>
     </div>
 </div>
-
-<div class="info_div" *ngIf="!type_link && !is_readonly">
+ 
+<div class="info_div" *ngIf="!type_div && !type_link && !is_readonly">
     <div class="text_div border_blue">
-        <input class="text_input" value={{text}} (keyup)="onKey($event)" [ngClass]="{
+        <input #textInput class="text_input" value={{text}} name={{name}} [ngClass]="{
                 type_name:type_name,
                 type_blue:type_blue}">
-        <button class="cor_button" (click)=correct()>
+        <button class="save_btn" (click)=saveInfo()>Save</button>
+                <button class="cor_button" (click)=correct()>
             <svg class="cor_logo" height="20" viewBox="-15 -15 484.00019 484" width="20"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -26,6 +27,10 @@
             </svg>
         </button>
     </div>
+</div>
+
+<div class="info_div" *ngIf="type_div">
+    <div class="text_div type_div">{{text}}</div>
 </div>
 
 <div class="info_div" *ngIf="type_link">

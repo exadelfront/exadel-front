@@ -20,6 +20,8 @@ export class JoinInputComponent implements OnInit {
   @Input() name: string;
   @Input() parentForm: FormGroup;
   @Input() controlName: string;
+  value: string;
+
 
   constructor() { }
 

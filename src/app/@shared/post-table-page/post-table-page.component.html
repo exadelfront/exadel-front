@@ -1,0 +1,15 @@
+<div class="indent">
+  <button (click)="createPost()" class="post__btn">{{"ADMIN_POST_VIEW.NewPost" | translate}}</button>
+</div>
+<app-internship-card
+  *ngFor="let post of posts; let idx = index"
+  [post]="post"
+  [isGray]="idx % 2 !== 0 ? false: true"
+  [isBtnPresent]="false"
+>
+  <button (click)="goToPost(post)" class="post__btn">
+    {{"ADMIN_POST_VIEW.Details" | translate}}
+  </button>
+  <span *ngIf="post.publishedStatus === 'VISIBLE_FOR_INTERNS'" class="published">{{"ADMIN_POST_VIEW.Published" | translate}}</span>
+  <span *ngIf="post.publishedStatus === 'VISIBLE_FOR_ADMINS'" class="unpublished">{{"ADMIN_POST_VIEW.NotPublished" | translate}}</span>
+</app-internship-card>

@@ -1,0 +1,36 @@
+@import "/src/styles";
+.indent{
+  padding: 20px 8vw;
+}
+
+.post__btn{
+  cursor: pointer;
+  width: 277px;
+  height: 45px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+  &:hover{
+    background: white;
+    color: $main_blue;
+    transition-duration: 0.3s;
+  }
+}
+
+span{
+  font-size: 20px;
+}
+
+.published{
+  color: $main_blue;
+}
+.unpublished{
+  color: red;
+}

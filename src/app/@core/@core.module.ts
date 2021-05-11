@@ -8,6 +8,10 @@ import { LoginMenuComponent } from './login-menu/login-menu.component';
 import { InfoStudentPageComponent } from './info-student-page/info-student-page.component';
 import { TechnicalEstimateComponent } from './technical-estimate/technical-estimate.component';
 import { StudentsTablePageComponent } from './students-table-page/students-table-page.component';
+import { StudentHistoryPageComponent } from './student-history-page/student-history-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {PostsService} from '../services/posts.service';
+import { AdminInfoPageComponent } from './admin-info-page/admin-info-page.component';
 
 
 
@@ -18,18 +22,25 @@ import { StudentsTablePageComponent } from './students-table-page/students-table
     LoginMenuComponent,
     InfoStudentPageComponent,
     TechnicalEstimateComponent,
-    StudentsTablePageComponent
+    StudentsTablePageComponent,
+    StudentHistoryPageComponent,
+    AdminInfoPageComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule
+    ],
   exports: [
     MainPageComponent,
     PostPageComponent,
     LoginMenuComponent,
     InfoStudentPageComponent,
-    TechnicalEstimateComponent
-    ]
+    TechnicalEstimateComponent,
+    StudentsTablePageComponent,
+    StudentHistoryPageComponent,
+    AdminInfoPageComponent
+    ],
+  providers: [PostsService]
 })
 export class CoreModule { }

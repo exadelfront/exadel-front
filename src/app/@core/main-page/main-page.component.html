@@ -1,7 +1,17 @@
-<app-navigation-menu></app-navigation-menu>
+<div >
+<app-navigation-menu
+  [notFound]="notFound"
+  [posts]="posts"
+  [countries]="countries"
+  [subjects]="subjects"
+  [internshipType]="internshipType"
+  [format]="format"
+  (selectedFilter)="filterPosts($event)"
+></app-navigation-menu>
 <app-internship-card
   *ngFor="let post of posts; let idx = index"
   [post]="post"
   [isGray]="idx % 2 !== 0 ? false: true"
   [isBtnPresent]="true"
 ></app-internship-card>
+</div>

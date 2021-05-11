@@ -1,3 +1,5 @@
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -35,10 +37,18 @@ import { TableComponent } from './table/table.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule} from '@angular/material/button';
 
 import { DndDirective} from '../directives/dnd.directive';
 import { PostCreationComponent } from './post-creation/post-creation.component';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
+import { PostTablePageComponent } from './post-table-page/post-table-page.component';
+import { PostViewAdminComponent } from './post-view-admin/post-view-admin.component';
+import { ChooseItemsComponent } from './choose-items/choose-items.component';
+import { HistoryPostComponent } from './history-post/history-post.component';
+import {AdminNavigationComponent} from './admin-navigation/admin-navigation.component';
+import {AppRoutingModule} from '../app-routing.module';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -49,7 +59,10 @@ const MaterialModules = [
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatButtonModule
 ];
 
 @NgModule({
@@ -78,7 +91,13 @@ const MaterialModules = [
     StudentInfoComponent,
     InfoSectionHeaderComponent,
     TableComponent,
-    PostCreationComponent
+    PostCreationComponent,
+    DialogConfirmComponent,
+    PostTablePageComponent,
+    PostViewAdminComponent,
+    ChooseItemsComponent,
+    HistoryPostComponent,
+    AdminNavigationComponent
   ],
 
   imports: [
@@ -88,14 +107,15 @@ const MaterialModules = [
     ...MaterialModules,
     HttpClientModule,
     TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            },
-            defaultLanguage: 'en'
-        })
-    ],
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    }),
+    AppRoutingModule
+  ],
   exports: [
     JoinFormComponent,
     JoinInputDateComponent,
@@ -119,9 +139,14 @@ const MaterialModules = [
     DndDirective,
     StudentInfoComponent,
     InfoSectionHeaderComponent,
-    TableComponent
+    TableComponent,
+    DialogConfirmComponent,
+    HistoryPostComponent,
+    AdminNavigationComponent
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [DialogConfirmComponent]
 })
 
 export class SharedModule { }
+export class CustomMaterialModule {}

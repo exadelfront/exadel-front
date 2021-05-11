@@ -1,3 +1,19 @@
 <div class='choose-date-input'>
-    <input type="datetime-local" name="interviewdate" />
+    <mat-form-field class="filter">
+        <mat-select placeholder="Date" (selectionChange)="changeDate($event)">
+            <mat-option *ngFor="let time_slot of time_slots" [value]=time_slot>
+                {{dateToNormalView(time_slot?.startDate)}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="change_date===true" class="filter">
+        <mat-select *ngIf="change_date===true" placeholder="Interviewer" (selectionChange)="changeInterviewer($event)">
+            <mat-option  *ngFor="let interviewer of interviewers" [value]=interviewer>
+                {{interviewer.name +' '+interviewer.surname}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="change_date===true" class="btn_div"><button *ngIf="change_date===true" class='save_btn' (click)=saveInterviewDate()>Save date</button></div>
 </div>
+<div *ngIf="success===true" class="success_msg">Saved. {{dateToNormalView(time_slot?.startDate)}}, Interviewer - {{interviewer.name +' '+interviewer.surname}} </div>
+<div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>

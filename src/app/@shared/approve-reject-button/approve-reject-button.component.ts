@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './approve-reject-button.component.html',
   styleUrls: ['./approve-reject-button.component.scss']
 })
-export class ApproveRejectButtonComponent implements OnInit {
+export class ApproveRejectButtonComponent {
 
   @Input() text: string;
   @Input() bgcolor = '#2EA3F2';
@@ -15,13 +15,20 @@ export class ApproveRejectButtonComponent implements OnInit {
   @Input() isApproveBtn: boolean;
   @Input() controlName: string;
   @Output() noApproveReject: EventEmitter<boolean> = new EventEmitter<boolean>();
+  text_color = '#FFFFFF';
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
-
   onClick(): void {
     this.noApproveReject.emit(this.isApproveBtn);
+  }
+
+  hoverEffect(): void{
+    this.text_color = this.bgcolor;
+    this.bgcolor = '#FFFFFF';
+  }
+  disableHoverEffect(): void{
+    this.bgcolor = this.text_color;
+    this.text_color = '#FFFFFF';
   }
 }

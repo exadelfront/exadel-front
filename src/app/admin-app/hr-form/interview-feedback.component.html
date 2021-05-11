@@ -2,11 +2,39 @@
   class="hr-review-form"
   action="#"
   [formGroup]="form"
-  (ngSubmit)="submit()">
+  (ngSubmit)="submit()"
+>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Interviewer full name:'"
+      [name]="'Sergey Danchenko'"
+      [is_button]="false"
+    ></app-section-header>
+  </div>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Candidate full name:'"
+      [name]="'Sergey Danchenko'"
+      [is_button]="false"
+    ></app-section-header>
+  </div>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Interview date:'"
+      [name]="'20-10-1995'"
+      [is_button]="false"
+    ></app-section-header>
+  </div>
+  <div class="title-wrapper">
+    <app-section-header
+      [header_text]="'Interview time:'"
+      [name]="'14:00'"
+      [is_button]="false"
+    ></app-section-header>
+  </div>
   <div class="title-wrapper">
     <app-section-header
       [header_text]="'Please describe the candidate'"
-      [name]="'Sergey Danchenko'"
       [is_button]="false"
     ></app-section-header>
   </div>
@@ -31,19 +59,6 @@
       [controlName]="'englishLevel'"
     ></app-rate-btn>
   </div>
-  <div class="title-wrapper">
-    <app-section-header
-      [header_text]="'Please choose the date of technical interview'"
-      [is_button]="false"
-    ></app-section-header>
-  </div>
-  <app-join-input
-      [placeholder]="'d/m/y, time'"
-      [type]="'datetime-local'"
-      [name]="'technical-interview-date'"
-      [parentForm]=form
-      [controlName]="'technicalInterviewDate'"
-  ></app-join-input>
   <div class="approve-reject-buttons">
     <app-approve-reject-button
       [text]="'Approve'"
