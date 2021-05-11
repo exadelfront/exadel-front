@@ -1,6 +1,6 @@
 @import "/src/styles";
 
-li{
+li {
   padding: 5px 0;
 }
 
@@ -12,18 +12,22 @@ li > p {
   font-family: Poppins;
   font-size: 0.8vw;
 }
-.sub_menu{
+.sub_menu {
   font-family: Poppins;
   letter-spacing: 1px;
   line-height: 30px;
   color: black;
   transition: 0.3s linear;
 }
-.sub_menu li a:hover {
+.sub_menu > li:hover {
   background: $main_blue;
   color: white;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
 }
 li input[type="checkbox"]:checked + #word_opts {
   color: $main_blue;
-
+}
+li input[type="checkbox"]:checked:hover + #word_opts {
+  color: white;
 }
