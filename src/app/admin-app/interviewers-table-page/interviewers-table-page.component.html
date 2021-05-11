@@ -1,3 +1,4 @@
+<app-admin-navigation></app-admin-navigation>
 <div class="table-wrapper">
   <div class="filter-container">
     <mat-form-field class="filter">
@@ -15,35 +16,37 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Search..." #input>
   </mat-form-field>
 
-  <table mat-table [dataSource]="interviewers" matSort class="mat-elevation-z8">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="interviewers" matSort class="mat-elevation-z8">
 
-    <!-- name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
-      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.fullName }} </td>
-    </ng-container>
+      <!-- name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+        <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)" class="td_hover"> {{ interviewer.fullName }} </td>
+      </ng-container>
 
-    <!-- email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.email }} </td>
-    </ng-container>
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)" class="td_hover"> {{ interviewer.email }} </td>
+      </ng-container>
 
-    <!-- type Column -->
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
-      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.type }} </td>
-    </ng-container>
+      <!-- type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)" class="td_hover"> {{ interviewer.type }} </td>
+      </ng-container>
 
-    <!-- subjects Column -->
-    <ng-container matColumnDef="subjects">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Subjects </th>
-      <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)"> {{ interviewer.subjects }} </td>
-    </ng-container>
+      <!-- subjects Column -->
+      <ng-container matColumnDef="subjects">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Subjects </th>
+        <td mat-cell *matCellDef="let interviewer" (click)="goToInterviewerInfoPage(interviewer.id)" class="td_hover"> {{ interviewer.subjects }} </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
 </div>
