@@ -36,7 +36,14 @@ input {
     &.ng-invalid.ng-touched.ng-pristine {
       border: 2px solid red;
     }
+
 }
+
+
+.notRequired:after {
+  content: none;
+}
+
 
 @media (max-width: 1000px) {
   input {
@@ -55,4 +62,5 @@ input {
     height: 45px;
   }
 }
+
 

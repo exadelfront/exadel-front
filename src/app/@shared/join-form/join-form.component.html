@@ -19,16 +19,16 @@
                 </div>
 
                 <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'phone'" [placeholder] ="'Phone number...'" [type]="'tel'" [name]="'phone'"></app-join-input>
-                <app-join-select-location [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'location'" (click)="higlightTextColor($event)"></app-join-select-location>
+                <app-join-select-location [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'location'" (click)="higlightTextColor($event)"></app-join-select-location>
                 <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'email'" [placeholder] ="'E-mail...'" [type]="'email'" [name]="'email'"></app-join-input>
                 <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'skype'" [placeholder] ="'Skype...'" [type]="'text'" [name]="'skype'"></app-join-input>
 
                 <div class='join-form-contacts-row'>
                     <div class='join-form-contacts-row-input'>
-                        <app-join-input [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'github'" [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'github'"></app-join-input>
+                        <app-join-input [notRequired]="notRequired" [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'github'" [placeholder] ="'GitHub link...'" [type]="'url'" [name]="'github'"></app-join-input>
                     </div>
                     <div class='join-form-contacts-row-select'>
-                        <app-join-select [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'english'" (click)="higlightTextColor($event)"></app-join-select>
+                        <app-join-select [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'english'" (click)="higlightTextColor($event)"></app-join-select>
                     </div>
                 </div>
           </div>
@@ -60,9 +60,10 @@
                     <span class='drop'>{{'JOIN_FORM.Drop' | translate}}<input id='file-input' type="file" name="file" accept='.pdf, .doc, .docx, .png' ngf-max-size="20MB" (change)="handleFiles($event)">
                         <label for="file-input">{{'JOIN_FORM.Select' | translate}}</label>{{'JOIN_FORM.CV' | translate}}
                     </span>
-                    <div *ngIf="cv && (fileSizeMb < 20) && fileType === 'pdf' || fileType === 'png' || fileType === 'doc' || fileType === 'docx'" [ngStyle]="{color:'#2EA3F2'}">{{cv.name}}</div>
+
+                    <div *ngIf="form.value?.cv !== null && fileSizeMb < 20 && (fileType === 'pdf' || fileType === 'png' || fileType === 'doc' || fileType === 'docx')" [ngStyle]="{color:'#2EA3F2'}">{{cv.name}}</div>
                     <div *ngIf="cv && (fileSizeMb >= 20) && (fileType === 'pdf' || fileType === 'png' || fileType === 'doc' || fileType === 'docx')" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileSize' | translate}}</div>
-                  <div *ngIf="cv && fileType != 'pdf' && fileType != 'png' && fileType != 'doc' && fileType != 'docx'" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileType' | translate}}</div>
+                    <div *ngIf="cv && fileType != 'pdf' && fileType != 'png' && fileType != 'doc' && fileType != 'docx'" [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileType' | translate}}</div>
                </div>
             </div>
 
@@ -73,28 +74,28 @@
                 <div class='join-form-timetable' >
                     <div class='join-form-timetable-slot' >
                         <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day1'" (click)="higlightTextColor($event)"></app-join-input-date>
+                            <app-join-input-date [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day1'" (click)="higlightTextColor($event)"></app-join-input-date>
                         </div>
                         <div class='join-form-timetable-slot-hours' >
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours1'" (click)="higlightTextColor($event)"></app-join-select-hours>
+                            <app-join-select-hours [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours1'" (click)="higlightTextColor($event)"></app-join-select-hours>
                         </div>
                     </div>
 
                     <div class='join-form-timetable-slot' >
                         <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day2'" (click)="higlightTextColor($event)"></app-join-input-date>
+                            <app-join-input-date [notRequired]="notRequired" [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day2'" (click)="higlightTextColor($event)"></app-join-input-date>
                         </div>
                         <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours2'" (click)="higlightTextColor($event)"></app-join-select-hours>
+                            <app-join-select-hours [notRequired]="notRequired" [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours2'" (click)="higlightTextColor($event)"></app-join-select-hours>
                         </div>
                     </div>
 
                     <div class='join-form-timetable-slot'>
                         <div class='join-form-timetable-slot-day'>
-                            <app-join-input-date [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day3'" (click)="higlightTextColor($event)"></app-join-input-date>
+                            <app-join-input-date [notRequired]="notRequired" [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'day3'" (click)="higlightTextColor($event)"></app-join-input-date>
                         </div>
                         <div class='join-form-timetable-slot-hours'>
-                            <app-join-select-hours [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours3'" (click)="higlightTextColor($event)"></app-join-select-hours>
+                            <app-join-select-hours [notRequired]="notRequired" [light]='isLight' [parentForm]='form' class='form-control' ngDefaultControl [controlName]="'hours3'" (click)="higlightTextColor($event)"></app-join-select-hours>
                         </div>
                     </div>
 
