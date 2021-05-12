@@ -41,6 +41,7 @@ nav p {
   font-size: 1vw;
 }
 .top_menu > li:after {
+  z-index: -1;
   position: absolute;
   content: "\25BC";
   left: 9vw;
