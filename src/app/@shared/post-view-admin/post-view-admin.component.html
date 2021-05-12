@@ -4,13 +4,13 @@
   [isGray]="false"
   [isBtnPresent]="false"
 ></app-internship-card>
-<app-additional-information [additionalInfoInternship]="post.additionalInfoInternship"></app-additional-information>
+<app-additional-information [additionalInfoInternship]="post?.additionalInfoInternship"></app-additional-information>
 <div class="container">
   <div class="buttons-container">
-    <button *ngIf="post.publishedStatus === 'VISIBLE_FOR_ADMINS'" (click)="Publish()" class="post__btn">Publish</button>
-    <button *ngIf="post.publishedStatus === 'VISIBLE_FOR_INTERNS'" (click)="UnPublish()" class="post__btn">Take off</button>
+    <button *ngIf="post?.publishedStatus === 'VISIBLE_FOR_ADMINS'" (click)="Publish()" class="post__btn">Publish</button>
+    <button *ngIf="post?.publishedStatus === 'VISIBLE_FOR_INTERNS'" (click)="UnPublish()" class="post__btn">Take off</button>
     <button (click)="Update()" class="post__btn" [ngClass]="{'green-btn':true}">Update</button>
-    <button *ngIf="post.publishedStatus === 'VISIBLE_FOR_ADMINS'"
+    <button *ngIf="post?.publishedStatus === 'VISIBLE_FOR_ADMINS'"
             (click)="Delete()" class="post__btn" [ngClass]="{'red-btn':true}">Delete</button>
   </div>
 </div>
