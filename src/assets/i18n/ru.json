@@ -63,9 +63,9 @@
   "ADMIN_NAVIGATION": {
     "Students": "Таблица студентов",
     "Interviewers": "Таблица интервьюеров",
-    "PostControl": "Управление стажировками",
-    "Add new interviewer": "Новый интервьюер",
-    "Add new event": "Новое мероприятие"
+    "PostControl": "Лента со стажировками",
+    "Add new interviewer": "Добавить интервьюера",
+    "Add new event": "Добавить мероприятие"
   }
 
 }
