@@ -4,6 +4,9 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {INTERNSHIPS_PAGE_ADMIN_URL} from '../../../environments/environment';
+import {MatDialog} from '@angular/material/dialog';
+import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-post-view-admin',
@@ -14,11 +17,14 @@ export class PostViewAdminComponent implements OnInit {
 
   post: Post;
   form: FormGroup;
+  result: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService,
-    private http: HttpClient
+    private http: HttpClient,
+    public dialog: MatDialog,
+    private _location: Location
   ) {
   }
 
@@ -57,6 +63,19 @@ export class PostViewAdminComponent implements OnInit {
   }
 
   Delete(): void {
-    this.http.delete(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id).subscribe();
+    
+    const message = `Are you sure you want to DELETE POST ` +this.post?.title+' ?';
+    const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      maxWidth: "65vw",
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.result = dialogResult;
+      if (this.result) {
+      this.http.delete(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id).subscribe();
+      this._location.back();
+    }
+    });
   }
 }

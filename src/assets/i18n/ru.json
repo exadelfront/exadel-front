@@ -32,10 +32,15 @@
       "SecondSubheading": ", обязательны к заполнению",
       "Title": "Название...",
       "Type": "Виберите тип события",
+      "ShortType": "Тип...",
       "Format": "Выберите формат",
+      "ShortFormat": "Формат...",
       "Technologies": "Выберите технологии",
+      "ShortTechnologies": "Технологии...",
       "Countries": "Выберите страны",
+      "ShortCountries": "Страны...",
       "Skills": "Выберите необходимые навыки",
+      "ShortSkills": "Навыки...",
       "Time": "Даты",
       "RecruitmentStart": "Дата начала набора",
       "RecruitmentEnd": "Дата окончания набора",
@@ -52,20 +57,29 @@
       "SubmitNotification": "Форма отправлена.",
       "SubmitAlert": "Форма не отправлена. Пожалуйста, заполните обязательные поля."
     },
-
     "ADMIN_POST_VIEW":{
-      
       "Details": "Подробнее",
       "Published": "Опубликовано",
       "NotPublished": "Не опубликовано"
     },
-
-  "ADMIN_NAVIGATION": {
-    "Students": "Таблица студентов",
-    "Interviewers": "Таблица интервьюеров",
-    "PostControl": "Лента со стажировками",
-    "Add new interviewer": "Добавить интервьюера",
-    "Add new event": "Добавить мероприятие"
-  }
-
+    "INTERVIEWER_CREATION":{
+      "Add":"Добавить интервьюера",
+      "Choose type":"Вибирите тип интервьюера",
+      "Choose time":"Вибирите свободное время интервьюера",
+      "Choose subjects":"Вибирите технологии интервьюера",
+      "Add date":"Добавить дату",
+      "Submit": "Отправить",
+      "Name":"Имя...",
+      "Surname":"Фамилия...",
+      "Email":"Пошта...",
+      "Phone":"Телефон...",
+      "Skype":"Скайп..."
+    },
+    "ADMIN_NAVIGATION": {
+      "Students": "Таблица студентов",
+      "Interviewers": "Таблица интервьюеров",
+      "PostControl": "Лента со стажировками",
+      "Add new interviewer": "Добавить интервьюера",
+      "Add new event": "Добавить мероприятие"
+    }
 }
