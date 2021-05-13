@@ -3,13 +3,13 @@
 <form class="content" [formGroup]="form" (ngSubmit)="submit()">
   <div class="title-wrapper">
     <app-section-header
-      [header_text]="'Add interviewer'"
+      header_text="{{'INTERVIEWER_CREATION.Add' | translate}}"
     ></app-section-header>
   </div>
   <div class="row-input-wrapper">
     <div class="input-wrapper">
       <app-join-input
-        [placeholder]="'Name...'"
+        placeholder="{{'INTERVIEWER_CREATION.Name' | translate}}"
         [type]="'text'"
         [parentForm]="form"
         [controlName]="'name'"
@@ -17,7 +17,7 @@
     </div>
     <div class="input-wrapper">
       <app-join-input
-        [placeholder]="'Surname...'"
+        placeholder="{{'INTERVIEWER_CREATION.Surname' | translate}}"
         [type]="'text'"
         [parentForm]="form"
         [controlName]="'surname'"
@@ -27,7 +27,7 @@
   <div class="row-input-wrapper">
     <div class="input-wrapper">
       <app-join-input
-        [placeholder]="'Email...'"
+        placeholder="{{'INTERVIEWER_CREATION.Email' | translate}}"
         [type]="'text'"
         [parentForm]="form"
         [controlName]="'email'"
@@ -35,7 +35,7 @@
     </div>
     <div class="input-wrapper">
       <app-join-input
-        [placeholder]="'Phone...'"
+        placeholder="{{'INTERVIEWER_CREATION.Phone' | translate}}"
         [type]="'text'"
         [parentForm]="form"
         [controlName]="'phone'"
@@ -45,7 +45,7 @@
   <div class="row-input-wrapper">
     <div class="input-wrapper">
       <app-join-input
-        [placeholder]="'Skype...'"
+        placeholder="{{'INTERVIEWER_CREATION.Skype' | translate}}"
         [type]="'text'"
         [parentForm]="form"
         [controlName]="'skype'"
@@ -54,7 +54,7 @@
   </div>
   <div class="title-wrapper">
     <app-section-header
-      [header_text]="'Choose interviewer type'"
+      header_text="{{'INTERVIEWER_CREATION.Choose type' | translate}}"
     ></app-section-header>
   </div>
   <div class="interviewer-type">
@@ -83,7 +83,7 @@
   <section class="subjects-section" *ngIf="showSubjects">
     <div class="title-wrapper">
       <app-section-header
-        [header_text]="'Choose interviewer subjects'"
+        header_text="{{'INTERVIEWER_CREATION.Choose subjects' | translate}}"
       ></app-section-header>
     </div>
     <div class="subjects">
@@ -98,7 +98,7 @@
   </section>
   <div class="title-wrapper">
     <app-section-header
-      [header_text]="'Choose interviewer free time'"
+      header_text="{{'INTERVIEWER_CREATION.Choose time' | translate}}"
     ></app-section-header>
   </div>
   <form class="date-time" [formGroup]="selectDateForm" (ngSubmit)="onAddDateBtnClick()">
@@ -113,7 +113,7 @@
     <button
       class="add-btn"
       type="submit"
-    >Add date</button>
+    >{{'INTERVIEWER_CREATION.Add date' | translate}}</button>
   </form>
   <div
     class="selected-dates"
@@ -132,7 +132,7 @@
   </div>
   <div class="submit-btn-wrapper">
     <app-approve-reject-button
-      [text]="'Submit'"
+      text="{{'INTERVIEWER_CREATION.Submit' | translate}}"
       [parentForm]="form"
     >
     </app-approve-reject-button>
