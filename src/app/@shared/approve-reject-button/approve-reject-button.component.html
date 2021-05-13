@@ -5,7 +5,7 @@
     (click)="onClick()"
     (mouseover)="hoverEffect()"
     (mouseout)="disableHoverEffect()"
-   
+    [disabled]="parentForm.invalid"
     [ngStyle]="{
       background: bgcolor,
       border: bgcolor,
@@ -13,4 +13,3 @@
     }"
      class="approve_btn"> {{text}} </button>
 </div>
-<!-- [disabled]="parentForm.invalid" -->
