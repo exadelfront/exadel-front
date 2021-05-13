@@ -50,13 +50,12 @@
             <div class="english-level-header">
                 <app-section-header header_text="The level of English of the candidate"></app-section-header>
             </div>
-            <div class="english-rate-container">
-                <app-rate-btn id=1 value="A1" checked></app-rate-btn>
-                <app-rate-btn id=2 value="A2"></app-rate-btn>
-                <app-rate-btn id=3 value="B1"></app-rate-btn>
-                <app-rate-btn id=4 value="B2"></app-rate-btn>
-                <app-rate-btn id=5 value="C1"></app-rate-btn>
-                <app-rate-btn id=6 value="C2"></app-rate-btn>
+            <div>
+                <app-rate-btn class="english-rate-container"
+                [items]="englishLevels"
+                [parentForm]="form"
+                [controlName]="'english'">
+                </app-rate-btn>
             </div>
         </div>
         <div class="buttons-container">
