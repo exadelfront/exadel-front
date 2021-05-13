@@ -19,7 +19,7 @@ export class InfoStudentPageComponent implements OnInit {
   result: boolean;
   hrTimes: InterviewerTimes[];
   techTimes: InterviewerTimes[];
-  
+  englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   constructor(
     private route: ActivatedRoute,
     private studentsService: StudentsService,
@@ -46,6 +46,7 @@ export class InfoStudentPageComponent implements OnInit {
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),
+      english: new FormControl(null),
     });
   }
 
