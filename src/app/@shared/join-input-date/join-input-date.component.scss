@@ -12,6 +12,11 @@ div {
     }
 }
 
+.notRequired:after {
+  content: none;
+}
+
+
 select {
     width: 100%;
     height: 70px;
