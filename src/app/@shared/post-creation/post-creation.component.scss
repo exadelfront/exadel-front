@@ -1,7 +1,6 @@
 @import "src/styles";
 
-span{
-  font-family: Open Sans;
+span {
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -14,35 +13,33 @@ span{
   &-wrapper {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 15%;
+    padding-right: 15%;
 
-    h2{
+    h2 {
       font-size: 36px;
       line-height: 54px;
       margin-top: 1.5em;
     }
 
-    h3{
+    h3 {
       font-size: 14px;
       line-height: 21px;
       margin-bottom: 2em;
     }
 
-    b{
+    b {
       color: red;
     }
 
-
-    hr{
+    hr {
       height: 1px;
       color: $main_blue;
       background: $main_blue;
       border: none;
       margin-bottom: 2em;
     }
-    .subheading{
+    .subheading {
       margin-bottom: 0;
     }
   }
@@ -56,12 +53,12 @@ span{
       padding-left: 44px;
       font-size: 24px;
       font-weight: 500;
-      input{
+      input {
         position: absolute;
         z-index: -10;
         opacity: 0;
       }
-      label{
+      label {
         color: $main_blue;
       }
     }
@@ -69,36 +66,35 @@ span{
     &-icon {
       position: relative;
     }
-
   }
 
-  &-inputs{
+  &-inputs {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    div{
+    div {
       width: 49%;
     }
   }
-  &-date{
-    &-row{
+  &-date {
+    &-row {
       margin: 1.5em auto;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      div{
+      div {
         width: 49%;
       }
-      span{
+      span {
         font-size: 24px;
       }
     }
-    input{
+    input {
       width: 100%;
-      height: 70px;
+      height: 60px;
       box-sizing: border-box;
-      background: #FFFFFF;
+      background: #ffffff;
       border: 3px solid rgba(0, 0, 0, 0.15);
       border-radius: 100px;
       outline: none;
@@ -106,8 +102,8 @@ span{
       font-size: 20px;
       line-height: 27px;
 
-      &::placeholder{
-        color: #D1D1D1;
+      &::placeholder {
+        color: #d1d1d1;
       }
 
       &.ng-invalid.ng-touched.ng-dirty,
@@ -121,7 +117,7 @@ span{
       }
     }
   }
-  &-submit{
+  &-submit {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +136,7 @@ span{
 
   &-alert {
     font-size: 23px;
-    color: #2EA3F2;
+    color: #2ea3f2;
     padding-top: 1em;
     padding-bottom: 1em;
   }
@@ -152,19 +148,19 @@ span{
     padding-bottom: 1em;
   }
 }
-form{
+form {
   padding-bottom: 2em;
 }
 
-.split{
+.split {
   height: 1.5em;
 }
 
-.important-color{
+.important-color {
   color: black !important;
 }
 
-.creation-select{
+.creation-select {
   color: $main_grey;
   margin-bottom: 22px;
   width: 100%;
@@ -188,11 +184,34 @@ form{
   .creation-select {
     height: 55px;
   }
+  .post-creation-wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }
 
 @media (max-width: 700px) {
   .creation-select {
     height: 50px;
+  }
+  .post-creation-wrapper {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  span,
+  .post-creation-date span {
+    font-size: 18px;
+  }
+  .post-creation-date input {
+    height: 40px;
+    font-size: 15px;
+  }
+  .post-creation-image-icon svg {
+    width: 100px;
+    height: 70px;
+  }
+  .post-creation-wrapper h2 {
+    font-size: 24px;
   }
 }
 

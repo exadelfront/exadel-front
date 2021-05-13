@@ -34,6 +34,7 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
+          this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
           this.dates=this.getDates(this.dates);
           this.form.get("techReview").patchValue(this.student?.techInterview);
           this.form.get("hrReview").patchValue(this.student?.hrInterview);
@@ -41,8 +42,7 @@ export class InfoStudentPageComponent implements OnInit {
     });
     
     this.interviewerService.getHRInterviewers().subscribe(res =>this.hrTimes = res);
-    this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
-
+    
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),

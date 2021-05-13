@@ -54,7 +54,6 @@
     },
 
     "ADMIN_POST_VIEW":{
-      "NewPost": "Add new internship post",
       "Details": "Details",
       "Published": "Published",
       "NotPublished": "Not published"
@@ -63,8 +62,9 @@
   "ADMIN_NAVIGATION": {
     "Students": "Students",
     "Interviewers": "Interviewers",
-    "Add new interviewer": "Add new interviewer",
-    "Add new event": "Add new event"
+    "PostControl": "Post Control",
+    "Add new interviewer": "New interviewer",
+    "Add new event": "New event"
   }
 
 }

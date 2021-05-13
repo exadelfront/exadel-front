@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public displayedColumns: string[] = ['traineeFullName', 'email', 'subjects', 'status','adminFullName'];
+  public displayedColumns: string[] = ['traineeFullName', 'email', 'subjects', 'traineeStatus','adminFullName'];
   public dataSource = new MatTableDataSource();
   public statuses = new Set();
   public internships = new Set();

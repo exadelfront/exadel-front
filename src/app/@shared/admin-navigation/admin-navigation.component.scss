@@ -1,6 +1,6 @@
 @import "/src/styles";
 
-div{
+div {
   padding: 5vh 15vw 2vh;
   font-size: 18px;
 
@@ -9,7 +9,7 @@ div{
   }
 
   @media (max-width: 699px) {
-     padding: 2vh 1vw;
+    padding: 2vh 1vw;
   }
 
   nav {
@@ -21,11 +21,15 @@ div{
     ul {
       display: flex;
       align-items: center;
+      justify-content: center;
       list-style: none;
       margin: 0;
       padding: 0;
 
       li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 1vw 0vw;
         width: 25%;
         text-align: center;
@@ -52,17 +56,13 @@ div{
             text-decoration: none;
           }
 
-          &:hover, &:active, &.active {
+          &:hover,
+          &:active,
+          &.active {
             color: $main_blue;
           }
-
         }
-
       }
-
     }
-
   }
-
 }
-
