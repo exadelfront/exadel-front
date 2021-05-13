@@ -70,8 +70,8 @@ export class PostCreationComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
-      internshipType: new FormControl(null, Validators.required),
-      format: new FormControl(null, Validators.required),
+      internshipType: new FormControl(null),
+      format: new FormControl(null),
       description: new FormControl(null, Validators.required),
       additionalInfoInternship: new FormControl(null, Validators.required),
       startDate: new FormControl(null, Validators.required),
@@ -126,7 +126,18 @@ export class PostCreationComponent implements OnInit {
         });
     }
   }
-
+  showErrorMsg() {
+    this.notSubmitted = true;
+        setTimeout(function () {
+          this.notSubmitted = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.isSubmitted = true;
+        setTimeout(function () {
+          this.isSubmitted = false;
+        }.bind(this), 5000);
+  }
   onSubmit(): void {
     console.log(this.subjects, this.skills, this.countries);
     this.form.value.subjects = this.subjects;
@@ -137,12 +148,15 @@ export class PostCreationComponent implements OnInit {
     console.log(this.types);
     console.log(this.form.value);
     const FormData = {...this.form.value};
-    this.isSubmitted = true;
-    this.notSubmitted = false;
     this.sent.post(FORM_SEND_URL, FormData)
-      .subscribe(ev => {
-        console.log(ev);
-      });
+      .subscribe((data) => {
+          this.showSuccessMsg();
+        console.log(data);
+        },
+        (err) => {
+          this.showErrorMsg();
+          console.log(err);
+        });
     this.form.reset();
   }
 
