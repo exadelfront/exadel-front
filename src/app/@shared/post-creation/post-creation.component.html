@@ -16,7 +16,7 @@
       <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'title'"
                       [type]="'text'"
                       [name]="'title'"
-                      [placeholder]="'Title...'"
+                      placeholder="{{'POST_CREATION.Title' | translate}}"
       ></app-join-input>
 
       <div class="post-creation-inputs">
@@ -26,14 +26,14 @@
             [(ngModel)]="types"
             [ngModelOptions]="{standalone: true}"
             ngDefaultControl
-            [placeholder]="'Type...'"
+            placeholder="{{'POST_CREATION.ShortType' | translate}}"
             [suggestions]="typeSuggests"
           ></app-choose-items>
         </div>
         <div>
           <span>{{'POST_CREATION.Format' | translate}}</span>
           <select class="creation-select" formControlName="format"  [ngClass]="{'important-color': form.value.format === 'Format...'}">
-            <option [ngValue]="null" [disabled]="true" hidden>Format...</option>
+            <option [ngValue]="null" [disabled]="true" hidden>{{'POST_CREATION.ShortFormat' | translate}}</option>
             <option *ngFor="let format of formatSuggests" value="{{format}}">
               {{format}}
             </option>
@@ -47,7 +47,7 @@
             [(ngModel)]="subjects"
             [ngModelOptions]="{standalone: true}"
             ngDefaultControl
-            [placeholder]="'Technologies...'"
+            placeholder="{{'POST_CREATION.ShortTechnologies' | translate}}"
             [suggestions]="subjectSuggests"
           ></app-choose-items>
         </div>
@@ -57,7 +57,7 @@
             [(ngModel)]="countries"
             [ngModelOptions]="{standalone: true}"
             ngDefaultControl
-            [placeholder]="'Countries...'"
+            placeholder="{{'POST_CREATION.ShortCountries' | translate}}"
             [suggestions]="countrySuggests"
           ></app-choose-items>
         </div>
@@ -70,7 +70,7 @@
             [(ngModel)]="skills"
             [ngModelOptions]="{standalone: true}"
             ngDefaultControl
-            [placeholder]="'Skills...'"
+            placeholder="{{'POST_CREATION.ShortSkills' | translate}}"
             [suggestions]="skillSuggests"
           ></app-choose-items>
         </div>
