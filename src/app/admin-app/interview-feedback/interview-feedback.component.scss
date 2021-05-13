@@ -1,3 +1,7 @@
+.form-wrapper {
+  min-height: 80vh;
+}
+
 .hr-review-form {
   margin: 0 auto;
   max-width: 1000px;
@@ -16,8 +20,6 @@
 .english-levels {
   width: 100%;
   margin-bottom: 60px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .approve-reject-buttons {

@@ -1,6 +1,5 @@
-
-import {Component, OnInit, Input} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-join-input',
@@ -15,8 +14,10 @@ export class JoinInputComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: string;
   @Input() name: string;
-  @Input() controlName: string = null;
-  @Input() parentForm: FormGroup = null;
+  @Input() parentForm: FormGroup;
+  @Input() controlName: string;
+  value: string;
+
 
   constructor() { }
 

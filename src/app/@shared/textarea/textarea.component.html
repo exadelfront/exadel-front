@@ -1,13 +1,7 @@
 <div class="text" [formGroup]="parentForm">
-<textarea formControlName="{{ controlName }}" *ngIf="readonly" class="textarea" placeholder="{{placeholder}}" readonly
-[ngClass]="{
-    textarea_approved:approved,
-    textarea_reject:reject
-}">{{textarea_text}}</textarea>
-
-<textarea formControlName="{{ controlName }}" *ngIf="!readonly" class="textarea" placeholder="{{placeholder}}"
-[ngClass]="{
-    textarea_approved:approved,
-    textarea_reject:reject
-}">{{textarea_text}}</textarea>
+  <textarea formControlName="{{ controlName }}" class="textarea" placeholder="{{placeholder}}" [readonly]=readonly
+            [ngClass]="{
+      textarea_approved:approved,
+      textarea_reject:reject
+  }">{{textarea_text}}</textarea>
 </div>

@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-rate-btn',
@@ -7,9 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class RateBtnComponent implements OnInit {
 
-  @Input() name: string;
-  @Input() value: string;
-  @Input() id: number;
+  @Input() parentForm: FormGroup;
+  @Input() items: string[];
+  @Input() controlName: string;
 
   constructor() { }
 
