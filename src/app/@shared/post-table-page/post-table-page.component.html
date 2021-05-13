@@ -1,5 +1,6 @@
+
 <div class="indent">
-  <button (click)="createPost()" class="post__btn">{{"ADMIN_POST_VIEW.NewPost" | translate}}</button>
+<app-admin-navigation></app-admin-navigation>
 </div>
 <app-internship-card
   *ngFor="let post of posts; let idx = index"

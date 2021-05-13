@@ -1,9 +1,9 @@
 @import "/src/styles";
-.indent{
-  padding: 20px 8vw;
+.indent {
+  padding: 1vw 1vw 3vw 1vw;
 }
 
-.post__btn{
+.post__btn {
   cursor: pointer;
   width: 277px;
   height: 45px;
@@ -17,20 +17,25 @@
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
-  &:hover{
+  &:hover {
     background: white;
     color: $main_blue;
     transition-duration: 0.3s;
   }
 }
 
-span{
+span {
   font-size: 20px;
 }
 
-.published{
+.published {
   color: $main_blue;
 }
-.unpublished{
+.unpublished {
   color: red;
+}
+@media (max-width: 1230px) {
+  .indent {
+    padding: 1vw 0 2vw 0;
+  }
 }

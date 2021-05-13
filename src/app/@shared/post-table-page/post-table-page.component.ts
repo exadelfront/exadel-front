@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class PostTablePageComponent implements OnInit {
 
   posts: Post[] = [];
-
+  
   constructor(private postsService: PostsService, private router: Router) {
   }
 
@@ -27,9 +27,5 @@ export class PostTablePageComponent implements OnInit {
 
   goToPost(post: any): void {
     this.router.navigate([`/admin/post/${post.id}`]);
-  }
-
-  createPost(): void {
-    this.router.navigate([`admin/creation`]);
   }
 }

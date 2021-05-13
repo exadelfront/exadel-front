@@ -54,17 +54,18 @@
     },
 
     "ADMIN_POST_VIEW":{
-      "NewPost": "Добавить новую стажировку",
+      
       "Details": "Подробнее",
       "Published": "Опубликовано",
       "NotPublished": "Не опубликовано"
     },
 
   "ADMIN_NAVIGATION": {
-    "Students": "Студенты",
-    "Interviewers": "Интервьюеры",
-    "Add new interviewer": "Новый интервьюер",
-    "Add new event": "Новое мероприятие"
+    "Students": "Таблица студентов",
+    "Interviewers": "Таблица интервьюеров",
+    "PostControl": "Лента со стажировками",
+    "Add new interviewer": "Добавить интервьюера",
+    "Add new event": "Добавить мероприятие"
   }
 
 }
