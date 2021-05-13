@@ -7,7 +7,6 @@ export const environment = {
 };
 
 export const INTERNSHIPS_PAGE_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship';
-export const HR_REVIEW_SEND_URL = '';
 export const STUDENTS_TABLE_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/trainee';
 export const INTERNSHIPS_PAGE_ADMIN_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship-administration';
 export const IMAGE_UPLOAD_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship-administration/upload-image';

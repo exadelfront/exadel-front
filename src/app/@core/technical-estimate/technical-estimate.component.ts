@@ -15,7 +15,7 @@ export class TechnicalEstimateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      review: new FormControl(null),
+      subscription: new FormControl(null),
     });
   }
 

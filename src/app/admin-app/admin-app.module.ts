@@ -5,7 +5,7 @@ import { AdminAppRoutingModule } from './admin-app-routing.module';
 import { AdminAppComponent } from './admin-app.component';
 import { SharedModule } from '../@shared/@shared.module';
 import { CoreModule } from '../@core/@core.module';
-import { InterviewFeedbackComponent } from './hr-form/interview-feedback.component';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterviewerAddPageComponent } from './intrviewer-add-page/interviewer-add-page.component';
 import { AddClassIfTrueDirective } from '../directives/add-class-if-true.directive';
