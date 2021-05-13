@@ -104,6 +104,7 @@
   <form class="date-time" [formGroup]="selectDateForm" (ngSubmit)="onAddDateBtnClick()">
     <div class="input-wrapper">
       <app-join-input
+        notRequired=true
         [type]="'datetime-local'"
         [parentForm]="selectDateForm"
         [controlName]="'selectedDate'"
