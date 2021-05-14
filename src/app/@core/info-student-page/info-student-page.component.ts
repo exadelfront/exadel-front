@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Student, StudentsService} from '../../services/students.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
@@ -20,6 +20,7 @@ export class InfoStudentPageComponent implements OnInit {
   hrTimes: InterviewerTimes[];
   techTimes: InterviewerTimes[];
   englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  
   constructor(
     private route: ActivatedRoute,
     private studentsService: StudentsService,
@@ -34,6 +35,11 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
+          this.form = new FormGroup({
+            hrReview: new FormControl(null),
+            techReview: new FormControl(null),
+            english: new FormControl({value:this.student?.english, disabled:true})
+          });
           this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
           this.dates=this.getDates(this.dates);
           this.form.get("techReview").patchValue(this.student?.techInterview);
@@ -41,12 +47,12 @@ export class InfoStudentPageComponent implements OnInit {
         });
     });
     
-    this.interviewerService.getHRInterviewers().subscribe(res =>this.hrTimes = res);
+    this.interviewerService.getHRInterviewers().subscribe(res => this.hrTimes = res);
     
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),
-      english: new FormControl(null),
+      english: new FormControl({value:this.student?.english, disabled:true})
     });
   }
 
