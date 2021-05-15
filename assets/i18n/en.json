@@ -1,0 +1,86 @@
+{
+    "POST_PAIGE":{
+        "HOME_BUTTON":"Home page"
+    },
+    "MAIN_PAIGE":{
+        "FILTERS":{
+            "Location":"Location",
+            "Technology":"Technology",
+            "Event_type":"Event type",
+            "Internship_status":"Internship status"
+        },
+        "MORE_DETAILS_BUTTON": "More details",
+        "NOT_FOUND": "No activities related to this request"
+    },
+    "JOIN_FORM": {
+        "Title":"Join us",
+        "Drop": "Drop or ",
+        "Select":"Select ",
+        "CV": "your CV (.pdf/.doc/.docx/.png-format are permitted)",
+        "FileSize": "Size of file exceeded",
+        "FileType": "Invalid format",
+        "Interview": "Choose suitable time for you for an interview:",
+        "Agreement": "I agree to the processing and storage of my personal data",
+        "Notification": "I want to receive notifications for similar events",
+        "SubmitBtn": "Submit",
+        "SubmitNotification": "Your request is received. We will contact you soon.",
+        "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
+    },
+    "POST_CREATION": {
+      "Heading": "Post creating",
+      "FirstSubheading": "Fields marked with ",
+      "SecondSubheading": "are required",
+      "Title": "Title...",
+      "Type": "Choose event type",
+      "ShortType": "Type...",
+      "Format": "Choose event format",
+      "ShortFormat": "Format...",
+      "Technologies": "Choose technologies",
+      "ShortTechnologies": "Technologies...",
+      "Countries": "Choose countries",
+      "ShortCountries": "Countries...",
+      "Skills": "Choose necessary skills",
+      "ShortSkills": "Skills...",
+      "Time": "Event Time",
+      "RecruitmentStart": "Recruitment start date",
+      "RecruitmentEnd": "Recruitment end date",
+      "EventStart": "Event start date",
+      "EventEnd": "Event end date",
+      "Media": "Media",
+      "Drop": "Drop or ",
+      "Select": "Select",
+      "Image": " the Image",
+      "Info": "Event Info",
+      "ShortInfo": "Short event info",
+      "Description": "Event description",
+      "Submit": "Submit",
+      "SubmitNotification": "Your request is received.",
+      "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
+    },
+    "ADMIN_POST_VIEW":{
+      "Details": "Details",
+      "Published": "Published",
+      "NotPublished": "Not published"
+    },
+    "INTERVIEWER_CREATION":{
+      "Add":"Add interviewer",
+      "Choose type":"Choose interviewer type",
+      "Choose time":"Choose interviewer free time",
+      "Choose subjects":"Choose interviewer subjects",
+      "Add date":"Add date",
+      "Submit": "Submit",
+      "Name":"Name...",
+      "Surname":"Surname...",
+      "Email":"Email...",
+      "Phone":"Phone...",
+      "Skype":"Skype..."
+    },
+    "ADMIN_NAVIGATION": {
+      "Students": "Students",
+      "Interviewers": "Interviewers",
+      "PostControl": "Post Control",
+      "Add new interviewer": "New interviewer",
+      "Add new event": "New event"
+    }
+}
+
