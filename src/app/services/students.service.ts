@@ -37,6 +37,9 @@ export interface Student {
   adminFullName: string;
 }
 
+export interface Conclusion{
+  isApproved?: boolean;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -85,5 +88,11 @@ export class StudentsService {
   }
   deleteStudentInfo(id: number){
     return this.http.delete(`${STUDENTS_TABLE_URL}/ai/${id}/delete`);
+  }
+  approve(conclusion:Conclusion,id: number) {
+    return this.http.post(`${STUDENTS_TABLE_URL}/ai/${id}`, conclusion);
+  }
+  reject(conclusion:Conclusion,id:number) {
+    return this.http.post(`${STUDENTS_TABLE_URL}/ai/${id}`, conclusion);
   }
 }

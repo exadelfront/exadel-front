@@ -17,6 +17,8 @@ export class InfoStudentPageComponent implements OnInit {
   form: FormGroup;
   student: Student;
   result: boolean;
+  success=false;
+  error = false;
   hrTimes: InterviewerTimes[];
   techTimes: InterviewerTimes[];
   englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -99,5 +101,35 @@ export class InfoStudentPageComponent implements OnInit {
   openHistory(): void{
     const id = this.student.traineeId;
     this.router.navigate([`/admin/stud-info/history/${id}`]);
+  }
+  showErrorMsg() {
+    this.error = true;
+        setTimeout(function () {
+          this.error = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.success = true;
+        setTimeout(function () {
+          this.success = false;
+        }.bind(this), 5000);
+  }
+  sendApprove() {
+    this.studentsService.approve({ isApproved: true }, this.student.id).subscribe(
+        () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        });
+  }
+  sendReject(){
+    this.studentsService.reject({ isApproved: false }, this.student.id).subscribe(
+        () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        });
   }
 }
