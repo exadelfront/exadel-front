@@ -61,16 +61,12 @@ export class InterviewerAddPageComponent implements OnInit {
         startDate,
       };
     });
-    if (this.form.value.type === 'HR') {
-      console.log({ ...this.form.value, interviewTimes });
-      this.interviewerService.sendDate({ ...this.form.value, interviewTimes }).subscribe();
-      this.resetForm();
-      return;
-    }
     this.interviewerService
-      .sendDate({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjectsNames })
-      .subscribe();
-    console.log({ ...this.form.value, interviewTimes, subjects: this.subjectsService.selectedSubjectsNames });
+      .sendDate({
+        ...this.form.value,
+        interviewTimes,
+        subjects: this.subjectsService.selectedSubjectsNames
+      }).subscribe();
     this.resetForm();
   }
 

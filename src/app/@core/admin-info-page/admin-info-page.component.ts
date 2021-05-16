@@ -18,6 +18,7 @@ export class AdminInfoPageComponent implements OnInit {
   admin:Admin;
   result: boolean;
   selectedDates: string[] = [];
+  form: FormGroup;
   selectDateForm: FormGroup;
   success=false;
   error = false;
@@ -28,6 +29,9 @@ export class AdminInfoPageComponent implements OnInit {
     public dialog: MatDialog,
     private _location: Location
   ) {
+    this.form = new FormGroup({
+      button: new FormControl(null)
+    });
     this.selectDateForm = new FormGroup({
       selectedDate: new FormControl(null, Validators.required),
     });

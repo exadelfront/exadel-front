@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="submit_div">
-        <app-approve-reject-button [text]="'Save dates'" [parentForm]="selectDateForm" (click)="submit()"></app-approve-reject-button>
+        <app-approve-reject-button [text]="'Save dates'" [parentForm]="form" (click)="submit()"></app-approve-reject-button>
         <div *ngIf="success===true" class="success_msg">Successfully Saved...</div>
         <div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
     </div>

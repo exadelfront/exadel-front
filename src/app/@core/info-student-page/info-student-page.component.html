@@ -39,23 +39,21 @@
         <div class="textareas-container">
             <div class="textarea-div">
                 <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
-                    [controlName]="'techReview'" ></app-textarea>
+                    [controlName]="'hrReview'" ></app-textarea>
+            </div>
+            <div class="english-level-container">
+                <div class="english-level-header">
+                    <app-section-header header_text="The level of English of the candidate"></app-section-header>
+                </div>
+                <div>
+                    <app-rate-btn class="english-rate-container" [items]="englishLevels" [parentForm]="form"
+                        [controlName]="'english'">
+                    </app-rate-btn>
+                </div>
             </div>
             <div class="textarea-div">
                 <app-textarea placeholder="Has not happened yet..." readonly=true [parentForm]="form"
-                    [controlName]="'hrReview'"  ></app-textarea>
-            </div>
-        </div>
-        <div class="english-level-container">
-            <div class="english-level-header">
-                <app-section-header header_text="The level of English of the candidate"></app-section-header>
-            </div>
-            <div>
-                <app-rate-btn class="english-rate-container"
-                [items]="englishLevels"
-                [parentForm]="form"
-                [controlName]="'english'">
-                </app-rate-btn>
+                    [controlName]="'techReview'"  ></app-textarea>
             </div>
         </div>
         <div class="buttons-container">
