@@ -5,10 +5,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {
   COUNTRIES_LIST_URL,
   FORM_SEND_URL, FORMAT_LIST_URL,
-  IMAGE_UPLOAD_URL, SKILLS_LIST_URL,
+  IMAGE_UPLOAD_URL, INTERNSHIPS_PAGE_ADMIN_URL, SKILLS_LIST_URL,
   SUBJECTS_LIST_URL, TYPE_LIST_URL
 } from '../../../environments/environment';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-creation',
@@ -24,6 +24,7 @@ export class PostCreationComponent implements OnInit {
   imageLink: string;
   notSubmitted: boolean;
   isSubmitted: boolean;
+  isUpdating = false;
 
 
   countries = [];
@@ -35,7 +36,6 @@ export class PostCreationComponent implements OnInit {
   skills = [];
   skillSuggests = ['.NET', 'Angular 2+', 'Knowledge of SQL'];
 
-  types = [];
   typeSuggests = ['.NET', 'Angular 2+', 'Knowledge of SQL'];
 
   formatSuggests = ['ONLINE', 'OFFLINE', 'BLENDED'];
@@ -44,7 +44,8 @@ export class PostCreationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService,
-    private sent: HttpClient
+    private sent: HttpClient,
+    private router: Router
   ) {}
 
   updatePost(): void {
@@ -61,7 +62,6 @@ export class PostCreationComponent implements OnInit {
       this.countries = this.post.countries;
       this.subjects = this.post.subjects;
       this.skills = this.post.skills;
-      this.types[0] = this.post.internshipType;
       this.format = this.post.format;
     }
   }
@@ -80,7 +80,18 @@ export class PostCreationComponent implements OnInit {
       endRequestDate: new FormControl(null, Validators.required)
     });
 
-    this.form.value.format = 'Format...';
+    this.route.params.subscribe((params: Params) => {
+      if (params.id) {
+        this.isUpdating = true;
+        this.postsService.fetchAdminsPostById(+params.id)
+          .subscribe(post => {
+            console.log(params);
+            console.log(post);
+            this.post = post;
+            this.uploadPost();
+          });
+      }
+    });
 
     this.sent.get<string[]>(SUBJECTS_LIST_URL).subscribe(
       (item) => this.subjectSuggests = item);
@@ -94,6 +105,15 @@ export class PostCreationComponent implements OnInit {
       (item) => this.formatSuggests = item);
 
     this.updatePost();
+  }
+
+  uploadPost(): void {
+    if (this.isUpdating) {
+      this.countries = this.post.countries;
+      this.subjects = this.post.subjects;
+      this.skills = this.post.skills;
+      this.imageLink = this.post.image;
+    }
   }
 
   uploadFile(event: any): void {
@@ -127,23 +147,42 @@ export class PostCreationComponent implements OnInit {
     }
   }
 
+  toList(): void {
+    this.router.navigate(['admin/post-table']);
+  }
+
+
+
   onSubmit(): void {
-    console.log(this.subjects, this.skills, this.countries);
-    this.form.value.subjects = this.subjects;
-    this.form.value.countries = this.countries;
-    this.form.value.skills = this.skills;
-    this.form.value.image = this.imageLink;
-    this.form.value.internshipType = this.types[0];
-    console.log(this.types);
-    console.log(this.form.value);
-    const FormData = {...this.form.value};
-    this.isSubmitted = true;
-    this.notSubmitted = false;
-    this.sent.post(FORM_SEND_URL, FormData)
-      .subscribe(ev => {
-        console.log(ev);
-      });
-    this.form.reset();
+    if (this.form.valid && this.subjects && this.countries && this.skills && this.imageLink){
+      this.form.value.subjects = this.subjects;
+      this.form.value.countries = this.countries;
+      this.form.value.skills = this.skills;
+      this.form.value.image = this.imageLink;
+      console.log(this.form.value);
+      const FormData = {...this.form.value};
+      this.isSubmitted = true;
+      this.notSubmitted = false;
+      if (this.isUpdating) {
+        this.sent.put(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id, FormData)
+          .subscribe(ev => {
+            console.log(ev);
+            this.toList();
+          });
+      } else {
+        this.sent.post(FORM_SEND_URL, FormData)
+          .subscribe(ev => {
+            console.log(ev);
+            this.toList();
+          });
+      }
+      this.form.reset();
+    }
+    else {
+      this.notSubmitted = true;
+    }
+    console.log(this.form);
+
   }
 
 
