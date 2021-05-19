@@ -70,8 +70,8 @@ export class PostCreationComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
-      internshipType: new FormControl(null, Validators.required),
-      format: new FormControl(null, Validators.required),
+      internshipType: new FormControl(null),
+      format: new FormControl(null),
       description: new FormControl(null, Validators.required),
       additionalInfoInternship: new FormControl(null, Validators.required),
       startDate: new FormControl(null, Validators.required),
@@ -151,7 +151,18 @@ export class PostCreationComponent implements OnInit {
     this.router.navigate(['admin/post-table']);
   }
 
-
+  showErrorMsg() {
+    this.notSubmitted = true;
+        setTimeout(function () {
+          this.notSubmitted = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.isSubmitted = true;
+        setTimeout(function () {
+          this.isSubmitted = false;
+        }.bind(this), 5000);
+  }
 
   onSubmit(): void {
     if (this.form.valid && this.subjects && this.countries && this.skills && this.imageLink){
@@ -165,16 +176,26 @@ export class PostCreationComponent implements OnInit {
       this.notSubmitted = false;
       if (this.isUpdating) {
         this.sent.put(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id, FormData)
-          .subscribe(ev => {
-            console.log(ev);
+          .subscribe(data => {
+            console.log(data);
+            this.showSuccessMsg();
             this.toList();
+          },
+          (err) => {
+           this.showErrorMsg();
+           console.log(err);
           });
       } else {
         this.sent.post(FORM_SEND_URL, FormData)
-          .subscribe(ev => {
-            console.log(ev);
+          .subscribe(data => {
+            console.log(data);
+            this.showSuccessMsg();
             this.toList();
-          });
+          },
+          (err) => {
+           this.showErrorMsg();
+           console.log(err);
+        });
       }
       this.form.reset();
     }
@@ -182,8 +203,5 @@ export class PostCreationComponent implements OnInit {
       this.notSubmitted = true;
     }
     console.log(this.form);
-
   }
-
-
 }

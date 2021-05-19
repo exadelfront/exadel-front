@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Student, StudentsService} from '../../services/students.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
@@ -17,8 +17,11 @@ export class InfoStudentPageComponent implements OnInit {
   form: FormGroup;
   student: Student;
   result: boolean;
+  success=false;
+  error = false;
   hrTimes: InterviewerTimes[];
   techTimes: InterviewerTimes[];
+  englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +37,11 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
+          this.form = new FormGroup({
+            hrReview: new FormControl(null),
+            techReview: new FormControl(null),
+            english: new FormControl({value:this.student?.english, disabled:true})
+          });
           this.interviewerService.getTechInterviewers(this.student?.subjects).subscribe(res => this.techTimes = res);
           this.dates=this.getDates(this.dates);
           this.form.get("techReview").patchValue(this.student?.techInterview);
@@ -41,11 +49,12 @@ export class InfoStudentPageComponent implements OnInit {
         });
     });
     
-    this.interviewerService.getHRInterviewers().subscribe(res =>this.hrTimes = res);
+    this.interviewerService.getHRInterviewers().subscribe(res => this.hrTimes = res);
     
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),
+      english: new FormControl({value:this.student?.english, disabled:true})
     });
   }
 
@@ -92,5 +101,35 @@ export class InfoStudentPageComponent implements OnInit {
   openHistory(): void{
     const id = this.student.traineeId;
     this.router.navigate([`/admin/stud-info/history/${id}`]);
+  }
+  showErrorMsg() {
+    this.error = true;
+        setTimeout(function () {
+          this.error = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.success = true;
+        setTimeout(function () {
+          this.success = false;
+        }.bind(this), 5000);
+  }
+  sendApprove() {
+    this.studentsService.approve({ isApproved: true }, this.student.id).subscribe(
+        () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        });
+  }
+  sendReject(){
+    this.studentsService.reject({ isApproved: false }, this.student.id).subscribe(
+        () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        });
   }
 }

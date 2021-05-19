@@ -20,7 +20,7 @@
     </div>
     <form class="date-time" [formGroup]="selectDateForm" (ngSubmit)="onAddDateBtnClick()">
         <div class="input-wrapper">
-            <app-join-input [type]="'datetime-local'" [parentForm]="selectDateForm" [controlName]="'selectedDate'">
+            <app-join-input notRequired=true [type]="'datetime-local'" [parentForm]="selectDateForm" [controlName]="'selectedDate'">
             </app-join-input>
         </div>
         <button class="add-btn" type="submit">Add date</button>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="submit_div">
-        <app-approve-reject-button [text]="'Save dates'" [parentForm]="selectDateForm" (click)="submit()"></app-approve-reject-button>
+        <app-approve-reject-button [text]="'Save dates'" [parentForm]="form" (click)="submit()"></app-approve-reject-button>
         <div *ngIf="success===true" class="success_msg">Successfully Saved...</div>
         <div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
     </div>

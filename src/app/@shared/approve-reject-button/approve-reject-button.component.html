@@ -1,9 +1,15 @@
 <div [formGroup]="parentForm">
-  <button type="submit" (mouseover)="hoverEffect()" (mouseout)="disableHoverEffect()" id="hover_btn"
-     [ngStyle]="{
-       background: bgcolor,
-       border: text_color,
-       color:text_color
-       }"
+  <button
+    type="submit"
+    id="hover_btn"
+    (click)="onClick()"
+    (mouseover)="hoverEffect()"
+    (mouseout)="disableHoverEffect()"
+    [disabled]="parentForm.invalid"
+    [ngStyle]="{
+      background: bgcolor,
+      border: bgcolor,
+      color: text_color
+    }"
      class="approve_btn"> {{text}} </button>
 </div>

@@ -32,10 +32,15 @@
       "SecondSubheading": "are required",
       "Title": "Title...",
       "Type": "Choose event type",
+      "ShortType": "Type...",
       "Format": "Choose event format",
+      "ShortFormat": "Format...",
       "Technologies": "Choose technologies",
+      "ShortTechnologies": "Technologies...",
       "Countries": "Choose countries",
+      "ShortCountries": "Countries...",
       "Skills": "Choose necessary skills",
+      "ShortSkills": "Skills...",
       "Time": "Event Time",
       "RecruitmentStart": "Recruitment start date",
       "RecruitmentEnd": "Recruitment end date",
@@ -52,20 +57,30 @@
       "SubmitNotification": "Your request is received.",
       "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
     },
-
     "ADMIN_POST_VIEW":{
       "Details": "Details",
       "Published": "Published",
       "NotPublished": "Not published"
     },
-
-  "ADMIN_NAVIGATION": {
-    "Students": "Students",
-    "Interviewers": "Interviewers",
-    "PostControl": "Post Control",
-    "Add new interviewer": "New interviewer",
-    "Add new event": "New event"
-  }
-
+    "INTERVIEWER_CREATION":{
+      "Add":"Add interviewer",
+      "Choose type":"Choose interviewer type",
+      "Choose time":"Choose interviewer free time",
+      "Choose subjects":"Choose interviewer subjects",
+      "Add date":"Add date",
+      "Submit": "Submit",
+      "Name":"Name...",
+      "Surname":"Surname...",
+      "Email":"Email...",
+      "Phone":"Phone...",
+      "Skype":"Skype..."
+    },
+    "ADMIN_NAVIGATION": {
+      "Students": "Students",
+      "Interviewers": "Interviewers",
+      "PostControl": "Post Control",
+      "Add new interviewer": "New interviewer",
+      "Add new event": "New event"
+    }
 }
 

@@ -1,9 +1,15 @@
-<div class="rate-btn">
-  <input
-    type="radio"
-    [id]="name + '-' + id"
-    [name]="name"
-    [value]="value"
-  >
-  <label [for]="name + '-' + id">{{ value }}</label>
+<div class="rate-btns-wrapper"
+  [formGroup]="parentForm"
+>
+  <div class="rate-btn"
+       *ngFor="let item of items; index as id">
+    <input
+      type="radio"
+      [id]="item + '-' + id"
+      [value]="item"
+      formControlName="{{ controlName }}"
+    >
+    <label [for]="item + '-' + id">{{ item }}</label>
+  </div>
+
 </div>
