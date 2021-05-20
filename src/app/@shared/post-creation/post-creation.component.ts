@@ -70,8 +70,8 @@ export class PostCreationComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
-      internshipType: new FormControl(null),
-      format: new FormControl(null),
+      internshipType: new FormControl(null, Validators.required),
+      format: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
       additionalInfoInternship: new FormControl(null, Validators.required),
       startDate: new FormControl(null, Validators.required),
@@ -178,11 +178,9 @@ export class PostCreationComponent implements OnInit {
         this.sent.put(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id, FormData)
           .subscribe(data => {
             console.log(data);
-            this.showSuccessMsg();
             this.toList();
           },
           (err) => {
-           this.showErrorMsg();
            console.log(err);
           });
       } else {
@@ -190,7 +188,6 @@ export class PostCreationComponent implements OnInit {
           .subscribe(data => {
             console.log(data);
             this.showSuccessMsg();
-            this.toList();
           },
           (err) => {
            this.showErrorMsg();
