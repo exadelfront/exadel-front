@@ -37,6 +37,7 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
+          this.student.traineeStatus = this.replaceUnderscore(this.student.traineeStatus);
           this.form = new FormGroup({
             hrReview: new FormControl(null),
             techReview: new FormControl(null),
@@ -101,6 +102,9 @@ export class InfoStudentPageComponent implements OnInit {
   openHistory(): void{
     const id = this.student.traineeId;
     this.router.navigate([`/admin/stud-info/history/${id}`]);
+  }
+  replaceUnderscore(str: string) {
+    return str.replace(/_/g, ' ');
   }
   showErrorMsg() {
     this.error = true;

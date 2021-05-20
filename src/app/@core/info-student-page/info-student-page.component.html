@@ -5,7 +5,7 @@
         <app-student-info [student]="student" name="name" type_name=true text={{student?.name}}></app-student-info>
         <app-student-info [student]="student" name="surname" type_name=true text={{student?.surname}}></app-student-info>
         <app-student-info [student]="student" text={{student?.email}} type_div=true></app-student-info>
-        <app-student-info [student]="student" name="traineeStatus" type_blue=true text={{student?.traineeStatus}}></app-student-info>
+        <app-student-info [student]="student" name="traineeStatus" type_div=true type_blue=true text={{student?.traineeStatus}} ></app-student-info>
         <app-student-info [student]="student" name="phone" text={{student?.phone}}></app-student-info>
         <app-student-info [student]="student" type_link=true text="Github page (click to open)" github_href={{student?.github}}>
         </app-student-info>
@@ -24,11 +24,18 @@
         <button (click)="openHistory()"class="delete-btn history_btn">Open history</button>
     </div>
     <div class="chose-date">
-        <div class="chose-hr-date-header">
+        <div *ngIf="student?.traineeStatus === 'EMAIL NOT CONFIRM' 
+                || student?.traineeStatus === 'REGISTERED' 
+                || student?.traineeStatus === 'RECRUITER INTERVIEW PENDING'"
+         class="chose-hr-date-header">
             <app-section-header header_text="Please chose the date of HR interview"></app-section-header>
             <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} [time_slots]="hrTimes"></app-choose-date>
         </div>
-        <div class="chose-tech-date-header">
+        <div *ngIf="student?.traineeStatus != 'TECHNICAL INTERVIEW REJECTED'
+                && student?.traineeStatus != 'TECHNICAL INTERVIEW ACCEPT' 
+                && student?.traineeStatus != 'REJECTED' 
+                && student?.traineeStatus != 'ACCEPT'"
+         class="chose-tech-date-header">
             <app-section-header header_text="Please chose the date of Technical interview"></app-section-header>
             <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} [time_slots]="techTimes"></app-choose-date>
         </div>
@@ -39,8 +46,8 @@
         <div class="textareas-container">
             <div class="textarea-div">
                 <app-textarea 
-                [approved]="student?.traineeStatus == 'RECRUITER_INTERVIEW_ACCEPTED'"
-                [reject]="student?.traineeStatus == 'RECRUITER_INTERVIEW_REJECTED'"
+                [approved]="student?.traineeStatus == 'RECRUITER INTERVIEW ACCEPTED'"
+                [reject]="student?.traineeStatus == 'RECRUITER INTERVIEW REJECTED'"
                 placeholder="Has not happened yet..." readonly=true 
                 [parentForm]="form"
                 [controlName]="'hrReview'" ></app-textarea>
@@ -57,8 +64,8 @@
             </div>
             <div class="textarea-div">
                 <app-textarea 
-                [approved]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_ACCEPTED'"
-                [reject]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_REJECTED'"
+                [approved]="student?.traineeStatus == 'TECHNICAL INTERVIEW ACCEPTED'"
+                [reject]="student?.traineeStatus == 'TECHNICAL INTERVIEW REJECTED'"
                 placeholder="Has not happened yet..." readonly=true 
                 [parentForm]="form" [controlName]="'techReview'"  
             ></app-textarea>

@@ -9,8 +9,6 @@ export interface Student {
   traineeName: string;
   traineeSurname: string;
   subjects: string [];
-  adminName: string;
-  adminSurname: string;
   internshipName: string;
   traineeLocation: string;
   internshipId: number;
@@ -33,7 +31,6 @@ export interface Student {
   traineeId?: number;
   traineeStatus?: string;
 
-  traineeFullName: string;
   adminFullName: string;
 }
 
@@ -51,7 +48,6 @@ export class StudentsService {
     return this.http.get<Student[]>(STUDENTS_TABLE_URL).pipe(map(data => {
       return data.map((student: any) => {
         student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
-        student.adminFullName = student.adminName + ' ' + student.adminSurname;
         return student;
       });
     }));
