@@ -55,4 +55,20 @@
 
     <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>
+<div *ngIf="show_msg_block" class="msg_block">
+    <app-textarea 
+    placeholder="Enter a text of notification that will be sent to all selected students (according to table filter)"
+    [parentForm]="form" 
+    [controlName]="'msg'"></app-textarea>
+    <div class="btn_container">
+        <app-approve-reject-button 
+        [text]="'Send notification'" 
+        [bgcolor]="'#2EA3F2'" 
+        (click)="sendMsg()" 
+        [parentForm]="form">
+        </app-approve-reject-button>
+        <div *ngIf="success===true" class="success_msg">Successfully Send...</div>
+        <div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
+    </div>
+</div>
 </div>

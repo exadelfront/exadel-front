@@ -68,7 +68,24 @@ mat-form-field-underline,
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
   background-color: $main_blue !important;
 }
-
+.msg_block {
+  padding: 5% 0% 5% 0%;
+}
+.btn_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.success_msg,
+.error_msg {
+  font-size: 28px;
+  padding: 1% 0;
+  color: green;
+}
+.error_msg {
+  color: red;
+}
 @media (max-width: 699px) {
   .table-div {
     padding: 2vh 1vw;
@@ -79,6 +96,10 @@ mat-form-field-underline,
   }
   .filter-container {
     flex-direction: column;
+  }
+  .success_msg,
+  .error_msg {
+    font-size: 14px;
   }
 }
 
@@ -92,5 +113,9 @@ mat-form-field-underline,
   }
   .filter-container {
     flex-direction: column;
+  }
+  .success_msg,
+  .error_msg {
+    font-size: 20px;
   }
 }
