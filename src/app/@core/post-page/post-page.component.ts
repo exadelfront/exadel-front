@@ -11,6 +11,7 @@ import {Post, PostsService} from '../../services/posts.service';
 export class PostPageComponent implements OnInit {
 
   post: Post;
+  started = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class PostPageComponent implements OnInit {
         .subscribe(post => {
           console.log(post);
           this.post = post;
+          this.started = new Date(post.startDate).getTime() - Date.now() > 0 ? false : true;
         });
     });
   }
