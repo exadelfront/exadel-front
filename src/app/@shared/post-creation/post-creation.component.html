@@ -13,26 +13,43 @@
       </h3>
 
       <span>{{'POST_CREATION.Title' | translate}}</span>
-      <app-join-input [parentForm]='form' ngDefaultControl [controlName]="'title'"
+      <app-join-input *ngIf="!post"
+                      [parentForm]='form' ngDefaultControl [controlName]="'title'"
                       [type]="'text'"
                       [name]="'title'"
                       placeholder="{{'POST_CREATION.Title' | translate}}"
       ></app-join-input>
+      <app-join-input *ngIf="post"
+                      [parentForm]='form' ngDefaultControl [controlName]="'title'"
+                      [type]="'text'"
+                      [name]="'title'"
+                      [placeholder]="'Title...'"
+                      [previousValue]="post.title"
+      ></app-join-input>
 
       <div class="post-creation-inputs">
-        <div>
+<!--        <div>-->
+<!--          <span>{{'POST_CREATION.Type' | translate}}</span>-->
+<!--          <app-choose-items-->
+<!--            [(ngModel)]="types"-->
+<!--            [ngModelOptions]="{standalone: true}"-->
+<!--            ngDefaultControl-->
+<!--            [placeholder]="'Type...'"-->
+<!--            [suggestions]="typeSuggests"-->
+<!--          ></app-choose-items>-->
+<!--        </div>-->
+        <div class="select-after">
           <span>{{'POST_CREATION.Type' | translate}}</span>
-          <app-choose-items
-            [(ngModel)]="types"
-            [ngModelOptions]="{standalone: true}"
-            ngDefaultControl
-            placeholder="{{'POST_CREATION.ShortType' | translate}}"
-            [suggestions]="typeSuggests"
-          ></app-choose-items>
+          <select class="creation-select" formControlName="internshipType">
+            <option [ngValue]="null" [disabled]="true" hidden>{{'POST_CREATION.ShortType' | translate}}</option>
+            <option *ngFor="let type of typeSuggests" value="{{type}}">
+              {{type}}
+            </option>
+          </select>
         </div>
-        <div>
+        <div class="select-after">
           <span>{{'POST_CREATION.Format' | translate}}</span>
-          <select class="creation-select" formControlName="format"  [ngClass]="{'important-color': form.value.format === 'Format...'}">
+          <select class="creation-select" formControlName="format">
             <option [ngValue]="null" [disabled]="true" hidden>{{'POST_CREATION.ShortFormat' | translate}}</option>
             <option *ngFor="let format of formatSuggests" value="{{format}}">
               {{format}}
@@ -84,25 +101,45 @@
         <div class="post-creation-date-row">
           <div>
             <span>{{'POST_CREATION.RecruitmentStart' | translate}}</span>
-            <input type="date"
+            <input *ngIf="!post"
+                    type="date"
                     formControlName="startRequestDate">
+            <input *ngIf="post"
+                   type="date"
+                   formControlName="startRequestDate"
+                   ngModel="{{post.startRequestDate}}">
           </div>
           <div>
             <span>{{'POST_CREATION.RecruitmentEnd' | translate}}</span>
-            <input type="date"
+            <input *ngIf="!post"
+                   type="date"
                    formControlName="endRequestDate">
+            <input *ngIf="post"
+                   type="date"
+                   formControlName="endRequestDate"
+                   ngModel="{{post.endRequestDate}}">
           </div>
         </div>
         <div class="post-creation-date-row">
           <div>
             <span>{{'POST_CREATION.EventStart' | translate}}</span>
-            <input type="date"
+            <input *ngIf="!post"
+                   type="date"
                    formControlName="startDate">
+            <input *ngIf="post"
+                   type="date"
+                   formControlName="startDate"
+                   ngModel="{{post.startDate}}">
           </div>
           <div>
             <span>{{'POST_CREATION.EventEnd' | translate}}</span>
-            <input type="date"
+            <input *ngIf="!post"
+                   type="date"
                    formControlName="endDate">
+            <input *ngIf="post"
+                   type="date"
+                   formControlName="endDate"
+                   ngModel="{{post.endDate}}">
           </div>
         </div>
       </div>
@@ -159,6 +196,7 @@
             [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileSize' | translate}}</div>
           <div *ngIf="image && fileType != 'jpg' && fileType != 'jpeg' && fileType != 'png'"
                [ngStyle]="{color:'red'}">{{'JOIN_FORM.FileType' | translate}}</div>
+          <div *ngIf="isUpdating && !image">{{imageLink}}</div>
 
         </div>
       </div>
@@ -166,16 +204,30 @@
       <h2>{{'POST_CREATION.Info' | translate}}</h2>
       <hr>
 
-      <app-textarea [parentForm]="form"
+      <app-textarea *ngIf="!post"
+                    [parentForm]="form"
                     [placeholder]="'POST_CREATION.ShortInfo' | translate"
                     [controlName]="'description'"
+      ></app-textarea>
+      <app-textarea *ngIf="post"
+                    [parentForm]="form"
+                    [placeholder]="'POST_CREATION.ShortInfo' | translate"
+                    [controlName]="'description'"
+                    [previousValue]="post.description"
       ></app-textarea>
 
       <div class="split"></div>
 
-      <app-textarea [parentForm]="form"
+      <app-textarea *ngIf="!post"
+                    [parentForm]="form"
                     [placeholder]="'POST_CREATION.Description' | translate"
                     [controlName]="'additionalInfoInternship'"
+      ></app-textarea>
+      <app-textarea *ngIf="post"
+                    [parentForm]="form"
+                    [placeholder]="'POST_CREATION.Description' | translate"
+                    [controlName]="'additionalInfoInternship'"
+                    [previousValue]="post.additionalInfoInternship"
       ></app-textarea>
 
       <div class="split"></div>
