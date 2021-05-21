@@ -62,8 +62,6 @@ export class InterviewFeedbackComponent implements OnInit {
 
   submit(): void {
     if (this.form.invalid) {
-      console.log(this.form.status);
-      this.form.reset();
       return;
     }
     const feedback = {
