@@ -60,6 +60,11 @@
   filter: drop-shadow(2px 4px 4px $main_blue);
   background: $main_blue;
 }
+.current-interview {
+  font-size: 18px;
+  color: $main_blue;
+  text-transform: uppercase;
+}
 @media (max-width: 699px) {
   .stud-info-container,
   .interviews-container {
@@ -87,6 +92,9 @@
   }
   .success_msg,
   .error_msg {
+    font-size: 14px;
+  }
+  .current-interview {
     font-size: 14px;
   }
 }

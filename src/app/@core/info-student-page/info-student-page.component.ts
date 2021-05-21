@@ -65,6 +65,10 @@ export class InfoStudentPageComponent implements OnInit {
     });
     return dates;
   }
+  dateToNormalView(strDate: string): string {
+    const [date, time] = strDate.split('T');
+    return `${date}//${time}`;
+  }
   deleteStudent(): void{
     const message = `Are you sure you want to DELETE STUDENT ` +this.student.name+ " " +this.student.surname +' (according to email)? It include NOT ONLY this information, but ALL student info in ALL Internships';
     const dialogData = new ConfirmDialogModel("Confirm Deleting", message);

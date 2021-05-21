@@ -31,6 +31,13 @@ export interface Student {
   traineeId?: number;
   traineeStatus?: string;
 
+  hrInterviewTime: string;
+  hrName: string;
+  hrSurname: string;
+  techInterviewTime: string;
+  techName: string;
+  techSurname: string;
+
   adminFullName: string;
 }
 
