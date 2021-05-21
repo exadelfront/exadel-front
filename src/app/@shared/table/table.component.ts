@@ -18,7 +18,7 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public displayedColumns: string[] = ['traineeFullName', 'email', 'subjects', 'traineeStatus','adminFullName'];
+  public displayedColumns: string[] = ['traineeFullName', 'email', 'subjects', 'traineeStatus'];
   public dataSource = new MatTableDataSource();
   public statuses = new Set();
   public internships = new Set();
@@ -91,5 +91,8 @@ export class TableComponent implements OnInit {
   }
   openInfo(id:number):void {
     this.router.navigate([`/admin/stud-info/${id}`]);
+  }
+  replaceUnderscore(str: string) {
+    return str.replace(/_/g, ' ');
   }
 }

@@ -30,7 +30,7 @@
 </div>
 
 <div class="info_div" *ngIf="type_div">
-    <div class="text_div type_div">{{text}}</div>
+    <div class="text_div type_div" [ngClass]="{type_blue:type_blue}">{{text}}</div>
 </div>
 
 <div class="info_div" *ngIf="type_link">
