@@ -5,4 +5,8 @@
   [isBtnPresent]="false"
 ></app-internship-card>
 <app-additional-information [additionalInfoInternship]="post?.additionalInfoInternship"></app-additional-information>
-<app-join-form [id]="post?.id"></app-join-form>
+
+<app-join-form *ngIf="!started; else finished" [id]="post?.id"></app-join-form>
+<ng-template #finished class="finished">
+  <p [ngStyle]="{color:'#2EA3F2', textAlign: 'center', fontSize: '20px'}">The registration on {{post.title}} has already closed</p>
+</ng-template>
