@@ -32,8 +32,7 @@ input {
         color: $main_grey;
     }
 
-    &.ng-invalid.ng-touched.ng-dirty,
-    &.ng-invalid.ng-touched.ng-pristine {
+    &.ng-invalid.ng-touched.ng-dirty {
       border: 2px solid red;
     }
 
