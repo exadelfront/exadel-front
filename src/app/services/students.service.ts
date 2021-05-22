@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { STUDENTS_TABLE_URL } from '../../environments/environment';
+import { STUDENTS_TABLE_URL, URL_FOR_NOTIFY } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 export interface Student {
@@ -43,6 +43,11 @@ export interface Student {
 
 export interface Conclusion{
   isApproved?: boolean;
+}
+
+export interface Notify {
+  message: string;
+  additionalInfoIds:number[]
 }
 @Injectable({
   providedIn: 'root',
@@ -97,5 +102,8 @@ export class StudentsService {
   }
   reject(conclusion:Conclusion,id:number) {
     return this.http.post(`${STUDENTS_TABLE_URL}/ai/${id}`, conclusion);
+  }
+  notifyStudents(notify:Notify): Observable<Notify> {
+     return this.http.post<Notify>(`${URL_FOR_NOTIFY}`, notify);
   }
 }

@@ -107,16 +107,6 @@ export class TableComponent implements OnInit {
   replaceUnderscore(str: string) {
     return str.replace(/_/g, ' ');
   }
-  sendMsg() {
-    let idMas: number[] = [];
-    
-    for (let student of this.students) {
-       idMas.push(student.additionalInfoId);
-    }
-    console.log(idMas);
-    this.showSuccessMsg()
-    console.log(this.form.get('msg').value);
-  }
   showErrorMsg() {
     this.error = true;
         setTimeout(function () {
@@ -128,5 +118,19 @@ export class TableComponent implements OnInit {
         setTimeout(function () {
           this.success = false;
         }.bind(this), 5000);
+  }
+  sendNotify() {
+    let idMas: number[] = [];
+    for (let student of this.students) {
+       idMas.push(student.additionalInfoId);
+    }
+    this.studentsService.notifyStudents({ message: this.form.get('msg').value, additionalInfoIds: idMas }).subscribe(
+      () => {
+        this.showSuccessMsg();
+      },
+      () => {
+        this.showErrorMsg();
+      }
+    );
   }
 }

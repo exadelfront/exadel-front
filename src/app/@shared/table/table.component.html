@@ -64,7 +64,7 @@
         <app-approve-reject-button 
         [text]="'Send notification'" 
         [bgcolor]="'#2EA3F2'" 
-        (click)="sendMsg()" 
+        (click)="sendNotify()" 
         [parentForm]="form">
         </app-approve-reject-button>
         <div *ngIf="success===true" class="success_msg">Successfully Send...</div>
