@@ -31,10 +31,6 @@ select {
     appearance: none;
     color: $main_grey;
 
-    &.ng-invalid.ng-touched {
-      border: 2px solid red;
-    }
-
 }
 
 

@@ -22,7 +22,6 @@ export class PostPageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.postsService.fetchPostById(+params.id)
         .subscribe(post => {
-          console.log(post);
           this.post = post;
           this.started = new Date(post.startDate).getTime() - Date.now() > 0 ? false : true;
         });

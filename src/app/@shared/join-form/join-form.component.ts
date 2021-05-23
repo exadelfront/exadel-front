@@ -8,7 +8,7 @@ import {StudentFormService} from '../../services/student-form.service';
 @Component({
   selector: 'app-join-form',
   templateUrl: './join-form.component.html',
-  styleUrls: ['./join-form.component.scss']
+  styleUrls: ['./join-form.component.scss'],
 })
 
 
@@ -22,6 +22,7 @@ export class JoinFormComponent implements OnInit {
   fileType: string;
   isSubmitted = false;
   notSubmitted = false;
+  wasRegistered = false;
   interviews: { day: any, time: any }[] = [];
   cvlink: string;
 
@@ -120,11 +121,11 @@ export class JoinFormComponent implements OnInit {
 
   resetForm(): void {
     this.form.reset();
-    this.isSubmitted = true;
     this.notSubmitted = false;
     this.isLight = true;
     setTimeout(function(): void {
       this.isSubmitted = false;
+      this.wasRegistered = false;
     }.bind(this), 10000);
   }
 
@@ -138,12 +139,11 @@ export class JoinFormComponent implements OnInit {
       this.service.fetchStudentForm(this.id, FormData)
         .subscribe(ev => {
           console.log(ev);
-          if (ev.traineeStatus){
+            this.isSubmitted = true;
             this.resetForm();
-          }
         }, error => {
-            this.notSubmitted = true;
-            console.error(error);
+          this.wasRegistered = true;
+          this.resetForm();
         }
       );
     } else {
