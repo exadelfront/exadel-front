@@ -1,8 +1,8 @@
 @import "/src/styles";
 
 nav {
-  outline: 3px $border_color;
-  border: 3px solid $border_color;
+  outline: 2px $border_color;
+  border: 2px solid $border_color;
   border-radius: 50px;
   margin: 0 auto;
 }
@@ -27,7 +27,7 @@ nav p {
 .top_menu > li {
   display: inline-block;
   position: relative;
-  border-left: 2px solid $border_color;
+  border-left: 1px solid $border_color;
 }
 .top_menu > li:first-child {
   border: none;
@@ -43,10 +43,12 @@ nav p {
 .top_menu > li:after {
   z-index: -1;
   position: absolute;
-  content: "\25BC";
+  content: "\00BB";
+  font-size: 30px;
+  transform: rotate(90deg);
   left: 9vw;
   width: 10vw;
-  top: 1vw;
+  top: 0.5vw;
   color: $main_blue;
 }
 app-navigation-tag {
