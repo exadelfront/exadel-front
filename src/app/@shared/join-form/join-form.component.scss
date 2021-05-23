@@ -2,7 +2,7 @@
 
 .join-form {
   margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   &-wrapper {
     display: flex;
@@ -24,10 +24,10 @@
       justify-content: space-between;
     }
 
-    &-firstname, &-lastname {
+    &-firstname,
+    &-lastname {
       width: 49%;
     }
-
 
     &-row {
       display: flex;
@@ -54,9 +54,7 @@
     &-icon {
       position: relative;
     }
-
   }
-
 
   &-interview {
     display: flex;
@@ -86,10 +84,10 @@
         justify-self: flex-end;
       }
     }
-
   }
 
-  &-agree, &-notification {
+  &-agree,
+  &-notification {
     margin-top: 26px;
     display: flex;
     align-items: center;
@@ -102,12 +100,12 @@
   &-submit {
     margin-bottom: 74px;
     display: flex;
-    width: 40.6%;
+    width: 30%;
   }
 
   &-alert {
     font-size: 23px;
-    color: #2EA3F2;
+    color: #2ea3f2;
     padding-bottom: 70px;
   }
 
@@ -116,7 +114,6 @@
     color: red;
     padding-bottom: 70px;
   }
-
 }
 
 h2 {
@@ -135,8 +132,8 @@ span {
   color: #000000;
 
   &.agree:after,
-  &.drop:after{
-    content: '*';
+  &.drop:after {
+    content: "*";
     top: -4%;
     left: 1%;
     position: relative;
@@ -146,23 +143,20 @@ span {
   &.drop label {
     color: $main_blue;
   }
-
-
 }
 
-
 input {
-  &[type=file] {
+  &[type="file"] {
     opacity: 0;
     position: absolute;
     z-index: -10;
   }
 
-  &[type=file] label:hover {
+  &[type="file"] label:hover {
     cursor: pointer;
   }
 
-  &[type=submit] {
+  &[type="submit"] {
     margin-top: 61px;
     width: 559px;
     height: 78px;
@@ -173,10 +167,12 @@ input {
     border-radius: 100px 0 100px 0;
     outline: none;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 30px;
     text-indent: 0;
-    color: #FFFFFF;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    font-family: Poppins;
 
     &:hover {
       background-color: white;
@@ -192,7 +188,6 @@ input {
       transform: translateY(3px);
     }
   }
-
 }
 
 .switch {
@@ -209,7 +204,6 @@ input {
   }
 }
 
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -218,8 +212,8 @@ input {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 
   &:before {
     position: absolute;
@@ -229,8 +223,8 @@ input {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
 
   &.round {
@@ -240,7 +234,6 @@ input {
   &.slider.round:before {
     border-radius: 50%;
   }
-
 }
 
 input:checked + .slider {
@@ -252,21 +245,16 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
-
 }
 
-
 @media (min-width: 900px) {
-
   .join-form-contacts-row {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
 
     &-input {
       justify-self: flex-start;
@@ -278,23 +266,20 @@ input:checked + .slider:before {
       margin-left: 18px;
       justify-self: flex-end;
       width: 32.6%;
-
     }
-
   }
 }
 
 @media (max-width: 1500px) {
   .join-form-wrapper {
-      padding-right: 5%;
-      padding-left: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 }
 
 @media (max-width: 900px) {
-
   .join-form-contacts-row {
-      flex-direction: column;
+    flex-direction: column;
 
     &-select {
       width: 100%;
@@ -302,42 +287,43 @@ input:checked + .slider:before {
   }
 
   .join-form-contacts-fullname {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .join-form-contacts-firstname, .join-form-contacts-lastname {
-      width: 100%;
+  .join-form-contacts-firstname,
+  .join-form-contacts-lastname {
+    width: 100%;
   }
 
   .join-form-timetable {
-      margin-bottom: 0;
+    margin-bottom: 0;
 
     &-slot {
       flex-direction: column;
 
-      &-day, &-hours {
+      &-day,
+      &-hours {
         width: 100%;
       }
     }
   }
 
-  input[type=submit] {
+  input[type="submit"] {
     height: 55px;
   }
 
   .svg {
     width: 100px;
   }
-
 }
-
 
 @media (max-width: 700px) {
   .join-form-submit {
     width: 60%;
   }
 
-  .join-form-agree span, .join-form-notification span {
+  .join-form-agree span,
+  .join-form-notification span {
     font-size: 14px;
     line-height: 18px;
   }
@@ -356,8 +342,8 @@ input:checked + .slider:before {
     left: 3px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 
     &.round {
       border-radius: 24px;
@@ -369,24 +355,18 @@ input:checked + .slider:before {
     -ms-transform: translateX(16px);
     transform: translateX(16px);
   }
-
 }
 
-
 @media (max-width: 550px) {
-
   .join-form-CV {
     flex-direction: column;
 
     &-upload {
       padding-left: 0;
     }
-
   }
 
   .svg {
     width: 100px;
   }
-
 }
-
