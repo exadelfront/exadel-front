@@ -12,11 +12,6 @@ select {
     line-height: 27px;
     appearance: none;
     color: $main_grey;
-
-      &.ng-invalid.ng-touched.ng-dirty,
-      &.ng-invalid.ng-touched.ng-pristine {
-        border: 2px solid red;
-      }
 }
 
 

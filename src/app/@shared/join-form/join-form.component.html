@@ -130,6 +130,7 @@
 
             <div *ngIf="isSubmitted" class="join-form-alert">{{'JOIN_FORM.SubmitNotification' | translate}}</div>
             <div *ngIf="notSubmitted" class="join-form-danger">{{'JOIN_FORM.SubmitAlert' | translate}}</div>
+            <div *ngIf="wasRegistered" class="join-form-danger">{{'JOIN_FORM.SubmitWarning' | translate}}</div>
 
     </form>
 
