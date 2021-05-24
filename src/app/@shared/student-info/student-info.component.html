@@ -11,6 +11,8 @@
             </svg>
         </button>
     </div>
+    <div *ngIf="success===true" class="success_msg">Successfully Saved...</div>
+    <div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
 </div>
  
 <div class="info_div" *ngIf="!type_div && !type_link && !is_readonly">
@@ -18,7 +20,8 @@
         <input #textInput class="text_input" value={{text}} name={{name}} [ngClass]="{
                 type_name:type_name,
                 type_blue:type_blue}">
-        <button class="save_btn" (click)=saveInfo()>Save</button>
+        <button *ngIf="!type_subjects" class="save_btn" (click)=saveInfo()>Save</button>
+        <button *ngIf="type_subjects" class="save_btn" (click)=saveSubjects()>Save</button>
                 <button class="cor_button" (click)=correct()>
             <svg class="cor_logo" height="20" viewBox="-15 -15 484.00019 484" width="20"
                 xmlns="http://www.w3.org/2000/svg">
