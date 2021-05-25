@@ -87,7 +87,6 @@
   <div class="chose-date">
     <div
       *ngIf="
-        student?.traineeStatus === 'EMAIL NOT CONFIRM' ||
         student?.traineeStatus === 'REGISTERED' ||
         student?.traineeStatus === 'RECRUITER INTERVIEW PENDING'
       "
@@ -107,10 +106,8 @@
     </div>
     <div
       *ngIf="
-        student?.traineeStatus != 'TECHNICAL INTERVIEW REJECTED' &&
-        student?.traineeStatus != 'TECHNICAL INTERVIEW ACCEPTED' &&
-        student?.traineeStatus != 'REJECTED' &&
-        student?.traineeStatus != 'ACCEPTED'
+        student?.traineeStatus === 'RECRUITER INTERVIEW PASSED' ||
+        student?.traineeStatus === 'TECHNICAL INTERVIEW PENDING'
       "
       class="chose-tech-date-header"
     >
