@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddClassIfTrueDirective } from './directives/add-class-if-true.directive';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthenticationInterceptor} from './AuthenticationInterceptor';
+import {AuthGuard} from './Auth.guard';
 
 
 
@@ -36,7 +37,9 @@ import {AuthenticationInterceptor} from './AuthenticationInterceptor';
   exports: [
     AddClassIfTrueDirective
   ],
-  providers: [ CookieService,
+  providers: [
+    CookieService,
+    AuthGuard,
     {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],

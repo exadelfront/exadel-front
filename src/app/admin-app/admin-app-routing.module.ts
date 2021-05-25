@@ -8,6 +8,7 @@ import {StudentHistoryPageComponent} from '../@core/student-history-page/student
 import {PostTablePageComponent} from '../@shared/post-table-page/post-table-page.component';
 import {PostViewAdminComponent} from '../@shared/post-view-admin/post-view-admin.component';
 import { AdminInfoPageComponent} from '../@core/admin-info-page/admin-info-page.component';
+import {AuthGuard} from '../Auth.guard';
 
 const routes: Routes = [
   {
@@ -16,35 +17,43 @@ const routes: Routes = [
   },
   {
     path: 'login/table',
-    component: StudentsTablePageComponent
+    component: StudentsTablePageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/stud-info/:id',
     component: InfoStudentPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/post-table',
-    component: PostTablePageComponent
+    component: PostTablePageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/post/:id',
-    component: PostViewAdminComponent
+    component: PostViewAdminComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/creation',
-    component: PostCreationComponent
+    component: PostCreationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/update/:id',
-    component: PostCreationComponent
+    component: PostCreationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/stud-info/history/:id',
-    component: StudentHistoryPageComponent
+    component: StudentHistoryPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login/admin-info/:id',
-    component: AdminInfoPageComponent
+    component: AdminInfoPageComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

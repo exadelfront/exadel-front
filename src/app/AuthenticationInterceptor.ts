@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
-import {  HttpRequest,  HttpHandler,  HttpEvent,  HttpInterceptor,  HttpResponse} from '@angular/common/http';
+import {  HttpRequest,  HttpHandler,  HttpEvent,  HttpInterceptor} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import {LoginService} from './services/login.service';
