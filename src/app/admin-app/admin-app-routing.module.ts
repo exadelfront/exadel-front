@@ -11,35 +11,35 @@ import { AdminInfoPageComponent} from '../@core/admin-info-page/admin-info-page.
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: 'login',
     component: LoginMenuComponent
   },
   {
-    path: 'admin/table',
+    path: 'login/table',
     component: StudentsTablePageComponent
   },
   {
-    path: 'admin/stud-info/:id',
-    component: InfoStudentPageComponent
+    path: 'login/stud-info/:id',
+    component: InfoStudentPageComponent,
   },
   {
-    path: 'admin/post-table',
+    path: 'login/post-table',
     component: PostTablePageComponent
   },
   {
-    path: 'admin/post/:id',
+    path: 'login/post/:id',
     component: PostViewAdminComponent
   },
   {
-    path: 'admin/creation',
+    path: 'login/creation',
     component: PostCreationComponent
   },
   {
-    path: 'admin/stud-info/history/:id',
+    path: 'login/stud-info/history/:id',
     component: StudentHistoryPageComponent
   },
   {
-    path: 'admin/admin-info/:id',
+    path: 'login/admin-info/:id',
     component: AdminInfoPageComponent
   }
 ];

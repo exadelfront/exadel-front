@@ -8,15 +8,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./history-post.component.scss']
 })
 export class HistoryPostComponent implements OnInit {
-  
+
   @Input() post: HistoryPost;
   @Input() isGray: boolean;
-  
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   openInfo(id:number):void {
-    this.router.navigate([`/admin/stud-info/${id}`]);
+    this.router.navigate([`/signin/stud-info/${id}`]);
   }
 }

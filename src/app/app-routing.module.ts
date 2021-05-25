@@ -7,30 +7,30 @@ import { InterviewFeedbackComponent } from './admin-app/interview-feedback/inter
 import { InterviewerAddPageComponent } from './admin-app/intrviewer-add-page/interviewer-add-page.component';
 import { InterviewersTablePageComponent } from './admin-app/interviewers-table-page/interviewers-table-page.component';
 
-
 const routes: Routes = [
   {
     path: '',
-    component: MainPageComponent,
+    component: MainPageComponent
   },
   {
     path: 'post/:id',
     component: PostPageComponent,
   },
   {
-    path: 'admin/hrform',
-    component: InterviewFeedbackComponent
+    path: 'login/hrform',
+    component: InterviewFeedbackComponent,
+
   },
   {
-    path: 'admin/techform',
-    component: TechnicalEstimateComponent
+    path: 'login/techform',
+    component: TechnicalEstimateComponent,
   },
   {
-    path: 'admin/addInterviewer',
-    component: InterviewerAddPageComponent
+    path: 'login/addInterviewer',
+    component: InterviewerAddPageComponent,
   },
   {
-    path: 'admin/interviewers',
+    path: 'login/interviewers',
     component: InterviewersTablePageComponent,
   },
   {

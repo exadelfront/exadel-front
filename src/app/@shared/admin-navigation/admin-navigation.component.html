@@ -1,23 +1,29 @@
+
+<div class="home" (click)="logout()">
+  <input type="button" value="{{'ADMIN_PAGE.Logout' | translate}}" class="home_page_button">
+</div>
+
+
 <div>
   <nav>
     <ul>
-      <li><a routerLink="/admin/table"
+      <li><a routerLink="/login/table"
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact:true}">{{'ADMIN_NAVIGATION.Students' | translate}}</a>
       </li>
-      <li><a routerLink="/admin/interviewers"
+      <li><a routerLink="/login/interviewers"
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact:true}">{{'ADMIN_NAVIGATION.Interviewers' | translate}}</a>
       </li>
-       <li><a routerLink="/admin/post-table" 
+       <li><a routerLink="/login/post-table"
               routerLinkActive="active"
               [routerLinkActiveOptions]="{exact:true}">{{'ADMIN_NAVIGATION.PostControl' | translate}}</a>
        </li>
-      <li><a routerLink="/admin/addInterviewer"
+      <li><a routerLink="/login/addInterviewer"
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact:true}">{{'ADMIN_NAVIGATION.Add new interviewer' | translate}}</a>
       </li>
-      <li><a routerLink="/admin/creation"
+      <li><a routerLink="/login/creation"
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact:true}">{{'ADMIN_NAVIGATION.Add new event' | translate}}</a>
       </li>

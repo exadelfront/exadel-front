@@ -13,7 +13,7 @@ import {Student, StudentsService} from '../../services/students.service';
 })
 
 export class TableComponent implements OnInit {
-  
+
   @Input() students: Student[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
   public internships = new Set();
   status: string = "";
   internship: string = "";
-  
+
   constructor(private router: Router, private studentsService: StudentsService) {}
 
   ngOnInit(): void {
@@ -90,6 +90,6 @@ export class TableComponent implements OnInit {
     }
   }
   openInfo(id:number):void {
-    this.router.navigate([`/admin/stud-info/${id}`]);
+    this.router.navigate([`/login/stud-info/${id}`]);
   }
 }

@@ -38,10 +38,10 @@
 <div class="interviews-container">
         <div class="textareas-container">
             <div class="textarea-div">
-                <app-textarea 
+                <app-textarea
                 [approved]="student?.traineeStatus == 'RECRUITER_INTERVIEW_ACCEPTED'"
                 [reject]="student?.traineeStatus == 'RECRUITER_INTERVIEW_REJECTED'"
-                placeholder="Has not happened yet..." readonly=true 
+                placeholder="Has not happened yet..." readonly=true
                 [parentForm]="form"
                 [controlName]="'hrReview'" ></app-textarea>
             </div>
@@ -56,18 +56,18 @@
                 </div>
             </div>
             <div class="textarea-div">
-                <app-textarea 
+                <app-textarea
                 [approved]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_ACCEPTED'"
                 [reject]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_REJECTED'"
-                placeholder="Has not happened yet..." readonly=true 
-                [parentForm]="form" [controlName]="'techReview'"  
+                placeholder="Has not happened yet..." readonly=true
+                [parentForm]="form" [controlName]="'techReview'"
             ></app-textarea>
             </div>
         </div>
         <div *ngIf="student?.traineeStatus != 'ACCEPTED' && student?.traineeStatus != 'REJECTED'" class="buttons-container">
-            <app-approve-reject-button [text]="'Approve'" [bgcolor]="'#2EA3F2'" (click)="sendApprove()" [parentForm]="form">
+            <app-approve-reject-button *ngIf="role=== 'SUPERADMIN'" [text]="'Approve'" [bgcolor]="'#2EA3F2'" (click)="sendApprove()" [parentForm]="form">
             </app-approve-reject-button>
-            <app-approve-reject-button [text]="'Reject'" [bgcolor]="'#F22E2E'" (click)="sendReject()" [parentForm]="form">
+            <app-approve-reject-button *ngIf="role=== 'SUPERADMIN'" [text]="'Reject'" [bgcolor]="'#F22E2E'" (click)="sendReject()" [parentForm]="form">
             </app-approve-reject-button>
         </div>
         <div *ngIf="success===true" class="success_msg">Successfully Saved...</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {LoginService} from '../../services/login.service';
+
 
 @Component({
   selector: 'app-login-menu',
@@ -10,19 +12,52 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class LoginMenuComponent implements OnInit {
 
   form: FormGroup;
+  isInvalid = false;
+  returnUrl: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private login: LoginService, private route: ActivatedRoute) {
+
+
+    // if (this.login.getLoggedUser()) {
+    //   this.router.navigate(['/login/table']);
+    // }
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      login: new FormControl(null, Validators.required),
+      username: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
     });
+    //
+    // this.login.loggedInUserSubject.subscribe(value => this.loggedInUserSubject = value);
+    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
   }
 
-  goToTablePage(): void {
-    this.router.navigate([`/admin/table`]);
+  onSubmit(): void {
+
+    if (this.form.valid) {
+      console.log(this.form.value.username, this.form.value.password);
+      this.login.login(this.form.value.username, this.form.value.password)
+        .subscribe(response => {
+          console.log(response.body.roleList);
+          if (response.status === 200) {
+            this.isInvalid = false;
+            this.router.navigate(['/login/table']);
+          }
+        }, err => {
+          console.log(err)
+          this.isInvalid = true;
+        });
+    } else {
+      this.isInvalid = true;
+    }
   }
 
-  onSubmit(): void {}
+  logout(): void {
+    this.login.logout().subscribe(
+      res => {
+          this.router.navigateByUrl('/login');
+      });
+  }
+
 }

@@ -81,6 +81,9 @@
       "PostControl": "Post Control",
       "Add new interviewer": "New interviewer",
       "Add new event": "New event"
+    },
+    "ADMIN_PAGE": {
+      "Logout": "Logout"
     }
 }
 
