@@ -17,6 +17,6 @@ export class HistoryPostComponent implements OnInit {
   ngOnInit(): void {
   }
   openInfo(id:number):void {
-    this.router.navigate([`/signin/stud-info/${id}`]);
+    this.router.navigate([`/login/stud-info/${id}`]);
   }
 }

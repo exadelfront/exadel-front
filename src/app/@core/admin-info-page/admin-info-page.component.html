@@ -9,7 +9,7 @@
             <app-student-info is_admin = true [admin]="admin" name="type" type_blue=true text={{admin?.type}}></app-student-info>
             <app-student-info is_admin = true [admin]="admin" name="phone" text={{admin?.phone}}></app-student-info>
             <app-student-info is_admin = true [admin]="admin" name="skype" text={{admin?.skype}}></app-student-info>
-            <app-student-info is_admin = true [admin]="admin" text={{subjects}} type_div=true></app-student-info>
+            <app-student-info is_admin = true [admin]="admin" name="subjects" text={{subjects}} type_blue=true type_subjects=true></app-student-info>
         </div>
         <div class="action-btns">
             <button (click)="deleteAdmin()" class="del-admin-btn ">Delete admin</button>

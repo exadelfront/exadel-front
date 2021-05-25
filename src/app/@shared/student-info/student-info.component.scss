@@ -63,6 +63,15 @@
   text-decoration: none;
   color: $main_blue;
 }
+.success_msg,
+.error_msg {
+  font-size: 14px;
+  padding: 1% 0;
+  color: green;
+}
+.error_msg {
+  color: red;
+}
 @media (max-width: 699px) {
   .text_div {
     font-size: 14px;

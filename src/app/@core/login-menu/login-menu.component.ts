@@ -13,33 +13,21 @@ export class LoginMenuComponent implements OnInit {
 
   form: FormGroup;
   isInvalid = false;
-  returnUrl: string;
 
-  constructor(private router: Router, private login: LoginService, private route: ActivatedRoute) {
-
-
-    // if (this.login.getLoggedUser()) {
-    //   this.router.navigate(['/login/table']);
-    // }
-  }
+  constructor(private router: Router, private login: LoginService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
     });
-    //
-    // this.login.loggedInUserSubject.subscribe(value => this.loggedInUserSubject = value);
-    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
   }
 
   onSubmit(): void {
 
     if (this.form.valid) {
-      console.log(this.form.value.username, this.form.value.password);
-      this.login.login(this.form.value.username, this.form.value.password)
+      this.login.login(this.form.value.username.trim(), this.form.value.password.trim())
         .subscribe(response => {
-          console.log(response.body.roleList);
           if (response.status === 200) {
             this.isInvalid = false;
             this.router.navigate(['/login/table']);
@@ -51,13 +39,6 @@ export class LoginMenuComponent implements OnInit {
     } else {
       this.isInvalid = true;
     }
-  }
-
-  logout(): void {
-    this.login.logout().subscribe(
-      res => {
-          this.router.navigateByUrl('/login');
-      });
   }
 
 }

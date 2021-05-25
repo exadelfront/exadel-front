@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Post, PostsService} from '../../services/posts.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {INTERNSHIPS_PAGE_ADMIN_URL} from '../../../environments/environment';
@@ -25,6 +25,7 @@ export class PostViewAdminComponent implements OnInit {
     private route: ActivatedRoute,
     private postsService: PostsService,
     private http: HttpClient,
+    private router: Router,
     public dialog: MatDialog,
     private _location: Location,
     private cookieService: CookieService
@@ -64,11 +65,10 @@ export class PostViewAdminComponent implements OnInit {
   }
 
   Update(): void {
-
+    this.router.navigate([`/login/update/${this.post.id}`]);
   }
 
   Delete(): void {
-
     const message = `Are you sure you want to DELETE POST ` +this.post?.title+' ?';
     const dialogData = new ConfirmDialogModel("Confirm Deleting", message);
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
@@ -78,9 +78,9 @@ export class PostViewAdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
       this.result = dialogResult;
       if (this.result) {
-      this.http.delete(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id).subscribe();
-      this._location.back();
-    }
+        this.http.delete(INTERNSHIPS_PAGE_ADMIN_URL + '/' + this.post.id)
+          .subscribe(() => this._location.back());
+      }
     });
   }
 }

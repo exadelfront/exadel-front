@@ -14,6 +14,7 @@ export class TextareaComponent implements OnInit {
   @Input() textarea_text: string;
   @Input() parentForm: FormGroup;
   @Input() controlName: string;
+  @Input() previousValue?: string;
 
   constructor() { }
 

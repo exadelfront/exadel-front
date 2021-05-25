@@ -21,7 +21,7 @@ export class InterviewFeedbackComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.interviewService.getInterviewInfoByToken('eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxNSJ9.lo3TL-pn469bP1ap-xB1-Ym67ieoBieElYKGfqNI-NuuVj13XxDAv6D7mIKWsvfcW1kR-FhfVX6f3YGr3tcVCw')
+    this.interviewService.getInterviewInfoByToken(this.getToken())
       .subscribe(interviewInfo => {
         this.interviewInfo = interviewInfo;
         if (interviewInfo.interviewType === 'HR') {
@@ -62,8 +62,6 @@ export class InterviewFeedbackComponent implements OnInit {
 
   submit(): void {
     if (this.form.invalid) {
-      console.log(this.form.status);
-      this.form.reset();
       return;
     }
     const feedback = {

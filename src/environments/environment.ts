@@ -22,6 +22,7 @@ export const INTERVIEW_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.e
 export const URL_FOR_CV = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship';
 export const URL_FOR_FORM = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/internship';
 export const ADMIN_LOGIN_URL = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/login';
+export const URL_FOR_NOTIFY = 'http://internships-env.eba-fgnxqddd.eu-central-1.elasticbeanstalk.com/notify';
 
 
 /*

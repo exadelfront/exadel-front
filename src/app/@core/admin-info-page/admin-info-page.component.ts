@@ -67,14 +67,14 @@ export class AdminInfoPageComponent implements OnInit {
     return `Date: ${date}, Time: ${time}`;
   }
 
-  getDates(){
-    for (let i = 0; i <= this.admin.interviewTimes.length; i++) {
-      this.selectedDates.push(this.admin.interviewTimes[i]["startDate"])
+  getDates() {
+    for (let date of this.admin.interviewTimes) {
+      this.selectedDates.push(date["startDate"]);
     }
   }
   getSubjects(subjects:string): string{
     this.admin.subjects.forEach(function(value){
-      subjects += "#"+value+' ';
+      subjects += " #"+value;
     });
     return subjects;
   }

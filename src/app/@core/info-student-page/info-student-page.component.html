@@ -1,75 +1,198 @@
-<app-home-button text="Previous page" not_svg='true'></app-home-button>
-<app-info-section-header header1_text="Candidate description" header2_text="Info"></app-info-section-header>
+<app-home-button text="Previous page" not_svg="true"></app-home-button>
+<app-info-section-header
+  header1_text="Candidate description"
+  header2_text="Info"
+></app-info-section-header>
 <div class="stud-info-container">
-    <div class="stud-info">
-        <app-student-info [student]="student" name="name" type_name=true text={{student?.name}}></app-student-info>
-        <app-student-info [student]="student" name="surname" type_name=true text={{student?.surname}}></app-student-info>
-        <app-student-info [student]="student" text={{student?.email}} type_div=true></app-student-info>
-        <app-student-info [student]="student" name="traineeStatus" type_blue=true text={{student?.traineeStatus}}></app-student-info>
-        <app-student-info [student]="student" name="phone" text={{student?.phone}}></app-student-info>
-        <app-student-info [student]="student" type_link=true text="Github page (click to open)" github_href={{student?.github}}>
-        </app-student-info>
-        <app-student-info [student]="student" name="skype" text={{student?.skype}}></app-student-info>
-        <app-student-info [student]="student" name="location" type_blue=true text={{student?.location}}></app-student-info>
-        <app-student-info [student]="student" name="internshipTitle" text={{student?.internshipTitle}} type_div=true></app-student-info>
-        <app-student-info [student]="student" name="english" type_blue=true text={{student?.english}}></app-student-info>
-        <app-student-info [student]="student" text={{dates}} type_div=true></app-student-info>
+  <div class="stud-info">
+    <app-student-info
+      [student]="student"
+      name="name"
+      type_name="true"
+      text="{{ student?.name }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="surname"
+      type_name="true"
+      text="{{ student?.surname }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      text="{{ student?.email }}"
+      type_div="true"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="traineeStatus"
+      type_div="true"
+      type_blue="true"
+      text="{{ student?.traineeStatus }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="phone"
+      text="{{ student?.phone }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      type_link="true"
+      text="Github page (click to open)"
+      github_href="{{ student?.github }}"
+    >
+    </app-student-info>
+    <app-student-info
+      [student]="student"
+      name="skype"
+      text="{{ student?.skype }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="location"
+      type_blue="true"
+      text="{{ student?.location }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="internshipTitle"
+      text="{{ student?.internshipTitle }}"
+      type_div="true"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      name="english"
+      type_blue="true"
+      text="{{ student?.english }}"
+    ></app-student-info>
+    <app-student-info
+      [student]="student"
+      text="{{ dates }}"
+      type_div="true"
+    ></app-student-info>
+  </div>
+  <div class="cv-container">
+    <app-section-header
+      header_text="Open a CV of the candidate"
+      is_button="true"
+      href="{{ student?.cv }}"
+    ></app-section-header>
+  </div>
+  <div class="action-btns">
+    <button (click)="deleteStudent()" class="delete-btn">Delete student</button>
+    <button (click)="deleteInfo()" class="delete-btn">Delete this info</button>
+    <button (click)="openHistory()" class="delete-btn history_btn">
+      Open history
+    </button>
+  </div>
+  <div class="chose-date">
+    <div
+      *ngIf="
+        student?.traineeStatus === 'REGISTERED' ||
+        student?.traineeStatus === 'RECRUITER INTERVIEW PENDING'
+      "
+      class="chose-hr-date-header"
+    >
+      <app-section-header
+        header_text="Chose the date of HR interview"
+      ></app-section-header>
+      <app-choose-date
+        traineeId="{{ student?.traineeId }}"
+        internshipId="{{ student?.internshipId }}"
+        [time_slots]="hrTimes"
+      ></app-choose-date>
+    <div class="current-interview" *ngIf="student?.traineeStatus === 'RECRUITER INTERVIEW PENDING'">
+        {{'Recruiter Interview is currently scheduled on ' +dateToNormalView(student?.hrInterviewTime)+' with '+ student?.hrName +' '+ student?.hrSurname}}
     </div>
-    <div class="cv-container">
-        <app-section-header header_text="Open a CV of the candidate" is_button=true href={{student?.cv}}></app-section-header>
     </div>
-    <div class="action-btns">
-        <button (click)="deleteStudent()" class="delete-btn ">Delete student</button>
-        <button (click)="deleteInfo()" class="delete-btn ">Delete this info</button>
-        <button (click)="openHistory()"class="delete-btn history_btn">Open history</button>
+    <div
+      *ngIf="
+        student?.traineeStatus === 'RECRUITER INTERVIEW PASSED' ||
+        student?.traineeStatus === 'TECHNICAL INTERVIEW PENDING'
+      "
+      class="chose-tech-date-header"
+    >
+      <app-section-header
+        header_text="Chose the date of Technical interview"
+      ></app-section-header>
+      <app-choose-date
+        traineeId="{{ student?.traineeId }}"
+        internshipId="{{ student?.internshipId }}"
+        [time_slots]="techTimes"
+      ></app-choose-date>
+    <div class="current-interview" *ngIf="student?.traineeStatus === 'TECHNICAL INTERVIEW PENDING'">
+        {{'Technical Interview is currently scheduled on ' +dateToNormalView(student?.techInterviewTime)+' with '+ student?.techName +' '+ student?.techSurname}}
     </div>
-    <div class="chose-date">
-        <div class="chose-hr-date-header">
-            <app-section-header header_text="Please chose the date of HR interview"></app-section-header>
-            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} [time_slots]="hrTimes"></app-choose-date>
-        </div>
-        <div class="chose-tech-date-header">
-            <app-section-header header_text="Please chose the date of Technical interview"></app-section-header>
-            <app-choose-date traineeId={{student?.traineeId}} internshipId={{student?.internshipId}} [time_slots]="techTimes"></app-choose-date>
-        </div>
     </div>
+  </div>
 </div>
-<app-info-section-header header1_text="Interviews conclusion" header2_text="HR and Technical"></app-info-section-header>
+<app-info-section-header
+  header1_text="Interviews conclusion"
+  header2_text="HR and Technical"
+></app-info-section-header>
 <div class="interviews-container">
-        <div class="textareas-container">
-            <div class="textarea-div">
-                <app-textarea
-                [approved]="student?.traineeStatus == 'RECRUITER_INTERVIEW_ACCEPTED'"
-                [reject]="student?.traineeStatus == 'RECRUITER_INTERVIEW_REJECTED'"
-                placeholder="Has not happened yet..." readonly=true
-                [parentForm]="form"
-                [controlName]="'hrReview'" ></app-textarea>
-            </div>
-            <div class="english-level-container">
-                <div class="english-level-header">
-                    <app-section-header header_text="The level of English of the candidate"></app-section-header>
-                </div>
-                <div>
-                    <app-rate-btn class="english-rate-container" [items]="englishLevels" [parentForm]="form"
-                        [controlName]="'english'">
-                    </app-rate-btn>
-                </div>
-            </div>
-            <div class="textarea-div">
-                <app-textarea
-                [approved]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_ACCEPTED'"
-                [reject]="student?.traineeStatus == 'TECHNICAL_INTERVIEW_REJECTED'"
-                placeholder="Has not happened yet..." readonly=true
-                [parentForm]="form" [controlName]="'techReview'"
-            ></app-textarea>
-            </div>
-        </div>
-        <div *ngIf="student?.traineeStatus != 'ACCEPTED' && student?.traineeStatus != 'REJECTED'" class="buttons-container">
-            <app-approve-reject-button *ngIf="role=== 'SUPERADMIN'" [text]="'Approve'" [bgcolor]="'#2EA3F2'" (click)="sendApprove()" [parentForm]="form">
-            </app-approve-reject-button>
-            <app-approve-reject-button *ngIf="role=== 'SUPERADMIN'" [text]="'Reject'" [bgcolor]="'#F22E2E'" (click)="sendReject()" [parentForm]="form">
-            </app-approve-reject-button>
-        </div>
-        <div *ngIf="success===true" class="success_msg">Successfully Saved...</div>
-        <div *ngIf="error===true" class="error_msg">Something went wrong. Try again...</div>
+  <div class="textareas-container">
+    <div class="textarea-div">
+      <app-textarea
+        [approved]="student?.traineeStatus == 'RECRUITER INTERVIEW ACCEPTED'"
+        [reject]="student?.traineeStatus == 'RECRUITER INTERVIEW REJECTED'"
+        placeholder="Has not happened yet..."
+        readonly="true"
+        [parentForm]="form"
+        [controlName]="'hrReview'"
+      ></app-textarea>
+    </div>
+    <div class="english-level-container">
+      <div class="english-level-header">
+        <app-section-header
+          header_text="The level of English of the candidate"
+        ></app-section-header>
+      </div>
+      <div>
+        <app-rate-btn
+          class="english-rate-container"
+          [items]="englishLevels"
+          [parentForm]="form"
+          [controlName]="'english'"
+        >
+        </app-rate-btn>
+      </div>
+    </div>
+    <div class="textarea-div">
+      <app-textarea
+        [approved]="student?.traineeStatus == 'TECHNICAL INTERVIEW ACCEPTED'"
+        [reject]="student?.traineeStatus == 'TECHNICAL INTERVIEW REJECTED'"
+        placeholder="Has not happened yet..."
+        readonly="true"
+        [parentForm]="form"
+        [controlName]="'techReview'"
+      ></app-textarea>
+    </div>
+  </div>
+  <div
+    *ngIf="
+      student?.traineeStatus != 'ACCEPTED' &&
+      student?.traineeStatus != 'REJECTED' &&
+      role === 'SUPERADMIN'
+    "
+    class="buttons-container"
+  >
+    <app-approve-reject-button
+      [text]="'Approve'"
+      [bgcolor]="'#2EA3F2'"
+      (click)="sendApprove()"
+      [parentForm]="form"
+    >
+    </app-approve-reject-button>
+    <app-approve-reject-button
+      [text]="'Reject'"
+      [bgcolor]="'#F22E2E'"
+      (click)="sendReject()"
+      [parentForm]="form"
+    >
+    </app-approve-reject-button>
+  </div>
+  <div *ngIf="success === true" class="success_msg">Successfully Saved...</div>
+  <div *ngIf="error === true" class="error_msg">
+    Something went wrong. Try again...
+  </div>
 </div>

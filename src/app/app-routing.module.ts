@@ -34,7 +34,7 @@ const routes: Routes = [
     component: InterviewersTablePageComponent,
   },
   {
-    path: 'interview/:token',
+    path: 'interview/token/:token',
     component: InterviewFeedbackComponent,
   }
 ];

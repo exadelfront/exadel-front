@@ -18,7 +18,7 @@ export class LoginService {
     this.loggedInUserSubject = new BehaviorSubject<any>(this.cookieService.get( 'role'));
   }
 
-  public getLoggedUser() {
+  public getLoggedUser(): string {
     return this.loggedInUserSubject.value;
   }
 

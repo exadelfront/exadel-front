@@ -23,8 +23,9 @@
         "Agreement": "I agree to the processing and storage of my personal data",
         "Notification": "I want to receive notifications for similar events",
         "SubmitBtn": "Submit",
-        "SubmitNotification": "Your request is received. We will contact you soon.",
-        "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required."
+        "SubmitNotification": "Your request is received. Check your e-mail",
+        "SubmitAlert": "Your request wasn't submitted. Please, fill in the fields marked as required.",
+        "SubmitWarning": "You have been already registered on the internship"
     },
     "POST_CREATION": {
       "Heading": "Post creating",

@@ -42,6 +42,7 @@ export class InfoStudentPageComponent implements OnInit {
       this.studentsService.fetchStudentById(+params.id)
         .subscribe(student => {
           this.student = student;
+          this.student.traineeStatus = this.replaceUnderscore(this.student.traineeStatus);
           this.form = new FormGroup({
             hrReview: new FormControl(null),
             techReview: new FormControl(null),
@@ -71,6 +72,10 @@ export class InfoStudentPageComponent implements OnInit {
       dates += "("+Object.values(value)+") ";
     });
     return dates;
+  }
+  dateToNormalView(strDate: string): string {
+    const [date, time] = strDate.split('T');
+    return `${date}//${time}`;
   }
   deleteStudent(): void{
     const message = `Are you sure you want to DELETE STUDENT ` +this.student.name+ " " +this.student.surname +' (according to email)? It include NOT ONLY this information, but ALL student info in ALL Internships';
@@ -109,6 +114,9 @@ export class InfoStudentPageComponent implements OnInit {
   openHistory(): void{
     const id = this.student.traineeId;
     this.router.navigate([`/login/stud-info/history/${id}`]);
+  }
+  replaceUnderscore(str: string) {
+    return str.replace(/_/g, ' ');
   }
   showErrorMsg() {
     this.error = true;

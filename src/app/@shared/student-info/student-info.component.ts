@@ -14,6 +14,7 @@ export class StudentInfoComponent implements OnInit {
   @Input() type_link: boolean;
   @Input() type_div: boolean;
   @Input() type_blue: boolean;
+  @Input() type_subjects: boolean;
   @Input() text: string;
   @Input() name: string;
   @Input() github_href:string;
@@ -21,6 +22,9 @@ export class StudentInfoComponent implements OnInit {
   @Input() student: Student;
   @Input() admin: Admin;
   @Input() is_admin: true;
+  
+  success = false;
+  error = false;
 
   constructor(private studentsService: StudentsService,private interviewerService:InterviewerService) { }
 
@@ -32,23 +36,59 @@ export class StudentInfoComponent implements OnInit {
   }
 
   saveInfo():void {
-    if(this.is_admin){
-      this.text = this.textInput.nativeElement.value;
-      this.is_readonly = !this.is_readonly;
-      this.admin = this.replace_value_admin(this.name, this.admin);
-      this.interviewerService.updateData(this.admin,this.admin.id).subscribe(
-        data=>console.log(data)
-    );
-    }else{
     this.text = this.textInput.nativeElement.value;
     this.is_readonly = !this.is_readonly;
-    this.student = this.replace_value(this.name, this.student);
-    this.studentsService.updateData(this.student,this.student.traineeId).subscribe(
-      data=>console.log(data)
-    );
+    
+    if (this.is_admin) {
+      this.admin = this.replace_value_admin(this.name, this.admin);
+      this.updateInfoAdmin(this.admin, this.admin.id);
+    }else{
+      this.student = this.replace_value(this.name, this.student);
+      this.updateInfoStudent(this.student, this.student.traineeId);
     }
   }
-  
+  showErrorMsg() {
+    this.error = true;
+        setTimeout(function () {
+          this.error = false;
+        }.bind(this), 5000);
+  }
+  showSuccessMsg() {
+    this.success = true;
+        setTimeout(function () {
+          this.success = false;
+        }.bind(this), 5000);
+  }
+  saveSubjects():void {
+    this.text = this.textInput.nativeElement.value;
+      this.is_readonly = !this.is_readonly;
+      this.admin = this.replace_subjects_admin(this.name, this.admin);
+      this.updateInfoAdmin(this.admin, this.admin.id);
+  }
+  updateInfoStudent(obj:any,id:number) {
+    this.studentsService.updateData(obj,id).subscribe(
+       () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        }
+    );
+  }
+  updateInfoAdmin(obj:any,id:number) {
+    this.interviewerService.updateData(obj,id).subscribe(
+       () => {
+          this.showSuccessMsg();
+        },
+        () => {
+          this.showErrorMsg();
+        }
+    );
+  }
+  replace_subjects_admin(str: string, admin: Admin) {
+    admin[str] = this.textInput.nativeElement.value.split(' #').filter(Boolean);
+    return admin;
+  }
   replace_value(str: string, student: Student): Student{
     student[str]=this.textInput.nativeElement.value;
     return student;

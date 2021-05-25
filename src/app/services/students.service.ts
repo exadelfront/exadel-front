@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { STUDENTS_TABLE_URL } from '../../environments/environment';
+import { STUDENTS_TABLE_URL, URL_FOR_NOTIFY } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 export interface Student {
@@ -9,8 +9,6 @@ export interface Student {
   traineeName: string;
   traineeSurname: string;
   subjects: string [];
-  adminName: string;
-  adminSurname: string;
   internshipName: string;
   traineeLocation: string;
   internshipId: number;
@@ -33,12 +31,23 @@ export interface Student {
   traineeId?: number;
   traineeStatus?: string;
 
-  traineeFullName: string;
+  hrInterviewTime: string;
+  hrName: string;
+  hrSurname: string;
+  techInterviewTime: string;
+  techName: string;
+  techSurname: string;
+
   adminFullName: string;
 }
 
 export interface Conclusion{
   isApproved?: boolean;
+}
+
+export interface Notify {
+  message: string;
+  additionalInfoIds:number[]
 }
 @Injectable({
   providedIn: 'root',
@@ -51,7 +60,6 @@ export class StudentsService {
     return this.http.get<Student[]>(STUDENTS_TABLE_URL).pipe(map(data => {
       return data.map((student: any) => {
         student.traineeFullName = student.traineeName + ' ' + student.traineeSurname;
-        student.adminFullName = student.adminName + ' ' + student.adminSurname;
         return student;
       });
     }));
@@ -94,5 +102,8 @@ export class StudentsService {
   }
   reject(conclusion:Conclusion,id:number) {
     return this.http.post(`${STUDENTS_TABLE_URL}/ai/${id}`, conclusion);
+  }
+  notifyStudents(notify:Notify): Observable<Notify> {
+     return this.http.post<Notify>(`${URL_FOR_NOTIFY}`, notify);
   }
 }

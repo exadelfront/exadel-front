@@ -35,6 +35,10 @@ const routes: Routes = [
     component: PostCreationComponent
   },
   {
+    path: 'login/update/:id',
+    component: PostCreationComponent
+  },
+  {
     path: 'login/stud-info/history/:id',
     component: StudentHistoryPageComponent
   },

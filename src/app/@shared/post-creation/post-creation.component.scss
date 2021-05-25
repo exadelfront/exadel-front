@@ -53,6 +53,13 @@ span {
       padding-left: 44px;
       font-size: 24px;
       font-weight: 500;
+      &::after {
+        position: relative;
+        content: "*";
+        top: 0px;
+        color: red;
+        font-size: 22px;
+      }
       input {
         position: absolute;
         z-index: -10;
@@ -95,7 +102,7 @@ span {
       height: 60px;
       box-sizing: border-box;
       background: #ffffff;
-      border: 3px solid rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: 100px;
       outline: none;
       text-indent: 30px;
@@ -114,6 +121,14 @@ span {
       &.ng-valid.ng-touched.ng-dirty,
       &.ng-valid.ng-touched.ng-pristine {
         border: 2px solid $main_blue;
+      }
+      &::after {
+        position: relative;
+        content: "*";
+        top: -10px;
+        right: 15px;
+        color: red;
+        font-size: 22px;
       }
     }
   }
@@ -194,6 +209,12 @@ form {
   .creation-select {
     height: 50px;
   }
+  .post-creation-image-upload {
+    padding-left: 0px;
+  }
+  .post-creation-image {
+    flex-direction: column;
+  }
   .post-creation-wrapper {
     padding-left: 2%;
     padding-right: 2%;
@@ -218,5 +239,9 @@ form {
 @media (max-width: 500px) {
   .creation-select {
     height: 45px;
+  }
+  .post-creation-date span,
+  span {
+    font-size: 14px;
   }
 }
