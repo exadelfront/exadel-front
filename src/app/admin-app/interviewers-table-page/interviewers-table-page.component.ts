@@ -51,6 +51,6 @@ export class InterviewersTablePageComponent implements OnInit {
   }
 
   goToInterviewerInfoPage(id: number): void {
-    this.router.navigate([`/admin/admin-info/${id}`]);
+    this.router.navigate([`/login/admin-info/${id}`]);
   }
 }

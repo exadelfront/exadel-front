@@ -6,7 +6,7 @@ import { TechnicalEstimateComponent } from './@core/technical-estimate/technical
 import { InterviewFeedbackComponent } from './admin-app/interview-feedback/interview-feedback.component';
 import { InterviewerAddPageComponent } from './admin-app/intrviewer-add-page/interviewer-add-page.component';
 import { InterviewersTablePageComponent } from './admin-app/interviewers-table-page/interviewers-table-page.component';
-
+import {AuthGuard} from './Auth.guard';
 
 const routes: Routes = [
   {
@@ -18,20 +18,25 @@ const routes: Routes = [
     component: PostPageComponent,
   },
   {
-    path: 'admin/hrform',
-    component: InterviewFeedbackComponent
+    path: 'login/hrform',
+    component: InterviewFeedbackComponent,
+    canActivate: [AuthGuard]
+
   },
   {
-    path: 'admin/techform',
-    component: TechnicalEstimateComponent
+    path: 'login/techform',
+    component: TechnicalEstimateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'admin/addInterviewer',
-    component: InterviewerAddPageComponent
+    path: 'login/addInterviewer',
+    component: InterviewerAddPageComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'admin/interviewers',
+    path: 'login/interviewers',
     component: InterviewersTablePageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'interview/token/:token',

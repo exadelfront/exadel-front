@@ -91,7 +91,7 @@
         student?.traineeStatus === 'RECRUITER INTERVIEW PENDING'
       "
       class="chose-hr-date-header"
-    >         
+    >
       <app-section-header
         header_text="Chose the date of HR interview"
       ></app-section-header>
@@ -171,7 +171,8 @@
   <div
     *ngIf="
       student?.traineeStatus != 'ACCEPTED' &&
-      student?.traineeStatus != 'REJECTED'
+      student?.traineeStatus != 'REJECTED' &&
+      role === 'SUPERADMIN'
     "
     class="buttons-container"
   >

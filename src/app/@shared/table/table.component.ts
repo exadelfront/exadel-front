@@ -14,7 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
 export class TableComponent implements OnInit {
-  
+
   @Input() students: Student[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -29,7 +29,8 @@ export class TableComponent implements OnInit {
   show_msg_block: boolean;
   success=false;
   error = false;
-  
+
+
   constructor(private router: Router, private studentsService: StudentsService) {}
 
   ngOnInit(): void {
@@ -102,8 +103,9 @@ export class TableComponent implements OnInit {
     }
   }
   openInfo(id:number):void {
-    this.router.navigate([`/admin/stud-info/${id}`]);
+    this.router.navigate([`/login/stud-info/${id}`]);
   }
+
   replaceUnderscore(str: string) {
     return str.replace(/_/g, ' ');
   }
@@ -134,3 +136,4 @@ export class TableComponent implements OnInit {
     );
   }
 }
+

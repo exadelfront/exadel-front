@@ -148,7 +148,7 @@ export class PostCreationComponent implements OnInit {
   }
 
   toList(): void {
-    this.router.navigate(['admin/post-table']);
+    this.router.navigate(['login/post-table']);
   }
 
   showErrorMsg() {

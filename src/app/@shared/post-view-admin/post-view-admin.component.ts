@@ -7,6 +7,7 @@ import {INTERNSHIPS_PAGE_ADMIN_URL} from '../../../environments/environment';
 import {MatDialog} from '@angular/material/dialog';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
 import { Location } from '@angular/common';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-post-view-admin',
@@ -18,6 +19,7 @@ export class PostViewAdminComponent implements OnInit {
   post: Post;
   form: FormGroup;
   result: boolean;
+  role: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +27,8 @@ export class PostViewAdminComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     public dialog: MatDialog,
-    private _location: Location
+    private _location: Location,
+    private cookieService: CookieService
   ) {
   }
 
@@ -41,6 +44,8 @@ export class PostViewAdminComponent implements OnInit {
         empty: new FormControl(null)
       }
     );
+
+    this.role = this.cookieService.get('role')
   }
 
   Publish(): void {
@@ -60,7 +65,7 @@ export class PostViewAdminComponent implements OnInit {
   }
 
   Update(): void {
-    this.router.navigate([`/admin/update/${this.post.id}`]);
+    this.router.navigate([`/login/update/${this.post.id}`]);
   }
 
   Delete(): void {

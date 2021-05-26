@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {LoginService} from '../../services/login.service';
+
 
 @Component({
   selector: 'app-login-menu',
@@ -10,19 +12,35 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class LoginMenuComponent implements OnInit {
 
   form: FormGroup;
+  isInvalid = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private login: LoginService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      login: new FormControl(null, Validators.required),
+      username: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
     });
   }
 
-  goToTablePage(): void {
-    this.router.navigate([`/admin/table`]);
+  onSubmit(): void {
+
+    if (this.form.valid) {
+      this.login.login(this.form.value.username.trim(), this.form.value.password.trim())
+        .subscribe(response => {
+          if (response.status === 200) {
+            this.isInvalid = false;
+            this.router.navigate(['/login/table']);
+          }
+        }, err => {
+          console.log(err)
+          this.isInvalid = true;
+        });
+    } else {
+      this.isInvalid = true;
+    }
   }
 
-  onSubmit(): void {}
 }
+
+

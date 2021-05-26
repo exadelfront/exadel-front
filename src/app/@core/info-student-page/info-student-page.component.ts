@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { ConfirmDialogModel, DialogConfirmComponent } from 'src/app/@shared/dialog-confirm/dialog-confirm.component';
 import { Location } from '@angular/common';
 import {InterviewerTimes, InterviewerService } from '../../services/interviewer.service';
+import {CookieService} from 'ngx-cookie-service';
+
+
 @Component({
   selector: 'app-info-student-page',
   templateUrl: './info-student-page.component.html',
@@ -22,13 +25,15 @@ export class InfoStudentPageComponent implements OnInit {
   hrTimes: InterviewerTimes[];
   techTimes: InterviewerTimes[];
   englishLevels: string[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
-  
+  role: string;
+
   constructor(
     private route: ActivatedRoute,
     private studentsService: StudentsService,
     private interviewerService: InterviewerService,
     private router: Router,
     public dialog: MatDialog,
+    private cookieService: CookieService,
     private _location: Location
   ) { }
 
@@ -49,14 +54,17 @@ export class InfoStudentPageComponent implements OnInit {
           this.form.get("hrReview").patchValue(this.student?.hrInterview);
         });
     });
-    
+
     this.interviewerService.getHRInterviewers().subscribe(res => this.hrTimes = res);
-    
+
     this.form = new FormGroup({
       hrReview: new FormControl(null),
       techReview: new FormControl(null),
       english: new FormControl({value:this.student?.english, disabled:true})
     });
+
+
+    this.role = this.cookieService.get('role');
   }
 
   getDates(dates:string): string{
@@ -105,7 +113,7 @@ export class InfoStudentPageComponent implements OnInit {
   }
   openHistory(): void{
     const id = this.student.traineeId;
-    this.router.navigate([`/admin/stud-info/history/${id}`]);
+    this.router.navigate([`/login/stud-info/history/${id}`]);
   }
   replaceUnderscore(str: string) {
     return str.replace(/_/g, ' ');

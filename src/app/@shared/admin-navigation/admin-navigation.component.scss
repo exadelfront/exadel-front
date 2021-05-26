@@ -61,6 +61,7 @@
   animation-iteration-count: 1;
 }
 
+
 div {
   padding: 5vh 15vw 2vh;
   font-size: 18px;
@@ -130,3 +131,50 @@ div {
     }
   }
 }
+
+
+
+.home {
+  background-color: white;
+  padding: 2vh 2vw;
+  position: relative;
+}
+.home_page_button,
+.home_page_button:active,
+.home_page_button:focus {
+  outline: none;
+}
+.home_page_button {
+  min-width: 10vw;
+  background-color: $main_blue;
+  color: white;
+  border: $btn_border;
+  border-radius: 100px 0px 100px 0px;
+  padding: 0.5% 2%;
+  font-family: Poppins;
+  font-size: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  box-shadow: $btn_shadow;
+}
+
+.home_page_button:hover {
+  fill: $main_blue;
+  background-color: white;
+  color: $main_blue;
+  transition: all ease 0.3s;
+  box-shadow: $btn_shadow_hover;
+}
+
+.home_page_button:active {
+  box-shadow: $btn_shadow_active;
+  transform: translateY(3px);
+}
+
+@media (max-width: 800px) {
+  .home_page_button {
+    padding: 0.5% 5%;
+  }
+}
+

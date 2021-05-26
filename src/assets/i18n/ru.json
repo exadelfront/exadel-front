@@ -82,5 +82,8 @@
       "PostControl": "Лента со стажировками",
       "Add new interviewer": "Добавить интервьюера",
       "Add new event": "Добавить мероприятие"
+    },
+    "ADMIN_PAGE": {
+      "Logout": "Выйти"
     }
 }

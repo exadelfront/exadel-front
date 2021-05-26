@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {INTERNSHIPS_PAGE_ADMIN_URL, INTERNSHIPS_PAGE_URL} from '../../environments/environment';
+import {tap} from 'rxjs/operators';
 
 export interface Post {
   title: string;
@@ -38,7 +39,7 @@ export class PostsService {
   }
 
   fetchPostById(id: number): Observable<Post> {
-    return this.http.get<Post>(`${INTERNSHIPS_PAGE_URL}/${id}`);
+    return this.http.get<Post>(`${INTERNSHIPS_PAGE_URL}/${id}`)
   }
 
 
